@@ -1,0 +1,81 @@
+A color data type for Common Lisp.
+
+
+Implemented color spaces:
+
+   * CIE XYZ
+   * CIE xyY
+   * CIE RGB
+   * sRGB
+
+Adding a new color space is straight forward:
+
+     (defclass abc-color (color) (a b c))
+
+     (defmethod color-coordinates ((color abc-color))
+       (with-slots (a b c) color
+         (values a b c)))
+
+     (defun make-abc-color (a b c)
+       (make-instance 'abc-color :a a :b b :c c))
+
+     ;; Color conversion.
+     (defun abc-from-cie-xyz (x y z) ...)
+     (defun cie-xyz-from-abc (a b c) ...)
+
+     (defmethod cie-xyz-color-coordinates ((color abc-color))
+       (multiple-value-call #'cie-xyz-from-abc
+         (color-coordinates color)))
+
+     (defgeneric abc-color-coordinates (color)
+       (:method ((color abc-color))
+         (color-coordinates color))
+       ;; Otherwise, go via CIE XYZ.
+       (:method ((color color))
+         (multiple-value-call #'abc-from-cie-xyz
+           (cie-xyz-color-coordinates color))))
+
+
+Colors can be read and written:
+
+     (with-input-from-string (stream "#4E9A06 junk")
+       (let ((color (read-color :html stream)))
+         (values color
+                 (format-color nil :html color)
+                 (format-color nil :css-rgb color)
+                 (format-color nil :xcms-cie-xyy color))))
+      ==> #<SRGB-COLOR (26/85 154/255 2/85) {1007930543}>
+          "#4E9A06"
+          "rgb(30.588236%, 60.39216%, 2.3529413%)"
+          "CIExyY:0.33741736/0.566726/0.2474434"
+
+You can define your own formats:
+
+     (define-color-printer :fubar (color stream)
+       (multiple-value-bind (a b c)
+           (abc-color-coordinates color)
+         (format stream "<ABC:~A,~A,~A>" a b c)))
+
+     (print-color :fubar (make-srgb-color 199 21 133 :byte-size 8))
+
+
+There are dictionaries with predefined colors:
+
+     (ql:quickload "html-colors")
+     html-color:silver
+      ==> #<SRGB-COLOR (64/85 64/85 64/85) {100801A323}>
+
+     (ql:quickload "svg-colors")
+     svg-color:tan
+      ==> #<SRGB-COLOR (14/17 12/17 28/51) {1007E023C3}>
+
+     (ql:quickload "tango-colors")
+     (tango-color:orange :light)
+      ==> #<SRGB-COLOR (84/85 35/51 62/255) {1007E26E53}>
+
+     (ql:quickload "x11-colors")
+     x11-color:ghost-white
+      ==> #<SRGB-COLOR (248/255 248/255 1) {1007E04953}>
+
+
+Have fun!
