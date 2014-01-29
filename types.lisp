@@ -59,29 +59,4 @@ Argument COLOR is a color object.")
   (print-unreadable-object (color stream :type t :identity t)
     (princ (multiple-value-list (color-coordinates color)) stream)))
 
-;;;; RGB Color Data Type
-
-(export 'rgb-color)
-(defclass rgb-color (color)
-  ((r
-    :initarg :red
-    :initform 0
-    :type (real 0 1)
-    :documentation "Intensity of the red primary, default zero.")
-   (g
-    :initarg :green
-    :initform 0
-    :type (real 0 1)
-    :documentation "Intensity of the green primary, default zero.")
-   (b
-    :initarg :blue
-    :initform 0
-    :type (real 0 1)
-    :documentation "Intensity of the blue primary, default zero."))
-  (:documentation "Color class for a RGB color space."))
-
-(defmethod color-coordinates ((color rgb-color))
-  (with-slots (r g b) color
-    (values r g b)))
-
 ;;; types.lisp ends here
