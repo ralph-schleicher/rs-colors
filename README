@@ -8,6 +8,14 @@ Implemented color spaces:
    * CIE RGB
    * sRGB
 
+and
+
+   * generic RGB
+   * generic HSV/HSB
+   * generic HSL
+   * generic CMY
+   * generic CMYK
+
 Adding a new color space is straight forward:
 
      (defclass abc-color (color) (a b c))
@@ -16,16 +24,11 @@ Adding a new color space is straight forward:
        (with-slots (a b c) color
          (values a b c)))
 
-     (defun make-abc-color (a b c)
-       (make-instance 'abc-color :a a :b b :c c))
+     (defun make-abc-color (a b c) ...)
 
      ;; Color conversion.
      (defun abc-from-cie-xyz (x y z) ...)
      (defun cie-xyz-from-abc (a b c) ...)
-
-     (defmethod cie-xyz-color-coordinates ((color abc-color))
-       (multiple-value-call #'cie-xyz-from-abc
-         (color-coordinates color)))
 
      (defgeneric abc-color-coordinates (color)
        (:method ((color abc-color))
@@ -34,6 +37,10 @@ Adding a new color space is straight forward:
        (:method ((color color))
          (multiple-value-call #'abc-from-cie-xyz
            (cie-xyz-color-coordinates color))))
+
+     (defmethod cie-xyz-color-coordinates ((color abc-color))
+       (multiple-value-call #'cie-xyz-from-abc
+         (abc-color-coordinates color)))
 
 
 Colors can be read and written:
