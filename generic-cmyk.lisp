@@ -136,6 +136,6 @@ Values are the intensities of the cyan, magenta, yellow, and black ink.")
 
 (defmethod cmy-color-coordinates ((color cmyk-color))
   (multiple-value-call #'cmy-from-cmyk
-    (cmyk-color-coordinates color)))
+    (color-coordinates color)))
 
 ;;; generic-cmyk.lisp ends here
