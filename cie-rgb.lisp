@@ -78,10 +78,6 @@ into CIE XYZ color space coordinates."
   (declare (type real r g b))
   (linear-transformation cie-xyz-from-cie-rgb-transformation-matrix r g b))
 
-(defmethod cie-xyz-color-coordinates ((color cie-rgb-color))
-  (multiple-value-call #'cie-xyz-from-cie-rgb
-    (color-coordinates color)))
-
 (export 'cie-rgb-color-coordinates)
 (defgeneric cie-rgb-color-coordinates (color)
   (:documentation "Return the CIE RGB color space coordinates of the color.
@@ -95,6 +91,10 @@ Values are the intensities of the red, green, and blue primary.")
   (:method ((color color))
     (multiple-value-call #'cie-rgb-from-cie-xyz
       (cie-xyz-color-coordinates color))))
+
+(defmethod cie-xyz-color-coordinates ((color cie-rgb-color))
+  (multiple-value-call #'cie-xyz-from-cie-rgb
+    (color-coordinates color)))
 
 (export 'the-cie-rgb-color)
 (defun the-cie-rgb-color (color)

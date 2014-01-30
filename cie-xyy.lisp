@@ -89,10 +89,6 @@ into CIE XYZ color space coordinates."
     (declare (type real s))
     (values (* x* s) y (* (- 1 x* y*) s))))
 
-(defmethod cie-xyz-color-coordinates ((color cie-xyy-color))
-  (multiple-value-call #'cie-xyz-from-cie-xyy
-    (color-coordinates color)))
-
 (export 'cie-xyy-color-coordinates)
 (defgeneric cie-xyy-color-coordinates (color)
   (:documentation "Return the CIE xyY color space coordinates of the color.
@@ -107,6 +103,10 @@ value (luminance).")
   (:method ((color color))
     (multiple-value-call #'cie-xyy-from-cie-xyz
       (cie-xyz-color-coordinates color))))
+
+(defmethod cie-xyz-color-coordinates ((color cie-xyy-color))
+  (multiple-value-call #'cie-xyz-from-cie-xyy
+    (color-coordinates color)))
 
 (export 'the-cie-xyy-color)
 (defun the-cie-xyy-color (color)
