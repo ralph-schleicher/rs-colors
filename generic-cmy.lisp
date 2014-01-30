@@ -120,6 +120,6 @@ Values are the intensities of the cyan, magenta, and yellow ink.")
 
 (defmethod rgb-color-coordinates ((color cmy-color))
   (multiple-value-call #'rgb-from-cmy
-    (cmy-color-coordinates color)))
+    (color-coordinates color)))
 
 ;;; generic-cmy.lisp ends here
