@@ -192,6 +192,8 @@ into HSV color space coordinates."
 	       ;; Saturation.
 	       (s (if (zerop c)
 		      0
+		    ;; If chroma is non-zero, value
+		    ;; is non-zero, too.
 		    (/ c v))))
       (values h s v)))
   (defun hsl-from-rgb (r g b)
@@ -217,6 +219,8 @@ into HSI color space coordinates."
 	       ;; Saturation.
 	       (s (if (zerop c)
 		      0
+		    ;; If chroma is non-zero, intensity
+		    ;; is non-zero, too.
 		    (- 1 (/ min i)))))
       (values h s i)))
   (values))
