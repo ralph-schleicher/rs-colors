@@ -138,4 +138,9 @@ Values are the intensities of the cyan, magenta, yellow, and black ink.")
   (multiple-value-call #'cmy-from-cmyk
     (color-coordinates color)))
 
+(defmethod update-instance-for-different-class :after ((old color) (new cmyk-color) &key)
+  (with-slots (c m y k) new
+    (multiple-value-setq (c m y k)
+      (cmyk-color-coordinates old))))
+
 ;;; generic-cmyk.lisp ends here

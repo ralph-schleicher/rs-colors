@@ -89,4 +89,9 @@ space."
     (multiple-value-call #'make-cie-xyz-color
       (cie-xyz-color-coordinates color))))
 
+(defmethod update-instance-for-different-class :after ((old color) (new cie-xyz-color) &key)
+  (with-slots (x y z) new
+    (multiple-value-setq (x y z)
+      (cie-xyz-color-coordinates old))))
+
 ;;; cie-xyz.lisp ends here

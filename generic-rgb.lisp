@@ -304,4 +304,19 @@ Values are the hue, saturation, and lightness.")
     (multiple-value-call #'hsl-from-rgb
       (rgb-color-coordinates color))))
 
+(defmethod update-instance-for-different-class :after ((old color) (new rgb-color) &key)
+  (with-slots (r g b) new
+    (multiple-value-setq (r g b)
+      (rgb-color-coordinates old))))
+
+(defmethod update-instance-for-different-class :after ((old color) (new hsv-color) &key)
+  (with-slots (h s v) new
+    (multiple-value-setq (h s v)
+      (hsv-color-coordinates old))))
+
+(defmethod update-instance-for-different-class :after ((old color) (new hsl-color) &key)
+  (with-slots (h s l) new
+    (multiple-value-setq (h s l)
+      (hsl-color-coordinates old))))
+
 ;;; generic-rgb.lisp ends here
