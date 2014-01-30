@@ -51,11 +51,41 @@
     :initform 0
     :type (real 0 1)
     :documentation "Intensity of the yellow ink, default zero."))
-  (:documentation "Color class for a CMY color space."))
+  (:documentation "Color class for the generic CMY color space."))
 
 (defmethod color-coordinates ((color cmy-color))
   (with-slots (c m y) color
     (values c m y)))
+
+(export 'make-cmy-color)
+(defun make-cmy-color (cyan magenta yellow &key byte-size)
+  "Create a new color in the generic CMY color space.
+
+First argument CYAN is the intensity of the cyan ink.
+Second argument MAGENTA is the intensity of the magenta ink.
+Third argument YELLOW is the intensity of the yellow ink.
+
+Arguments CYAN, MAGENTA, and YELLOW have to be normalized color values
+in the closed interval [0, 1].
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+color value.  If specified, arguments CYAN, MAGENTA, and YELLOW are
+scaled accordingly.
+
+Example:
+
+     (make-cmy-color 3/255 80/255 193/255)
+     (make-cmy-color 3 80 193 :byte-size 8)"
+  (let (c m y)
+    (if (not byte-size)
+	(setf c (ensure-type cyan '(real 0 1))
+	      m (ensure-type magenta '(real 0 1))
+	      y (ensure-type yellow '(real 0 1)))
+      (let ((s (1- (expt 2 (ensure-type byte-size '(integer 1))))))
+	(setf c (/ (ensure-type cyan `(integer 0 ,s)) s)
+	      m (/ (ensure-type magenta `(integer 0 ,s)) s)
+	      y (/ (ensure-type yellow `(integer 0 ,s)) s))))
+    (make-instance 'cmy-color :cyan c :magenta m :yellow y)))
 
 (defun cmy-from-rgb (r g b)
   "Convert RGB color space coordinates

@@ -51,11 +51,41 @@
     :initform 0
     :type (real 0 1)
     :documentation "Intensity of the blue primary, default zero."))
-  (:documentation "Color class for a RGB color space."))
+  (:documentation "Color class for the generic RGB color space."))
 
 (defmethod color-coordinates ((color rgb-color))
   (with-slots (r g b) color
     (values r g b)))
+
+(export 'make-rgb-color)
+(defun make-rgb-color (red green blue &key byte-size)
+  "Create a new color in the generic RGB color space.
+
+First argument RED is the intensity of the red primary.
+Second argument GREEN is the intensity of the green primary.
+Third argument BLUE is the intensity of the blue primary.
+
+Arguments RED, GREEN, and BLUE have to be normalized intensity values
+in the closed interval [0, 1].
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  If specified, arguments RED, GREEN, and BLUE are scaled
+accordingly.
+
+Example:
+
+     (make-rgb-color 252/255 175/255 62/255)
+     (make-rgb-color 252 175 62 :byte-size 8)"
+  (let (r g b)
+    (if (not byte-size)
+	(setf r (ensure-type red '(real 0 1))
+	      g (ensure-type green '(real 0 1))
+	      b (ensure-type blue '(real 0 1)))
+      (let ((s (1- (expt 2 (ensure-type byte-size '(integer 1))))))
+	(setf r (/ (ensure-type red `(integer 0 ,s)) s)
+	      g (/ (ensure-type green `(integer 0 ,s)) s)
+	      b (/ (ensure-type blue `(integer 0 ,s)) s))))
+    (make-instance 'rgb-color :red r :green g :blue b)))
 
 (export 'hsv-color)
 (defclass hsv-color (color)
@@ -74,11 +104,26 @@
     :initform 0
     :type (real 0 1)
     :documentation "Value (brightness), default zero."))
-  (:documentation "Color class for the HSV/HSB color space."))
+  (:documentation "Color class for the generic HSV/HSB color space."))
 
 (defmethod color-coordinates ((color hsv-color))
   (with-slots (h s v) color
     (values h s v)))
+
+(export 'make-hsv-color)
+(defun make-hsv-color (hue saturation value)
+  "Create a new color in the generic HSV color space.
+
+First argument HUE is the angle of the RGB color wheel.
+Second argument SATURATION is the saturation.
+Third argument VALUE is the brightness.
+
+Arguments SATURATION and VALUE have to be real numbers
+in the closed interval [0, 1]."
+  (let ((h (mod (ensure-type hue 'real) 360))
+	(s (ensure-type saturation '(real 0 1)))
+	(v (ensure-type value '(real 0 1))))
+    (make-instance 'hsv-color :hue h :saturation s :value v)))
 
 (export 'hsl-color)
 (defclass hsl-color (color)
@@ -97,7 +142,22 @@
     :initform 0
     :type (real 0 1)
     :documentation "Lightness, default zero."))
-  (:documentation "Color class for the HSL color space."))
+  (:documentation "Color class for the generic HSL color space."))
+
+(export 'make-hsl-color)
+(defun make-hsl-color (hue saturation lightness)
+  "Create a new color in the generic HSL color space.
+
+First argument HUE is the angle of the RGB color wheel.
+Second argument SATURATION is the saturation.
+Third argument LIGHTNESS is the lightness.
+
+Arguments SATURATION and LIGHTNESS have to be real numbers
+in the closed interval [0, 1]."
+  (let ((h (mod (ensure-type hue 'real) 360))
+	(s (ensure-type saturation '(real 0 1)))
+	(l (ensure-type lightness '(real 0 1))))
+    (make-instance 'hsl-color :hue h :saturation s :lightness l)))
 
 (defmethod color-coordinates ((color hsl-color))
   (with-slots (h s l) color
