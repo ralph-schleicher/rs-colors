@@ -16,31 +16,20 @@ and
    * generic CMY
    * generic CMYK
 
-Adding a new color space is straight forward:
 
-     (defclass abc-color (color) (a b c))
+Color space conversion is resolved by CLOS:
 
-     (defmethod color-coordinates ((color abc-color))
-       (with-slots (a b c) color
-         (values a b c)))
+     (srgb-color-coordinates
+      (make-cie-xyy-color 1/3 1/3 1))
+      ==> 0.9999999999999999d0
+          0.9769116137895114d0
+          0.9587075265920816d0
 
-     (defun make-abc-color (a b c) ...)
+     (change-class (make-rgb-color 1/2 1/2 1) 'hsv-color)
+      ==> #<HSV-COLOR (240 1/2 1) {100661BCF3}>
 
-     ;; Color conversion.
-     (defun abc-from-cie-xyz (x y z) ...)
-     (defun cie-xyz-from-abc (a b c) ...)
-
-     (defgeneric abc-color-coordinates (color)
-       (:method ((color abc-color))
-         (color-coordinates color))
-       ;; Otherwise, go via CIE XYZ.
-       (:method ((color color))
-         (multiple-value-call #'abc-from-cie-xyz
-           (cie-xyz-color-coordinates color))))
-
-     (defmethod cie-xyz-color-coordinates ((color abc-color))
-       (multiple-value-call #'cie-xyz-from-abc
-         (abc-color-coordinates color)))
+     (change-class (make-hsv-color 240 1/2 1) 'rgb-color)
+      ==> #<RGB-COLOR (1/2 1/2 1) {100660DA23}>
 
 
 Colors can be read and written:
@@ -83,6 +72,33 @@ There are dictionaries with predefined colors:
      (ql:quickload "x11-colors")
      x11-color:ghost-white
       ==> #<SRGB-COLOR (248/255 248/255 1) {1007E04953}>
+
+
+Adding a new color space is straight forward:
+
+     (defclass abc-color (color) (a b c))
+
+     (defmethod color-coordinates ((color abc-color))
+       (with-slots (a b c) color
+         (values a b c)))
+
+     (defun make-abc-color (a b c) ...)
+
+     ;; Color conversion.
+     (defun abc-from-cie-xyz (x y z) ...)
+     (defun cie-xyz-from-abc (a b c) ...)
+
+     (defgeneric abc-color-coordinates (color)
+       (:method ((color abc-color))
+         (color-coordinates color))
+       ;; Otherwise, go via CIE XYZ.
+       (:method ((color color))
+         (multiple-value-call #'abc-from-cie-xyz
+           (cie-xyz-color-coordinates color))))
+
+     (defmethod cie-xyz-color-coordinates ((color abc-color))
+       (multiple-value-call #'cie-xyz-from-abc
+         (abc-color-coordinates color)))
 
 
 Have fun!
