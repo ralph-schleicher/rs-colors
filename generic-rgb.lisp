@@ -270,7 +270,13 @@ Argument COLOR is a color object.
 
 Values are the intensities of the red, green, and blue primary.")
   (:method ((color rgb-color))
-    (color-coordinates color)))
+    (color-coordinates color))
+  (:method ((color hsv-color))
+    (multiple-value-call #'rgb-from-hsv
+      (color-coordinates color)))
+  (:method ((color hsl-color))
+    (multiple-value-call #'rgb-from-hsl
+      (color-coordinates color))))
 
 (export 'hsv-color-coordinates)
 (defgeneric hsv-color-coordinates (color)
