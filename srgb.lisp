@@ -131,10 +131,6 @@ into CIE XYZ color space coordinates."
 			 (cie-xyz-from-srgb-gamma-correction g)
 			 (cie-xyz-from-srgb-gamma-correction b)))
 
-(defmethod cie-xyz-color-coordinates ((color srgb-color))
-  (multiple-value-call #'cie-xyz-from-srgb
-    (color-coordinates color)))
-
 (export 'srgb-color-coordinates)
 (defgeneric srgb-color-coordinates (color)
   (:documentation "Return the sRGB color space coordinates of the color.
@@ -148,6 +144,10 @@ Values are the intensities of the red, green, and blue primary.")
   (:method ((color color))
     (multiple-value-call #'srgb-from-cie-xyz
       (cie-xyz-color-coordinates color))))
+
+(defmethod cie-xyz-color-coordinates ((color srgb-color))
+  (multiple-value-call #'cie-xyz-from-srgb
+    (color-coordinates color)))
 
 (export 'the-srgb-color)
 (defun the-srgb-color (color)
