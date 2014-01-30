@@ -164,4 +164,9 @@ space."
     (multiple-value-call #'make-srgb-color
       (srgb-color-coordinates color))))
 
+(defmethod update-instance-for-different-class :after ((old color) (new srgb-color) &key)
+  (with-slots (r g b) new
+    (multiple-value-setq (r g b)
+      (srgb-color-coordinates old))))
+
 ;;; srgb.lisp ends here

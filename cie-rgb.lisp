@@ -111,4 +111,9 @@ space."
     (multiple-value-call #'make-cie-rgb-color
       (cie-rgb-color-coordinates color))))
 
+(defmethod update-instance-for-different-class :after ((old color) (new cie-rgb-color) &key)
+  (with-slots (r g b) new
+    (multiple-value-setq (r g b)
+      (cie-rgb-color-coordinates old))))
+
 ;;; cie-rgb.lisp ends here
