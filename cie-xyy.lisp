@@ -35,7 +35,7 @@
 (in-package :rs-colors)
 
 (export 'cie-xyy-color)
-(defclass cie-xyy-color (color)
+(defclass cie-xyy-color (color-object)
   ((x*
     :initarg :x*
     :initform 0
@@ -100,7 +100,7 @@ value (luminance).")
   (:method ((color cie-xyy-color))
     (color-coordinates color))
   ;; Otherwise, go via CIE XYZ.
-  (:method ((color color))
+  (:method ((color color-object))
     (multiple-value-call #'cie-xyy-from-cie-xyz
       (cie-xyz-color-coordinates color))))
 
@@ -123,7 +123,7 @@ space."
     (multiple-value-call #'make-cie-xyy-color
       (cie-xyy-color-coordinates color))))
 
-(defmethod update-instance-for-different-class :after ((old color) (new cie-xyy-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new cie-xyy-color) &key)
   (with-slots (x* y* y) new
     (multiple-value-setq (x* y* y)
       (cie-xyy-color-coordinates old))))

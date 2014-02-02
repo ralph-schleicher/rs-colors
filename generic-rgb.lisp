@@ -34,31 +34,16 @@
 
 (in-package :rs-colors)
 
-(export 'rgb-color)
-(defclass rgb-color (color)
-  ((r
-    :initarg :red
-    :initform 0
-    :type (real 0 1)
-    :documentation "Intensity of the red primary, default zero.")
-   (g
-    :initarg :green
-    :initform 0
-    :type (real 0 1)
-    :documentation "Intensity of the green primary, default zero.")
-   (b
-    :initarg :blue
-    :initform 0
-    :type (real 0 1)
-    :documentation "Intensity of the blue primary, default zero."))
-  (:documentation "Color class for the generic RGB color space."))
+(export 'generic-rgb-color)
+(defclass generic-rgb-color (rgb-color-object generic-color-object)
+  ()
+  (:documentation "Color class for the generic RGB color space.
 
-(defmethod color-coordinates ((color rgb-color))
-  (with-slots (r g b) color
-    (values r g b)))
+The generic RGB color space is a mathematical description of the
+RGB color model.  It is not associated with a particular device."))
 
-(export 'make-rgb-color)
-(defun make-rgb-color (red green blue &key byte-size)
+(export 'make-generic-rgb-color)
+(defun make-generic-rgb-color (red green blue &key byte-size)
   "Create a new color in the generic RGB color space.
 
 First argument RED is the intensity of the red primary.
@@ -74,8 +59,8 @@ accordingly.
 
 Example:
 
-     (make-rgb-color 252/255 175/255 62/255)
-     (make-rgb-color 252 175 62 :byte-size 8)"
+     (make-generic-rgb-color 252/255 175/255 62/255)
+     (make-generic-rgb-color 252 175 62 :byte-size 8)"
   (let (r g b)
     (if (not byte-size)
 	(setf r (ensure-type red '(real 0 1))
@@ -85,33 +70,18 @@ Example:
 	(setf r (/ (ensure-type red `(integer 0 ,s)) s)
 	      g (/ (ensure-type green `(integer 0 ,s)) s)
 	      b (/ (ensure-type blue `(integer 0 ,s)) s))))
-    (make-instance 'rgb-color :red r :green g :blue b)))
+    (make-instance 'generic-rgb-color :red r :green g :blue b)))
 
-(export 'hsv-color)
-(defclass hsv-color (color)
-  ((h
-    :initarg :hue
-    :initform 0
-    :type (real 0 (360))
-    :documentation "Hue, default zero.")
-   (s
-    :initarg :saturation
-    :initform 0
-    :type (real 0 1)
-    :documentation "Saturation, default zero.")
-   (v
-    :initarg :value
-    :initform 0
-    :type (real 0 1)
-    :documentation "Value (brightness), default zero."))
-  (:documentation "Color class for the generic HSV/HSB color space."))
+(export 'generic-hsv-color)
+(defclass generic-hsv-color (hsv-color-object generic-color-object)
+  ()
+  (:documentation "Color class for the generic HSV/HSB color space.
 
-(defmethod color-coordinates ((color hsv-color))
-  (with-slots (h s v) color
-    (values h s v)))
+The generic HSV/HSB color space is a different representation of the
+RGB color model."))
 
-(export 'make-hsv-color)
-(defun make-hsv-color (hue saturation value)
+(export 'make-generic-hsv-color)
+(defun make-generic-hsv-color (hue saturation value)
   "Create a new color in the generic HSV color space.
 
 First argument HUE is the angle of the RGB color wheel.
@@ -123,29 +93,18 @@ in the closed interval [0, 1]."
   (let ((h (mod (ensure-type hue 'real) 360))
 	(s (ensure-type saturation '(real 0 1)))
 	(v (ensure-type value '(real 0 1))))
-    (make-instance 'hsv-color :hue h :saturation s :value v)))
+    (make-instance 'generic-hsv-color :hue h :saturation s :value v)))
 
-(export 'hsl-color)
-(defclass hsl-color (color)
-  ((h
-    :initarg :hue
-    :initform 0
-    :type (real 0 (360))
-    :documentation "Hue, default zero.")
-   (s
-    :initarg :saturation
-    :initform 0
-    :type (real 0 1)
-    :documentation "Saturation, default zero.")
-   (l
-    :initarg :lightness
-    :initform 0
-    :type (real 0 1)
-    :documentation "Lightness, default zero."))
-  (:documentation "Color class for the generic HSL color space."))
+(export 'generic-hsl-color)
+(defclass generic-hsl-color (hsl-color-object generic-color-object)
+  ()
+  (:documentation "Color class for the generic HSL color space.
 
-(export 'make-hsl-color)
-(defun make-hsl-color (hue saturation lightness)
+The generic HSL color space is a different representation of the
+RGB color model."))
+
+(export 'make-generic-hsl-color)
+(defun make-generic-hsl-color (hue saturation lightness)
   "Create a new color in the generic HSL color space.
 
 First argument HUE is the angle of the RGB color wheel.
@@ -157,11 +116,7 @@ in the closed interval [0, 1]."
   (let ((h (mod (ensure-type hue 'real) 360))
 	(s (ensure-type saturation '(real 0 1)))
 	(l (ensure-type lightness '(real 0 1))))
-    (make-instance 'hsl-color :hue h :saturation s :lightness l)))
-
-(defmethod color-coordinates ((color hsl-color))
-  (with-slots (h s l) color
-    (values h s l)))
+    (make-instance 'generic-hsl-color :hue h :saturation s :lightness l)))
 
 ;; HSV/HSB, HSL, or HSI from RGB.
 (macrolet ((with-hue (bindings &body body)
@@ -183,7 +138,7 @@ in the closed interval [0, 1]."
 			       360)))
 		     ,@bindings)
 		,@body)))
-  (defun hsv-from-rgb (r g b)
+  (defun generic-hsv-from-generic-rgb (r g b)
     "Convert RGB color space coordinates
 into HSV color space coordinates."
     (declare (type real r g b))
@@ -196,7 +151,7 @@ into HSV color space coordinates."
 		    ;; is non-zero, too.
 		    (/ c v))))
       (values h s v)))
-  (defun hsl-from-rgb (r g b)
+  (defun generic-hsl-from-generic-rgb (r g b)
     "Convert RGB color space coordinates
 into HSL color space coordinates."
     (declare (type real r g b))
@@ -210,7 +165,7 @@ into HSL color space coordinates."
 		    ;; expressed as 1 - |2L - 1|.
 		    (/ c (if (> 2l 1) (- 2 2l) 2l)))))
       (values h s l)))
-  (defun hsi-from-rgb (r g b)
+  (defun generic-hsi-from-generic-rgb (r g b)
     "Convert RGB color space coordinates
 into HSI color space coordinates."
     (declare (type real r g b))
@@ -242,7 +197,7 @@ into HSI color space coordinates."
 			  ((= q 5) (values max min x))
 			  (t
 			   (error "Should not happen."))))))))
-  (defun rgb-from-hsv (h s v)
+  (defun generic-rgb-from-generic-hsv (h s v)
     "Convert HSV color space coordinates
 into RGB color space coordinates."
     (declare (type real h s v))
@@ -250,7 +205,7 @@ into RGB color space coordinates."
 	(values v v v)
       (with-chroma (* s v)
 	v)))
-  (defun rgb-from-hsl (h s l)
+  (defun generic-rgb-from-generic-hsl (h s l)
     "Convert HSL color space coordinates
 into RGB color space coordinates."
     (declare (type real h s l))
@@ -262,61 +217,61 @@ into RGB color space coordinates."
 	  (+ l (/ c 2))))))
   (values))
 
-(export 'rgb-color-coordinates)
-(defgeneric rgb-color-coordinates (color)
+(export 'generic-rgb-color-coordinates)
+(defgeneric generic-rgb-color-coordinates (color)
   (:documentation "Return the RGB color space coordinates of the color.
 
 Argument COLOR is a color object.
 
 Values are the intensities of the red, green, and blue primary.")
-  (:method ((color rgb-color))
+  (:method ((color generic-rgb-color))
     (color-coordinates color))
-  (:method ((color hsv-color))
-    (multiple-value-call #'rgb-from-hsv
+  (:method ((color generic-hsv-color))
+    (multiple-value-call #'generic-rgb-from-generic-hsv
       (color-coordinates color)))
-  (:method ((color hsl-color))
-    (multiple-value-call #'rgb-from-hsl
+  (:method ((color generic-hsl-color))
+    (multiple-value-call #'generic-rgb-from-generic-hsl
       (color-coordinates color))))
 
-(export 'hsv-color-coordinates)
-(defgeneric hsv-color-coordinates (color)
+(export 'generic-hsv-color-coordinates)
+(defgeneric generic-hsv-color-coordinates (color)
   (:documentation "Return the HSV color space coordinates of the color.
 
 Argument COLOR is a color object.
 
 Values are the hue, saturation, and value (brightness).")
-  (:method ((color hsv-color))
+  (:method ((color generic-hsv-color))
     (color-coordinates color))
-  (:method ((color color))
-    (multiple-value-call #'hsv-from-rgb
-      (rgb-color-coordinates color))))
+  (:method ((color color-object))
+    (multiple-value-call #'generic-hsv-from-generic-rgb
+      (generic-rgb-color-coordinates color))))
 
-(export 'hsl-color-coordinates)
-(defgeneric hsl-color-coordinates (color)
+(export 'generic-hsl-color-coordinates)
+(defgeneric generic-hsl-color-coordinates (color)
   (:documentation "Return the HSL color space coordinates of the color.
 
 Argument COLOR is a color object.
 
 Values are the hue, saturation, and lightness.")
-  (:method ((color hsl-color))
+  (:method ((color generic-hsl-color))
     (color-coordinates color))
-  (:method ((color color))
-    (multiple-value-call #'hsl-from-rgb
-      (rgb-color-coordinates color))))
+  (:method ((color color-object))
+    (multiple-value-call #'generic-hsl-from-generic-rgb
+      (generic-rgb-color-coordinates color))))
 
-(defmethod update-instance-for-different-class :after ((old color) (new rgb-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new generic-rgb-color) &key)
   (with-slots (r g b) new
     (multiple-value-setq (r g b)
-      (rgb-color-coordinates old))))
+      (generic-rgb-color-coordinates old))))
 
-(defmethod update-instance-for-different-class :after ((old color) (new hsv-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new generic-hsv-color) &key)
   (with-slots (h s v) new
     (multiple-value-setq (h s v)
-      (hsv-color-coordinates old))))
+      (generic-hsv-color-coordinates old))))
 
-(defmethod update-instance-for-different-class :after ((old color) (new hsl-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new generic-hsl-color) &key)
   (with-slots (h s l) new
     (multiple-value-setq (h s l)
-      (hsl-color-coordinates old))))
+      (generic-hsl-color-coordinates old))))
 
 ;;; generic-rgb.lisp ends here

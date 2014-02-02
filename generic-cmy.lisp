@@ -34,31 +34,16 @@
 
 (in-package :rs-colors)
 
-(export 'cmy-color)
-(defclass cmy-color (color)
-  ((c
-    :initarg :cyan
-    :initform 0
-    :type (real 0 1)
-    :documentation "Intensity of the cyan ink, default zero.")
-   (m
-    :initarg :magenta
-    :initform 0
-    :type (real 0 1)
-    :documentation "Intensity of the magenta ink, default zero.")
-   (y
-    :initarg :yellow
-    :initform 0
-    :type (real 0 1)
-    :documentation "Intensity of the yellow ink, default zero."))
-  (:documentation "Color class for the generic CMY color space."))
+(export 'generic-cmy-color)
+(defclass generic-cmy-color (cmy-color-object generic-color-object)
+  ()
+  (:documentation "Color class for the generic CMY color space.
 
-(defmethod color-coordinates ((color cmy-color))
-  (with-slots (c m y) color
-    (values c m y)))
+The generic CMY color space is a mathematical description of the
+CMY color model.  It is not associated with a particular device."))
 
-(export 'make-cmy-color)
-(defun make-cmy-color (cyan magenta yellow &key byte-size)
+(export 'make-generic-cmy-color)
+(defun make-generic-cmy-color (cyan magenta yellow &key byte-size)
   "Create a new color in the generic CMY color space.
 
 First argument CYAN is the intensity of the cyan ink.
@@ -74,8 +59,8 @@ scaled accordingly.
 
 Example:
 
-     (make-cmy-color 3/255 80/255 193/255)
-     (make-cmy-color 3 80 193 :byte-size 8)"
+     (make-generic-cmy-color 3/255 80/255 193/255)
+     (make-generic-cmy-color 3 80 193 :byte-size 8)"
   (let (c m y)
     (if (not byte-size)
 	(setf c (ensure-type cyan '(real 0 1))
@@ -85,9 +70,9 @@ Example:
 	(setf c (/ (ensure-type cyan `(integer 0 ,s)) s)
 	      m (/ (ensure-type magenta `(integer 0 ,s)) s)
 	      y (/ (ensure-type yellow `(integer 0 ,s)) s))))
-    (make-instance 'cmy-color :cyan c :magenta m :yellow y)))
+    (make-instance 'generic-cmy-color :cyan c :magenta m :yellow y)))
 
-(defun cmy-from-rgb (r g b)
+(defun generic-cmy-from-generic-rgb (r g b)
   "Convert RGB color space coordinates
 into CMY color space coordinates."
   (declare (type real r g b))
@@ -96,7 +81,7 @@ into CMY color space coordinates."
 	(y (- 1 b)))
     (values c m y)))
 
-(defun rgb-from-cmy (c m y)
+(defun generic-rgb-from-generic-cmy (c m y)
   "Convert CMY color space coordinates
 into RGB color space coordinates."
   (declare (type real c m y))
@@ -105,26 +90,26 @@ into RGB color space coordinates."
 	(b (- 1 y)))
     (values r g b)))
 
-(export 'cmy-color-coordinates)
-(defgeneric cmy-color-coordinates (color)
+(export 'generic-cmy-color-coordinates)
+(defgeneric generic-cmy-color-coordinates (color)
   (:documentation "Return the CMY color space coordinates of the color.
 
 Argument COLOR is a color object.
 
 Values are the intensities of the cyan, magenta, and yellow ink.")
-  (:method ((color cmy-color))
+  (:method ((color generic-cmy-color))
     (color-coordinates color))
-  (:method ((color color))
-    (multiple-value-call #'cmy-from-rgb
-      (rgb-color-coordinates color))))
+  (:method ((color color-object))
+    (multiple-value-call #'generic-cmy-from-generic-rgb
+      (generic-rgb-color-coordinates color))))
 
-(defmethod rgb-color-coordinates ((color cmy-color))
-  (multiple-value-call #'rgb-from-cmy
+(defmethod generic-rgb-color-coordinates ((color generic-cmy-color))
+  (multiple-value-call #'generic-rgb-from-generic-cmy
     (color-coordinates color)))
 
-(defmethod update-instance-for-different-class :after ((old color) (new cmy-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new generic-cmy-color) &key)
   (with-slots (c m y) new
     (multiple-value-setq (c m y)
-      (cmy-color-coordinates old))))
+      (generic-cmy-color-coordinates old))))
 
 ;;; generic-cmy.lisp ends here
