@@ -34,29 +34,154 @@
 
 (in-package :rs-colors)
 
-;;;; Color Data Type
-
-(export 'color)
-(defclass color ()
+(export 'color-object)
+(defclass color-object ()
   ()
   (:documentation "Base class for a color."))
 
 (export 'colorp)
 (defun colorp (object)
-  "Return true if OBJECT is a color."
-  (typep object 'color))
+  "Return true if OBJECT is a color object."
+  (typep object 'color-object))
 
 (export 'color-coordinates)
 (defgeneric color-coordinates (color)
   (:documentation "Return the color space coordinates of the color.
 
 Argument COLOR is a color object.")
-  (:method ((color color))
+  (:method ((color color-object))
     (declare (ignore color))
     (values)))
 
-(defmethod print-object ((color color) stream)
+(defmethod print-object ((color color-object) stream)
   (print-unreadable-object (color stream :type t :identity t)
     (princ (multiple-value-list (color-coordinates color)) stream)))
+
+(export 'rgb-color-object)
+(defclass rgb-color-object (color-object)
+  ((r
+    :initarg :red
+    :initform 0
+    :type (real 0 1)
+    :documentation "Intensity of the red primary, default zero.")
+   (g
+    :initarg :green
+    :initform 0
+    :type (real 0 1)
+    :documentation "Intensity of the green primary, default zero.")
+   (b
+    :initarg :blue
+    :initform 0
+    :type (real 0 1)
+    :documentation "Intensity of the blue primary, default zero."))
+  (:documentation "Color class for a RGB color space."))
+
+(defmethod color-coordinates ((color rgb-color-object))
+  (with-slots (r g b) color
+    (values r g b)))
+
+(export 'hsv-color-object)
+(defclass hsv-color-object (color-object)
+  ((h
+    :initarg :hue
+    :initform 0
+    :type (real 0 (360))
+    :documentation "Hue, default zero.")
+   (s
+    :initarg :saturation
+    :initform 0
+    :type (real 0 1)
+    :documentation "Saturation, default zero.")
+   (v
+    :initarg :value
+    :initform 0
+    :type (real 0 1)
+    :documentation "Value (brightness), default zero."))
+  (:documentation "Color class for a HSV/HSB color space."))
+
+(defmethod color-coordinates ((color hsv-color-object))
+  (with-slots (h s v) color
+    (values h s v)))
+
+(export 'hsl-color-object)
+(defclass hsl-color-object (color-object)
+  ((h
+    :initarg :hue
+    :initform 0
+    :type (real 0 (360))
+    :documentation "Hue, default zero.")
+   (s
+    :initarg :saturation
+    :initform 0
+    :type (real 0 1)
+    :documentation "Saturation, default zero.")
+   (l
+    :initarg :lightness
+    :initform 0
+    :type (real 0 1)
+    :documentation "Lightness, default zero."))
+  (:documentation "Color class for a HSL color space."))
+
+(defmethod color-coordinates ((color hsl-color-object))
+  (with-slots (h s l) color
+    (values h s l)))
+
+(export 'cmy-color-object)
+(defclass cmy-color-object (color-object)
+  ((c
+    :initarg :cyan
+    :initform 0
+    :type (real 0 1)
+    :documentation "Intensity of the cyan ink, default zero.")
+   (m
+    :initarg :magenta
+    :initform 0
+    :type (real 0 1)
+    :documentation "Intensity of the magenta ink, default zero.")
+   (y
+    :initarg :yellow
+    :initform 0
+    :type (real 0 1)
+    :documentation "Intensity of the yellow ink, default zero."))
+  (:documentation "Color class for a CMY color space."))
+
+(defmethod color-coordinates ((color cmy-color-object))
+  (with-slots (c m y) color
+    (values c m y)))
+
+;; Do not inherit from `cmy-color-object' because the numerical values
+;; of cyan, magenta, and yellow have a different meaning.
+(export 'cmyk-color-object)
+(defclass cmyk-color-object (color-object)
+  ((c
+    :initarg :cyan
+    :initform 0
+    :type (real 0 1)
+    :documentation "Intensity of the cyan ink, default zero.")
+   (m
+    :initarg :magenta
+    :initform 0
+    :type (real 0 1)
+    :documentation "Intensity of the magenta ink, default zero.")
+   (y
+    :initarg :yellow
+    :initform 0
+    :type (real 0 1)
+    :documentation "Intensity of the yellow ink, default zero.")
+   (k
+    :initarg :black
+    :initform 0
+    :type (real 0 1)
+    :documentation "Intensity of the black ink, default zero."))
+  (:documentation "Color class for a CMYK color space."))
+
+(defmethod color-coordinates ((color cmyk-color-object))
+  (with-slots (c m y k) color
+    (values c m y k)))
+
+(export 'generic-color-object)
+(defclass generic-color-object (color-object)
+  ()
+  (:documentation "Color class for the mathematical model of a color space."))
 
 ;;; types.lisp ends here
