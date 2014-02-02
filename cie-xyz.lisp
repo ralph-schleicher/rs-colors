@@ -35,7 +35,7 @@
 (in-package :rs-colors)
 
 (export 'cie-xyz-color)
-(defclass cie-xyz-color (color)
+(defclass cie-xyz-color (color-object)
   ((x
     :initarg :x
     :initform 0
@@ -89,7 +89,7 @@ space."
     (multiple-value-call #'make-cie-xyz-color
       (cie-xyz-color-coordinates color))))
 
-(defmethod update-instance-for-different-class :after ((old color) (new cie-xyz-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new cie-xyz-color) &key)
   (with-slots (x y z) new
     (multiple-value-setq (x y z)
       (cie-xyz-color-coordinates old))))

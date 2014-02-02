@@ -34,36 +34,16 @@
 
 (in-package :rs-colors)
 
-(export 'cmyk-color)
-(defclass cmyk-color (color)
-  ((c
-    :initarg :cyan
-    :initform 0
-    :type (real 0 1)
-    :documentation "Intensity of the cyan ink, default zero.")
-   (m
-    :initarg :magenta
-    :initform 0
-    :type (real 0 1)
-    :documentation "Intensity of the magenta ink, default zero.")
-   (y
-    :initarg :yellow
-    :initform 0
-    :type (real 0 1)
-    :documentation "Intensity of the yellow ink, default zero.")
-   (k
-    :initarg :black
-    :initform 0
-    :type (real 0 1)
-    :documentation "Intensity of the black ink, default zero."))
-  (:documentation "Color class for the generic CMYK color space."))
+(export 'generic-cmyk-color)
+(defclass generic-cmyk-color (cmyk-color-object generic-color-object)
+  ()
+  (:documentation "Color class for the generic CMYK color space.
 
-(defmethod color-coordinates ((color cmyk-color))
-  (with-slots (c m y k) color
-    (values c m y k)))
+The generic CMYK color space is a mathematical description of the
+CMYK color model.  It is not associated with a particular device."))
 
-(export 'make-cmyk-color)
-(defun make-cmyk-color (cyan magenta yellow black &key byte-size)
+(export 'make-generic-cmyk-color)
+(defun make-generic-cmyk-color (cyan magenta yellow black &key byte-size)
   "Create a new color in the generic CMYK color space.
 
 First argument CYAN is the intensity of the cyan ink.
@@ -80,8 +60,8 @@ are scaled accordingly.
 
 Example:
 
-     (make-cmyk-color 3/255 80/255 193/255)
-     (make-cmyk-color 3 80 193 :byte-size 8)"
+     (make-generic-cmyk-color 3/255 80/255 193/255)
+     (make-generic-cmyk-color 3 80 193 :byte-size 8)"
   (let (c m y k)
     (if (not byte-size)
 	(setf c (ensure-type cyan '(real 0 1))
@@ -95,12 +75,12 @@ Example:
 	      k (/ (ensure-type black `(integer 0 ,s)) s))))
     (cond ((= k 0)
 	   (multiple-value-setq (c m y k)
-	     (cmyk-from-cmy c m y)))
+	     (generic-cmyk-from-generic-cmy c m y)))
 	  ((= k 1)
 	   (setf c 0 m 0 y 0)))
-    (make-instance 'cmyk-color :cyan c :magenta m :yellow y :black k)))
+    (make-instance 'generic-cmyk-color :cyan c :magenta m :yellow y :black k)))
 
-(defun cmyk-from-cmy (c m y)
+(defun generic-cmyk-from-generic-cmy (c m y)
   "Convert CMY color space coordinates
 into CMYK color space coordinates."
   (declare (type real c m y))
@@ -112,7 +92,7 @@ into CMYK color space coordinates."
 	      (/ (- m k) 1-k)
 	      (/ (- y k) 1-k) k))))
 
-(defun cmy-from-cmyk (c m y k)
+(defun generic-cmy-from-generic-cmyk (c m y k)
   "Convert CMYK color space coordinates
 into CMY color space coordinates."
   (declare (type real c m y k))
@@ -121,26 +101,26 @@ into CMY color space coordinates."
 	    (min 1 (+ (* m 1-k) k))
 	    (min 1 (+ (* y 1-k) k)))))
 
-(export 'cmyk-color-coordinates)
-(defgeneric cmyk-color-coordinates (color)
+(export 'generic-cmyk-color-coordinates)
+(defgeneric generic-cmyk-color-coordinates (color)
   (:documentation "Return the CMYK color space coordinates of the color.
 
 Argument COLOR is a color object.
 
 Values are the intensities of the cyan, magenta, yellow, and black ink.")
-  (:method ((color cmyk-color))
+  (:method ((color generic-cmyk-color))
     (color-coordinates color))
-  (:method ((color color))
-    (multiple-value-call #'cmyk-from-cmy
-      (cmy-color-coordinates color))))
+  (:method ((color color-object))
+    (multiple-value-call #'generic-cmyk-from-generic-cmy
+      (generic-cmy-color-coordinates color))))
 
-(defmethod cmy-color-coordinates ((color cmyk-color))
-  (multiple-value-call #'cmy-from-cmyk
+(defmethod generic-cmy-color-coordinates ((color generic-cmyk-color))
+  (multiple-value-call #'generic-cmy-from-generic-cmyk
     (color-coordinates color)))
 
-(defmethod update-instance-for-different-class :after ((old color) (new cmyk-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new generic-cmyk-color) &key)
   (with-slots (c m y k) new
     (multiple-value-setq (c m y k)
-      (cmyk-color-coordinates old))))
+      (generic-cmyk-color-coordinates old))))
 
 ;;; generic-cmyk.lisp ends here

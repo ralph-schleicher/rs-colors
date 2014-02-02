@@ -35,7 +35,7 @@
 (in-package :rs-colors)
 
 (export 'cie-rgb-color)
-(defclass cie-rgb-color (rgb-color)
+(defclass cie-rgb-color (rgb-color-object)
   ()
   (:documentation "Color class for the CIE RGB color space."))
 
@@ -87,10 +87,15 @@ Argument COLOR is a color object.
 Values are the intensities of the red, green, and blue primary.")
   (:method ((color cie-rgb-color))
     (color-coordinates color))
+  (:method ((color generic-color-object))
+    (generic-rgb-color-coordinates color))
   ;; Otherwise, go via CIE XYZ.
-  (:method ((color color))
+  (:method ((color color-object))
     (multiple-value-call #'cie-rgb-from-cie-xyz
       (cie-xyz-color-coordinates color))))
+
+(defmethod generic-rgb-color-coordinates ((color cie-rgb-color))
+  (color-coordinates color))
 
 (defmethod cie-xyz-color-coordinates ((color cie-rgb-color))
   (multiple-value-call #'cie-xyz-from-cie-rgb
@@ -111,7 +116,7 @@ space."
     (multiple-value-call #'make-cie-rgb-color
       (cie-rgb-color-coordinates color))))
 
-(defmethod update-instance-for-different-class :after ((old color) (new cie-rgb-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new cie-rgb-color) &key)
   (with-slots (r g b) new
     (multiple-value-setq (r g b)
       (cie-rgb-color-coordinates old))))
