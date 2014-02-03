@@ -34,71 +34,37 @@
 
 (in-package :rs-colors)
 
-(defvar color-printers (make-hash-table :test #'equal)
-  "Dictionary of color printers.")
-
-(defvar color-readers (make-hash-table :test #'equal)
-  "Dictionary of color readers.")
-
 (export 'define-color-printer)
-(defmacro define-color-printer (style (color stream) &body body)
+(defmacro define-color-printer (style (color stream &key export inline) &body body)
   "Argument STYLE is a string designator."
-  (let ((key (gensym))
-	(fun (gensym)))
-    `(let ((,key (string ,style))
-	   (,fun (lambda (,color ,stream) ,@body (values))))
-       (setf (gethash ,key color-printers) ,fun)
-       (values ,key))))
+  (let* ((suffix (string-upcase (string style)))
+	 (printer (intern (concatenate 'string "PRINT-COLOR-" suffix)))
+	 (formatter (intern (concatenate 'string "COLOR-FORMATTER-" suffix)))
+	 (rest (gensym "REST")))
+    `(progn
+       ,@(when export `((export (quote ,printer))))
+       ,@(when inline `((declaim (inline ,printer))))
+       (defun ,printer (,color ,stream)
+	 ,@body
+	 ,color)
+       ,@(when export `((export (quote ,formatter))))
+       (defvar ,formatter (lambda (,stream &optional (,color (error "Missing required argument.")) &rest ,rest)
+			    (,printer ,color ,stream)
+			    ,rest))
+       (values))))
 
 (export 'define-color-reader)
-(defmacro define-color-reader (style (stream) &body body)
+(defmacro define-color-reader (style (stream &key export inline) &body body)
   "Argument STYLE is a string designator."
-  (let ((key (gensym))
-	(fun (gensym)))
-    `(let ((,key (string ,style))
-	   (,fun (lambda (,stream) ,@body)))
-       (setf (gethash ,key color-readers) ,fun)
-       (values ,key))))
+  (let* ((suffix (string-upcase (string style)))
+	 (reader (intern (concatenate 'string "READ-COLOR-" suffix))))
+    `(progn
+       ,@(when export `((export (quote ,reader))))
+       ,@(when inline `((declaim (inline ,reader))))
+       (defun ,reader (,stream)
+	 ,@body))))
 
-(export 'print-color)
-(defun print-color (style color &optional (stream *standard-output*))
-  (multiple-value-bind (printer printer-exists)
-      (gethash (string style) color-printers)
-    (when (not printer-exists)
-      (error "Unknown color format `~A'." style))
-    (with-standard-io-syntax
-      (funcall printer color stream))))
-
-(export 'format-color)
-(defun format-color (destination style color)
-  (multiple-value-bind (printer printer-exists)
-      (gethash (string style) color-printers)
-    (when (not printer-exists)
-      (error "Unknown color format `~A'." style))
-    (with-standard-io-syntax
-      (etypecase destination
-	(stream
-	 (funcall printer color destination))
-	((member t)
-	 (funcall printer color *standard-output*))
-	(string
-	 (with-output-to-string (stream destination)
-	   (funcall printer color stream)))
-	(null
-	 (with-output-to-string (stream)
-	   (funcall printer color stream)))
-	))))
-
-(export 'read-color)
-(defun read-color (style &optional (stream *standard-input*))
-  (multiple-value-bind (reader reader-exists)
-      (gethash (string style) color-readers)
-    (when (not reader-exists)
-      (error "Unknown color format `~A'." style))
-    (with-standard-io-syntax
-      (funcall reader stream))))
-
-(define-color-printer :xcms-cie-xyz (color stream)
+(define-color-printer :xcms-cie-xyz (color stream :export t)
   (multiple-value-bind (x y z)
       (cie-xyz-color-coordinates color)
     (format stream
@@ -107,7 +73,7 @@
 	    (float y 1F0)
 	    (float z 1F0))))
 
-(define-color-printer :xcms-cie-xyy (color stream)
+(define-color-printer :xcms-cie-xyy (color stream :export t)
   (multiple-value-bind (x* y* y)
       (cie-xyy-color-coordinates color)
     (format stream
@@ -116,8 +82,8 @@
 	    (float y* 1F0)
 	    (float y  1F0))))
 
-(define-color-printer :xcms-rgb (color stream)
-  (ensure-type color 'rgb-color)
+(define-color-printer :xcms-rgb (color stream :export t)
+  (ensure-type color 'rgb-color-object)
   (multiple-value-bind (r g b)
       (color-coordinates color)
     (format stream
@@ -126,7 +92,7 @@
 	    (float g 1F0)
 	    (float b 1F0))))
 
-(define-color-printer :html (color stream)
+(define-color-printer :html (color stream :export t)
   (multiple-value-bind (r g b)
       (srgb-color-coordinates color)
     (format stream
@@ -136,7 +102,14 @@
 	     (round (* g 255))
 	     (round (* b 255))))))
 
-(define-color-reader :html (stream)
+
+;; Read a numerical HTML color definition, that is
+;; a hexadecimal number prefixed by a hash mark.
+;;
+;; Argument STREAM is an input stream.
+;;
+;; Value is a color object in the sRGB color space."
+(define-color-reader :html (stream :export t)
   (unless (char= (read-char stream) #\#)
     (error "Invalid HTML color syntax; expect a `#' character."))
   (iter (with val = 0)
@@ -163,7 +136,7 @@
 	       (return (make-srgb-color r g b :byte-size byte-size))))))
 	))
 
-(define-color-printer :css-rgb (color stream)
+(define-color-printer :css-rgb (color stream :export t)
   (multiple-value-bind (r g b)
       (srgb-color-coordinates color)
     (format stream
@@ -171,5 +144,15 @@
 	    (float (* r 100) 1F0)
 	    (float (* g 100) 1F0)
 	    (float (* b 100) 1F0))))
+
+(define-color-printer :css-hsl (color stream :export t)
+  (multiple-value-bind (h s l)
+      (multiple-value-call #'generic-hsl-from-generic-rgb
+	(srgb-color-coordinates color))
+    (format stream
+	    "hsl(~A, ~A%, ~A%)"
+	    (float h 1F0)
+	    (float (* s 100) 1F0)
+	    (float (* l 100) 1F0))))
 
 ;;; io.lisp ends here
