@@ -44,7 +44,7 @@
     `(progn
        ,@(when export `((export (quote ,printer))))
        ,@(when inline `((declaim (inline ,printer))))
-       (defun ,printer (,color ,stream)
+       (defun ,printer (,color &optional (,stream *standard-output*))
 	 ,@body
 	 ,color)
        ,@(when export `((export (quote ,formatter))))
@@ -61,7 +61,7 @@
     `(progn
        ,@(when export `((export (quote ,reader))))
        ,@(when inline `((declaim (inline ,reader))))
-       (defun ,reader (,stream)
+       (defun ,reader (&optional (,stream *standard-input*))
 	 ,@body))))
 
 (define-color-printer :xcms-cie-xyz (color stream :export t)
