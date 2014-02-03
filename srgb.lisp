@@ -102,16 +102,16 @@ into CIE XYZ color space coordinates.")
   "Convert linear sRGB color space coordinates
 into sRGB color space coordinates."
   (declare (type real c))
-  (if (> c 0.00304D0)
-      (- (* (expt c 10/24) 1.055D0) 0.055D0)
+  (if (> c 0.0031308D0)
+      (- (* (expt c #.(float 10/24 1D0)) 1.055D0) 0.055D0)
     (* c 12.92D0)))
 
 (defun cie-xyz-from-srgb-gamma-correction (c)
   "Convert sRGB color space coordinates
 into linear sRGB color space coordinates."
   (declare (type real c))
-  (if (> c 0.003928D0)
-      (expt (/ (+ c 0.055D0) 1.055D0) 24/10)
+  (if (> c 0.04045D0)
+      (expt (/ (+ c 0.055D0) 1.055D0) 2.4D0)
     (/ c 12.92D0)))
 
 (defun srgb-from-cie-xyz (x y z)
