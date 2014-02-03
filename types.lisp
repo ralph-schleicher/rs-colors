@@ -53,6 +53,15 @@ Argument COLOR is a color object.")
     (declare (ignore color))
     (values)))
 
+(export 'white-point)
+(defgeneric white-point (color)
+  (:documentation "Return the white point of the color.
+
+Argument COLOR is a color object.
+
+Value is the color object of the color's white point, or nil if the
+white point is not defined or if multiple white points exist."))
+
 (defmethod print-object ((color color-object) stream)
   (print-unreadable-object (color stream :type t :identity t)
     (princ (multiple-value-list (color-coordinates color)) stream)))
