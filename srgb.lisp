@@ -98,10 +98,10 @@ Example:
 				 (multiple-value-bind (x* y*)
 				     (cie-xyy-color-coordinates srgb-white-point)
 				   (vector x* y*)))
-  (defconst srgb-from-cie-xyz-transformation-matrix (float-array rgb-from-xyz 1D0)
+  (defconst srgb-from-cie-xyz-transformation-matrix rgb-from-xyz
     "Transformation matrix to convert CIE XYZ color space coordinates
 into linear sRGB color space coordinates.")
-  (defconst cie-xyz-from-srgb-transformation-matrix (float-array xyz-from-rgb 1D0)
+  (defconst cie-xyz-from-srgb-transformation-matrix xyz-from-rgb
     "Transformation matrix to convert linear sRGB color space coordinates
 into CIE XYZ color space coordinates.")
   (values))
@@ -110,23 +110,33 @@ into CIE XYZ color space coordinates.")
   "Convert linear sRGB color space coordinates
 into sRGB color space coordinates."
   (declare (type real c))
-  (if (> c 0.0031308D0)
-      (- (* (expt c #.(float 10/24 1D0)) 1.055D0) 0.055D0)
-    (* c 12.92D0)))
+  (cond ((or (= c 0)
+	     (= c 1))
+	 c)
+	((> c 0.0031308D0)
+	 (- (* (expt c 10/24) 1.055D0) 0.055D0))
+	(t
+	 (* c 12.92D0))))
 
 (defun cie-xyz-from-srgb-gamma-correction (c)
   "Convert sRGB color space coordinates
 into linear sRGB color space coordinates."
   (declare (type real c))
-  (if (> c 0.04045D0)
-      (expt (/ (+ c 0.055D0) 1.055D0) 2.4D0)
-    (/ c 12.92D0)))
+  (cond ((or (= c 0)
+	     (= c 1))
+	 c)
+	((> c 0.04045D0)
+	 (expt (/ (+ c 0.055D0) 1.055D0) 2.4D0))
+	(t
+	 (/ c 12.92D0))))
 
 (defun srgb-from-cie-xyz (x y z)
   "Convert CIE XYZ color space coordinates
 into sRGB color space coordinates."
+  (declare (type real x y z))
   (multiple-value-bind (r g b)
       (linear-transformation srgb-from-cie-xyz-transformation-matrix x y z)
+    (declare (type real r g b))
     (values (srgb-from-cie-xyz-gamma-correction (alexandria:clamp r 0 1))
 	    (srgb-from-cie-xyz-gamma-correction (alexandria:clamp g 0 1))
 	    (srgb-from-cie-xyz-gamma-correction (alexandria:clamp b 0 1)))))
@@ -134,6 +144,7 @@ into sRGB color space coordinates."
 (defun cie-xyz-from-srgb (r g b)
   "Convert sRGB color space coordinates
 into CIE XYZ color space coordinates."
+  (declare (type real r g b))
   (linear-transformation cie-xyz-from-srgb-transformation-matrix
 			 (cie-xyz-from-srgb-gamma-correction r)
 			 (cie-xyz-from-srgb-gamma-correction g)
