@@ -32,7 +32,8 @@
 
 ;;; Commentary:
 
-;; See <http://www.w3.org/Graphics/Color/sRGB>.
+;; See <http://www.w3.org/Graphics/Color/sRGB>
+;; and <http://www.itu.int/rec/R-REC-BT.709/en>.
 
 ;;; Code:
 
@@ -81,15 +82,22 @@ Example:
       (decode-triple value byte-size)
     (make-srgb-color r g b :byte-size byte-size)))
 
+;; ITU-R BT.709 truncates the CIE 1931 color space chromaticity
+;; coordinates of the D65 standard illuminant to four decimal
+;; places.
+(defconst srgb-white-point (make-cie-xyy-color 3127/10000 3290/10000 1)
+  "White point of the sRGB color space.")
+
+(defmethod white-point ((color srgb-color))
+  srgb-white-point)
+
 (multiple-value-bind (rgb-from-xyz xyz-from-rgb)
     (rgb-transformation-matrices #(64/100 33/100)
 				 #(30/100 60/100)
 				 #(15/100  6/100)
-				 ;; ITU-R BT.709 truncates the CIE 1931
-				 ;; color space chromaticity coordinates
-				 ;; of the D65 standard illuminant to
-				 ;; four decimal places.
-				 #(3127/10000 3290/10000))
+				 (multiple-value-bind (x* y*)
+				     (cie-xyy-color-coordinates srgb-white-point)
+				   (vector x* y*)))
   (defconst srgb-from-cie-xyz-transformation-matrix (float-array rgb-from-xyz 1D0)
     "Transformation matrix to convert CIE XYZ color space coordinates
 into linear sRGB color space coordinates.")
