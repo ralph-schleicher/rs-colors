@@ -63,6 +63,42 @@ Otherwise, return OBJECT."
       object
     (error (make-condition 'type-error :datum object :expected-type type))))
 
+;;;; Exponential Functions
+
+(defun cube (z)
+  "Return Z cubed, that is Z raised to the power three.
+
+Argument Z has to be a real number."
+  (declare (type real z))
+  (cond ((= z 0)
+	 0)
+	((= z 1)
+	 1)
+	(t
+	 (* z z z))))
+
+(defun cube-root (z)
+  "Return the cube root of Z.
+
+Argument Z has to be a real number.
+
+If argument Z is zero, value is zero.  If argument Z is
+a real number, value is the real cube root of Z.
+
+The `cube-root' function attempts to propagate the type
+of the argument Z to its value."
+  (declare (type real z))
+  (cond ((= z 0)
+	 0)
+	((= z 1)
+	 1)
+	(t
+	 (let ((f (* (signum z) (expt (abs z) 1/3))))
+	   (if (rationalp z)
+	       (let ((r (rationalize f)))
+		 (if (or (= r f) (= (cube r) z)) r f))
+	     f)))))
+
 ;;;; Linear Algebra
 
 (defun make-vector (&optional (x1 0) (x2 0) (x3 0))
@@ -216,6 +252,20 @@ Otherwise, return OBJECT."
 	  (+ (* (aref a 2 0) x1)
 	     (* (aref a 2 1) x2)
 	     (* (aref a 2 2) x3))))
+
+;;;; CIE Color Spaces
+
+(defun cie-L*-from-Y/Yn (Y/Yn)
+  "Map relative luminance Y/Yn to lightness L*."
+  (if (> Y/Yn #.(cube 6/29))
+      (- (* 116 (cube-root Y/Yn)) 16)
+    (* #.(cube 29/3) Y/Yn)))
+
+(defun cie-Y/Yn-from-L* (L*)
+  "Map lightness L* to relative luminance Y/Yn."
+  (if (> L* 8)
+      (cube (/ (+ L* 16) 116))
+    (* #.(cube 3/29) L*)))
 
 ;;;; RGB Color Spaces
 
