@@ -257,15 +257,15 @@ of the argument Z to its value."
 
 (defun cie-L*-from-Y/Yn (Y/Yn)
   "Map relative luminance Y/Yn to lightness L*."
-  (if (> Y/Yn #.(cube 6/29))
+  (if (> Y/Yn 216/24389)
       (- (* 116 (cube-root Y/Yn)) 16)
-    (* #.(cube 29/3) Y/Yn)))
+    (* 24389/27 Y/Yn)))
 
 (defun cie-Y/Yn-from-L* (L*)
   "Map lightness L* to relative luminance Y/Yn."
   (if (> L* 8)
       (cube (/ (+ L* 16) 116))
-    (* #.(cube 3/29) L*)))
+    (* 27/24389 L*)))
 
 ;;;; RGB Color Spaces
 
