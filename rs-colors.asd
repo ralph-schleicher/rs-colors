@@ -38,7 +38,7 @@
   :description "A color data type for Common Lisp."
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
-  :version "20140203.2148"
+  :version "20140209.0922"
   :depends-on (:alexandria)
   :serial t
   :components ((:file "rs-colors")
@@ -49,6 +49,8 @@
 	       (:file "generic-cmyk")
 	       (:file "cie-xyz")
 	       (:file "cie-xyy")
+	       (:file "cie-white-points")
+	       (:file "cie-luv")
 	       (:file "cie-rgb")
 	       (:file "srgb")
 	       (:file "io")))
