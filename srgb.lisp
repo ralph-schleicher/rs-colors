@@ -106,25 +106,27 @@ into linear sRGB color space coordinates.")
 into CIE XYZ color space coordinates.")
   (values))
 
-(defun srgb-from-cie-xyz-gamma-correction (c)
+(defun srgb-gamma-encoding (c)
   "Convert linear sRGB color space coordinates
 into sRGB color space coordinates."
   (declare (type real c))
-  (cond ((or (= c 0)
-	     (= c 1))
-	 c)
+  (cond ((= c 0)
+	 0)
+	((= c 1)
+	 1)
 	((> c 0.0031308D0)
 	 (- (* (expt c 10/24) 1.055D0) 0.055D0))
 	(t
 	 (* c 12.92D0))))
 
-(defun cie-xyz-from-srgb-gamma-correction (c)
+(defun srgb-gamma-decoding (c)
   "Convert sRGB color space coordinates
 into linear sRGB color space coordinates."
   (declare (type real c))
-  (cond ((or (= c 0)
-	     (= c 1))
-	 c)
+  (cond ((= c 0)
+	 0)
+	((= c 1)
+	 1)
 	((> c 0.04045D0)
 	 (expt (/ (+ c 0.055D0) 1.055D0) 2.4D0))
 	(t
@@ -137,18 +139,18 @@ into sRGB color space coordinates."
   (multiple-value-bind (r g b)
       (linear-transformation srgb-from-cie-xyz-transformation-matrix x y z)
     (declare (type real r g b))
-    (values (srgb-from-cie-xyz-gamma-correction (alexandria:clamp r 0 1))
-	    (srgb-from-cie-xyz-gamma-correction (alexandria:clamp g 0 1))
-	    (srgb-from-cie-xyz-gamma-correction (alexandria:clamp b 0 1)))))
+    (values (srgb-gamma-encoding (alexandria:clamp r 0 1))
+	    (srgb-gamma-encoding (alexandria:clamp g 0 1))
+	    (srgb-gamma-encoding (alexandria:clamp b 0 1)))))
 
 (defun cie-xyz-from-srgb (r g b)
   "Convert sRGB color space coordinates
 into CIE XYZ color space coordinates."
   (declare (type real r g b))
   (linear-transformation cie-xyz-from-srgb-transformation-matrix
-			 (cie-xyz-from-srgb-gamma-correction r)
-			 (cie-xyz-from-srgb-gamma-correction g)
-			 (cie-xyz-from-srgb-gamma-correction b)))
+			 (srgb-gamma-decoding r)
+			 (srgb-gamma-decoding g)
+			 (srgb-gamma-decoding b)))
 
 (export 'srgb-color-coordinates)
 (defgeneric srgb-color-coordinates (color)
