@@ -60,7 +60,9 @@ Argument COLOR is a color object.")
 Argument COLOR is a color object.
 
 Value is the color object of the color's white point, or nil if the
-white point is not defined or if multiple white points exist."))
+white point is not defined or if multiple white points exist.")
+  (:method ((color color-object))
+    (declare (ignore color))))
 
 (defmethod print-object ((color color-object) stream)
   (print-unreadable-object (color stream :type t :identity t)
