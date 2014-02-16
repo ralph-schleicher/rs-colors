@@ -269,6 +269,22 @@ of the argument Z to its value."
 
 ;;;; RGB Color Spaces
 
+(defun encode-triple (a b c &optional (byte-size 8))
+  (let ((s (expt 2 byte-size)))
+    (+ (* (+ (* a s) b) s) c)))
+
+(defun decode-triple (value &optional (byte-size 8))
+  (let ((s (expt 2 byte-size))
+	(v value)
+	(a 0)
+	(b 0)
+	(c 0))
+    (multiple-value-setq (v c)
+      (truncate v s))
+    (multiple-value-setq (a b)
+      (truncate v s))
+    (values a b c)))
+
 (defun rgb-transformation-matrices (red green blue white)
   "Return the transformation matrix for converting CIE XYZ color space
 coordinates into RGB color space coordinates and vice versa.
@@ -302,20 +318,25 @@ the inverse matrix."
 	   (c (gemm p d)))
       (values (matrix-inverse (copy-matrix c)) c))))
 
-(defun encode-triple (a b c &optional (byte-size 8))
-  (let ((s (expt 2 byte-size)))
-    (+ (* (+ (* a s) b) s) c)))
+(defun make-rgb-color (color-type red green blue &optional byte-size)
+  "Create a new color in an RGB color space."
+  (let (r g b)
+    (if (not byte-size)
+	(setf r (ensure-type red '(real 0 1))
+	      g (ensure-type green '(real 0 1))
+	      b (ensure-type blue '(real 0 1)))
+      (let ((s (1- (expt 2 (ensure-type byte-size '(integer 1))))))
+	(setf r (/ (ensure-type red `(integer 0 ,s)) s)
+	      g (/ (ensure-type green `(integer 0 ,s)) s)
+	      b (/ (ensure-type blue `(integer 0 ,s)) s))))
+    (make-instance color-type :red r :green g :blue b)))
 
-(defun decode-triple (value &optional (byte-size 8))
-  (let ((s (expt 2 byte-size))
-	(v value)
-	(a 0)
-	(b 0)
-	(c 0))
-    (multiple-value-setq (v c)
-      (truncate v s))
-    (multiple-value-setq (a b)
-      (truncate v s))
-    (values a b c)))
+(defun make-rgb-color-from-number (color-type value &optional (byte-size 8))
+  "Create a new color in an RGB color space."
+  (ensure-type value '(integer 0))
+  (ensure-type byte-size '(integer 1))
+  (multiple-value-bind (red green blue)
+      (decode-triple value byte-size)
+    (make-rgb-color color-type red green blue byte-size)))
 
 ;;; utilities.lisp ends here
