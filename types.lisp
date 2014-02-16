@@ -64,6 +64,21 @@ white point is not defined or if multiple white points exist.")
   (:method ((color color-object))
     (declare (ignore color))))
 
+(export 'copy-color)
+(defgeneric copy-color (color)
+  (:documentation "Return a shallow copy of the color.
+
+Argument COLOR is a color object.")
+  (:method ((color color-object))
+    (iter (with class = (class-of color))
+	  (with copy = (allocate-instance class))
+	  (for slot :in (closer-mop:class-slots class))
+	  (for slot-name = (closer-mop:slot-definition-name slot))
+	  (when (slot-boundp color slot-name)
+	    (setf (slot-value copy slot-name) (slot-value color slot-name)))
+	  (finally
+	   (return copy)))))
+
 (defmethod print-object ((color color-object) stream)
   (print-unreadable-object (color stream :type t :identity t)
     (princ (multiple-value-list (color-coordinates color)) stream)))
