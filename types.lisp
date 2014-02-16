@@ -79,6 +79,21 @@ Argument COLOR is a color object.")
 	  (finally
 	   (return copy)))))
 
+(export 'coerce-color)
+(defun coerce-color (color color-type)
+  "Coerce the color object into the specified color type.
+
+First argument COLOR is a color object.
+Second argument COLOR-TYPE is a color data type.
+
+If argument COLOR is already a color of the requested color data
+type, return COLOR as is (no conversion).  Otherwise, return a new
+color with the color coordinates of COLOR converted into the color
+space denoted by COLOR-TYPE."
+  (if (eq (type-of color) color-type)
+      color
+    (change-class (copy-color color) color-type)))
+
 (defmethod print-object ((color color-object) stream)
   (print-unreadable-object (color stream :type t :identity t)
     (princ (multiple-value-list (color-coordinates color)) stream)))
