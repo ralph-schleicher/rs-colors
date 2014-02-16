@@ -63,24 +63,11 @@ Example:
 
      (make-srgb-color 252/255 175/255 62/255)
      (make-srgb-color 252 175 62 :byte-size 8)"
-  (let (r g b)
-    (if (not byte-size)
-	(setf r (ensure-type red '(real 0 1))
-	      g (ensure-type green '(real 0 1))
-	      b (ensure-type blue '(real 0 1)))
-      (let ((s (1- (expt 2 (ensure-type byte-size '(integer 1))))))
-	(setf r (/ (ensure-type red `(integer 0 ,s)) s)
-	      g (/ (ensure-type green `(integer 0 ,s)) s)
-	      b (/ (ensure-type blue `(integer 0 ,s)) s))))
-    (make-instance 'srgb-color :red r :green g :blue b)))
+  (make-rgb-color 'srgb-color red green blue byte-size))
 
 (export 'make-srgb-color-from-number)
 (defun make-srgb-color-from-number (value &key (byte-size 8))
-  (ensure-type value '(integer 0))
-  (ensure-type byte-size '(integer 1))
-  (multiple-value-bind (r g b)
-      (decode-triple value byte-size)
-    (make-srgb-color r g b :byte-size byte-size)))
+  (make-rgb-color-from-number 'srgb-color value byte-size))
 
 ;; ITU-R BT.709 truncates the CIE 1931 color space chromaticity
 ;; coordinates of the D65 standard illuminant to four decimal
@@ -99,11 +86,11 @@ Example:
 				     (cie-xyy-color-coordinates srgb-white-point)
 				   (vector x* y*)))
   (defconst srgb-from-cie-xyz-transformation-matrix rgb-from-xyz
-    "Transformation matrix to convert CIE XYZ color space coordinates
+    "Transformation matrix to convert normalized CIE XYZ color space coordinates
 into linear sRGB color space coordinates.")
   (defconst cie-xyz-from-srgb-transformation-matrix xyz-from-rgb
     "Transformation matrix to convert linear sRGB color space coordinates
-into CIE XYZ color space coordinates.")
+into normalized CIE XYZ color space coordinates.")
   (values))
 
 (defun srgb-gamma-encoding (c)
@@ -133,7 +120,7 @@ into linear sRGB color space coordinates."
 	 (/ c 12.92D0))))
 
 (defun srgb-from-cie-xyz (x y z)
-  "Convert CIE XYZ color space coordinates
+  "Convert normalized CIE XYZ color space coordinates
 into sRGB color space coordinates."
   (declare (type real x y z))
   (multiple-value-bind (r g b)
@@ -145,7 +132,7 @@ into sRGB color space coordinates."
 
 (defun cie-xyz-from-srgb (r g b)
   "Convert sRGB color space coordinates
-into CIE XYZ color space coordinates."
+into normalized CIE XYZ color space coordinates."
   (declare (type real r g b))
   (linear-transformation cie-xyz-from-srgb-transformation-matrix
 			 (srgb-gamma-decoding r)
