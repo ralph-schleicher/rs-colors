@@ -108,21 +108,6 @@ value (luminance).")
   (multiple-value-call #'cie-xyz-from-cie-xyy
     (color-coordinates color)))
 
-(export 'the-cie-xyy-color)
-(defun the-cie-xyy-color (color)
-  "Coerce the color object into the CIE xyY color space.
-
-Argument COLOR is a color object.
-
-If argument COLOR is already a color in the CIE xyY color space,
-return COLOR as is (no conversion).  Otherwise, return a new color
-with the color coordinates of COLOR converted into the CIE xyY color
-space."
-  (if (eq (type-of color) 'cie-xyy-color)
-      color
-    (multiple-value-call #'make-cie-xyy-color
-      (cie-xyy-color-coordinates color))))
-
 (defmethod update-instance-for-different-class :after ((old color-object) (new cie-xyy-color) &key)
   (with-slots (x* y* y) new
     (multiple-value-setq (x* y* y)
