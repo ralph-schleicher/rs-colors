@@ -131,22 +131,6 @@ Argument COLOR is a color object.")
       (cie-luv-color-coordinates color)
     (cie-xyz-from-cie-luv L* u* v* (white-point color))))
 
-(export 'the-cie-luv-color)
-(defun the-cie-luv-color (color)
-  "Coerce the color object into the CIE L*u*v* color space.
-
-Argument COLOR is a color object.
-
-If argument COLOR is already a color in the CIE L*u*v* color space,
-return COLOR as is (no conversion).  Otherwise, return a new color
-with the color coordinates of COLOR converted into the CIE L*u*v*
-color space."
-  (if (eq (type-of color) 'cie-luv-color)
-      color
-    (multiple-value-bind (L* u* v*)
-	(cie-luv-color-coordinates color)
-      (make-cie-luv-color L* u* v* :white-point (white-point color)))))
-
 (defmethod update-instance-for-different-class :after ((old color-object) (new cie-luv-color) &key)
   (with-slots (L* u* v*) new
     (multiple-value-setq (L* u* v*)

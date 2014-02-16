@@ -74,21 +74,6 @@ Values are the X, Y, and Z tristimulus values.")
   (:method ((color cie-xyz-color))
     (color-coordinates color)))
 
-(export 'the-cie-xyz-color)
-(defun the-cie-xyz-color (color)
-  "Coerce the color into the CIE XYZ color space.
-
-Argument COLOR is a color object.
-
-If argument COLOR is already a color in the CIE XYZ color space,
-return COLOR as is (no conversion).  Otherwise, return a new color
-with the color coordinates of COLOR converted into the CIE XYZ color
-space."
-  (if (eq (type-of color) 'cie-xyz-color)
-      color
-    (multiple-value-call #'make-cie-xyz-color
-      (cie-xyz-color-coordinates color))))
-
 (defmethod update-instance-for-different-class :after ((old color-object) (new cie-xyz-color) &key)
   (with-slots (x y z) new
     (multiple-value-setq (x y z)

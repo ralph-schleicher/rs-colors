@@ -101,21 +101,6 @@ Values are the intensities of the red, green, and blue primary.")
   (multiple-value-call #'cie-xyz-from-cie-rgb
     (color-coordinates color)))
 
-(export 'the-cie-rgb-color)
-(defun the-cie-rgb-color (color)
-  "Coerce the color object into the CIE RGB color space.
-
-Argument COLOR is a color object.
-
-If argument COLOR is already a color in the CIE RGB color space,
-return COLOR as is (no conversion).  Otherwise, return a new color
-with the color coordinates of COLOR converted into the CIE RGB color
-space."
-  (if (eq (type-of color) 'cie-rgb-color)
-      color
-    (multiple-value-call #'make-cie-rgb-color
-      (cie-rgb-color-coordinates color))))
-
 (defmethod update-instance-for-different-class :after ((old color-object) (new cie-rgb-color) &key)
   (with-slots (r g b) new
     (multiple-value-setq (r g b)

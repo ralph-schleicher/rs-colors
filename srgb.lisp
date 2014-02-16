@@ -175,21 +175,6 @@ Values are the intensities of the red, green, and blue primary.")
   (multiple-value-call #'cie-xyz-from-srgb
     (color-coordinates color)))
 
-(export 'the-srgb-color)
-(defun the-srgb-color (color)
-  "Coerce the color object into the sRGB color space.
-
-Argument COLOR is a color object.
-
-If argument COLOR is already a color in the sRGB color space,
-return COLOR as is (no conversion).  Otherwise, return a new color
-with the color coordinates of COLOR converted into the sRGB color
-space."
-  (if (eq (type-of color) 'srgb-color)
-      color
-    (multiple-value-call #'make-srgb-color
-      (srgb-color-coordinates color))))
-
 (defmethod update-instance-for-different-class :after ((old color-object) (new srgb-color) &key)
   (with-slots (r g b) new
     (multiple-value-setq (r g b)
