@@ -38,8 +38,8 @@
   :description "A color data type for Common Lisp."
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
-  :version "20140216.1951"
-  :depends-on (:alexandria :closer-mop)
+  :version "20140217.2019"
+  :depends-on (:alexandria :closer-mop :lisp-unit)
   :serial t
   :components ((:file "rs-colors")
 	       (:file "utilities")
