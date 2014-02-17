@@ -71,16 +71,16 @@ Example:
   adobe-rgb-white-point)
 
 (multiple-value-bind (rgb-from-xyz xyz-from-rgb)
-    (values (make-matrix  2.04159 -0.56501 -0.34473
-			 -0.96924  1.87597  0.04156
-			  0.01344 -0.11836  1.01518)
-	    (make-matrix  0.57667  0.18556  0.18823
-			  0.29735  0.62736  0.07529
-			  0.02703  0.07069  0.99133))
-  (defconst adobe-rgb-from-cie-xyz-transformation-matrix rgb-from-xyz
+    (rgb-transformation-matrices #(64/100 33/100)
+				 #(21/100 71/100)
+				 #(15/100  6/100)
+				 (multiple-value-bind (x* y*)
+				     (cie-xyy-color-coordinates adobe-rgb-white-point)
+				   (vector x* y*)))
+  (defconst adobe-rgb-from-cie-xyz-transformation-matrix (float-array rgb-from-xyz)
     "Transformation matrix to convert normalized CIE XYZ color space coordinates
 into linear Adobe RGB color space coordinates.")
-  (defconst cie-xyz-from-adobe-rgb-transformation-matrix xyz-from-rgb
+  (defconst cie-xyz-from-adobe-rgb-transformation-matrix (float-array xyz-from-rgb)
     "Transformation matrix to convert linear Adobe RGB color space coordinates
 into normalized CIE XYZ color space coordinates.")
   (values))
