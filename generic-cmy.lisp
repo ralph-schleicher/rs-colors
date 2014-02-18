@@ -72,6 +72,25 @@ Example:
 	      y (/ (ensure-type yellow `(integer 0 ,s)) s))))
     (make-instance 'generic-cmy-color :cyan c :magenta m :yellow y)))
 
+(export 'make-generic-cmy-color-from-number)
+(defun make-generic-cmy-color-from-number (value &key (byte-size 8))
+  "Create a new color in the generic CMY color space.
+
+Argument VALUE is a non-negative integral number.
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  Default is eight bit (one byte).  The most significant bits
+denote the intensity of the red primary.
+
+Example:
+
+     (make-generic-cmy-color-from-number #X0350C1)"
+  (ensure-type value '(integer 0))
+  (ensure-type byte-size '(integer 1))
+  (multiple-value-bind (cyan magenta yellow)
+      (decode-triple value byte-size)
+    (make-generic-cmy-color cyan magenta yellow byte-size)))
+
 (defun generic-cmy-from-generic-rgb (r g b)
   "Convert RGB color space coordinates
 into CMY color space coordinates."
