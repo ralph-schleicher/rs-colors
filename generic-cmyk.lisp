@@ -51,8 +51,8 @@ Second argument MAGENTA is the intensity of the magenta ink.
 Third argument YELLOW is the intensity of the yellow ink.
 Fourth argument BLACK is the intensity of the black ink.
 
-Arguments CYAN, MAGENTA, YELLOW, and BLACK have to be normalized color
-values in the closed interval [0, 1].
+Arguments CYAN, MAGENTA, YELLOW, and BLACK have to be normalized
+intensity values in the closed interval [0, 1].
 
 Keyword argument BYTE-SIZE is the number of bits used to represent a
 color value.  If specified, arguments CYAN, MAGENTA, YELLOW, and BLACK
@@ -60,8 +60,8 @@ are scaled accordingly.
 
 Example:
 
-     (make-generic-cmyk-color 3/255 80/255 193/255)
-     (make-generic-cmyk-color 3 80 193 :byte-size 8)"
+     (make-generic-cmyk-color 3/255 80/255 193/255 0)
+     (make-generic-cmyk-color 3 80 193 0 :byte-size 8)"
   (let (c m y k)
     (if (not byte-size)
 	(setf c (ensure-type cyan '(real 0 1))
@@ -79,6 +79,25 @@ Example:
 	  ((= k 1)
 	   (setf c 0 m 0 y 0)))
     (make-instance 'generic-cmyk-color :cyan c :magenta m :yellow y :black k)))
+
+(export 'make-generic-cmyk-color-from-number)
+(defun make-generic-cmyk-color-from-number (value &key (byte-size 8))
+  "Create a new color in the generic CMYK color space.
+
+Argument VALUE is a non-negative integral number.
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  Default is eight bit (one byte).  The most significant bits
+denote the intensity of the cyan primary.
+
+Example:
+
+     (make-generic-cmyk-color-from-number #X0350C100)"
+  (ensure-type value '(integer 0))
+  (ensure-type byte-size '(integer 1))
+  (multiple-value-bind (cyan magenta yellow black)
+      (decode-quadruple value byte-size)
+    (make-generic-cmyk-color cyan magenta yellow black byte-size)))
 
 (defun generic-cmyk-from-generic-cmy (c m y)
   "Convert CMY color space coordinates
