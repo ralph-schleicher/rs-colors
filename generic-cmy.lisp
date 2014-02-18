@@ -80,7 +80,7 @@ Argument VALUE is a non-negative integral number.
 
 Keyword argument BYTE-SIZE is the number of bits used to represent a
 primary.  Default is eight bit (one byte).  The most significant bits
-denote the intensity of the red primary.
+denote the intensity of the cyan primary.
 
 Example:
 
