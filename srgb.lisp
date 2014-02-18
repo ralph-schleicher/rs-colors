@@ -67,6 +67,17 @@ Example:
 
 (export 'make-srgb-color-from-number)
 (defun make-srgb-color-from-number (value &key (byte-size 8))
+  "Create a new color in the sRGB color space.
+
+Argument VALUE is a non-negative integral number.
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  Default is eight bit (one byte).  The most significant bits
+denote the intensity of the red primary.
+
+Example:
+
+     (make-srgb-color-from-number #XFCAF3E)"
   (make-rgb-color-from-number 'srgb-color value byte-size))
 
 ;; ITU-R BT.709 truncates the CIE 1931 color space chromaticity
