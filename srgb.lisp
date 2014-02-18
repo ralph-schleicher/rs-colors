@@ -85,10 +85,10 @@ Example:
 				 (multiple-value-bind (x* y*)
 				     (cie-xyy-color-coordinates srgb-white-point)
 				   (vector x* y*)))
-  (defconst srgb-from-cie-xyz-transformation-matrix rgb-from-xyz
+  (defconst srgb-from-cie-xyz-transformation-matrix (float-array rgb-from-xyz 1D0)
     "Transformation matrix to convert normalized CIE XYZ color space coordinates
 into linear sRGB color space coordinates.")
-  (defconst cie-xyz-from-srgb-transformation-matrix xyz-from-rgb
+  (defconst cie-xyz-from-srgb-transformation-matrix (float-array xyz-from-rgb 1D0)
     "Transformation matrix to convert linear sRGB color space coordinates
 into normalized CIE XYZ color space coordinates.")
   (values))
@@ -102,7 +102,7 @@ into sRGB color space coordinates."
 	((= c 1)
 	 1)
 	((> c 0.0031308D0)
-	 (- (* (expt c 10/24) 1.055D0) 0.055D0))
+	 (- (* (expt (float c 1D0) 10/24) 1.055D0) 0.055D0))
 	(t
 	 (* c 12.92D0))))
 
