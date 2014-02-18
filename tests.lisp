@@ -74,6 +74,6 @@
 			    (< (abs (- b bo)) eps))
 		 (collect value))))))))
 
-(run-tests '(srgb-regression-test))
+(run-tests)
 
 ;;; tests.lisp ends here
