@@ -61,16 +61,22 @@ Example:
 
      (make-generic-rgb-color 252/255 175/255 62/255)
      (make-generic-rgb-color 252 175 62 :byte-size 8)"
-  (let (r g b)
-    (if (not byte-size)
-	(setf r (ensure-type red '(real 0 1))
-	      g (ensure-type green '(real 0 1))
-	      b (ensure-type blue '(real 0 1)))
-      (let ((s (1- (expt 2 (ensure-type byte-size '(integer 1))))))
-	(setf r (/ (ensure-type red `(integer 0 ,s)) s)
-	      g (/ (ensure-type green `(integer 0 ,s)) s)
-	      b (/ (ensure-type blue `(integer 0 ,s)) s))))
-    (make-instance 'generic-rgb-color :red r :green g :blue b)))
+  (make-rgb-color 'generic-rgb-color red green blue byte-size))
+
+(export 'make-generic-rgb-color-from-number)
+(defun make-generic-rgb-color-from-number (value &key (byte-size 8))
+  "Create a new color in the generic RGB color space.
+
+Argument VALUE is a non-negative integral number.
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  Default is eight bit (one byte).  The most significant bits
+denote the intensity of the red primary.
+
+Example:
+
+     (make-generic-rgb-color-from-number #XFCAF3E)"
+  (make-rgb-color-from-number 'generic-rgb-color value byte-size))
 
 (export 'generic-hsv-color)
 (defclass generic-hsv-color (hsv-color-object generic-color-object)
