@@ -253,21 +253,7 @@ of the argument Z to its value."
 	     (* (aref a 2 1) x2)
 	     (* (aref a 2 2) x3))))
 
-;;;; CIE Color Spaces
-
-(defun cie-L*-from-Y/Yn (Y/Yn)
-  "Map relative luminance Y/Yn to lightness L*."
-  (if (> Y/Yn 216/24389)
-      (- (* 116 (cube-root Y/Yn)) 16)
-    (* 24389/27 Y/Yn)))
-
-(defun cie-Y/Yn-from-L* (L*)
-  "Map lightness L* to relative luminance Y/Yn."
-  (if (> L* 8)
-      (cube (/ (+ L* 16) 116))
-    (* 27/24389 L*)))
-
-;;;; RGB Color Spaces
+;;;; Tuple
 
 (defun encode-triple (a b c &optional (byte-size 8))
   (let ((s (expt 2 byte-size)))
@@ -284,6 +270,41 @@ of the argument Z to its value."
     (multiple-value-setq (a b)
       (truncate v s))
     (values a b c)))
+
+(defun encode-quadruple (a b c d &optional (byte-size 8))
+  (let ((s (expt 2 byte-size)))
+    (+ (* (+ (* (+ (* a s) b) s) c) s) d)))
+
+(defun decode-quadruple (value &optional (byte-size 8))
+  (let ((s (expt 2 byte-size))
+	(v value)
+	(a 0)
+	(b 0)
+	(c 0)
+	(d 0))
+    (multiple-value-setq (v d)
+      (truncate v s))
+    (multiple-value-setq (v c)
+      (truncate v s))
+    (multiple-value-setq (a b)
+      (truncate v s))
+    (values a b c d)))
+
+;;;; CIE Color Spaces
+
+(defun cie-L*-from-Y/Yn (Y/Yn)
+  "Map relative luminance Y/Yn to lightness L*."
+  (if (> Y/Yn 216/24389)
+      (- (* 116 (cube-root Y/Yn)) 16)
+    (* 24389/27 Y/Yn)))
+
+(defun cie-Y/Yn-from-L* (L*)
+  "Map lightness L* to relative luminance Y/Yn."
+  (if (> L* 8)
+      (cube (/ (+ L* 16) 116))
+    (* 27/24389 L*)))
+
+;;;; RGB Color Spaces
 
 (defun rgb-transformation-matrices (red green blue white)
   "Return the transformation matrix for converting CIE XYZ color space
