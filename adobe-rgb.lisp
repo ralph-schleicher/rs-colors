@@ -62,6 +62,17 @@ Example:
 
 (export 'make-adobe-rgb-color-from-number)
 (defun make-adobe-rgb-color-from-number (value &key (byte-size 8))
+  "Create a new color in the Adobe RGB color space.
+
+Argument VALUE is a non-negative integral number.
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  Default is eight bit (one byte).  The most significant bits
+denote the intensity of the red primary.
+
+Example:
+
+     (make-adobe-rgb-color-from-number #XFCAF3E)"
   (make-rgb-color-from-number 'adobe-rgb-color value byte-size))
 
 (defconst adobe-rgb-white-point (make-cie-xyy-color 3127/10000 3290/10000 1)
