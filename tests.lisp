@@ -42,6 +42,22 @@
 
 (in-package :rs-colors-tests)
 
+(define-test srgb-regression-test
+  (assert-false
+   (iter (for value :from 0 :to (1- (expt 2 24)))
+	 (for color = (make-srgb-color-from-number value))
+	 (multiple-value-bind (ro go bo)
+	     (color-coordinates color)
+	   (change-class color 'cie-xyz-color)
+	   (change-class color 'srgb-color)
+	   (multiple-value-bind (r g b)
+	       (color-coordinates color)
+	     (let ((eps #.(/ (expt 2 31))))
+	       (unless (and (< (abs (- r ro)) eps)
+			    (< (abs (- g go)) eps)
+			    (< (abs (- b bo)) eps))
+		 (collect value))))))))
+
 (define-test adobe-rgb-regression-test
   (assert-false
    (iter (for value :from 0 :to (1- (expt 2 24)))
@@ -58,6 +74,6 @@
 			    (< (abs (- b bo)) eps))
 		 (collect value))))))))
 
-(run-tests)
+(run-tests '(srgb-regression-test))
 
 ;;; tests.lisp ends here
