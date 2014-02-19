@@ -80,27 +80,51 @@ Values are the X, Y, and Z tristimulus values.")
       (cie-xyz-color-coordinates old))))
 
 (defmethod normalize-color ((color cie-xyz-color) &key black white)
-  (let (xk yk zk xw yw zw)
-    (multiple-value-setq (xk yk zk)
-      (cie-xyz-color-coordinates black))
-    (multiple-value-setq (xw yw zw)
-      (cie-xyz-color-coordinates white))
-    (with-slots (x y z) color
-      (setf x (* (/ (- x xk) (- xw xk)) (/ xw yw))
-	    y (* (/ (- y yk) (- yw yk)))
-	    z (* (/ (- z zk) (- zw zk)) (/ zw yw))))
-    color))
+  (let ((yk (etypecase black
+	      (real
+	       black)
+	      (color-object
+	       (multiple-value-bind (x y z)
+		   (cie-xyz-color-coordinates black)
+		 y))))
+	(yw (etypecase white
+	      (real
+	       white)
+	      (color-object
+	       (multiple-value-bind (x y z)
+		   (cie-xyz-color-coordinates white)
+		 y)))))
+    (multiple-value-bind (x* y* y)
+	(cie-xyy-color-coordinates color)
+      (setf y (/ (- y yk) (- yw yk)))
+      (multiple-value-bind (xn yn zn)
+	  (cie-xyz-from-cie-xyy x* y* y)
+	(with-slots (x y z) color
+	  (setf x xn y yn z zn)))))
+  color)
 
 (defmethod absolute-color ((color cie-xyz-color) &key black white)
-  (let (xk yk zk xw yw zw)
-    (multiple-value-setq (xk yk zk)
-      (cie-xyz-color-coordinates black))
-    (multiple-value-setq (xw yw zw)
-      (cie-xyz-color-coordinates white))
-    (with-slots (x y z) color
-      (setf x (+ xk (* x (- xw xk) (/ yw xw)))
-	    y (+ yk (* y (- yw yk)))
-	    z (+ zk (* z (- zw zk) (/ yw zw)))))
-    color))
+  (let ((yk (etypecase black
+	      (real
+	       black)
+	      (color-object
+	       (multiple-value-bind (x y z)
+		   (cie-xyz-color-coordinates black)
+		 y))))
+	(yw (etypecase white
+	      (real
+	       white)
+	      (color-object
+	       (multiple-value-bind (x y z)
+		   (cie-xyz-color-coordinates white)
+		 y)))))
+    (multiple-value-bind (x* y* y)
+	(cie-xyy-color-coordinates color)
+      (setf y (+ yk (* y (- yw yk))))
+      (multiple-value-bind (xa ya za)
+	  (cie-xyz-from-cie-xyy x* y* y)
+	(with-slots (x y z) color
+	  (setf x xa y ya z za)))))
+  color)
 
 ;;; cie-xyz.lisp ends here
