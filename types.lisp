@@ -225,4 +225,12 @@ space denoted by COLOR-TYPE."
   ()
   (:documentation "Color class for the mathematical model of a color space."))
 
+(export 'normalize-color)
+(defgeneric normalize-color (color &key)
+  (:documentation "Convert from absolute color coordinates to normalized color coordinates."))
+
+(export 'absolute-color)
+(defgeneric absolute-color (color &key)
+  (:documentation "Convert from normalized color coordinates to absolute color coordinates."))
+
 ;;; types.lisp ends here
