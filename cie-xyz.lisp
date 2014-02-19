@@ -79,4 +79,28 @@ Values are the X, Y, and Z tristimulus values.")
     (multiple-value-setq (x y z)
       (cie-xyz-color-coordinates old))))
 
+(defmethod normalize-color ((color cie-xyz-color) &key black white)
+  (let (xk yk zk xw yw zw)
+    (multiple-value-setq (xk yk zk)
+      (cie-xyz-color-coordinates black))
+    (multiple-value-setq (xw yw zw)
+      (cie-xyz-color-coordinates white))
+    (with-slots (x y z) color
+      (setf x (* (/ (- x xk) (- xw xk)) (/ xw yw))
+	    y (* (/ (- y yk) (- yw yk)))
+	    z (* (/ (- z zk) (- zw zk)) (/ zw yw))))
+    color))
+
+(defmethod absolute-color ((color cie-xyz-color) &key black white)
+  (let (xk yk zk xw yw zw)
+    (multiple-value-setq (xk yk zk)
+      (cie-xyz-color-coordinates black))
+    (multiple-value-setq (xw yw zw)
+      (cie-xyz-color-coordinates white))
+    (with-slots (x y z) color
+      (setf x (+ xk (* x (- xw xk) (/ yw xw)))
+	    y (+ yk (* y (- yw yk)))
+	    z (+ zk (* z (- zw zk) (/ yw zw)))))
+    color))
+
 ;;; cie-xyz.lisp ends here
