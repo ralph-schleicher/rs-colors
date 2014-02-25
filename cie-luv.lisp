@@ -68,7 +68,7 @@
 (export 'make-cie-luv-color)
 (defun make-cie-luv-color (L* u* v* &optional white-point)
   "Create a new color in the CIE L*u*v* color space."
-  (make-instance 'cie-luv-color :L* (ensure-type L* '(real 0)) :u* (ensure-type u* 'real) :v* (ensure-type v* 'real) :white-point (ensure-type  (or white-point CIE-1931-D50) 'color-object)))
+  (make-instance 'cie-luv-color :L* (ensure-type L* '(real 0)) :u* (ensure-type u* 'real) :v* (ensure-type v* 'real) :white-point (ensure-type (or white-point CIE-1931-D50) 'color-object)))
 
 (defun cie-uv-from-xy (x y s)
   (declare (type real x y s))
