@@ -225,6 +225,11 @@ space denoted by COLOR-TYPE."
   ()
   (:documentation "Color class for the mathematical model of a color space."))
 
+(defgeneric absolute-luminance (object)
+  (:documentation "Return absolute luminance.")
+  (:method ((object real))
+    (ensure-type object '(real 0))))
+
 (export 'normalize-color)
 (defgeneric normalize-color (color &key)
   (:documentation "Convert from absolute color coordinates to normalized color coordinates."))
