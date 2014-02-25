@@ -113,24 +113,21 @@ value (luminance).")
     (multiple-value-setq (x* y* y)
       (cie-xyy-color-coordinates old))))
 
-(defmethod normalize-color ((color cie-xyy-color) &key black white)
-  (let (xk yk zk xw yw zw)
-    (multiple-value-setq (xk yk zk)
-      (cie-xyz-color-coordinates black))
-    (multiple-value-setq (xw yw zw)
-      (cie-xyz-color-coordinates white))
-    (with-slots (y) color
-      (setf y (/ (- y yk) (- yw yk))))
-    color))
+(defmethod absolute-luminance ((color cie-xyy-color))
+  (slot-value color 'y))
 
-(defmethod absolute-color ((color cie-xyy-color) &key black white)
-  (let (xk yk zk xw yw zw)
-    (multiple-value-setq (xk yk zk)
-      (cie-xyz-color-coordinates black))
-    (multiple-value-setq (xw yw zw)
-      (cie-xyz-color-coordinates white))
+(defmethod normalize-color ((color cie-xyy-color) &key (white 1) (black 0))
+  (let ((yw (absolute-luminance white))
+	(yk (absolute-luminance black)))
     (with-slots (y) color
-      (setf y (+ yk (* y (- yw yk)))))
-    color))
+      (setf y (/ (- y yk) (- yw yk)))))
+  color)
+
+(defmethod absolute-color ((color cie-xyy-color) &key (white 1) (black 0))
+  (let ((yw (absolute-luminance white))
+	(yk (absolute-luminance black)))
+    (with-slots (y) color
+      (setf y (+ yk (* y (- yw yk))))))
+  color)
 
 ;;; cie-xyy.lisp ends here
