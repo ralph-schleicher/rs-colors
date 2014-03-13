@@ -1,0 +1,1175 @@
+This is rs-colors.info, produced by makeinfo version 5.2 from
+rs-colors.texi.
+
+This is edition 1 (draft), last updated 2014-03-13, of 'RS-COLORS - A
+Color Data Type for Common Lisp', for RS-COLORS version 20131204.2148.
+
+     Copyright (C) 2014 Ralph Schleicher
+
+     Permission is granted to make and distribute verbatim copies of
+     this manual, provided the copyright notice and this permission
+     notice are preserved on all copies.
+
+Please report any errors in this manual to <rs@ralph-schleicher.de>.
+INFO-DIR-SECTION Libraries
+START-INFO-DIR-ENTRY
+* rs-colors: (rs-colors).       A color data type for Common Lisp.
+END-INFO-DIR-ENTRY
+
+
+File: rs-colors.info,  Node: Top,  Next: Introduction,  Prev: (dir),  Up: (dir)
+
+RS-COLORS
+*********
+
+This is edition 1 (draft), last updated 2014-03-13, of 'RS-COLORS - A
+Color Data Type for Common Lisp', for RS-COLORS version 20131204.2148.
+
+     Copyright (C) 2014 Ralph Schleicher
+
+     Permission is granted to make and distribute verbatim copies of
+     this manual, provided the copyright notice and this permission
+     notice are preserved on all copies.
+
+Please report any errors in this manual to <rs@ralph-schleicher.de>.
+
+* Menu:
+
+* Introduction::
+* User's Guide::
+* Programmer's Guide::
+* Reference Manual::
+* Symbol Index::
+* Concept Index::
+
+
+File: rs-colors.info,  Node: Introduction,  Next: User's Guide,  Prev: Top,  Up: Top
+
+1 Introduction
+**************
+
+A color is either associated with a color model or a color space.  Two
+color models are in widespread use with computers:
+
+   * The additive RGB color model with the primary colors red, green,
+     and blue.
+
+   * The subtractive CMY color model with the primary colors cyan,
+     magenta, and yellow.
+
+The RGB color model is the usual color model for computer displays.  If
+the color intensity of all primary colors is zero, that means "off", the
+display appears "black".  Otherwise, if the color intensity of all
+primary colors is one, that means "on", the display appears "white".
+
+The CMY color model is the usual color model for paper printers.  If the
+color intensity of all primary colors is zero, that means "off", the
+paper appears "white".  Otherwise, if the color intensity of all primary
+colors is one, that means "on", the paper appears "black".
+
+Theoretically, a RGB tuple (R, G, B) and a CMY tuple (C, M, Y) are
+related to each other via the simple equations
+
+     C = 1 - R
+     M = 1 - G
+     Y = 1 - B
+
+
+File: rs-colors.info,  Node: User's Guide,  Next: Programmer's Guide,  Prev: Introduction,  Up: Top
+
+2 User's Guide
+**************
+
+* Menu:
+
+* The Color Data Type::
+* Creating Color Objects::
+* Color Coordinates::
+* White Point::
+* Color Conversion::
+
+
+File: rs-colors.info,  Node: The Color Data Type,  Next: Creating Color Objects,  Prev: User's Guide,  Up: User's Guide
+
+2.1 The Color Data Type
+=======================
+
+First of all, there is not _one_ color data type.  Instead, every color
+is an instance of a particular color class.  All color classes are
+sub-classes of the abstract *note 'color-object':
+class:rs-colors:color-object. class.  The built-in color classes are
+listed in the following tables.
+
+Color Classes for Color Models
+==============================
+
+*note 'generic-rgb-color': class:rs-colors:generic-rgb-color.
+     Mathematical description of the RGB color model.
+
+*note 'generic-hsv-color': class:rs-colors:generic-hsv-color.
+     Mathematical description of the HSV color space.  The HSV color
+     space is a different representation of the RGB color model.
+
+*note 'generic-hsl-color': class:rs-colors:generic-hsl-color.
+     Mathematical description of the HSL color space.  The HSL color
+     space is a different representation of the RGB color model.
+
+*note 'generic-cmy-color': class:rs-colors:generic-cmy-color.
+     Mathematical description of the CMY color model.
+
+*note 'generic-cmyk-color': class:rs-colors:generic-cmyk-color.
+     Mathematical description of the CMYK color model.
+
+Color Classes for Absolute Color Spaces
+=======================================
+
+*note 'cie-rgb-color': class:rs-colors:cie-rgb-color.
+     The CIE RGB color space.
+
+*note 'cie-xyz-color': class:rs-colors:cie-xyz-color.
+     The CIE XYZ color space.
+
+*note 'cie-xyy-color': class:rs-colors:cie-xyy-color.
+     The CIE xyY color space.
+
+*note 'cie-luv-color': class:rs-colors:cie-luv-color.
+     The CIE L*u*v* color space.
+
+*note 'cie-lab-color': class:rs-colors:cie-lab-color.
+     The CIE L*a*b* color space.
+
+Color Classes for Device Dependent Color Spaces
+===============================================
+
+*note 'srgb-color': class:rs-colors:srgb-color.
+     The sRGB color space.
+
+*note 'adobe-rgb-color': class:rs-colors:adobe-rgb-color.
+     The Adobe RGB color space.
+
+
+File: rs-colors.info,  Node: Creating Color Objects,  Next: Color Coordinates,  Prev: The Color Data Type,  Up: User's Guide
+
+2.2 Creating Color Objects
+==========================
+
+Colors are instantiated by calling a constructor function.  Constructor
+arguments are usually the color coordinates in the respective color
+space.  To create, for example, a color in the sRGB color space, say
+
+     (make-srgb-color 252/255 175/255 62/255)
+      => #<SRGB-COLOR (84/85 35/51 62/255)>
+
+Many color coordinates have to be expressed as intensity values, that is
+values in the range from zero to one inclusive.  That's the reason why
+the sRGB color coordinates in the above example are specified as
+rational numbers.
+
+Some constructors accept a ':byte-size' keyword argument.  This is
+useful if the scale factor is equal for all color coordinates.  With
+that we can rewrite the above example as
+
+     (make-srgb-color 252 175 62 :byte-size 8)
+      => #<SRGB-COLOR (84/85 35/51 62/255)>
+
+As you can see, the resulting color coordinates are equal.  Another
+common case is to encode the color coordinates in a single integral
+number.  Again, the ':byte-size' keyword argument specifies how many
+bits are used to encode a single color coordinate.  Thus,
+
+     (make-srgb-color-from-number #XFCAF3E :byte-size 8)
+      => #<SRGB-COLOR (84/85 35/51 62/255)>
+
+results in the same color as before.
+
+The built-in constructors are listed in the following table.
+
+*note 'make-generic-rgb-color': function:rs-colors:make-generic-rgb-color.
+*note 'make-generic-rgb-color-from-number': function:rs-colors:make-generic-rgb-color-from-number.
+     Create a generic RGB color object.
+
+*note 'make-generic-hsv-color': function:rs-colors:make-generic-hsv-color.
+     Create a generic HSV color object.
+
+*note 'make-generic-hsl-color': function:rs-colors:make-generic-hsl-color.
+     Create a generic HSL color object.
+
+*note 'make-generic-cmy-color': function:rs-colors:make-generic-cmy-color.
+*note 'make-generic-cmy-color-from-number': function:rs-colors:make-generic-cmy-color-from-number.
+     Create a generic CMY color object.
+
+*note 'make-generic-cmyk-color': function:rs-colors:make-generic-cmyk-color.
+*note 'make-generic-cmyk-color-from-number': function:rs-colors:make-generic-cmyk-color-from-number.
+     Create a generic CMYK color object.
+
+*note 'make-cie-rgb-color': function:rs-colors:make-cie-rgb-color.
+     Create a CIE RGB color object.
+
+*note 'make-cie-xyz-color': function:rs-colors:make-cie-xyz-color.
+     Create a CIE XYZ color object.
+
+*note 'make-cie-xyy-color': function:rs-colors:make-cie-xyy-color.
+     Create a CIE xyY color object.
+
+*note 'make-cie-luv-color': function:rs-colors:make-cie-luv-color.
+     Create a CIE L*u*v* color object.
+
+*note 'make-cie-lab-color': function:rs-colors:make-cie-lab-color.
+     Create a CIE L*a*b* color object.
+
+*note 'make-srgb-color': function:rs-colors:make-srgb-color.
+*note 'make-srgb-color-from-number': function:rs-colors:make-srgb-color-from-number.
+     Create a sRGB color object.
+
+*note 'make-adobe-rgb-color': function:rs-colors:make-adobe-rgb-color.
+*note 'make-adobe-rgb-color-from-number': function:rs-colors:make-adobe-rgb-color-from-number.
+     Create an Adobe RGB color object.
+
+
+File: rs-colors.info,  Node: Color Coordinates,  Next: White Point,  Prev: Creating Color Objects,  Up: User's Guide
+
+2.3 Color Coordinates
+=====================
+
+Use the *note 'color-coordinates':
+generic-function:rs-colors:color-coordinates. function to get the color
+coordinates of a color.
+
+     (let ((color (make-srgb-color 252 175 62 :byte-size 8)))
+       ;; We know that COLOR is an RGB color.
+       (multiple-value-bind (r g b)
+           (color-coordinates color)
+         (list r g b)))
+      => (84/85 35/51 62/255)
+
+A more useful way to get the color coordinates of a color is described
+in *note Color Conversion::.
+
+
+File: rs-colors.info,  Node: White Point,  Next: Color Conversion,  Prev: Color Coordinates,  Up: User's Guide
+
+2.4 White Point
+===============
+
+A device dependent color space usually has a "white point".  If so, the
+*note 'white-point': generic-function:rs-colors:white-point. function
+returns a color object of this white point.
+
+
+File: rs-colors.info,  Node: Color Conversion,  Prev: White Point,  Up: User's Guide
+
+2.5 Color Conversion
+====================
+
+ [image src="color-conversion.png" ]
+
+Figure 2.1
+
+*note Figure 2.1: figure:color-conversion. depicts the implemented color
+conversions.  The nice thing about RS-COLORS is that all these color
+conversions can be performed with the 'change-class' function.
+
+     (let ((color (make-srgb-color 252 175 62 :byte-size 8)))
+       (values (change-class color 'generic-cmyk-color) color))
+      => #<GENERIC-CMYK-COLOR (0 11/36 95/126 1/85)>
+      => #<GENERIC-CMYK-COLOR (0 11/36 95/126 1/85)>
+
+If you wish to keep the original color object unchanged, use the
+'coerce-color' function.
+
+     (let ((color (make-srgb-color 252 175 62 :byte-size 8)))
+       (values (coerce-color color 'generic-cmyk-color) color))
+      => #<GENERIC-CMYK-COLOR (0 11/36 95/126 1/85)>
+      => #<SRGB-COLOR (84/85 35/51 62/255)>
+
+The 'coerce-color' function only creates a copy of the color if the
+color object is not already of the correct type.
+
+If you only need the color coordinates, you can call one of the
+following functions to get them.
+
+*note 'generic-rgb-color-coordinates': generic-function:rs-colors:generic-rgb-color-coordinates.
+*note 'generic-hsv-color-coordinates': generic-function:rs-colors:generic-hsv-color-coordinates.
+*note 'generic-hsl-color-coordinates': generic-function:rs-colors:generic-hsl-color-coordinates.
+*note 'generic-cmy-color-coordinates': generic-function:rs-colors:generic-cmy-color-coordinates.
+*note 'generic-cmyk-color-coordinates': generic-function:rs-colors:generic-cmyk-color-coordinates.
+
+*note 'cie-rgb-color-coordinates': generic-function:rs-colors:cie-rgb-color-coordinates.
+*note 'cie-xyz-color-coordinates': generic-function:rs-colors:cie-xyz-color-coordinates.
+*note 'cie-xyy-color-coordinates': generic-function:rs-colors:cie-xyy-color-coordinates.
+*note 'cie-luv-color-coordinates': generic-function:rs-colors:cie-luv-color-coordinates.
+*note 'cie-lab-color-coordinates': generic-function:rs-colors:cie-lab-color-coordinates.
+
+*note 'srgb-color-coordinates': generic-function:rs-colors:srgb-color-coordinates.
+*note 'adobe-rgb-color-coordinates': generic-function:rs-colors:adobe-rgb-color-coordinates.
+
+
+File: rs-colors.info,  Node: Programmer's Guide,  Next: Reference Manual,  Prev: User's Guide,  Up: Top
+
+3 Programmer's Guide
+********************
+
+So you want to implement your own color type.
+
+Abstact Color Classes
+=====================
+
+*note 'color-object': class:rs-colors:color-object.
+     Base class for a color.
+
+*note 'rgb-color-object': class:rs-colors:rgb-color-object.
+     Base class for a RGB color space.
+
+*note 'hsv-color-object': class:rs-colors:hsv-color-object.
+     Base class for a HSV color space.
+
+*note 'hsl-color-object': class:rs-colors:hsl-color-object.
+     Base class for a HSL color space.
+
+*note 'cmy-color-object': class:rs-colors:cmy-color-object.
+     Base class for a CMY color space.
+
+*note 'cmyk-color-object': class:rs-colors:cmyk-color-object.
+     Base class for a CMYK color space.
+
+*note 'generic-color-object': class:rs-colors:generic-color-object.
+     Base class for a color model.
+
+
+File: rs-colors.info,  Node: Reference Manual,  Next: Symbol Index,  Prev: Programmer's Guide,  Up: Top
+
+4 Reference Manual
+******************
+
+* Menu:
+
+* Abstract Colors::
+* Generic Color Spaces (Color Models)::
+* Absolute Color Spaces::
+* RGB Color Spaces::
+* Color Properties::
+* Color Conversion 1::
+* Input and Output::
+* Miscellaneous::
+
+
+File: rs-colors.info,  Node: Abstract Colors,  Next: Generic Color Spaces (Color Models),  Prev: Reference Manual,  Up: Reference Manual
+
+4.1 Abstract Colors
+===================
+
+Color classes merely used as superclasses.
+
+ -- Class: color-object
+     Base class for a color.
+
+     *Class Precedence List:*
+     *note 'color-object': class:rs-colors:color-object,
+     'standard-object', 't'.
+
+ -- Class: rgb-color-object
+     Color class for a RGB color space.
+
+     *Class Precedence List:*
+     *note 'rgb-color-object': class:rs-colors:rgb-color-object, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Class: hsv-color-object
+     Color class for a HSV/HSB color space.
+
+     *Class Precedence List:*
+     *note 'hsv-color-object': class:rs-colors:hsv-color-object, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Class: hsl-color-object
+     Color class for a HSL color space.
+
+     *Class Precedence List:*
+     *note 'hsl-color-object': class:rs-colors:hsl-color-object, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Class: cmy-color-object
+     Color class for a CMY color space.
+
+     *Class Precedence List:*
+     *note 'cmy-color-object': class:rs-colors:cmy-color-object, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Class: cmyk-color-object
+     Color class for a CMYK color space.
+
+     *Class Precedence List:*
+     *note 'cmyk-color-object': class:rs-colors:cmyk-color-object, *note
+     'color-object': class:rs-colors:color-object, ...
+
+ -- Class: generic-color-object
+     Color class for the mathematical model of a color space.
+
+     *Class Precedence List:*
+     *note 'generic-color-object': class:rs-colors:generic-color-object,
+     *note 'color-object': class:rs-colors:color-object, ...
+
+
+File: rs-colors.info,  Node: Generic Color Spaces (Color Models),  Next: Absolute Color Spaces,  Prev: Abstract Colors,  Up: Reference Manual
+
+4.2 Generic Color Spaces (Color Models)
+=======================================
+
+A generic color space implements a color model.  There are two major
+color models: the additive RGB color model and the subtractive CMY color
+model.
+
+* Menu:
+
+* Generic RGB Color Space::
+* Generic HSV Color Space::
+* Generic HSL Color Space::
+* Generic CMY Color Space::
+* Generic CMYK Color Space::
+
+
+File: rs-colors.info,  Node: Generic RGB Color Space,  Next: Generic HSV Color Space,  Prev: Generic Color Spaces (Color Models),  Up: Generic Color Spaces (Color Models)
+
+4.2.1 Generic RGB Color Space
+-----------------------------
+
+ -- Class: generic-rgb-color
+     Color class for the generic RGB color space.
+
+     The generic RGB color space is a mathematical description of the
+     RGB color model.  It is not associated with a particular device.
+
+     *Class Precedence List:*
+     *note 'generic-rgb-color': class:rs-colors:generic-rgb-color, *note
+     'rgb-color-object': class:rs-colors:rgb-color-object, *note
+     'generic-color-object': class:rs-colors:generic-color-object, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Function: make-generic-rgb-color red green blue &key byte-size
+     Create a new color in the generic RGB color space.
+
+        * First argument RED is the intensity of the red primary.
+
+        * Second argument GREEN is the intensity of the green primary.
+
+        * Third argument BLUE is the intensity of the blue primary.
+
+     Arguments RED, GREEN, and BLUE have to be normalized intensity
+     values in the closed interval [0, 1].
+
+     Keyword argument BYTE-SIZE is the number of bits used to represent
+     a primary.  If specified, arguments RED, GREEN, and BLUE are scaled
+     accordingly.
+
+     Example:
+
+          (make-generic-rgb-color 252/255 175/255 62/255)
+           => #<GENERIC-RGB-COLOR (84/85 35/51 62/255)>
+
+          (make-generic-rgb-color 252 175 62 :byte-size 8)
+           => #<GENERIC-RGB-COLOR (84/85 35/51 62/255)>
+ -- Function: make-generic-rgb-color-from-number value &key byte-size
+     Create a new color in the generic RGB color space.
+
+        * Argument VALUE is a non-negative integral number.
+
+     Keyword argument BYTE-SIZE is the number of bits used to represent
+     a primary.  Default is eight bit (one byte).  The most significant
+     bits denote the intensity of the red primary.
+
+     Example:
+
+          (make-generic-rgb-color-from-number #XFCAF3E)
+           => #<GENERIC-RGB-COLOR (84/85 35/51 62/255)>
+ -- Generic Function: generic-rgb-color-coordinates color
+     Return the RGB color space coordinates of the color.
+
+        * Argument COLOR is a color object.
+
+     Values are the intensities of the red, green, and blue primary.
+
+
+File: rs-colors.info,  Node: Generic HSV Color Space,  Next: Generic HSL Color Space,  Prev: Generic RGB Color Space,  Up: Generic Color Spaces (Color Models)
+
+4.2.2 Generic HSV Color Space
+-----------------------------
+
+The HSV color space is a non-linear transformation of the RGB color
+model.
+
+ -- Class: generic-hsv-color
+     Color class for the generic HSV/HSB color space.
+
+     The generic HSV/HSB color space is a different representation of
+     the RGB color model.
+
+     *Class Precedence List:*
+     *note 'generic-hsv-color': class:rs-colors:generic-hsv-color, *note
+     'hsv-color-object': class:rs-colors:hsv-color-object, *note
+     'generic-color-object': class:rs-colors:generic-color-object, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Function: make-generic-hsv-color hue saturation value
+     Create a new color in the generic HSV color space.
+
+        * First argument HUE is the angle of the RGB color wheel.
+
+        * Second argument SATURATION is the saturation.
+
+        * Third argument VALUE is the brightness.
+
+     Arguments SATURATION and VALUE have to be real numbers in the
+     closed interval [0, 1].
+ -- Generic Function: generic-hsv-color-coordinates color
+     Return the HSV color space coordinates of the color.
+
+     Argument COLOR is a color object.
+
+     Values are the hue, saturation, and value (brightness).
+
+
+File: rs-colors.info,  Node: Generic HSL Color Space,  Next: Generic CMY Color Space,  Prev: Generic HSV Color Space,  Up: Generic Color Spaces (Color Models)
+
+4.2.3 Generic HSL Color Space
+-----------------------------
+
+The HSL color space is a non-linear transformation of the RGB color
+model.
+
+ -- Class: generic-hsl-color
+     Color class for the generic HSL color space.
+
+     The generic HSL color space is a different representation of the
+     RGB color model.
+
+     *Class Precedence List:*
+     *note 'generic-hsl-color': class:rs-colors:generic-hsl-color, *note
+     'hsl-color-object': class:rs-colors:hsl-color-object, *note
+     'generic-color-object': class:rs-colors:generic-color-object, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Function: make-generic-hsl-color hue saturation lightness
+     Create a new color in the generic HSL color space.
+
+        * First argument HUE is the angle of the RGB color wheel.
+
+        * Second argument SATURATION is the saturation.
+
+        * Third argument LIGHTNESS is the lightness.
+
+     Arguments SATURATION and LIGHTNESS have to be real numbers in the
+     closed interval [0, 1].
+ -- Generic Function: generic-hsl-color-coordinates color
+     Return the HSL color space coordinates of the color.
+
+     Argument COLOR is a color object.
+
+     Values are the hue, saturation, and lightness.
+
+
+File: rs-colors.info,  Node: Generic CMY Color Space,  Next: Generic CMYK Color Space,  Prev: Generic HSL Color Space,  Up: Generic Color Spaces (Color Models)
+
+4.2.4 Generic CMY Color Space
+-----------------------------
+
+ -- Class: generic-cmy-color
+     Color class for the generic CMY color space.
+
+     The generic CMY color space is a mathematical description of the
+     CMY color model.  It is not associated with a particular device.
+
+     *Class Precedence List:*
+     *note 'generic-cmy-color': class:rs-colors:generic-cmy-color, *note
+     'cmy-color-object': class:rs-colors:cmy-color-object, *note
+     'generic-color-object': class:rs-colors:generic-color-object, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Function: make-generic-cmy-color cyan magenta yellow &key byte-size
+     Create a new color in the generic CMY color space.
+
+     First argument CYAN is the intensity of the cyan ink.  Second
+     argument MAGENTA is the intensity of the magenta ink.  Third
+     argument YELLOW is the intensity of the yellow ink.
+
+     Arguments CYAN, MAGENTA, and YELLOW have to be normalized color
+     values in the closed interval [0, 1].
+
+     Keyword argument BYTE-SIZE is the number of bits used to represent
+     a color value.  If specified, arguments CYAN, MAGENTA, and YELLOW
+     are scaled accordingly.
+
+     Example:
+
+               (make-generic-cmy-color 3/255 80/255 193/255)
+               (make-generic-cmy-color 3 80 193 :byte-size 8)
+ -- Function: make-generic-cmy-color-from-number value &key byte-size
+     Create a new color in the generic CMY color space.
+
+     Argument VALUE is a non-negative integral number.
+
+     Keyword argument BYTE-SIZE is the number of bits used to represent
+     a primary.  Default is eight bit (one byte).  The most significant
+     bits denote the intensity of the cyan primary.
+
+     Example:
+
+               (make-generic-cmy-color-from-number #X0350C1)
+ -- Generic Function: generic-cmy-color-coordinates color
+     Return the CMY color space coordinates of the color.
+
+     Argument COLOR is a color object.
+
+     Values are the intensities of the cyan, magenta, and yellow ink.
+
+
+File: rs-colors.info,  Node: Generic CMYK Color Space,  Prev: Generic CMY Color Space,  Up: Generic Color Spaces (Color Models)
+
+4.2.5 Generic CMYK Color Space
+------------------------------
+
+ -- Class: generic-cmyk-color
+     Color class for the generic CMYK color space.
+
+     The generic CMYK color space is a mathematical description of the
+     CMYK color model.  It is not associated with a particular device.
+
+     *Class Precedence List:*
+     *note 'generic-cmyk-color': class:rs-colors:generic-cmyk-color,
+     *note 'cmyk-color-object': class:rs-colors:cmyk-color-object, *note
+     'generic-color-object': class:rs-colors:generic-color-object, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Function: make-generic-cmyk-color cyan magenta yellow black &key byte-size
+     Create a new color in the generic CMYK color space.
+
+     First argument CYAN is the intensity of the cyan ink.  Second
+     argument MAGENTA is the intensity of the magenta ink.  Third
+     argument YELLOW is the intensity of the yellow ink.  Fourth
+     argument BLACK is the intensity of the black ink.
+
+     Arguments CYAN, MAGENTA, YELLOW, and BLACK have to be normalized
+     intensity values in the closed interval [0, 1].
+
+     Keyword argument BYTE-SIZE is the number of bits used to represent
+     a color value.  If specified, arguments CYAN, MAGENTA, YELLOW, and
+     BLACK are scaled accordingly.
+
+     Example:
+
+               (make-generic-cmyk-color 3/255 80/255 193/255 0)
+               (make-generic-cmyk-color 3 80 193 0 :byte-size 8)
+ -- Function: make-generic-cmyk-color-from-number value &key byte-size
+     Create a new color in the generic CMYK color space.
+
+     Argument VALUE is a non-negative integral number.
+
+     Keyword argument BYTE-SIZE is the number of bits used to represent
+     a primary.  Default is eight bit (one byte).  The most significant
+     bits denote the intensity of the cyan primary.
+
+     Example:
+
+               (make-generic-cmyk-color-from-number #X0350C100)
+ -- Generic Function: generic-cmyk-color-coordinates color
+     Return the CMYK color space coordinates of the color.
+
+     Argument COLOR is a color object.
+
+     Values are the intensities of the cyan, magenta, yellow, and black
+     ink.
+
+
+File: rs-colors.info,  Node: Absolute Color Spaces,  Next: RGB Color Spaces,  Prev: Generic Color Spaces (Color Models),  Up: Reference Manual
+
+4.3 Absolute Color Spaces
+=========================
+
+* Menu:
+
+* CIE RGB Color Space::
+* CIE XYZ Color Space::
+* CIE xyY Color Space::
+* CIE L*u*v* Color Space::
+* CIE L*a*b* Color Space::
+
+
+File: rs-colors.info,  Node: CIE RGB Color Space,  Next: CIE XYZ Color Space,  Prev: Absolute Color Spaces,  Up: Absolute Color Spaces
+
+4.3.1 CIE RGB Color Space
+-------------------------
+
+ -- Class: cie-rgb-color
+     Color class for the CIE RGB color space.
+
+     *Class Precedence List:*
+     *note 'cie-rgb-color': class:rs-colors:cie-rgb-color, *note
+     'rgb-color-object': class:rs-colors:rgb-color-object, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Function: make-cie-rgb-color red green blue
+     Create a new color in the CIE RGB color space.
+
+     First argument RED is the intensity of the red primary.  Second
+     argument GREEN is the intensity green primary.  Third argument BLUE
+     is the intensity of the blue primary.
+
+     Arguments RED, GREEN, and BLUE have to be normalized intensity
+     values in the closed interval [0, 1].
+ -- Generic Function: cie-rgb-color-coordinates color
+     Return the CIE RGB color space coordinates of the color.
+
+     Argument COLOR is a color object.
+
+     Values are the intensities of the red, green, and blue primary.
+
+
+File: rs-colors.info,  Node: CIE XYZ Color Space,  Next: CIE xyY Color Space,  Prev: CIE RGB Color Space,  Up: Absolute Color Spaces
+
+4.3.2 CIE XYZ Color Space
+-------------------------
+
+ -- Class: cie-xyz-color
+     Color class for the CIE XYZ color space.
+
+     *Class Precedence List:*
+     *note 'cie-xyz-color': class:rs-colors:cie-xyz-color, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Function: make-cie-xyz-color x y z
+     Create a new color in the CIE XYZ color space.
+
+     Arguments X, Y, and Z are the tristimulus values.
+ -- Generic Function: cie-xyz-color-coordinates color
+     Return the CIE XYZ color space coordinates of the color.
+
+     Argument COLOR is a color object.
+
+     Values are the X, Y, and Z tristimulus values.
+
+
+File: rs-colors.info,  Node: CIE xyY Color Space,  Next: CIE L*u*v* Color Space,  Prev: CIE XYZ Color Space,  Up: Absolute Color Spaces
+
+4.3.3 CIE xyY Color Space
+-------------------------
+
+ -- Class: cie-xyy-color
+     Color class for the CIE xyY color space.
+
+     *Class Precedence List:*
+     *note 'cie-xyy-color': class:rs-colors:cie-xyy-color, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Function: make-cie-xyy-color x* y* y
+     Create a new color in the CIE xyY color space.
+
+     Arguments X* and Y* are the chromaticity coordinates.  Argument Y
+     is the second tristimulus value (luminance).
+ -- Generic Function: cie-xyy-color-coordinates color
+     Return the CIE xyY color space coordinates of the color.
+
+     Argument COLOR is a color object.
+
+     Values are the X and Y chromaticity coordinates and the Y
+     tristimulus value (luminance).
+
+
+File: rs-colors.info,  Node: CIE L*u*v* Color Space,  Next: CIE L*a*b* Color Space,  Prev: CIE xyY Color Space,  Up: Absolute Color Spaces
+
+4.3.4 CIE L*u*v* Color Space
+----------------------------
+
+ -- Class: cie-luv-color
+     Color class for the CIE L*u*v* color space.
+
+     *Class Precedence List:*
+     *note 'cie-luv-color': class:rs-colors:cie-luv-color, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Function: make-cie-luv-color l* u* v* &optional white-point
+     Create a new color in the CIE L*u*v* color space.
+ -- Generic Function: cie-luv-color-coordinates color
+     Return the CIE L*u*v* color space coordinates of the color.
+
+     Argument COLOR is a color object.
+
+
+File: rs-colors.info,  Node: CIE L*a*b* Color Space,  Prev: CIE L*u*v* Color Space,  Up: Absolute Color Spaces
+
+4.3.5 CIE L*a*b* Color Space
+----------------------------
+
+ -- Class: cie-lab-color
+     Color class for the CIE L*a*b* color space.
+
+     *Class Precedence List:*
+     *note 'cie-lab-color': class:rs-colors:cie-lab-color, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Function: make-cie-lab-color l* a* b* &optional white-point
+     Create a new color in the CIE L*a*b* color space.
+ -- Generic Function: cie-lab-color-coordinates color
+     Return the CIE L*a*b* color space coordinates of the color.
+
+     Argument COLOR is a color object.
+
+
+File: rs-colors.info,  Node: RGB Color Spaces,  Next: Color Properties,  Prev: Absolute Color Spaces,  Up: Reference Manual
+
+4.4 RGB Color Spaces
+====================
+
+* Menu:
+
+* sRGB Color Space::
+* Adobe RGB Color Space::
+
+
+File: rs-colors.info,  Node: sRGB Color Space,  Next: Adobe RGB Color Space,  Prev: RGB Color Spaces,  Up: RGB Color Spaces
+
+4.4.1 sRGB Color Space
+----------------------
+
+ -- Class: srgb-color
+     Color class for the sRGB color space.
+
+     *Class Precedence List:*
+     *note 'srgb-color': class:rs-colors:srgb-color, *note
+     'rgb-color-object': class:rs-colors:rgb-color-object, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Function: make-srgb-color red green blue &key byte-size
+     Create a new color in the sRGB color space.
+
+     First argument RED is the intensity of the red primary.  Second
+     argument GREEN is the intensity of the green primary.  Third
+     argument BLUE is the intensity of the blue primary.
+
+     Arguments RED, GREEN, and BLUE have to be normalized intensity
+     values in the closed interval [0, 1].
+
+     Keyword argument BYTE-SIZE is the number of bits used to represent
+     a primary.  If specified, arguments RED, GREEN, and BLUE are scaled
+     accordingly.
+
+     Example:
+
+               (make-srgb-color 252/255 175/255 62/255)
+               (make-srgb-color 252 175 62 :byte-size 8)
+ -- Function: make-srgb-color-from-number value &key byte-size
+     Create a new color in the sRGB color space.
+
+     Argument VALUE is a non-negative integral number.
+
+     Keyword argument BYTE-SIZE is the number of bits used to represent
+     a primary.  Default is eight bit (one byte).  The most significant
+     bits denote the intensity of the red primary.
+
+     Example:
+
+               (make-srgb-color-from-number #XFCAF3E)
+ -- Generic Function: srgb-color-coordinates color
+     Return the sRGB color space coordinates of the color.
+
+     Argument COLOR is a color object.
+
+     Values are the intensities of the red, green, and blue primary.
+
+
+File: rs-colors.info,  Node: Adobe RGB Color Space,  Prev: sRGB Color Space,  Up: RGB Color Spaces
+
+4.4.2 Adobe RGB Color Space
+---------------------------
+
+ -- Class: adobe-rgb-color
+     Color class for the Adobe RGB color space.
+
+     *Class Precedence List:*
+     *note 'adobe-rgb-color': class:rs-colors:adobe-rgb-color, *note
+     'rgb-color-object': class:rs-colors:rgb-color-object, *note
+     'color-object': class:rs-colors:color-object, ...
+ -- Function: make-adobe-rgb-color red green blue &key byte-size
+     Create a new color in the Adobe RGB color space.
+
+     First argument RED is the intensity of the red primary.  Second
+     argument GREEN is the intensity of the green primary.  Third
+     argument BLUE is the intensity of the blue primary.
+
+     Arguments RED, GREEN, and BLUE have to be normalized intensity
+     values in the closed interval [0, 1].
+
+     Keyword argument BYTE-SIZE is the number of bits used to represent
+     a primary.  If specified, arguments RED, GREEN, and BLUE are scaled
+     accordingly.
+
+     Example:
+
+               (make-adobe-rgb-color 252/255 175/255 62/255)
+               (make-adobe-rgb-color 252 175 62 :byte-size 8)
+ -- Function: make-adobe-rgb-color-from-number value &key byte-size
+     Create a new color in the Adobe RGB color space.
+
+     Argument VALUE is a non-negative integral number.
+
+     Keyword argument BYTE-SIZE is the number of bits used to represent
+     a primary.  Default is eight bit (one byte).  The most significant
+     bits denote the intensity of the red primary.
+
+     Example:
+
+               (make-adobe-rgb-color-from-number #XFCAF3E)
+ -- Generic Function: adobe-rgb-color-coordinates color
+     Return the Adobe RGB color space coordinates of the color.
+
+     Argument COLOR is a color object.
+
+     Values are the intensities of the red, green, and blue primary.
+
+
+File: rs-colors.info,  Node: Color Properties,  Next: Color Conversion 1,  Prev: RGB Color Spaces,  Up: Reference Manual
+
+4.5 Color Properties
+====================
+
+ -- Function: colorp object
+     Return true if OBJECT is a color object.
+
+ -- Generic Function: color-coordinates color
+     Return the color space coordinates of the color.
+
+     Argument COLOR is a color object.
+ -- Generic Function: white-point color
+     Return the white point of the color.
+
+     Argument COLOR is a color object.
+
+     Value is the color object of the color's white point, or nil if the
+     white point is not defined or if multiple white points exist.
+
+
+File: rs-colors.info,  Node: Color Conversion 1,  Next: Input and Output,  Prev: Color Properties,  Up: Reference Manual
+
+4.6 Color Conversion
+====================
+
+ -- Function: coerce-color color color-type
+     Coerce the color object into the specified color type.
+
+     First argument COLOR is a color object.  Second argument COLOR-TYPE
+     is a color data type.
+
+     If argument COLOR is already a color of the requested color data
+     type, return COLOR as is (no conversion).  Otherwise, return a new
+     color with the color coordinates of COLOR converted into the color
+     space denoted by COLOR-TYPE.
+ -- Generic Function: copy-color color
+     Return a shallow copy of the color.
+
+     Argument COLOR is a color object.
+
+
+File: rs-colors.info,  Node: Input and Output,  Next: Miscellaneous,  Prev: Color Conversion 1,  Up: Reference Manual
+
+4.7 Input and Output
+====================
+
+ -- Macro: define-color-printer style (color stream &key export inline)
+          &body body
+     Argument STYLE is a string designator.
+ -- Macro: define-color-reader style (color stream &key export inline)
+          &body body
+     Argument STYLE is a string designator.
+
+
+File: rs-colors.info,  Node: Miscellaneous,  Prev: Input and Output,  Up: Reference Manual
+
+4.8 Miscellaneous
+=================
+
+ -- Generic Function: absolute-color color &key black white
+     Convert from normalized color coordinates to absolute color
+     coordinates.
+ -- Generic Function: normalize-color color &key black white
+     Convert from absolute color coordinates to normalized color
+     coordinates.
+
+
+File: rs-colors.info,  Node: Symbol Index,  Next: Concept Index,  Prev: Reference Manual,  Up: Top
+
+Symbol Index
+************
+
+ [index ]
+* Menu:
+
+* absolute-color:                        Miscellaneous.        (line  6)
+* adobe-rgb-color:                       Adobe RGB Color Space.
+                                                               (line  6)
+* adobe-rgb-color-coordinates:           Adobe RGB Color Space.
+                                                               (line 43)
+* cie-lab-color:                         CIE L*a*b* Color Space.
+                                                               (line  6)
+* cie-lab-color-coordinates:             CIE L*a*b* Color Space.
+                                                               (line 14)
+* cie-luv-color:                         CIE L*u*v* Color Space.
+                                                               (line  6)
+* cie-luv-color-coordinates:             CIE L*u*v* Color Space.
+                                                               (line 14)
+* cie-rgb-color:                         CIE RGB Color Space.  (line  6)
+* cie-rgb-color-coordinates:             CIE RGB Color Space.  (line 22)
+* cie-xyy-color:                         CIE xyY Color Space.  (line  6)
+* cie-xyy-color-coordinates:             CIE xyY Color Space.  (line 17)
+* cie-xyz-color:                         CIE XYZ Color Space.  (line  6)
+* cie-xyz-color-coordinates:             CIE XYZ Color Space.  (line 16)
+* cmy-color-object:                      Abstract Colors.      (line 33)
+* cmyk-color-object:                     Abstract Colors.      (line 39)
+* coerce-color:                          Color Conversion 1.   (line  6)
+* color-coordinates:                     Color Properties.     (line  9)
+* color-object:                          Abstract Colors.      (line  8)
+* colorp:                                Color Properties.     (line  6)
+* copy-color:                            Color Conversion 1.   (line 16)
+* define-color-printer:                  Input and Output.     (line  6)
+* define-color-reader:                   Input and Output.     (line  9)
+* generic-cmy-color:                     Generic CMY Color Space.
+                                                               (line  6)
+* generic-cmy-color-coordinates:         Generic CMY Color Space.
+                                                               (line 47)
+* generic-cmyk-color:                    Generic CMYK Color Space.
+                                                               (line  6)
+* generic-cmyk-color-coordinates:        Generic CMYK Color Space.
+                                                               (line 48)
+* generic-color-object:                  Abstract Colors.      (line 46)
+* generic-hsl-color:                     Generic HSL Color Space.
+                                                               (line  9)
+* generic-hsl-color-coordinates:         Generic HSL Color Space.
+                                                               (line 32)
+* generic-hsv-color:                     Generic HSV Color Space.
+                                                               (line  9)
+* generic-hsv-color-coordinates:         Generic HSV Color Space.
+                                                               (line 32)
+* generic-rgb-color:                     Generic RGB Color Space.
+                                                               (line  6)
+* generic-rgb-color-coordinates:         Generic RGB Color Space.
+                                                               (line 54)
+* hsl-color-object:                      Abstract Colors.      (line 27)
+* hsv-color-object:                      Abstract Colors.      (line 21)
+* make-adobe-rgb-color:                  Adobe RGB Color Space.
+                                                               (line 13)
+* make-adobe-rgb-color-from-number:      Adobe RGB Color Space.
+                                                               (line 31)
+* make-cie-lab-color:                    CIE L*a*b* Color Space.
+                                                               (line 12)
+* make-cie-luv-color:                    CIE L*u*v* Color Space.
+                                                               (line 12)
+* make-cie-rgb-color:                    CIE RGB Color Space.  (line 13)
+* make-cie-xyy-color:                    CIE xyY Color Space.  (line 12)
+* make-cie-xyz-color:                    CIE XYZ Color Space.  (line 12)
+* make-generic-cmy-color:                Generic CMY Color Space.
+                                                               (line 17)
+* make-generic-cmy-color-from-number:    Generic CMY Color Space.
+                                                               (line 35)
+* make-generic-cmyk-color:               Generic CMYK Color Space.
+                                                               (line 17)
+* make-generic-cmyk-color-from-number:   Generic CMYK Color Space.
+                                                               (line 36)
+* make-generic-hsl-color:                Generic HSL Color Space.
+                                                               (line 20)
+* make-generic-hsv-color:                Generic HSV Color Space.
+                                                               (line 20)
+* make-generic-rgb-color:                Generic RGB Color Space.
+                                                               (line 17)
+* make-generic-rgb-color-from-number:    Generic RGB Color Space.
+                                                               (line 41)
+* make-srgb-color:                       sRGB Color Space.     (line 13)
+* make-srgb-color-from-number:           sRGB Color Space.     (line 31)
+* normalize-color:                       Miscellaneous.        (line  9)
+* rgb-color-object:                      Abstract Colors.      (line 15)
+* srgb-color:                            sRGB Color Space.     (line  6)
+* srgb-color-coordinates:                sRGB Color Space.     (line 43)
+* white-point:                           Color Properties.     (line 13)
+
+
+File: rs-colors.info,  Node: Concept Index,  Prev: Symbol Index,  Up: Top
+
+Concept Index
+*************
+
+
+
+Tag Table:
+Node: Top646
+Node: Introduction1306
+Node: User's Guide2446
+Node: The Color Data Type2700
+Node: Creating Color Objects4750
+Node: Color Coordinates7992
+Node: White Point8626
+Node: Color Conversion8960
+Ref: figure:color-conversion9091
+Node: Programmer's Guide11224
+Node: Reference Manual12155
+Node: Abstract Colors12501
+Ref: class:rs-colors:color-object12726
+Ref: class:rs-colors:rgb-color-object12897
+Ref: class:rs-colors:hsv-color-object13122
+Ref: class:rs-colors:hsl-color-object13351
+Ref: class:rs-colors:cmy-color-object13576
+Ref: class:rs-colors:cmyk-color-object13801
+Ref: class:rs-colors:generic-color-object14031
+Node: Generic Color Spaces (Color Models)14291
+Node: Generic RGB Color Space14818
+Ref: class:rs-colors:generic-rgb-color15053
+Ref: function:rs-colors:make-generic-rgb-color15570
+Ref: function:rs-colors:make-generic-rgb-color-from-number16423
+Ref: generic-function:rs-colors:generic-rgb-color-coordinates16934
+Node: Generic HSV Color Space17166
+Ref: class:rs-colors:generic-hsv-color17465
+Ref: function:rs-colors:make-generic-hsv-color17942
+Ref: generic-function:rs-colors:generic-hsv-color-coordinates18328
+Node: Generic HSL Color Space18547
+Ref: class:rs-colors:generic-hsl-color18846
+Ref: function:rs-colors:make-generic-hsl-color19315
+Ref: generic-function:rs-colors:generic-hsl-color-coordinates19712
+Node: Generic CMY Color Space19922
+Ref: class:rs-colors:generic-cmy-color20146
+Ref: function:rs-colors:make-generic-cmy-color20663
+Ref: function:rs-colors:make-generic-cmy-color-from-number21407
+Ref: generic-function:rs-colors:generic-cmy-color-coordinates21863
+Node: Generic CMYK Color Space22091
+Ref: class:rs-colors:generic-cmyk-color22285
+Ref: function:rs-colors:make-generic-cmyk-color22810
+Ref: function:rs-colors:make-generic-cmyk-color-from-number23649
+Ref: generic-function:rs-colors:generic-cmyk-color-coordinates24110
+Node: Absolute Color Spaces24352
+Node: CIE RGB Color Space24687
+Ref: class:rs-colors:cie-rgb-color24878
+Ref: function:rs-colors:make-cie-rgb-color25165
+Ref: generic-function:rs-colors:cie-rgb-color-coordinates25563
+Node: CIE XYZ Color Space25790
+Ref: class:rs-colors:cie-xyz-color25979
+Ref: function:rs-colors:make-cie-xyz-color26201
+Ref: generic-function:rs-colors:cie-xyz-color-coordinates26348
+Node: CIE xyY Color Space26558
+Ref: class:rs-colors:cie-xyy-color26750
+Ref: function:rs-colors:make-cie-xyy-color26972
+Ref: generic-function:rs-colors:cie-xyy-color-coordinates27187
+Node: CIE L*u*v* Color Space27444
+Ref: class:rs-colors:cie-luv-color27645
+Ref: function:rs-colors:make-cie-luv-color27870
+Ref: generic-function:rs-colors:cie-luv-color-coordinates27989
+Node: CIE L*a*b* Color Space28149
+Ref: class:rs-colors:cie-lab-color28322
+Ref: function:rs-colors:make-cie-lab-color28547
+Ref: generic-function:rs-colors:cie-lab-color-coordinates28666
+Node: RGB Color Spaces28826
+Node: sRGB Color Space29053
+Ref: class:rs-colors:srgb-color29227
+Ref: function:rs-colors:make-srgb-color29502
+Ref: function:rs-colors:make-srgb-color-from-number30209
+Ref: generic-function:rs-colors:srgb-color-coordinates30643
+Node: Adobe RGB Color Space30864
+Ref: class:rs-colors:adobe-rgb-color31023
+Ref: function:rs-colors:make-adobe-rgb-color31318
+Ref: function:rs-colors:make-adobe-rgb-color-from-number32045
+Ref: generic-function:rs-colors:adobe-rgb-color-coordinates32494
+Node: Color Properties32725
+Ref: function:rs-colors:colorp32892
+Ref: generic-function:rs-colors:color-coordinates32967
+Ref: generic-function:rs-colors:white-point33107
+Node: Color Conversion 133371
+Ref: function:rs-colors:coerce-color33538
+Ref: generic-function:rs-colors:copy-color33992
+Node: Input and Output34113
+Ref: macro:rs-colors:define-color-printer34277
+Ref: macro:rs-colors:define-color-reader34414
+Node: Miscellaneous34551
+Ref: generic-function:rs-colors:absolute-color34682
+Ref: generic-function:rs-colors:normalize-color34825
+Node: Symbol Index34970
+Node: Concept Index41120
+
+End Tag Table
