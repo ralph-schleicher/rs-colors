@@ -1,0 +1,737 @@
+\input texinfo.tex
+
+@c %**start of header
+@setfilename rs-colors.info
+@settitle rs-colors
+
+@set EDITION 1 (draft)
+@set UPDATED 2014-03-13
+
+@include package.texi
+
+@syncodeindex vr fn
+@syncodeindex tp fn
+@syncodeindex ky cp
+@syncodeindex pg cp
+
+@ifinfo
+@paragraphindent 0
+@end ifinfo
+
+@iftex
+@finalout
+@paragraphindent 1
+@afourpaper
+@end iftex
+
+@setchapternewpage odd
+@setcontentsaftertitlepage
+@allowcodebreaks false
+
+@include rs-texinfo.texi
+@c %**end of header
+
+@copying
+This is edition @value{EDITION}, last updated @value{UPDATED}, of
+@cite{@sc{rs-colors} -- A Color Data Type for Common Lisp}, for
+@sc{rs-colors} version @value{VERSION}.
+
+@quotation
+Copyright @copyright{} 2014 Ralph Schleicher
+
+Permission is granted to make and distribute verbatim copies of this
+manual, provided the copyright notice and this permission notice are
+preserved on all copies.
+@end quotation
+
+Please report any errors in this manual to @email{@value{ADDRESS}}.
+@end copying
+
+@dircategory Libraries
+@direntry
+* rs-colors: (rs-colors).       A color data type for Common Lisp.
+@end direntry
+
+@ifnothtml
+@titlepage
+@title @sc{rs-colors}
+@subtitle A Color Data Type for Common Lisp
+
+@author Ralph Schleicher
+
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@c Table of contents.
+@contents
+@end ifnothtml
+
+@ifnottex
+@node Top, Introduction, (dir), (dir)
+@top @sc{rs-colors}
+
+@insertcopying
+@end ifnottex
+
+@menu
+* Introduction::
+* User's Guide::
+* Programmer's Guide::
+* Reference Manual::
+* Symbol Index::
+* Concept Index::
+@end menu
+
+
+@node Introduction, User's Guide, Top, Top
+@chapter Introduction
+
+A color is either associated with a color model or a color space.  Two
+color models are in widespread use with computers:
+
+@itemize
+@item
+The additive RGB color model with the primary colors red, green, and
+blue.
+
+@item
+The subtractive CMY color model with the primary colors cyan, magenta,
+and yellow.
+@end itemize
+
+The RGB color model is the usual color model for computer displays.  If
+the color intensity of all primary colors is zero, that means ``off'',
+the display appears ``black''.  Otherwise, if the color intensity of all
+primary colors is one, that means ``on'', the display appears ``white''.
+
+The CMY color model is the usual color model for paper printers.  If the
+color intensity of all primary colors is zero, that means ``off'', the
+paper appears ``white''.  Otherwise, if the color intensity of all
+primary colors is one, that means ``on'', the paper appears ``black''.
+
+Theoretically, a RGB tuple @w{@math{(R, G, B)}} and a CMY tuple
+@w{@math{(C, M, Y)}} are related to each other via the simple equations
+
+@ifinfo
+@display
+C = 1 - R
+M = 1 - G
+Y = 1 - B
+@end display
+@end ifinfo
+@iftex
+@tex
+$$\eqalign{%
+C &= 1 - R\cr
+M &= 1 - G\cr
+Y &= 1 - B\cr
+}$$
+@end tex
+
+@noindent
+and
+
+@ifinfo
+@display
+R = 1 - C
+G = 1 - M
+B = 1 - Y
+@end display
+@end ifinfo
+@iftex
+@tex
+$$\eqalign{%
+R &= 1 - C\cr
+G &= 1 - M\cr
+B &= 1 - Y\cr
+}$$
+@end tex
+@end iftex
+
+
+@node User's Guide, Programmer's Guide, Introduction, Top
+@chapter User's Guide
+
+@menu
+* The Color Data Type::
+* Creating Color Objects::
+* Color Coordinates::
+* White Point::
+* Color Conversion::
+@end menu
+
+
+@node The Color Data Type, Creating Color Objects, User's Guide, User's Guide
+@section The Color Data Type
+
+First of all, there is not @emph{one} color data type.  Instead, every
+color is an instance of a particular color class.  All color classes are
+sub-classes of the abstract @classref{rs-colors, color-object} class.
+The built-in color classes are listed in the following tables.
+
+@heading Color Classes for Color Models
+
+@table @asis
+@item @classref{rs-colors, generic-rgb-color}
+Mathematical description of the RGB color model.
+
+@item @classref{rs-colors, generic-hsv-color}
+Mathematical description of the HSV color space.  The HSV color space is
+a different representation of the RGB color model.
+
+@item @classref{rs-colors, generic-hsl-color}
+Mathematical description of the HSL color space.  The HSL color space is
+a different representation of the RGB color model.
+
+@item @classref{rs-colors, generic-cmy-color}
+Mathematical description of the CMY color model.
+
+@item @classref{rs-colors, generic-cmyk-color}
+Mathematical description of the CMYK color model.
+@end table
+
+@heading Color Classes for Absolute Color Spaces
+
+@table @asis
+@item @classref{rs-colors, cie-rgb-color}
+The CIE RGB color space.
+
+@item @classref{rs-colors, cie-xyz-color}
+The CIE XYZ color space.
+
+@item @classref{rs-colors, cie-xyy-color}
+The CIE xyY color space.
+
+@item @classref{rs-colors, cie-luv-color}
+The CIE L*u*v* color space.
+
+@item @classref{rs-colors, cie-lab-color}
+The CIE L*a*b* color space.
+@end table
+
+@heading Color Classes for Device Dependent Color Spaces
+
+@table @asis
+@item @classref{rs-colors, srgb-color}
+The sRGB color space.
+
+@item @classref{rs-colors, adobe-rgb-color}
+The Adobe RGB color space.
+@end table
+
+
+@node Creating Color Objects, Color Coordinates, The Color Data Type, User's Guide
+@section Creating Color Objects
+
+Colors are instantiated by calling a constructor function.  Constructor
+arguments are usually the color coordinates in the respective color
+space.  To create, for example, a color in the sRGB color space, say
+
+@lisp
+@group
+(make-srgb-color 252/255 175/255 62/255)
+ @result{} #<SRGB-COLOR (84/85 35/51 62/255)>
+@end group
+@end lisp
+
+Many color coordinates have to be expressed as intensity values, that is
+values in the range from zero to one inclusive.  That's the reason why
+the sRGB color coordinates in the above example are specified as
+rational numbers.
+
+Some constructors accept a @code{:byte-size} keyword argument.  This is
+useful if the scale factor is equal for all color coordinates.  With
+that we can rewrite the above example as
+
+@lisp
+@group
+(make-srgb-color 252 175 62 :byte-size 8)
+ @result{} #<SRGB-COLOR (84/85 35/51 62/255)>
+@end group
+@end lisp
+
+As you can see, the resulting color coordinates are equal.  Another
+common case is to encode the color coordinates in a single integral
+number.  Again, the @code{:byte-size} keyword argument specifies how
+many bits are used to encode a single color coordinate.  Thus,
+
+@lisp
+@group
+(make-srgb-color-from-number #XFCAF3E :byte-size 8)
+ @result{} #<SRGB-COLOR (84/85 35/51 62/255)>
+@end group
+@end lisp
+
+@noindent
+results in the same color as before.
+
+@noindent
+The built-in constructors are listed in the following table.
+
+@table @asis
+@item @funref{rs-colors, make-generic-rgb-color}
+@itemx @funref{rs-colors, make-generic-rgb-color-from-number}
+Create a generic RGB color object.
+
+@item @funref{rs-colors, make-generic-hsv-color}
+Create a generic HSV color object.
+
+@item @funref{rs-colors, make-generic-hsl-color}
+Create a generic HSL color object.
+
+@item @funref{rs-colors, make-generic-cmy-color}
+@itemx @funref{rs-colors, make-generic-cmy-color-from-number}
+Create a generic CMY color object.
+
+@item @funref{rs-colors, make-generic-cmyk-color}
+@itemx @funref{rs-colors, make-generic-cmyk-color-from-number}
+Create a generic CMYK color object.
+@end table
+
+@table @asis
+@item @funref{rs-colors, make-cie-rgb-color}
+Create a CIE RGB color object.
+
+@item @funref{rs-colors, make-cie-xyz-color}
+Create a CIE XYZ color object.
+
+@item @funref{rs-colors, make-cie-xyy-color}
+Create a CIE xyY color object.
+
+@item @funref{rs-colors, make-cie-luv-color}
+Create a CIE L*u*v* color object.
+
+@item @funref{rs-colors, make-cie-lab-color}
+Create a CIE L*a*b* color object.
+@end table
+
+@table @asis
+@item @funref{rs-colors, make-srgb-color}
+@itemx @funref{rs-colors, make-srgb-color-from-number}
+Create a sRGB color object.
+
+@item @funref{rs-colors, make-adobe-rgb-color}
+@itemx @funref{rs-colors, make-adobe-rgb-color-from-number}
+Create an Adobe RGB color object.
+@end table
+
+
+@node Color Coordinates, White Point, Creating Color Objects, User's Guide
+@section Color Coordinates
+
+Use the @genericref{rs-colors, color-coordinates} function to get the
+color coordinates of a color.
+
+@lisp
+@group
+(let ((color (make-srgb-color 252 175 62 :byte-size 8)))
+  ;; @r{We know that @var{color} is an RGB color.}
+  (multiple-value-bind (r g b)
+      (color-coordinates color)
+    (list r g b)))
+ @result{} (84/85 35/51 62/255)
+@end group
+@end lisp
+
+A more useful way to get the color coordinates of a color is described
+in @ref{Color Conversion}.
+
+
+@node White Point, Color Conversion, Color Coordinates, User's Guide
+@section White Point
+
+A device dependent color space usually has a @dfn{white point}.  If so,
+the @genericref{rs-colors, white-point} function returns a color object
+of this white point.
+
+
+@node Color Conversion,  , White Point, User's Guide
+@section Color Conversion
+
+@float Figure,figure:color-conversion
+@image{color-conversion,4in,}
+@end float
+
+@ref{figure:color-conversion} depicts the implemented color conversions.
+The nice thing about @sc{rs-colors} is that all these color conversions
+can be performed with the @code{change-class} function.
+
+@lisp
+@group
+(let ((color (make-srgb-color 252 175 62 :byte-size 8)))
+  (values (change-class color 'generic-cmyk-color) color))
+ @result{} #<GENERIC-CMYK-COLOR (0 11/36 95/126 1/85)>
+ @result{} #<GENERIC-CMYK-COLOR (0 11/36 95/126 1/85)>
+@end group
+@end lisp
+
+If you wish to keep the original color object unchanged, use the
+@code{coerce-color} function.
+
+@lisp
+@group
+(let ((color (make-srgb-color 252 175 62 :byte-size 8)))
+  (values (coerce-color color 'generic-cmyk-color) color))
+ @result{} #<GENERIC-CMYK-COLOR (0 11/36 95/126 1/85)>
+ @result{} #<SRGB-COLOR (84/85 35/51 62/255)>
+@end group
+@end lisp
+
+The @code{coerce-color} function only creates a copy of the color if the
+color object is not already of the correct type.
+
+If you only need the color coordinates, you can call one of the
+following functions to get them.
+
+@table @asis
+@item @genericref{rs-colors, generic-rgb-color-coordinates}
+@item @genericref{rs-colors, generic-hsv-color-coordinates}
+@item @genericref{rs-colors, generic-hsl-color-coordinates}
+@item @genericref{rs-colors, generic-cmy-color-coordinates}
+@item @genericref{rs-colors, generic-cmyk-color-coordinates}
+@end table
+
+@table @asis
+@item @genericref{rs-colors, cie-rgb-color-coordinates}
+@item @genericref{rs-colors, cie-xyz-color-coordinates}
+@item @genericref{rs-colors, cie-xyy-color-coordinates}
+@item @genericref{rs-colors, cie-luv-color-coordinates}
+@item @genericref{rs-colors, cie-lab-color-coordinates}
+@end table
+
+@table @asis
+@item @genericref{rs-colors, srgb-color-coordinates}
+@item @genericref{rs-colors, adobe-rgb-color-coordinates}
+@end table
+
+
+@node Programmer's Guide, Reference Manual, User's Guide, Top
+@chapter Programmer's Guide
+
+So you want to implement your own color type.
+
+@heading Abstact Color Classes
+
+@table @asis
+@item @classref{rs-colors, color-object}
+Base class for a color.
+
+@item @classref{rs-colors, rgb-color-object}
+Base class for a RGB color space.
+
+@item @classref{rs-colors, hsv-color-object}
+Base class for a HSV color space.
+
+@item @classref{rs-colors, hsl-color-object}
+Base class for a HSL color space.
+
+@item @classref{rs-colors, cmy-color-object}
+Base class for a CMY color space.
+
+@item @classref{rs-colors, cmyk-color-object}
+Base class for a CMYK color space.
+
+@item @classref{rs-colors, generic-color-object}
+Base class for a color model.
+@end table
+
+
+@node Reference Manual, Symbol Index, Programmer's Guide, Top
+@chapter Reference Manual
+
+@menu
+* Abstract Colors::
+* Generic Color Spaces (Color Models)::
+* Absolute Color Spaces::
+* RGB Color Spaces::
+* Color Properties::
+* Color Conversion 1::
+* Input and Output::
+* Miscellaneous::
+@end menu
+
+
+@node Abstract Colors, Generic Color Spaces (Color Models), Reference Manual, Reference Manual
+@section Abstract Colors
+
+Color classes merely used as superclasses.
+
+@anchor{class:rs-colors:color-object}
+@include class-rs-colors-color-object.texi
+
+@anchor{class:rs-colors:rgb-color-object}
+@include class-rs-colors-rgb-color-object.texi
+@anchor{class:rs-colors:hsv-color-object}
+@include class-rs-colors-hsv-color-object.texi
+@anchor{class:rs-colors:hsl-color-object}
+@include class-rs-colors-hsl-color-object.texi
+@anchor{class:rs-colors:cmy-color-object}
+@include class-rs-colors-cmy-color-object.texi
+@anchor{class:rs-colors:cmyk-color-object}
+@include class-rs-colors-cmyk-color-object.texi
+
+@anchor{class:rs-colors:generic-color-object}
+@include class-rs-colors-generic-color-object.texi
+
+
+@node Generic Color Spaces (Color Models), Absolute Color Spaces, Abstract Colors, Reference Manual
+@section Generic Color Spaces (Color Models)
+
+A generic color space implements a color model.  There are two major
+color models: the additive RGB color model and the subtractive CMY color
+model.
+
+@menu
+* Generic RGB Color Space::
+* Generic HSV Color Space::
+* Generic HSL Color Space::
+* Generic CMY Color Space::
+* Generic CMYK Color Space::
+@end menu
+
+
+@node Generic RGB Color Space, Generic HSV Color Space, Generic Color Spaces (Color Models), Generic Color Spaces (Color Models)
+@subsection Generic RGB Color Space
+
+@anchor{class:rs-colors:generic-rgb-color}
+@include class-rs-colors-generic-rgb-color.texi
+@anchor{function:rs-colors:make-generic-rgb-color}
+@include function-rs-colors-make-generic-rgb-color.texi
+@anchor{function:rs-colors:make-generic-rgb-color-from-number}
+@include function-rs-colors-make-generic-rgb-color-from-number.texi
+@anchor{generic-function:rs-colors:generic-rgb-color-coordinates}
+@include generic-function-rs-colors-generic-rgb-color-coordinates.texi
+
+
+@node Generic HSV Color Space, Generic HSL Color Space, Generic RGB Color Space, Generic Color Spaces (Color Models)
+@subsection Generic HSV Color Space
+
+The HSV color space is a non-linear transformation of the RGB color
+model.
+
+@anchor{class:rs-colors:generic-hsv-color}
+@include class-rs-colors-generic-hsv-color.texi
+@anchor{function:rs-colors:make-generic-hsv-color}
+@include function-rs-colors-make-generic-hsv-color.texi
+@anchor{generic-function:rs-colors:generic-hsv-color-coordinates}
+@include generic-function-rs-colors-generic-hsv-color-coordinates.texi
+
+
+@node Generic HSL Color Space, Generic CMY Color Space, Generic HSV Color Space, Generic Color Spaces (Color Models)
+@subsection Generic HSL Color Space
+
+The HSL color space is a non-linear transformation of the RGB color
+model.
+
+@anchor{class:rs-colors:generic-hsl-color}
+@include class-rs-colors-generic-hsl-color.texi
+@anchor{function:rs-colors:make-generic-hsl-color}
+@include function-rs-colors-make-generic-hsl-color.texi
+@anchor{generic-function:rs-colors:generic-hsl-color-coordinates}
+@include generic-function-rs-colors-generic-hsl-color-coordinates.texi
+
+
+@node Generic CMY Color Space, Generic CMYK Color Space, Generic HSL Color Space, Generic Color Spaces (Color Models)
+@subsection Generic CMY Color Space
+
+@anchor{class:rs-colors:generic-cmy-color}
+@include class-rs-colors-generic-cmy-color.texi
+@anchor{function:rs-colors:make-generic-cmy-color}
+@include function-rs-colors-make-generic-cmy-color.texi
+@anchor{function:rs-colors:make-generic-cmy-color-from-number}
+@include function-rs-colors-make-generic-cmy-color-from-number.texi
+@anchor{generic-function:rs-colors:generic-cmy-color-coordinates}
+@include generic-function-rs-colors-generic-cmy-color-coordinates.texi
+
+
+@node Generic CMYK Color Space,  , Generic CMY Color Space, Generic Color Spaces (Color Models)
+@subsection Generic CMYK Color Space
+
+@iftex
+@tex
+$$\eqalign{%
+k &= min(C, M, Y)\cr
+c &= {C - k\over 1 - k}\cr
+m &= {M - k\over 1 - k}\cr
+y &= {Y - k\over 1 - k}\cr
+}$$
+@end tex
+@end iftex
+
+@anchor{class:rs-colors:generic-cmyk-color}
+@include class-rs-colors-generic-cmyk-color.texi
+@anchor{function:rs-colors:make-generic-cmyk-color}
+@include function-rs-colors-make-generic-cmyk-color.texi
+@anchor{function:rs-colors:make-generic-cmyk-color-from-number}
+@include function-rs-colors-make-generic-cmyk-color-from-number.texi
+@anchor{generic-function:rs-colors:generic-cmyk-color-coordinates}
+@include generic-function-rs-colors-generic-cmyk-color-coordinates.texi
+
+
+@node Absolute Color Spaces, RGB Color Spaces, Generic Color Spaces (Color Models), Reference Manual
+@section Absolute Color Spaces
+
+@menu
+* CIE RGB Color Space::
+* CIE XYZ Color Space::
+* CIE xyY Color Space::
+* CIE L*u*v* Color Space::
+* CIE L*a*b* Color Space::
+@end menu
+
+
+@node CIE RGB Color Space, CIE XYZ Color Space, Absolute Color Spaces, Absolute Color Spaces
+@subsection CIE RGB Color Space
+
+@anchor{class:rs-colors:cie-rgb-color}
+@include class-rs-colors-cie-rgb-color.texi
+@anchor{function:rs-colors:make-cie-rgb-color}
+@include function-rs-colors-make-cie-rgb-color.texi
+@anchor{generic-function:rs-colors:cie-rgb-color-coordinates}
+@include generic-function-rs-colors-cie-rgb-color-coordinates.texi
+
+
+@node CIE XYZ Color Space, CIE xyY Color Space, CIE RGB Color Space, Absolute Color Spaces
+@subsection CIE XYZ Color Space
+
+@anchor{class:rs-colors:cie-xyz-color}
+@include class-rs-colors-cie-xyz-color.texi
+@anchor{function:rs-colors:make-cie-xyz-color}
+@include function-rs-colors-make-cie-xyz-color.texi
+@anchor{generic-function:rs-colors:cie-xyz-color-coordinates}
+@include generic-function-rs-colors-cie-xyz-color-coordinates.texi
+
+
+@node CIE xyY Color Space, CIE L*u*v* Color Space, CIE XYZ Color Space, Absolute Color Spaces
+@subsection CIE xyY Color Space
+
+@anchor{class:rs-colors:cie-xyy-color}
+@include class-rs-colors-cie-xyy-color.texi
+@anchor{function:rs-colors:make-cie-xyy-color}
+@include function-rs-colors-make-cie-xyy-color.texi
+@anchor{generic-function:rs-colors:cie-xyy-color-coordinates}
+@include generic-function-rs-colors-cie-xyy-color-coordinates.texi
+
+
+@node CIE L*u*v* Color Space, CIE L*a*b* Color Space, CIE xyY Color Space, Absolute Color Spaces
+@subsection CIE L*u*v* Color Space
+
+@anchor{class:rs-colors:cie-luv-color}
+@include class-rs-colors-cie-luv-color.texi
+@anchor{function:rs-colors:make-cie-luv-color}
+@include function-rs-colors-make-cie-luv-color.texi
+@anchor{generic-function:rs-colors:cie-luv-color-coordinates}
+@include generic-function-rs-colors-cie-luv-color-coordinates.texi
+
+
+@node CIE L*a*b* Color Space,  , CIE L*u*v* Color Space, Absolute Color Spaces
+@subsection CIE L*a*b* Color Space
+
+@anchor{class:rs-colors:cie-lab-color}
+@include class-rs-colors-cie-lab-color.texi
+@anchor{function:rs-colors:make-cie-lab-color}
+@include function-rs-colors-make-cie-lab-color.texi
+@anchor{generic-function:rs-colors:cie-lab-color-coordinates}
+@include generic-function-rs-colors-cie-lab-color-coordinates.texi
+
+
+@node RGB Color Spaces, Color Properties, Absolute Color Spaces, Reference Manual
+@section RGB Color Spaces
+
+@menu
+* sRGB Color Space::
+* Adobe RGB Color Space::
+@end menu
+
+@node sRGB Color Space, Adobe RGB Color Space, RGB Color Spaces, RGB Color Spaces
+@subsection sRGB Color Space
+
+@anchor{class:rs-colors:srgb-color}
+@include class-rs-colors-srgb-color.texi
+@anchor{function:rs-colors:make-srgb-color}
+@include function-rs-colors-make-srgb-color.texi
+@anchor{function:rs-colors:make-srgb-color-from-number}
+@include function-rs-colors-make-srgb-color-from-number.texi
+@anchor{generic-function:rs-colors:srgb-color-coordinates}
+@include generic-function-rs-colors-srgb-color-coordinates.texi
+
+
+@node Adobe RGB Color Space,  , sRGB Color Space, RGB Color Spaces
+@subsection Adobe RGB Color Space
+
+@anchor{class:rs-colors:adobe-rgb-color}
+@include class-rs-colors-adobe-rgb-color.texi
+@anchor{function:rs-colors:make-adobe-rgb-color}
+@include function-rs-colors-make-adobe-rgb-color.texi
+@anchor{function:rs-colors:make-adobe-rgb-color-from-number}
+@include function-rs-colors-make-adobe-rgb-color-from-number.texi
+@anchor{generic-function:rs-colors:adobe-rgb-color-coordinates}
+@include generic-function-rs-colors-adobe-rgb-color-coordinates.texi
+
+
+@node Color Properties, Color Conversion 1, RGB Color Spaces, Reference Manual
+@section Color Properties
+
+@anchor{function:rs-colors:colorp}
+@include function-rs-colors-colorp.texi
+
+@anchor{generic-function:rs-colors:color-coordinates}
+@include generic-function-rs-colors-color-coordinates.texi
+@anchor{generic-function:rs-colors:white-point}
+@include generic-function-rs-colors-white-point.texi
+
+
+@node Color Conversion 1, Input and Output, Color Properties, Reference Manual
+@section Color Conversion
+
+@anchor{function:rs-colors:coerce-color}
+@include function-rs-colors-coerce-color.texi
+@anchor{generic-function:rs-colors:copy-color}
+@include generic-function-rs-colors-copy-color.texi
+
+
+@node Input and Output, Miscellaneous, Color Conversion 1, Reference Manual
+@section Input and Output
+
+@anchor{macro:rs-colors:define-color-printer}
+@include macro-rs-colors-define-color-printer.texi
+@anchor{macro:rs-colors:define-color-reader}
+@include macro-rs-colors-define-color-reader.texi
+
+
+@node Miscellaneous,  , Input and Output, Reference Manual
+@section Miscellaneous
+
+@anchor{generic-function:rs-colors:absolute-color}
+@include generic-function-rs-colors-absolute-color.texi
+@anchor{generic-function:rs-colors:normalize-color}
+@include generic-function-rs-colors-normalize-color.texi
+
+
+
+@node Symbol Index, Concept Index, Reference Manual, Top
+@unnumbered Symbol Index
+
+@printindex fn
+
+
+@node Concept Index,  , Symbol Index, Top
+@unnumbered Concept Index
+
+@printindex cp
+
+@bye
+
+
+@c LocalWords: texinfo tex texi pt filll dir
+
+@c local variables:
+@c mode: outline-minor
+@c outline-regexp: "@\\(chapt\\|unnum\\|appen\\|section\\|subsection\\)"
+@c time-stamp-time-zone: "UTC"
+@c time-stamp-format: "%:y-%02m-%02d"
+@c time-stamp-start: "^@set UPDATED[    ]+"
+@c time-stamp-end: "$"
+@c end:
