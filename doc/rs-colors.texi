@@ -5,7 +5,7 @@
 @settitle rs-colors
 
 @set EDITION 1 (draft)
-@set UPDATED 2014-03-13
+@set UPDATED 2014-03-17
 
 @include package.texi
 
@@ -21,7 +21,9 @@
 @iftex
 @finalout
 @paragraphindent 1
-@afourpaper
+@c @afourpaper
+@afourlatex
+@c @afourwide
 @end iftex
 
 @setchapternewpage odd
@@ -29,6 +31,14 @@
 @allowcodebreaks false
 
 @include rs-texinfo.texi
+
+@macro interval {RANGE}
+interval@tie{}@w{@math{\RANGE\}}
+@end macro
+
+@macro range {FROM, TO}
+range from@tie{}@w{@math{\FROM\}} to@tie{}@w{@math{\TO\}}
+@end macro
 @c %**end of header
 
 @copying
@@ -146,6 +156,49 @@ $$\eqalign{%
 R &= 1 - C\cr
 G &= 1 - M\cr
 B &= 1 - Y\cr
+}$$
+@end tex
+@end iftex
+
+The CMYK color model is an extension of the CMY color model to save ink.
+Theoretically, a CMY tuple @w{@math{(C, M, Y)}} and a CMYK quadruple
+@w{@math{(c, m, y, k)}} can be related to each other via the equations
+
+@ifinfo
+@display
+k = min(C, M, Y)
+c = (C - k) / (1 - k)
+m = (M - k) / (1 - k)
+y = (Y - k) / (1 - k)
+@end display
+@end ifinfo
+@iftex
+@tex
+$$\eqalign{%
+k &= \min(C, M, Y)\cr
+c &= {C - k\over 1 - k}\cr
+m &= {M - k\over 1 - k}\cr
+y &= {Y - k\over 1 - k}\cr
+}$$
+@end tex
+@end iftex
+
+@noindent
+and
+
+@ifinfo
+@display
+C = min(1, c (1 - k) + k)
+M = min(1, m (1 - k) + k)
+Y = min(1, y (1 - k) + k)
+@end display
+@end ifinfo
+@iftex
+@tex
+$$\eqalign{%
+C &= \min(1, c\cdot(1 - k) + k)\cr
+M &= \min(1, m\cdot(1 - k) + k)\cr
+Y &= \min(1, y\cdot(1 - k) + k)\cr
 }$$
 @end tex
 @end iftex
@@ -421,6 +474,51 @@ Base class for a color.
 @item @classref{rs-colors, rgb-color-object}
 Base class for a RGB color space.
 
+@noindent
+@strong{Slots}
+
+@table @code
+@item r
+Normalized intensity of the red primary.
+
+Value has to be a real number in the closed @interval{[0, 1]}.
+Default value for initialization keyword argument @var{red} is zero.
+
+@item g
+Normalized intensity of the red primary.
+
+Value has to be a real number in the closed @interval{[0, 1]}.
+Default value for initialization keyword argument @var{green} is zero.
+
+@item b
+Normalized intensity of the red primary.
+
+Value has to be a real number in the closed @interval{[0, 1]}.
+Default value for initialization keyword argument @var{blue} is zero.
+@end table
+
+@itemize
+@item
+Slot @code{r} is the normalized intensity of the red primary.
+
+Value has to be a real number in the closed @interval{[0, 1]}.
+Default value for initialization keyword argument @var{red} is zero.
+
+@item
+Slot @code{g} is the normalized intensity of the green primary.
+
+Value has to be a real number in the closed @interval{[0, 1]}.
+Default value for the initialization keyword argument @var{green} is
+zero.
+
+@item
+Slot @code{b} is the normalized intensity of the blue primary.
+
+Value has to be a real number in the closed @interval{[0, 1]}.
+Default value for the initialization keyword argument @var{blue} is
+zero.
+@end itemize
+
 @item @classref{rs-colors, hsv-color-object}
 Base class for a HSV color space.
 
@@ -442,41 +540,138 @@ Base class for a color model.
 @chapter Reference Manual
 
 @menu
-* Abstract Colors::
+* Color Predicates::
+* Abstract Color Classes::
 * Generic Color Spaces (Color Models)::
-* Absolute Color Spaces::
+* CIE Color Spaces::
 * RGB Color Spaces::
 * Color Properties::
-* Color Conversion 1::
+* Color Conversions::
 * Input and Output::
 * Miscellaneous::
 @end menu
 
 
-@node Abstract Colors, Generic Color Spaces (Color Models), Reference Manual, Reference Manual
-@section Abstract Colors
+@node Color Predicates, Abstract Color Classes, Reference Manual, Reference Manual
+@section Color Predicates
 
-Color classes merely used as superclasses.
+Use the @code{colorp} function to check whether or not an object is a
+color.  This covers all color classes documented in this manual.
 
+@c ----------------------------------------------------------------------
+@anchor{function:rs-colors:colorp}
+@deffn {Function} {colorp} @w{object}
+Return true if @var{object} is a color object.
+@end deffn
+
+
+@node Abstract Color Classes, Generic Color Spaces (Color Models), Color Predicates, Reference Manual
+@section Abstract Color Classes
+
+The color classes documented in this section are merely used as
+superclasses.
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:color-object}
-@include class-rs-colors-color-object.texi
+@deftp {Class} {color-object}
+Base class for a color.
 
+@classprecedencelist
+@classref{rs-colors, color-object},
+@code{standard-object},
+@code{t}.
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:rgb-color-object}
-@include class-rs-colors-rgb-color-object.texi
+@deftp {Class} {rgb-color-object}
+Color class for a RGB color space.
+
+Color coordinates are the normalized intensities of the red, green, and
+blue primary.  Values are real numbers in the closed
+@interval{[0, 1]}.
+
+@classprecedencelist
+@classref{rs-colors, rgb-color-object},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:hsv-color-object}
-@include class-rs-colors-hsv-color-object.texi
+@deftp {Class} {hsv-color-object}
+Color class for a HSV/HSB color space.
+
+Color coordinates are hue, saturation, and value (brightness).  Hue is a
+real number in the half-closed @interval{[0, 360)}.
+Saturation and value are real numbers in the closed
+@interval{[0, 1]}.
+
+@classprecedencelist
+@classref{rs-colors, hsv-color-object},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:hsl-color-object}
-@include class-rs-colors-hsl-color-object.texi
+@deftp {Class} {hsl-color-object}
+Color class for a HSL color space.
+
+Color coordinates are hue, saturation, and lightness.  Hue is a real
+number in the half-closed @interval{[0, 360)}.  Saturation
+and lightness are real numbers in the closed
+@interval{[0, 1]}.
+
+@classprecedencelist
+@classref{rs-colors, hsl-color-object},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:cmy-color-object}
-@include class-rs-colors-cmy-color-object.texi
+@deftp {Class} {cmy-color-object}
+Color class for a CMY color space.
+
+Color coordinates are the normalized intensities of the cyan, magenta,
+and yellow primary.  Values are real numbers in the closed
+@interval{[0, 1]}.
+
+@classprecedencelist
+@classref{rs-colors, cmy-color-object},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:cmyk-color-object}
-@include class-rs-colors-cmyk-color-object.texi
+@deftp {Class} {cmyk-color-object}
+Color class for a CMYK color space.
 
+Color coordinates are the normalized intensities of the cyan, magenta,
+yellow, and black (key) primary.  Values are real numbers in the closed
+@interval{[0, 1]}.
+
+@classprecedencelist
+@classref{rs-colors, cmyk-color-object},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:generic-color-object}
-@include class-rs-colors-generic-color-object.texi
+@deftp {Class} {generic-color-object}
+Color class for the mathematical model of a color space.
+
+@classprecedencelist
+@classref{rs-colors, generic-color-object},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
 
 
-@node Generic Color Spaces (Color Models), Absolute Color Spaces, Abstract Colors, Reference Manual
+@node Generic Color Spaces (Color Models), CIE Color Spaces, Abstract Color Classes, Reference Manual
 @section Generic Color Spaces (Color Models)
 
 A generic color space implements a color model.  There are two major
@@ -495,83 +690,456 @@ model.
 @node Generic RGB Color Space, Generic HSV Color Space, Generic Color Spaces (Color Models), Generic Color Spaces (Color Models)
 @subsection Generic RGB Color Space
 
+The generic RGB color space is a mathematical description of the RGB
+color model.  It is not associated with a particular device.
+
+Color coordinates are the normalized intensities of the red, green, and
+blue primary.  Values are real numbers in the closed @interval{[0, 1]}.
+There is no white point.
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:generic-rgb-color}
-@include class-rs-colors-generic-rgb-color.texi
+@deftp {Class} {generic-rgb-color}
+Color class for the generic RGB color space.
+
+@classprecedencelist
+@w{@classref{rs-colors, generic-rgb-color},
+   @classref{rs-colors, rgb-color-object},
+   @classref{rs-colors, generic-color-object},
+   @classref{rs-colors, color-object},
+   @dots{}}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-rgb-color}
-@include function-rs-colors-make-generic-rgb-color.texi
+@deffn {Function} {make-generic-rgb-color} @w{red} @w{green} @w{blue} @k{&key} @w{byte-size}
+Create a new color in the generic RGB color space.
+
+@itemize
+@item
+First argument @var{red} is the normalized intensity of the red primary.
+
+@item
+Second argument @var{green} is the normalized intensity of the green primary.
+
+@item
+Third argument @var{blue} is the normalized intensity of the blue primary.
+@end itemize
+
+Arguments @var{red}, @var{green}, and @var{blue} have to be real numbers
+in the closed @interval{[0, 1]}.
+
+Keyword argument @var{byte-size} is the number of bits used to represent
+a primary.  If specified, arguments @var{red}, @var{green}, and
+@var{blue} have to be integral numbers in the @range{0, 2^n - 1} where
+@math{n} is the number of bits.  If so, arguments @var{red},
+@var{green}, and @var{blue} are scaled accordingly.
+
+@noindent
+Example:
+
+@lisp
+@group
+(make-generic-rgb-color 252/255 175/255 62/255)
+ @result{} #<GENERIC-RGB-COLOR (84/85 35/51 62/255)>
+
+(make-generic-rgb-color 252 175 62 :byte-size 8)
+ @result{} #<GENERIC-RGB-COLOR (84/85 35/51 62/255)>
+@end group
+@end lisp
+@end deffn
+
+@c ----------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-rgb-color-from-number}
-@include function-rs-colors-make-generic-rgb-color-from-number.texi
+@deffn {Function} {make-generic-rgb-color-from-number} @w{value} @k{&key} @w{byte-size}
+Create a new color in the generic RGB color space.
+
+@itemize
+@item
+Argument @var{value} is the numerical value of the encoded RGB color
+coordinates.
+@end itemize
+
+Keyword argument @var{byte-size} is the number of bits used to represent
+a primary.  Default is eight bit (one byte).  Argument @var{value} has
+to be an integral number in the @range{0, 2^{3n} - 1} where @math{n} is
+the number of bits per primary.  The most significant bits denote the
+intensity of the red primary.
+
+@noindent
+Example:
+
+@lisp
+@group
+(make-generic-rgb-color-from-number #XFCAF3E)
+ @result{} #<GENERIC-RGB-COLOR (84/85 35/51 62/255)>
+@end group
+@end lisp
+@end deffn
+
+@c ----------------------------------------------------------------------
 @anchor{generic-function:rs-colors:generic-rgb-color-coordinates}
-@include generic-function-rs-colors-generic-rgb-color-coordinates.texi
+@deffn {Generic Function} {generic-rgb-color-coordinates} @w{color}
+Return the generic RGB color space coordinates of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Values are the normalized intensities of the red, green, and blue
+primary.
+@end deffn
 
 
 @node Generic HSV Color Space, Generic HSL Color Space, Generic RGB Color Space, Generic Color Spaces (Color Models)
 @subsection Generic HSV Color Space
 
-The HSV color space is a non-linear transformation of the RGB color
-model.
+The HSV color space is a different representation of the RGB color
+model.  The HSV color space is also called HSB color space.  The generic
+HSV color space is not associated with a particular device.
 
+Color coordinates are hue, saturation, and value (brightness).  Hue is a
+real number in the half-closed @interval{[0, 360)}.  Saturation and
+value are real numbers in the closed @interval{[0, 1]}.  There is no
+white point.
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:generic-hsv-color}
-@include class-rs-colors-generic-hsv-color.texi
+@deftp {Class} {generic-hsv-color}
+Color class for the generic HSV color space.
+
+@classprecedencelist
+@w{@classref{rs-colors, generic-hsv-color},
+   @classref{rs-colors, hsv-color-object},
+   @classref{rs-colors, generic-color-object},
+   @classref{rs-colors, color-object},
+   @dots{}}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-hsv-color}
-@include function-rs-colors-make-generic-hsv-color.texi
+@deffn {Function} {make-generic-hsv-color} @w{hue} @w{saturation} @w{value}
+Create a new color in the generic HSV color space.
+
+@itemize
+@item
+First argument @var{hue} is the angle of the RGB color wheel in degree.
+
+@item
+Second argument @var{saturation} is the saturation.
+
+@item
+Third argument @var{value} is the brightness.
+@end itemize
+
+Argument @var{hue} has to be a real number.  It's value is reduced to
+the half-closed @interval{[0, 360)}.  Arguments @var{saturation} and
+@var{value} have to be real numbers in the closed @interval{[0, 1]}.
+@end deffn
+
+@c ----------------------------------------------------------------------
 @anchor{generic-function:rs-colors:generic-hsv-color-coordinates}
-@include generic-function-rs-colors-generic-hsv-color-coordinates.texi
+@deffn {Generic Function} {generic-hsv-color-coordinates} @w{color}
+Return the generic HSV color space coordinates of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Values are the hue, saturation, and value (brightness).
+@end deffn
 
 
 @node Generic HSL Color Space, Generic CMY Color Space, Generic HSV Color Space, Generic Color Spaces (Color Models)
 @subsection Generic HSL Color Space
 
-The HSL color space is a non-linear transformation of the RGB color
-model.
+The HSL color space is a different representation of the RGB color
+model.  The generic HSL color space is not associated with a particular
+device.
 
+Color coordinates are hue, saturation, and lightness.  Hue is a real
+number in the half-closed @interval{[0, 360)}.  Saturation and lightness
+are real numbers in the closed @interval{[0, 1]}.  There is no white
+point.
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:generic-hsl-color}
-@include class-rs-colors-generic-hsl-color.texi
+@deftp {Class} {generic-hsl-color}
+Color class for the generic HSL color space.
+
+@classprecedencelist
+@w{@classref{rs-colors, generic-hsl-color},
+   @classref{rs-colors, hsl-color-object},
+   @classref{rs-colors, generic-color-object},
+   @classref{rs-colors, color-object},
+   @dots{}}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-hsl-color}
-@include function-rs-colors-make-generic-hsl-color.texi
+@deffn {Function} {make-generic-hsl-color} @w{hue} @w{saturation} @w{lightness}
+Create a new color in the generic HSL color space.
+
+@itemize
+@item
+First argument @var{hue} is the angle of the RGB color wheel in degree.
+
+@item
+Second argument @var{saturation} is the saturation.
+
+@item
+Third argument @var{lightness} is the lightness.
+@end itemize
+
+Argument @var{hue} has to be a real number.  It's value is reduced to
+the half-closed @interval{[0, 360)}.  Arguments @var{saturation} and
+@var{lightness} have to be real numbers in the closed @interval{[0, 1]}.
+@end deffn
+
+@c ----------------------------------------------------------------------
 @anchor{generic-function:rs-colors:generic-hsl-color-coordinates}
-@include generic-function-rs-colors-generic-hsl-color-coordinates.texi
+@deffn {Generic Function} {generic-hsl-color-coordinates} @w{color}
+Return the generic HSL color space coordinates of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Values are the hue, saturation, and lightness.
+@end deffn
 
 
 @node Generic CMY Color Space, Generic CMYK Color Space, Generic HSL Color Space, Generic Color Spaces (Color Models)
 @subsection Generic CMY Color Space
 
+The generic CMY color space is a mathematical description of the CMY
+color model.  It is not associated with a particular device.
+
+Color coordinates are the normalized intensities of the cyan, magenta,
+and yellow primary.  Values are real numbers in the closed
+@interval{[0, 1]}.  There is no white point.
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:generic-cmy-color}
-@include class-rs-colors-generic-cmy-color.texi
+@deftp {Class} {generic-cmy-color}
+Color class for the generic CMY color space.
+
+@classprecedencelist
+@w{@classref{rs-colors, generic-cmy-color},
+   @classref{rs-colors, cmy-color-object},
+   @classref{rs-colors, generic-color-object},
+   @classref{rs-colors, color-object},
+   @dots{}}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-cmy-color}
-@include function-rs-colors-make-generic-cmy-color.texi
+@deffn {Function} {make-generic-cmy-color} @w{cyan} @w{magenta} @w{yellow} @k{&key} @w{byte-size}
+Create a new color in the generic CMY color space.
+
+@itemize
+@item
+First argument @var{cyan} is the normalized intensity of the cyan
+primary.
+
+@item
+Second argument @var{magenta} is the normalized intensity of the magenta
+primary.
+
+@item
+Third argument @var{yellow} is the normalized intensity of the yellow
+primary.
+@end itemize
+
+Arguments @var{cyan}, @var{magenta}, and @var{yellow} have to be real
+numbers in the closed @interval{[0, 1]}.
+
+Keyword argument @var{byte-size} is the number of bits used to represent
+a primary.  If specified, arguments @var{cyan}, @var{magenta}, and
+@var{yellow} have to be integral numbers in the @range{0, 2^n - 1} where
+@math{n} is the number of bits.  If so, arguments @var{cyan},
+@var{magenta}, and @var{yellow} are scaled accordingly.
+
+@noindent
+Example:
+
+@lisp
+@group
+(make-generic-cmy-color 3/255 80/255 193/255)
+ @result{} #<GENERIC-CMY-COLOR (1/85 16/51 193/255)>
+
+(make-generic-cmy-color 3 80 193 :byte-size 8)
+ @result{} #<GENERIC-CMY-COLOR (1/85 16/51 193/255)>
+@end group
+@end lisp
+@end deffn
+
+@c ----------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-cmy-color-from-number}
-@include function-rs-colors-make-generic-cmy-color-from-number.texi
+@deffn {Function} {make-generic-cmy-color-from-number} @w{value} @k{&key} @w{byte-size}
+Create a new color in the generic CMY color space.
+
+@itemize
+@item
+Argument @var{value} is the numerical value of the encoded CMY color
+coordinates.
+@end itemize
+
+Keyword argument @var{byte-size} is the number of bits used to represent
+a primary.  Default is eight bit (one byte).  Argument @var{value} has
+to be an integral number in the @range{0, 2^{3n} - 1} where @math{n} is
+the number of bits per primary.  The most significant bits denote the
+intensity of the cyan primary.
+
+@noindent
+Example:
+
+@lisp
+@group
+(make-generic-cmy-color-from-number #X0350C1)
+ @result{} #<GENERIC-CMY-COLOR (1/85 16/51 193/255)>
+@end group
+@end lisp
+@end deffn
+
+@c ----------------------------------------------------------------------
 @anchor{generic-function:rs-colors:generic-cmy-color-coordinates}
-@include generic-function-rs-colors-generic-cmy-color-coordinates.texi
+@deffn {Generic Function} {generic-cmy-color-coordinates} @w{color}
+Return the generic CMY color space coordinates of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Values are the normalized intensities of the cyan, magenta, and yellow
+primary.
+@end deffn
 
 
 @node Generic CMYK Color Space,  , Generic CMY Color Space, Generic Color Spaces (Color Models)
 @subsection Generic CMYK Color Space
 
-@iftex
-@tex
-$$\eqalign{%
-k &= min(C, M, Y)\cr
-c &= {C - k\over 1 - k}\cr
-m &= {M - k\over 1 - k}\cr
-y &= {Y - k\over 1 - k}\cr
-}$$
-@end tex
-@end iftex
+The generic CMYK color space is a mathematical description of the CMYK
+color model.  It is not associated with a particular device.
 
+Color coordinates are the normalized intensities of the cyan, magenta,
+yellow, and black (key) primary.  Values are real numbers in the closed
+@interval{[0, 1]}.  There is no white point.
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:generic-cmyk-color}
-@include class-rs-colors-generic-cmyk-color.texi
+@deftp {Class} {generic-cmyk-color}
+Color class for the generic CMYK color space.
+
+@classprecedencelist
+@w{@classref{rs-colors, generic-cmyk-color},
+   @classref{rs-colors, cmyk-color-object},
+   @classref{rs-colors, generic-color-object},
+   @classref{rs-colors, color-object},
+   @dots{}}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-cmyk-color}
-@include function-rs-colors-make-generic-cmyk-color.texi
+@deffn {Function} {make-generic-cmyk-color} @w{cyan} @w{magenta} @w{yellow} @w{black} @k{&key} @w{byte-size}
+Create a new color in the generic CMYK color space.
+
+@itemize
+@item
+First argument @var{cyan} is the normalized intensity of the cyan
+primary.
+
+@item
+Second argument @var{magenta} is the normalized intensity of the magenta
+primary.
+
+@item
+Third argument @var{yellow} is the normalized intensity of the yellow
+primary.
+
+@item
+Fourth argument @var{black} is the normalized intensity of the black
+primary.
+@end itemize
+
+Arguments @var{cyan}, @var{magenta}, @var{yellow}, and @var{black} have
+to be real numbers in the closed @interval{[0, 1]}.  If @var{black} is
+zero, @var{cyan}, @var{magenta}, and @var{yellow} are converted from CMY
+color coordinates to CMYK color coordinates.
+
+Keyword argument @var{byte-size} is the number of bits used to represent
+a primary.  If specified, arguments @var{cyan}, @var{magenta},
+@var{yellow}, and @var{black} have to be integral numbers in the
+@range{0, 2^n - 1} where @math{n} is the number of bits.  If so,
+arguments @var{cyan}, @var{magenta}, @var{yellow}, and @var{black} are
+scaled accordingly.
+
+@noindent
+Example:
+
+@lisp
+@group
+(make-generic-cmyk-color 3/255 80/255 193/255 0)
+ @result{} #<GENERIC-CMYK-COLOR (0 11/36 95/126 1/85)>
+
+(make-generic-cmyk-color 3 80 193 :byte-size 8)
+ @result{} #<GENERIC-CMYK-COLOR (0 11/36 95/126 1/85)>
+@end group
+@end lisp
+@end deffn
+
+@c ----------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-cmyk-color-from-number}
-@include function-rs-colors-make-generic-cmyk-color-from-number.texi
+@deffn {Function} {make-generic-cmyk-color-from-number} @w{value} @k{&key} @w{byte-size}
+Create a new color in the generic CMYK color space.
+
+@itemize
+@item
+Argument @var{value} is the numerical value of the encoded CMYK color
+coordinates.
+@end itemize
+
+Keyword argument @var{byte-size} is the number of bits used to represent
+a primary.  Default is eight bit (one byte).  Argument @var{value} has
+to be an integral number in the @range{0, 2^{4n} - 1} where @math{n} is
+the number of bits per primary.  The most significant bits denote the
+intensity of the cyan primary.
+
+@noindent
+Example:
+
+@lisp
+@group
+(make-generic-cmyk-color-from-number #X0350C100)
+ @result{} #<GENERIC-CMYK-COLOR (0 11/36 95/126 1/85)>
+@end group
+@end lisp
+@end deffn
+
+@c ----------------------------------------------------------------------
 @anchor{generic-function:rs-colors:generic-cmyk-color-coordinates}
-@include generic-function-rs-colors-generic-cmyk-color-coordinates.texi
+@deffn {Generic Function} {generic-cmyk-color-coordinates} @w{color}
+Return the generic CMYK color space coordinates of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Values are the normalized intensities of the cyan, magenta, yellow, and
+black primary.
+@end deffn
 
 
-@node Absolute Color Spaces, RGB Color Spaces, Generic Color Spaces (Color Models), Reference Manual
-@section Absolute Color Spaces
+@node CIE Color Spaces, RGB Color Spaces, Generic Color Spaces (Color Models), Reference Manual
+@section CIE Color Spaces
+
+All CIE color spaces are absolute color spaces, that means they are
+device independed.
 
 @menu
 * CIE RGB Color Space::
@@ -582,62 +1150,350 @@ y &= {Y - k\over 1 - k}\cr
 @end menu
 
 
-@node CIE RGB Color Space, CIE XYZ Color Space, Absolute Color Spaces, Absolute Color Spaces
+@node CIE RGB Color Space, CIE XYZ Color Space, CIE Color Spaces, CIE Color Spaces
 @subsection CIE RGB Color Space
 
+The CIE RGB color space is the origin of all CIE color spaces.
+
+Color coordinates are the normalized intensities of the red, green, and
+blue primary.  Values are real numbers in the closed @interval{[0, 1]}.
+The white point of the CIE RGB color space is the CIE standard
+illuminant@tie{}E@footnote{You can easily check this if you convert
+CIE RGB white into the CIE xyY color space:
+
+@lisp
+@group
+(change-class (make-cie-rgb-color 1 1 1) 'cie-xyy-color)
+ @result{} #<CIE-XYY-COLOR (1/3 1/3 1)>
+@end group
+@end lisp
+}.
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:cie-rgb-color}
-@include class-rs-colors-cie-rgb-color.texi
+@deftp {Class} {cie-rgb-color}
+Color class for the CIE RGB color space.
+
+@classprecedencelist
+@classref{rs-colors, cie-rgb-color},
+@classref{rs-colors, rgb-color-object},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{function:rs-colors:make-cie-rgb-color}
-@include function-rs-colors-make-cie-rgb-color.texi
+@deffn {Function} {make-cie-rgb-color} @w{red} @w{green} @w{blue}
+Create a new color in the CIE RGB color space.
+
+@itemize
+@item
+First argument @var{red} is the normalized intensity of the red primary.
+
+@item
+Second argument @var{green} is the normalized intensity of the green
+primary.
+
+@item
+Third argument @var{blue} is the normalized intensity of the blue
+primary.
+@end itemize
+
+Arguments @var{red}, @var{green}, and @var{blue} have to be real numbers
+in the closed @interval{[0, 1]}.
+@end deffn
+
+@c ----------------------------------------------------------------------
 @anchor{generic-function:rs-colors:cie-rgb-color-coordinates}
-@include generic-function-rs-colors-cie-rgb-color-coordinates.texi
+@deffn {Generic Function} {cie-rgb-color-coordinates} @w{color}
+Return the CIE RGB color space coordinates of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Values are the normalized intensities of the red, green, and blue
+primary.
+@end deffn
 
 
-@node CIE XYZ Color Space, CIE xyY Color Space, CIE RGB Color Space, Absolute Color Spaces
+@node CIE XYZ Color Space, CIE xyY Color Space, CIE RGB Color Space, CIE Color Spaces
 @subsection CIE XYZ Color Space
 
+The CIE XYZ color space is a linear transformation of the CIE RGB color
+space.  The CIE XYZ color space covers all colors an average person can
+experience.  Many other color spaces are defined against the CIE XYZ
+color space.
+
+Color coordinates are the X, Y, and Z tristimulus values.  The CIE XYZ
+color space has no explicit white point.
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:cie-xyz-color}
-@include class-rs-colors-cie-xyz-color.texi
+@deftp {Class} {cie-xyz-color}
+Color class for the CIE XYZ color space.
+
+@classprecedencelist
+@classref{rs-colors, cie-xyz-color},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{function:rs-colors:make-cie-xyz-color}
-@include function-rs-colors-make-cie-xyz-color.texi
+@deffn {Function} {make-cie-xyz-color} @w{x} @w{y} @w{z}
+Create a new color in the CIE XYZ color space.
+
+@itemize
+@item
+Arguments @var{x}, @var{y}, and @var{z} are the tristimulus values.
+@end itemize
+@end deffn
+
+@c ----------------------------------------------------------------------
 @anchor{generic-function:rs-colors:cie-xyz-color-coordinates}
-@include generic-function-rs-colors-cie-xyz-color-coordinates.texi
+@deffn {Generic Function} {cie-xyz-color-coordinates} @w{color}
+Return the CIE XYZ color space coordinates of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Values are the @var{x}, @var{y}, and @var{z} tristimulus values.
+@end deffn
+
+Objects of the @classref{rs-colors, cie-xyz-color} class can be
+instantiated with absolute and normalized color coordinates.  However,
+if you want to convert colors from CIE XYZ color space to CIE RGB color
+space (or any other RGB color space), the CIE XYZ color coordinates have
+to be normalized color coordinates.  See the
+@genericref{rs-colors, normalize-color} and
+@genericref{rs-colors, absolute-color}, for how to convert from absolute
+color coordinates to normalized color coordinates and vice versa.
 
 
-@node CIE xyY Color Space, CIE L*u*v* Color Space, CIE XYZ Color Space, Absolute Color Spaces
+@node CIE xyY Color Space, CIE L*u*v* Color Space, CIE XYZ Color Space, CIE Color Spaces
 @subsection CIE xyY Color Space
 
+The CIE xyY color space uses the @math{x} and @math{y} chromaticity
+coordinates of the CIE XYZ color space.  That is,
+
+@ifinfo
+@display
+x = X / (X + Y + Z)
+y = Y / (X + Y + Z)
+z = Z / (X + Y + Z)
+@end display
+@end ifinfo
+@iftex
+@tex
+$$\eqalign{%
+x &= {X\over X + Y + Z}\cr
+y &= {Y\over X + Y + Z}\cr
+z &= {Z\over X + Y + Z}\cr
+}$$
+@end tex
+@end iftex
+
+@noindent
+Simple arithmetic results in the following relations:
+
+@ifinfo
+@display
+Y/y = X + Y + Z
+  1 = x + y + z
+@end display
+@end ifinfo
+@iftex
+@tex
+$$\eqalign{%
+{Y\over y} &= X + Y + Z\cr
+1 &= x + y + z\cr
+}$$
+@end tex
+@end iftex
+
+@noindent
+Therefore, the inverse transformation is
+
+@ifinfo
+@display
+X = x Y/y
+Y = y Y/y = Y
+Z = z Y/y = (1 - x - y) Y/y
+@end display
+@end ifinfo
+@iftex
+@tex
+$$\eqalign{%
+X &= x\cdot{Y\over y}\cr
+Y &= y\cdot{Y\over y} = Y\cr
+Z &= z\cdot{Y\over y} = (1 - x - y)\cdot{Y\over y}\cr
+}$$
+@end tex
+@end iftex
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:cie-xyy-color}
-@include class-rs-colors-cie-xyy-color.texi
+@deftp {Class} {cie-xyy-color}
+Color class for the CIE xyY color space.
+
+@classprecedencelist
+@classref{rs-colors, cie-xyy-color},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{function:rs-colors:make-cie-xyy-color}
-@include function-rs-colors-make-cie-xyy-color.texi
+@deffn {Function} {make-cie-xyy-color} @w{x*} @w{y*} @w{y}
+Create a new color in the CIE xyY color space.
+
+@itemize
+@item
+Arguments @var{x*} and @var{y*} are the @math{x} and @math{y}
+chromaticity coordinates of the CIE XYZ color space.
+
+@item
+Third argument @var{y} is the luminance, that is the @math{Y}
+tristimulus value of the CIE XYZ color space.
+@end itemize
+@end deffn
+
+@c ----------------------------------------------------------------------
 @anchor{generic-function:rs-colors:cie-xyy-color-coordinates}
-@include generic-function-rs-colors-cie-xyy-color-coordinates.texi
+@deffn {Generic Function} {cie-xyy-color-coordinates} @w{color}
+Return the CIE xyY color space coordinates of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Values are the @math{x} and @math{y} chromaticity coordinates and the
+luminance.
+@end deffn
 
 
-@node CIE L*u*v* Color Space, CIE L*a*b* Color Space, CIE xyY Color Space, Absolute Color Spaces
+@node CIE L*u*v* Color Space, CIE L*a*b* Color Space, CIE xyY Color Space, CIE Color Spaces
 @subsection CIE L*u*v* Color Space
 
+The CIE L*u*v* color space is a non-linear transformation of the CIE XYZ
+color space.  The CIE L*u*v* color space is more perceptually uniform
+than the CIE XYZ color space.
+
+Color coordinates are lightness and two chromaticity coordinates.
+Lightness @var{L*} is in the @range{0, 100}.  However, values
+greater than@tie{}@math{100} are accepted, too.  The two chromaticity
+coordinates @var{u*} and @var{v^*} are usually in the @range{-100, +100}.
+CIE L*u*v* color coordinates are always relative to a white point.  This
+is either the white point of the color space you are converting from or
+CIE standard illuminant D50.
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:cie-luv-color}
-@include class-rs-colors-cie-luv-color.texi
+@deftp {Class} {cie-luv-color}
+Color class for the CIE L*u*v* color space.
+
+@classprecedencelist
+@classref{rs-colors, cie-luv-color},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{function:rs-colors:make-cie-luv-color}
-@include function-rs-colors-make-cie-luv-color.texi
+@deffn {Function} {make-cie-luv-color} @w{L*} @w{u*} @w{v*} @k{&optional} @w{white-point}
+Create a new color in the CIE L*u*v* color space.
+
+@itemize
+@item
+First argument @var{L*} is the lightness.
+
+@item
+Second argument @var{u*} is the first chromaticity coordinate.
+
+@item
+Third argument @var{v*} is the second chromaticity coordinate.
+@end itemize
+@end deffn
+
+@c ----------------------------------------------------------------------
 @anchor{generic-function:rs-colors:cie-luv-color-coordinates}
-@include generic-function-rs-colors-cie-luv-color-coordinates.texi
+@deffn {Generic Function} {cie-luv-color-coordinates} @w{color}
+Return the CIE L*u*v* color space coordinates of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Values are the lightness and the two chromaticity coordinates.
+@end deffn
 
 
-@node CIE L*a*b* Color Space,  , CIE L*u*v* Color Space, Absolute Color Spaces
+@node CIE L*a*b* Color Space,  , CIE L*u*v* Color Space, CIE Color Spaces
 @subsection CIE L*a*b* Color Space
 
+The CIE L*a*b* color space is a non-linear transformation of the CIE XYZ
+color space.  The CIE L*a*b* color space is more perceptually uniform
+than the CIE XYZ color space.
+
+Color coordinates are lightness and two chromaticity coordinates.
+Lightness @var{L*} is in the @range{0, 100}.  However, values
+greater than@tie{}@math{100} are accepted, too.  The two chromaticity
+coordinates @var{a*} and @var{b*} are usually in the @range{-250, +250}
+and from@tie{}@math{-100} to@tie{}@math{+100} respectively.  CIE L*a*b* color
+coordinates are always relative to a white point.  This is either the
+white point of the color space you are converting from or CIE standard
+illuminant D50.
+
+@c ----------------------------------------------------------------------
 @anchor{class:rs-colors:cie-lab-color}
-@include class-rs-colors-cie-lab-color.texi
+@deftp {Class} {cie-lab-color}
+Color class for the CIE L*a*b* color space.
+
+@classprecedencelist
+@classref{rs-colors, cie-lab-color},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
+
+@c ----------------------------------------------------------------------
 @anchor{function:rs-colors:make-cie-lab-color}
-@include function-rs-colors-make-cie-lab-color.texi
+@deffn {Function} {make-cie-lab-color} @w{L*} @w{a*} @w{b*} @k{&optional} @w{white-point}
+Create a new color in the CIE L*a*b* color space.
+
+@itemize
+@item
+First argument @var{L*} is the lightness.
+
+@item
+Second argument @var{a*} is the first chromaticity coordinate.
+
+@item
+Third argument @var{b*} is the second chromaticity coordinate.
+
+@end itemize
+@end deffn
+
+@c ----------------------------------------------------------------------
 @anchor{generic-function:rs-colors:cie-lab-color-coordinates}
-@include generic-function-rs-colors-cie-lab-color-coordinates.texi
+@deffn {Generic Function} {cie-lab-color-coordinates} @w{color}
+Return the CIE L*a*b* color space coordinates of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Values are the lightness and the two chromaticity coordinates.
+@end deffn
 
 
-@node RGB Color Spaces, Color Properties, Absolute Color Spaces, Reference Manual
+@node RGB Color Spaces, Color Properties, CIE Color Spaces, Reference Manual
 @section RGB Color Spaces
 
 @menu
@@ -650,10 +1506,13 @@ y &= {Y - k\over 1 - k}\cr
 
 @anchor{class:rs-colors:srgb-color}
 @include class-rs-colors-srgb-color.texi
+
 @anchor{function:rs-colors:make-srgb-color}
 @include function-rs-colors-make-srgb-color.texi
+
 @anchor{function:rs-colors:make-srgb-color-from-number}
 @include function-rs-colors-make-srgb-color-from-number.texi
+
 @anchor{generic-function:rs-colors:srgb-color-coordinates}
 @include generic-function-rs-colors-srgb-color-coordinates.texi
 
@@ -663,40 +1522,48 @@ y &= {Y - k\over 1 - k}\cr
 
 @anchor{class:rs-colors:adobe-rgb-color}
 @include class-rs-colors-adobe-rgb-color.texi
+
 @anchor{function:rs-colors:make-adobe-rgb-color}
 @include function-rs-colors-make-adobe-rgb-color.texi
+
 @anchor{function:rs-colors:make-adobe-rgb-color-from-number}
 @include function-rs-colors-make-adobe-rgb-color-from-number.texi
+
 @anchor{generic-function:rs-colors:adobe-rgb-color-coordinates}
 @include generic-function-rs-colors-adobe-rgb-color-coordinates.texi
 
 
-@node Color Properties, Color Conversion 1, RGB Color Spaces, Reference Manual
+@node Color Properties, Color Conversions, RGB Color Spaces, Reference Manual
 @section Color Properties
-
-@anchor{function:rs-colors:colorp}
-@include function-rs-colors-colorp.texi
 
 @anchor{generic-function:rs-colors:color-coordinates}
 @include generic-function-rs-colors-color-coordinates.texi
+
 @anchor{generic-function:rs-colors:white-point}
 @include generic-function-rs-colors-white-point.texi
 
 
-@node Color Conversion 1, Input and Output, Color Properties, Reference Manual
-@section Color Conversion
+@node Color Conversions, Input and Output, Color Properties, Reference Manual
+@section Color Conversions
+
+@c ---------------------------------------------------------------------
+@anchor{function:common-lisp:change-class}
+@deffn {Function} change-class
+@end deffn
 
 @anchor{function:rs-colors:coerce-color}
 @include function-rs-colors-coerce-color.texi
+
 @anchor{generic-function:rs-colors:copy-color}
 @include generic-function-rs-colors-copy-color.texi
 
 
-@node Input and Output, Miscellaneous, Color Conversion 1, Reference Manual
+@node Input and Output, Miscellaneous, Color Conversions, Reference Manual
 @section Input and Output
 
 @anchor{macro:rs-colors:define-color-printer}
 @include macro-rs-colors-define-color-printer.texi
+
 @anchor{macro:rs-colors:define-color-reader}
 @include macro-rs-colors-define-color-reader.texi
 
@@ -706,6 +1573,7 @@ y &= {Y - k\over 1 - k}\cr
 
 @anchor{generic-function:rs-colors:absolute-color}
 @include generic-function-rs-colors-absolute-color.texi
+
 @anchor{generic-function:rs-colors:normalize-color}
 @include generic-function-rs-colors-normalize-color.texi
 
