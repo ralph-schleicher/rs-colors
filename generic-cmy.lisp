@@ -89,7 +89,7 @@ Example:
   (ensure-type byte-size '(integer 1))
   (multiple-value-bind (cyan magenta yellow)
       (decode-triple value byte-size)
-    (make-generic-cmy-color cyan magenta yellow byte-size)))
+    (make-generic-cmy-color cyan magenta yellow :byte-size byte-size)))
 
 (defun generic-cmy-from-generic-rgb (r g b)
   "Convert RGB color space coordinates
