@@ -1,7 +1,7 @@
 This is rs-colors.info, produced by makeinfo version 5.2 from
 rs-colors.texi.
 
-This is edition 1 (draft), last updated 2014-03-17, of 'RS-COLORS - A
+This is edition 1 (draft), last updated 2014-03-20, of 'RS-COLORS - A
 Color Data Type for Common Lisp', for RS-COLORS version 20131204.2148.
 
      Copyright (C) 2014 Ralph Schleicher
@@ -22,7 +22,7 @@ File: rs-colors.info,  Node: Top,  Next: Introduction,  Prev: (dir),  Up: (dir)
 RS-COLORS
 *********
 
-This is edition 1 (draft), last updated 2014-03-17, of 'RS-COLORS - A
+This is edition 1 (draft), last updated 2014-03-20, of 'RS-COLORS - A
 Color Data Type for Common Lisp', for RS-COLORS version 20131204.2148.
 
      Copyright (C) 2014 Ralph Schleicher
@@ -830,7 +830,7 @@ File: rs-colors.info,  Node: CIE Color Spaces,  Next: RGB Color Spaces,  Prev: G
 ====================
 
 All CIE color spaces are absolute color spaces, that means they are
-device independed.
+device independent.
 
 * Menu:
 
@@ -916,7 +916,13 @@ color space has no explicit white point.
  -- Function: make-cie-xyz-color x y z
      Create a new color in the CIE XYZ color space.
 
-        * Arguments X, Y, and Z are the tristimulus values.
+        * First argument X is the X tristimulus value.
+
+        * Second argument Y is the Y tristimulus value.
+
+        * Third argument Z is the Z tristimulus value.
+
+     Arguments X, Y, and Z have to be non-negative real numbers.
 
  -- Generic Function: cie-xyz-color-coordinates color
      Return the CIE XYZ color space coordinates of the color.
@@ -1092,41 +1098,56 @@ File: rs-colors.info,  Node: sRGB Color Space,  Next: Adobe RGB Color Space,  Pr
  -- Function: make-srgb-color red green blue &key byte-size
      Create a new color in the sRGB color space.
 
-     First argument RED is the intensity of the red primary.  Second
-     argument GREEN is the intensity of the green primary.  Third
-     argument BLUE is the intensity of the blue primary.
+        * First argument RED is the normalized intensity of the red
+          primary.
+
+        * Second argument GREEN is the normalized intensity of the green
+          primary.
+
+        * Third argument BLUE is the normalized intensity of the blue
+          primary.
 
      Arguments RED, GREEN, and BLUE have to be normalized intensity
      values in the closed interval [0, 1].
 
      Keyword argument BYTE-SIZE is the number of bits used to represent
-     a primary.  If specified, arguments RED, GREEN, and BLUE are scaled
+     a primary.  If specified, arguments RED, GREEN, and BLUE have to be
+     integral numbers in the range from 0 to 2^n - 1 where n is the
+     number of bits.  If so, arguments RED, GREEN, and BLUE are scaled
      accordingly.
 
      Example:
 
-               (make-srgb-color 252/255 175/255 62/255)
-               (make-srgb-color 252 175 62 :byte-size 8)
+          (make-srgb-color 252/255 175/255 62/255)
+           => #<SRGB-COLOR (84/85 35/51 62/255)>
+
+          (make-srgb-color 252 175 62 :byte-size 8)
+           => #<SRGB-COLOR (84/85 35/51 62/255)>
 
  -- Function: make-srgb-color-from-number value &key byte-size
      Create a new color in the sRGB color space.
 
-     Argument VALUE is a non-negative integral number.
+        * Argument VALUE is the numerical value of the encoded RGB color
+          coordinates.
 
      Keyword argument BYTE-SIZE is the number of bits used to represent
-     a primary.  Default is eight bit (one byte).  The most significant
-     bits denote the intensity of the red primary.
+     a primary.  Default is eight bit (one byte).  Argument VALUE has to
+     be an integral number in the range from 0 to 2^{3n} - 1 where n is
+     the number of bits per primary.  The most significant bits denote
+     the intensity of the red primary.
 
      Example:
 
-               (make-srgb-color-from-number #XFCAF3E)
+          (make-srgb-color-from-number #XFCAF3E)
+           => #<SRGB-COLOR (84/85 35/51 62/255)>
 
  -- Generic Function: srgb-color-coordinates color
      Return the sRGB color space coordinates of the color.
 
-     Argument COLOR is a color object.
+        * Argument COLOR is a color object.
 
-     Values are the intensities of the red, green, and blue primary.
+     Values are the normalized intensities of the red, green, and blue
+     primary.
 
 
 File: rs-colors.info,  Node: Adobe RGB Color Space,  Prev: sRGB Color Space,  Up: RGB Color Spaces
@@ -1145,41 +1166,56 @@ File: rs-colors.info,  Node: Adobe RGB Color Space,  Prev: sRGB Color Space,  Up
  -- Function: make-adobe-rgb-color red green blue &key byte-size
      Create a new color in the Adobe RGB color space.
 
-     First argument RED is the intensity of the red primary.  Second
-     argument GREEN is the intensity of the green primary.  Third
-     argument BLUE is the intensity of the blue primary.
+        * First argument RED is the normalized intensity of the red
+          primary.
+
+        * Second argument GREEN is the normalized intensity of the green
+          primary.
+
+        * Third argument BLUE is the normalized intensity of the blue
+          primary.
 
      Arguments RED, GREEN, and BLUE have to be normalized intensity
      values in the closed interval [0, 1].
 
      Keyword argument BYTE-SIZE is the number of bits used to represent
-     a primary.  If specified, arguments RED, GREEN, and BLUE are scaled
+     a primary.  If specified, arguments RED, GREEN, and BLUE have to be
+     integral numbers in the range from 0 to 2^n - 1 where n is the
+     number of bits.  If so, arguments RED, GREEN, and BLUE are scaled
      accordingly.
 
      Example:
 
-               (make-adobe-rgb-color 252/255 175/255 62/255)
-               (make-adobe-rgb-color 252 175 62 :byte-size 8)
+          (make-adobe-rgb-color 252/255 175/255 62/255)
+           => #<ADOBE-RGB-COLOR (84/85 35/51 62/255)>
+
+          (make-adobe-rgb-color 252 175 62 :byte-size 8)
+           => #<ADOBE-RGB-COLOR (84/85 35/51 62/255)>
 
  -- Function: make-adobe-rgb-color-from-number value &key byte-size
      Create a new color in the Adobe RGB color space.
 
-     Argument VALUE is a non-negative integral number.
+        * Argument VALUE is the numerical value of the encoded RGB color
+          coordinates.
 
      Keyword argument BYTE-SIZE is the number of bits used to represent
-     a primary.  Default is eight bit (one byte).  The most significant
-     bits denote the intensity of the red primary.
+     a primary.  Default is eight bit (one byte).  Argument VALUE has to
+     be an integral number in the range from 0 to 2^{3n} - 1 where n is
+     the number of bits per primary.  The most significant bits denote
+     the intensity of the red primary.
 
      Example:
 
-               (make-adobe-rgb-color-from-number #XFCAF3E)
+          (make-adobe-rgb-color-from-number #XFCAF3E)
+           => #<ADOBE-RGB-COLOR (84/85 35/51 62/255)>
 
  -- Generic Function: adobe-rgb-color-coordinates color
      Return the Adobe RGB color space coordinates of the color.
 
-     Argument COLOR is a color object.
+        * Argument COLOR is a color object.
 
-     Values are the intensities of the red, green, and blue primary.
+     Values are the normalized intensities of the red, green, and blue
+     primary.
 
 
 File: rs-colors.info,  Node: Color Properties,  Next: Color Conversions,  Prev: RGB Color Spaces,  Up: Reference Manual
@@ -1190,12 +1226,12 @@ File: rs-colors.info,  Node: Color Properties,  Next: Color Conversions,  Prev: 
  -- Generic Function: color-coordinates color
      Return the color space coordinates of the color.
 
-     Argument COLOR is a color object.
+        * Argument COLOR is a color object.
 
  -- Generic Function: white-point color
      Return the white point of the color.
 
-     Argument COLOR is a color object.
+        * Argument COLOR is a color object.
 
      Value is the color object of the color's white point, or nil if the
      white point is not defined or if multiple white points exist.
@@ -1206,13 +1242,30 @@ File: rs-colors.info,  Node: Color Conversions,  Next: Input and Output,  Prev: 
 4.7 Color Conversions
 =====================
 
- -- Function: change-class
+ -- Generic Function: change-class color color-type
+     Change the class of the color object.
+
+        * First argument COLOR is a color object.
+
+        * Second argument COLOR-TYPE is a color data type.
+
+     The 'change-class' function destructively modifies COLOR by
+     converting it's color coordinates into the color space denoted by
+     COLOR-TYPE.
+
+     Example:
+
+          (let ((red (make-srgb-color 1 0 0)))
+            (change-class red 'cie-xyy-color)
+            red)
+           => #<CIE-XYY-COLOR (0.64d0 0.33d0 ...)>
 
  -- Function: coerce-color color color-type
      Coerce the color object into the specified color type.
 
-     First argument COLOR is a color object.  Second argument COLOR-TYPE
-     is a color data type.
+        * First argument COLOR is a color object.
+
+        * Second argument COLOR-TYPE is a color data type.
 
      If argument COLOR is already a color of the requested color data
      type, return COLOR as is (no conversion).  Otherwise, return a new
@@ -1222,7 +1275,9 @@ File: rs-colors.info,  Node: Color Conversions,  Next: Input and Output,  Prev: 
  -- Generic Function: copy-color color
      Return a shallow copy of the color.
 
-     Argument COLOR is a color object.
+        * Argument COLOR is a color object.
+
+     Value is a color object with the same color coordinates as COLOR.
 
 
 File: rs-colors.info,  Node: Input and Output,  Next: Miscellaneous,  Prev: Color Conversions,  Up: Reference Manual
@@ -1230,13 +1285,70 @@ File: rs-colors.info,  Node: Input and Output,  Next: Miscellaneous,  Prev: Colo
 4.8 Input and Output
 ====================
 
- -- Macro: define-color-printer style (color stream &key export inline)
-          &body body
-     Argument STYLE is a string designator.
+* Menu:
 
- -- Macro: define-color-reader style (color stream &key export inline)
-          &body body
-     Argument STYLE is a string designator.
+* Reading Colors::
+* Printing Colors::
+
+
+File: rs-colors.info,  Node: Reading Colors,  Next: Printing Colors,  Prev: Input and Output,  Up: Input and Output
+
+4.8.1 Reading Colors
+--------------------
+
+ -- Function: read-color-html &optional stream
+     Read a numerical HTML color definition, that is a hexadecimal
+     number prefixed by a hash mark.
+
+        * Optional argument STREAM is an input stream.  Default is to
+          read from '*standard-input*'.
+
+     Reading stops at the first non-hexadecimal digit character.  The
+     number of hexadecimal digits has to be a multiple of three.
+
+     Value is a color object in the sRGB color space.
+
+     Example:
+
+          (with-input-from-string (stream "#4E9A06 junk")
+            (read-color-html stream))
+           => #<SRGB-COLOR (26/85 154/255 2/85)>
+
+
+File: rs-colors.info,  Node: Printing Colors,  Prev: Reading Colors,  Up: Input and Output
+
+4.8.2 Printing Colors
+---------------------
+
+ -- Function: print-color-html color &optional stream
+     Print a numerical HTML color definition, that is a hexadecimal
+     number prefixed by a hash mark.
+
+        * First argument COLOR is a color object.
+
+        * Optional second argument STREAM is an output stream.  Default
+          is to print to '*standard-output*'.
+
+     Value is the color object.
+
+     Example:
+
+          (let ((color (make-srgb-color-from-number #X4E9A06)))
+            (with-output-to-string (stream)
+              (print-color-html color stream)))
+           => "#4E9A06"
+
+ -- Constant: color-formatter-html
+     A format function for printing a numerical HTML color definition.
+
+     Value is a function which has a behavior equivalent to a function
+     returned by the 'formatter' macro.
+
+     Example:
+
+          (let ((color (make-srgb-color-from-number #X4E9A06)))
+            (format nil color-formatter-html color))
+           => "#4E9A06"
 
 
 File: rs-colors.info,  Node: Miscellaneous,  Prev: Input and Output,  Up: Reference Manual
@@ -1244,12 +1356,12 @@ File: rs-colors.info,  Node: Miscellaneous,  Prev: Input and Output,  Up: Refere
 4.9 Miscellaneous
 =================
 
- -- Generic Function: absolute-color color &key black white
-     Convert from normalized color coordinates to absolute color
-     coordinates.
-
  -- Generic Function: normalize-color color &key black white
      Convert from absolute color coordinates to normalized color
+     coordinates.
+
+ -- Generic Function: absolute-color color &key black white
+     Convert from normalized color coordinates to absolute color
      coordinates.
 
 
@@ -1261,11 +1373,11 @@ Symbol Index
  [index ]
 * Menu:
 
-* absolute-color:                        Miscellaneous.        (line  6)
+* absolute-color:                        Miscellaneous.        (line 10)
 * adobe-rgb-color:                       Adobe RGB Color Space.
                                                                (line  6)
 * adobe-rgb-color-coordinates:           Adobe RGB Color Space.
-                                                               (line 46)
+                                                               (line 63)
 * change-class:                          Color Conversions.    (line  6)
 * cie-lab-color:                         CIE L*a*b* Color Space.
                                                                (line 20)
@@ -1280,19 +1392,18 @@ Symbol Index
 * cie-xyy-color:                         CIE xyY Color Space.  (line 24)
 * cie-xyy-color-coordinates:             CIE xyY Color Space.  (line 40)
 * cie-xyz-color:                         CIE XYZ Color Space.  (line 14)
-* cie-xyz-color-coordinates:             CIE XYZ Color Space.  (line 26)
+* cie-xyz-color-coordinates:             CIE XYZ Color Space.  (line 32)
 * cmy-color-object:                      Abstract Color Classes.
                                                                (line 49)
 * cmyk-color-object:                     Abstract Color Classes.
                                                                (line 60)
-* coerce-color:                          Color Conversions.    (line  8)
+* coerce-color:                          Color Conversions.    (line 24)
 * color-coordinates:                     Color Properties.     (line  6)
+* color-formatter-html:                  Printing Colors.      (line 24)
 * color-object:                          Abstract Color Classes.
                                                                (line  9)
 * colorp:                                Color Predicates.     (line  9)
-* copy-color:                            Color Conversions.    (line 19)
-* define-color-printer:                  Input and Output.     (line  6)
-* define-color-reader:                   Input and Output.     (line 10)
+* copy-color:                            Color Conversions.    (line 36)
 * generic-cmy-color:                     Generic CMY Color Space.
                                                                (line 13)
 * generic-cmy-color-coordinates:         Generic CMY Color Space.
@@ -1322,7 +1433,7 @@ Symbol Index
 * make-adobe-rgb-color:                  Adobe RGB Color Space.
                                                                (line 14)
 * make-adobe-rgb-color-from-number:      Adobe RGB Color Space.
-                                                               (line 33)
+                                                               (line 45)
 * make-cie-lab-color:                    CIE L*a*b* Color Space.
                                                                (line 27)
 * make-cie-luv-color:                    CIE L*u*v* Color Space.
@@ -1347,12 +1458,14 @@ Symbol Index
 * make-generic-rgb-color-from-number:    Generic RGB Color Space.
                                                                (line 51)
 * make-srgb-color:                       sRGB Color Space.     (line 14)
-* make-srgb-color-from-number:           sRGB Color Space.     (line 33)
-* normalize-color:                       Miscellaneous.        (line 10)
+* make-srgb-color-from-number:           sRGB Color Space.     (line 44)
+* normalize-color:                       Miscellaneous.        (line  6)
+* print-color-html:                      Printing Colors.      (line  6)
+* read-color-html:                       Reading Colors.       (line  6)
 * rgb-color-object:                      Abstract Color Classes.
                                                                (line 16)
 * srgb-color:                            sRGB Color Space.     (line  6)
-* srgb-color-coordinates:                sRGB Color Space.     (line 46)
+* srgb-color-coordinates:                sRGB Color Space.     (line 62)
 * white-point:                           Color Properties.     (line 11)
 
 
@@ -1410,52 +1523,55 @@ Ref: function:rs-colors:make-generic-cmyk-color28058
 Ref: function:rs-colors:make-generic-cmyk-color-from-number29378
 Ref: generic-function:rs-colors:generic-cmyk-color-coordinates30067
 Node: CIE Color Spaces30337
-Node: CIE RGB Color Space30745
-Ref: class:rs-colors:cie-rgb-color31213
-Ref: function:rs-colors:make-cie-rgb-color31500
-Ref: generic-function:rs-colors:cie-rgb-color-coordinates31969
-Ref: CIE RGB Color Space-Footnote-132253
-Node: CIE XYZ Color Space32447
-Ref: class:rs-colors:cie-xyz-color32971
-Ref: function:rs-colors:make-cie-xyz-color33193
-Ref: generic-function:rs-colors:cie-xyz-color-coordinates33346
-Node: CIE xyY Color Space34144
-Ref: class:rs-colors:cie-xyy-color34720
-Ref: function:rs-colors:make-cie-xyy-color34942
-Ref: generic-function:rs-colors:cie-xyy-color-coordinates35262
-Node: CIE L*u*v* Color Space35497
-Ref: class:rs-colors:cie-luv-color36295
-Ref: function:rs-colors:make-cie-luv-color36520
-Ref: generic-function:rs-colors:cie-luv-color-coordinates36823
-Node: CIE L*a*b* Color Space37057
-Ref: class:rs-colors:cie-lab-color37861
-Ref: function:rs-colors:make-cie-lab-color38086
-Ref: generic-function:rs-colors:cie-lab-color-coordinates38389
-Node: RGB Color Spaces38623
-Node: sRGB Color Space38845
-Ref: class:rs-colors:srgb-color39019
-Ref: function:rs-colors:make-srgb-color39294
-Ref: function:rs-colors:make-srgb-color-from-number40002
-Ref: generic-function:rs-colors:srgb-color-coordinates40437
-Node: Adobe RGB Color Space40658
-Ref: class:rs-colors:adobe-rgb-color40817
-Ref: function:rs-colors:make-adobe-rgb-color41112
-Ref: function:rs-colors:make-adobe-rgb-color-from-number41840
-Ref: generic-function:rs-colors:adobe-rgb-color-coordinates42290
-Node: Color Properties42521
-Ref: generic-function:rs-colors:color-coordinates42687
-Ref: generic-function:rs-colors:white-point42828
-Node: Color Conversions43092
-Ref: function:common-lisp:change-class43260
-Ref: function:rs-colors:coerce-color43288
-Ref: generic-function:rs-colors:copy-color43743
-Node: Input and Output43864
-Ref: macro:rs-colors:define-color-printer44027
-Ref: macro:rs-colors:define-color-reader44165
-Node: Miscellaneous44302
-Ref: generic-function:rs-colors:absolute-color44433
-Ref: generic-function:rs-colors:normalize-color44577
-Node: Symbol Index44722
-Node: Concept Index51400
+Node: CIE RGB Color Space30746
+Ref: class:rs-colors:cie-rgb-color31214
+Ref: function:rs-colors:make-cie-rgb-color31501
+Ref: generic-function:rs-colors:cie-rgb-color-coordinates31970
+Ref: CIE RGB Color Space-Footnote-132254
+Node: CIE XYZ Color Space32448
+Ref: class:rs-colors:cie-xyz-color32972
+Ref: function:rs-colors:make-cie-xyz-color33194
+Ref: generic-function:rs-colors:cie-xyz-color-coordinates33521
+Node: CIE xyY Color Space34319
+Ref: class:rs-colors:cie-xyy-color34895
+Ref: function:rs-colors:make-cie-xyy-color35117
+Ref: generic-function:rs-colors:cie-xyy-color-coordinates35437
+Node: CIE L*u*v* Color Space35672
+Ref: class:rs-colors:cie-luv-color36470
+Ref: function:rs-colors:make-cie-luv-color36695
+Ref: generic-function:rs-colors:cie-luv-color-coordinates36998
+Node: CIE L*a*b* Color Space37232
+Ref: class:rs-colors:cie-lab-color38036
+Ref: function:rs-colors:make-cie-lab-color38261
+Ref: generic-function:rs-colors:cie-lab-color-coordinates38564
+Node: RGB Color Spaces38798
+Node: sRGB Color Space39020
+Ref: class:rs-colors:srgb-color39194
+Ref: function:rs-colors:make-srgb-color39469
+Ref: function:rs-colors:make-srgb-color-from-number40483
+Ref: generic-function:rs-colors:srgb-color-coordinates41135
+Node: Adobe RGB Color Space41377
+Ref: class:rs-colors:adobe-rgb-color41536
+Ref: function:rs-colors:make-adobe-rgb-color41831
+Ref: function:rs-colors:make-adobe-rgb-color-from-number42875
+Ref: generic-function:rs-colors:adobe-rgb-color-coordinates43547
+Node: Color Properties43799
+Ref: generic-function:rs-colors:color-coordinates43965
+Ref: generic-function:rs-colors:white-point44111
+Node: Color Conversions44380
+Ref: generic-function:common-lisp:change-class44548
+Ref: function:rs-colors:coerce-color45086
+Ref: generic-function:rs-colors:copy-color45551
+Node: Input and Output45749
+Node: Reading Colors45961
+Ref: function:rs-colors:read-color-html46123
+Node: Printing Colors46738
+Ref: function:rs-colors:print-color-html46877
+Ref: constant:rs-colors:color-formatter-html47436
+Node: Miscellaneous47812
+Ref: generic-function:rs-colors:normalize-color47943
+Ref: generic-function:rs-colors:absolute-color48088
+Node: Symbol Index48232
+Node: Concept Index54983
 
 End Tag Table

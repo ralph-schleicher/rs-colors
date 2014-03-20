@@ -5,7 +5,7 @@
 @settitle rs-colors
 
 @set EDITION 1 (draft)
-@set UPDATED 2014-03-17
+@set UPDATED 2014-03-20
 
 @include package.texi
 
@@ -21,9 +21,9 @@
 @iftex
 @finalout
 @paragraphindent 1
-@c @afourpaper
+@c afourpaper
 @afourlatex
-@c @afourwide
+@c afourwide
 @end iftex
 
 @setchapternewpage odd
@@ -558,7 +558,7 @@ Base class for a color model.
 Use the @code{colorp} function to check whether or not an object is a
 color.  This covers all color classes documented in this manual.
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:colorp}
 @deffn {Function} {colorp} @w{object}
 Return true if @var{object} is a color object.
@@ -571,7 +571,7 @@ Return true if @var{object} is a color object.
 The color classes documented in this section are merely used as
 superclasses.
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:color-object}
 @deftp {Class} {color-object}
 Base class for a color.
@@ -582,7 +582,7 @@ Base class for a color.
 @code{t}.
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:rgb-color-object}
 @deftp {Class} {rgb-color-object}
 Color class for a RGB color space.
@@ -597,7 +597,7 @@ blue primary.  Values are real numbers in the closed
 @dots{}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:hsv-color-object}
 @deftp {Class} {hsv-color-object}
 Color class for a HSV/HSB color space.
@@ -613,7 +613,7 @@ Saturation and value are real numbers in the closed
 @dots{}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:hsl-color-object}
 @deftp {Class} {hsl-color-object}
 Color class for a HSL color space.
@@ -629,7 +629,7 @@ and lightness are real numbers in the closed
 @dots{}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:cmy-color-object}
 @deftp {Class} {cmy-color-object}
 Color class for a CMY color space.
@@ -644,7 +644,7 @@ and yellow primary.  Values are real numbers in the closed
 @dots{}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:cmyk-color-object}
 @deftp {Class} {cmyk-color-object}
 Color class for a CMYK color space.
@@ -659,7 +659,7 @@ yellow, and black (key) primary.  Values are real numbers in the closed
 @dots{}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:generic-color-object}
 @deftp {Class} {generic-color-object}
 Color class for the mathematical model of a color space.
@@ -697,7 +697,7 @@ Color coordinates are the normalized intensities of the red, green, and
 blue primary.  Values are real numbers in the closed @interval{[0, 1]}.
 There is no white point.
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:generic-rgb-color}
 @deftp {Class} {generic-rgb-color}
 Color class for the generic RGB color space.
@@ -710,7 +710,7 @@ Color class for the generic RGB color space.
    @dots{}}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-rgb-color}
 @deffn {Function} {make-generic-rgb-color} @w{red} @w{green} @w{blue} @k{&key} @w{byte-size}
 Create a new color in the generic RGB color space.
@@ -749,7 +749,7 @@ Example:
 @end lisp
 @end deffn
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-rgb-color-from-number}
 @deffn {Function} {make-generic-rgb-color-from-number} @w{value} @k{&key} @w{byte-size}
 Create a new color in the generic RGB color space.
@@ -777,7 +777,7 @@ Example:
 @end lisp
 @end deffn
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:generic-rgb-color-coordinates}
 @deffn {Generic Function} {generic-rgb-color-coordinates} @w{color}
 Return the generic RGB color space coordinates of the color.
@@ -804,7 +804,7 @@ real number in the half-closed @interval{[0, 360)}.  Saturation and
 value are real numbers in the closed @interval{[0, 1]}.  There is no
 white point.
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:generic-hsv-color}
 @deftp {Class} {generic-hsv-color}
 Color class for the generic HSV color space.
@@ -817,7 +817,7 @@ Color class for the generic HSV color space.
    @dots{}}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-hsv-color}
 @deffn {Function} {make-generic-hsv-color} @w{hue} @w{saturation} @w{value}
 Create a new color in the generic HSV color space.
@@ -838,7 +838,7 @@ the half-closed @interval{[0, 360)}.  Arguments @var{saturation} and
 @var{value} have to be real numbers in the closed @interval{[0, 1]}.
 @end deffn
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:generic-hsv-color-coordinates}
 @deffn {Generic Function} {generic-hsv-color-coordinates} @w{color}
 Return the generic HSV color space coordinates of the color.
@@ -864,7 +864,7 @@ number in the half-closed @interval{[0, 360)}.  Saturation and lightness
 are real numbers in the closed @interval{[0, 1]}.  There is no white
 point.
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:generic-hsl-color}
 @deftp {Class} {generic-hsl-color}
 Color class for the generic HSL color space.
@@ -877,7 +877,7 @@ Color class for the generic HSL color space.
    @dots{}}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-hsl-color}
 @deffn {Function} {make-generic-hsl-color} @w{hue} @w{saturation} @w{lightness}
 Create a new color in the generic HSL color space.
@@ -898,7 +898,7 @@ the half-closed @interval{[0, 360)}.  Arguments @var{saturation} and
 @var{lightness} have to be real numbers in the closed @interval{[0, 1]}.
 @end deffn
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:generic-hsl-color-coordinates}
 @deffn {Generic Function} {generic-hsl-color-coordinates} @w{color}
 Return the generic HSL color space coordinates of the color.
@@ -922,7 +922,7 @@ Color coordinates are the normalized intensities of the cyan, magenta,
 and yellow primary.  Values are real numbers in the closed
 @interval{[0, 1]}.  There is no white point.
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:generic-cmy-color}
 @deftp {Class} {generic-cmy-color}
 Color class for the generic CMY color space.
@@ -935,7 +935,7 @@ Color class for the generic CMY color space.
    @dots{}}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-cmy-color}
 @deffn {Function} {make-generic-cmy-color} @w{cyan} @w{magenta} @w{yellow} @k{&key} @w{byte-size}
 Create a new color in the generic CMY color space.
@@ -977,7 +977,7 @@ Example:
 @end lisp
 @end deffn
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-cmy-color-from-number}
 @deffn {Function} {make-generic-cmy-color-from-number} @w{value} @k{&key} @w{byte-size}
 Create a new color in the generic CMY color space.
@@ -1005,7 +1005,7 @@ Example:
 @end lisp
 @end deffn
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:generic-cmy-color-coordinates}
 @deffn {Generic Function} {generic-cmy-color-coordinates} @w{color}
 Return the generic CMY color space coordinates of the color.
@@ -1030,7 +1030,7 @@ Color coordinates are the normalized intensities of the cyan, magenta,
 yellow, and black (key) primary.  Values are real numbers in the closed
 @interval{[0, 1]}.  There is no white point.
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:generic-cmyk-color}
 @deftp {Class} {generic-cmyk-color}
 Color class for the generic CMYK color space.
@@ -1043,7 +1043,7 @@ Color class for the generic CMYK color space.
    @dots{}}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-cmyk-color}
 @deffn {Function} {make-generic-cmyk-color} @w{cyan} @w{magenta} @w{yellow} @w{black} @k{&key} @w{byte-size}
 Create a new color in the generic CMYK color space.
@@ -1092,7 +1092,7 @@ Example:
 @end lisp
 @end deffn
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-generic-cmyk-color-from-number}
 @deffn {Function} {make-generic-cmyk-color-from-number} @w{value} @k{&key} @w{byte-size}
 Create a new color in the generic CMYK color space.
@@ -1120,7 +1120,7 @@ Example:
 @end lisp
 @end deffn
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:generic-cmyk-color-coordinates}
 @deffn {Generic Function} {generic-cmyk-color-coordinates} @w{color}
 Return the generic CMYK color space coordinates of the color.
@@ -1139,7 +1139,7 @@ black primary.
 @section CIE Color Spaces
 
 All CIE color spaces are absolute color spaces, that means they are
-device independed.
+device independent.
 
 @menu
 * CIE RGB Color Space::
@@ -1169,7 +1169,7 @@ CIE RGB white into the CIE xyY color space:
 @end lisp
 }.
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:cie-rgb-color}
 @deftp {Class} {cie-rgb-color}
 Color class for the CIE RGB color space.
@@ -1181,7 +1181,7 @@ Color class for the CIE RGB color space.
 @dots{}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-cie-rgb-color}
 @deffn {Function} {make-cie-rgb-color} @w{red} @w{green} @w{blue}
 Create a new color in the CIE RGB color space.
@@ -1203,7 +1203,7 @@ Arguments @var{red}, @var{green}, and @var{blue} have to be real numbers
 in the closed @interval{[0, 1]}.
 @end deffn
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:cie-rgb-color-coordinates}
 @deffn {Generic Function} {cie-rgb-color-coordinates} @w{color}
 Return the CIE RGB color space coordinates of the color.
@@ -1226,10 +1226,10 @@ space.  The CIE XYZ color space covers all colors an average person can
 experience.  Many other color spaces are defined against the CIE XYZ
 color space.
 
-Color coordinates are the X, Y, and Z tristimulus values.  The CIE XYZ
-color space has no explicit white point.
+Color coordinates are the @math{X}, @math{Y}, and @math{Z} tristimulus
+values.  The CIE XYZ color space has no explicit white point.
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:cie-xyz-color}
 @deftp {Class} {cie-xyz-color}
 Color class for the CIE XYZ color space.
@@ -1240,18 +1240,27 @@ Color class for the CIE XYZ color space.
 @dots{}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-cie-xyz-color}
 @deffn {Function} {make-cie-xyz-color} @w{x} @w{y} @w{z}
 Create a new color in the CIE XYZ color space.
 
 @itemize
 @item
-Arguments @var{x}, @var{y}, and @var{z} are the tristimulus values.
+First argument @var{x} is the @math{X} tristimulus value.
+
+@item
+Second argument @var{y} is the @math{Y} tristimulus value.
+
+@item
+Third argument @var{z} is the @math{Z} tristimulus value.
 @end itemize
+
+Arguments @var{x}, @var{y}, and @var{z} have to be non-negative real
+numbers.
 @end deffn
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:cie-xyz-color-coordinates}
 @deffn {Generic Function} {cie-xyz-color-coordinates} @w{color}
 Return the CIE XYZ color space coordinates of the color.
@@ -1261,9 +1270,10 @@ Return the CIE XYZ color space coordinates of the color.
 Argument @var{color} is a color object.
 @end itemize
 
-Values are the @var{x}, @var{y}, and @var{z} tristimulus values.
+Values are the @math{X}, @math{Y}, and @math{Z} tristimulus values.
 @end deffn
 
+@noindent
 Objects of the @classref{rs-colors, cie-xyz-color} class can be
 instantiated with absolute and normalized color coordinates.  However,
 if you want to convert colors from CIE XYZ color space to CIE RGB color
@@ -1335,7 +1345,7 @@ Z &= z\cdot{Y\over y} = (1 - x - y)\cdot{Y\over y}\cr
 @end tex
 @end iftex
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:cie-xyy-color}
 @deftp {Class} {cie-xyy-color}
 Color class for the CIE xyY color space.
@@ -1346,7 +1356,7 @@ Color class for the CIE xyY color space.
 @dots{}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-cie-xyy-color}
 @deffn {Function} {make-cie-xyy-color} @w{x*} @w{y*} @w{y}
 Create a new color in the CIE xyY color space.
@@ -1362,7 +1372,7 @@ tristimulus value of the CIE XYZ color space.
 @end itemize
 @end deffn
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:cie-xyy-color-coordinates}
 @deffn {Generic Function} {cie-xyy-color-coordinates} @w{color}
 Return the CIE xyY color space coordinates of the color.
@@ -1392,7 +1402,7 @@ CIE L*u*v* color coordinates are always relative to a white point.  This
 is either the white point of the color space you are converting from or
 CIE standard illuminant D50.
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:cie-luv-color}
 @deftp {Class} {cie-luv-color}
 Color class for the CIE L*u*v* color space.
@@ -1403,7 +1413,7 @@ Color class for the CIE L*u*v* color space.
 @dots{}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-cie-luv-color}
 @deffn {Function} {make-cie-luv-color} @w{L*} @w{u*} @w{v*} @k{&optional} @w{white-point}
 Create a new color in the CIE L*u*v* color space.
@@ -1420,7 +1430,7 @@ Third argument @var{v*} is the second chromaticity coordinate.
 @end itemize
 @end deffn
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:cie-luv-color-coordinates}
 @deffn {Generic Function} {cie-luv-color-coordinates} @w{color}
 Return the CIE L*u*v* color space coordinates of the color.
@@ -1450,7 +1460,7 @@ coordinates are always relative to a white point.  This is either the
 white point of the color space you are converting from or CIE standard
 illuminant D50.
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:cie-lab-color}
 @deftp {Class} {cie-lab-color}
 Color class for the CIE L*a*b* color space.
@@ -1461,7 +1471,7 @@ Color class for the CIE L*a*b* color space.
 @dots{}
 @end deftp
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-cie-lab-color}
 @deffn {Function} {make-cie-lab-color} @w{L*} @w{a*} @w{b*} @k{&optional} @w{white-point}
 Create a new color in the CIE L*a*b* color space.
@@ -1479,7 +1489,7 @@ Third argument @var{b*} is the second chromaticity coordinate.
 @end itemize
 @end deffn
 
-@c ----------------------------------------------------------------------
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:cie-lab-color-coordinates}
 @deffn {Generic Function} {cie-lab-color-coordinates} @w{color}
 Return the CIE L*a*b* color space coordinates of the color.
@@ -1504,79 +1514,458 @@ Values are the lightness and the two chromaticity coordinates.
 @node sRGB Color Space, Adobe RGB Color Space, RGB Color Spaces, RGB Color Spaces
 @subsection sRGB Color Space
 
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:srgb-color}
-@include class-rs-colors-srgb-color.texi
+@deftp {Class} {srgb-color}
+Color class for the sRGB color space.
 
+@classprecedencelist
+@classref{rs-colors, srgb-color},
+@classref{rs-colors, rgb-color-object},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
+
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-srgb-color}
-@include function-rs-colors-make-srgb-color.texi
+@deffn {Function} {make-srgb-color} @w{red} @w{green} @w{blue} @k{&key} @w{byte-size}
+Create a new color in the sRGB color space.
 
+@itemize
+@item
+First argument @var{red} is the normalized intensity of the red primary.
+
+@item
+Second argument @var{green} is the normalized intensity of the green primary.
+
+@item
+Third argument @var{blue} is the normalized intensity of the blue primary.
+@end itemize
+
+Arguments @var{red}, @var{green}, and @var{blue} have to be normalized intensity values
+in the closed @interval{[0, 1]}.
+
+Keyword argument @var{byte-size} is the number of bits used to represent
+a primary.  If specified, arguments @var{red}, @var{green}, and
+@var{blue} have to be integral numbers in the @range{0, 2^n - 1} where
+@math{n} is the number of bits.  If so, arguments @var{red},
+@var{green}, and @var{blue} are scaled accordingly.
+
+@noindent
+Example:
+
+@lisp
+@group
+(make-srgb-color 252/255 175/255 62/255)
+ @result{} #<SRGB-COLOR (84/85 35/51 62/255)>
+
+(make-srgb-color 252 175 62 :byte-size 8)
+ @result{} #<SRGB-COLOR (84/85 35/51 62/255)>
+@end group
+@end lisp
+@end deffn
+
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-srgb-color-from-number}
-@include function-rs-colors-make-srgb-color-from-number.texi
+@deffn {Function} {make-srgb-color-from-number} @w{value} @k{&key} @w{byte-size}
+Create a new color in the sRGB color space.
 
+@itemize
+@item
+Argument @var{value} is the numerical value of the encoded RGB color
+coordinates.
+@end itemize
+
+Keyword argument @var{byte-size} is the number of bits used to represent
+a primary.  Default is eight bit (one byte).  Argument @var{value} has
+to be an integral number in the @range{0, 2^{3n} - 1} where @math{n} is
+the number of bits per primary.  The most significant bits denote the
+intensity of the red primary.
+
+@noindent
+Example:
+
+@lisp
+@group
+(make-srgb-color-from-number #XFCAF3E)
+ @result{} #<SRGB-COLOR (84/85 35/51 62/255)>
+@end group
+@end lisp
+@end deffn
+
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:srgb-color-coordinates}
-@include generic-function-rs-colors-srgb-color-coordinates.texi
+@deffn {Generic Function} {srgb-color-coordinates} @w{color}
+Return the sRGB color space coordinates of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Values are the normalized intensities of the red, green, and blue
+primary.
+@end deffn
 
 
 @node Adobe RGB Color Space,  , sRGB Color Space, RGB Color Spaces
 @subsection Adobe RGB Color Space
 
+@c ---------------------------------------------------------------------
 @anchor{class:rs-colors:adobe-rgb-color}
-@include class-rs-colors-adobe-rgb-color.texi
+@deftp {Class} {adobe-rgb-color}
+Color class for the Adobe RGB color space.
 
+@classprecedencelist
+@classref{rs-colors, adobe-rgb-color},
+@classref{rs-colors, rgb-color-object},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
+
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-adobe-rgb-color}
-@include function-rs-colors-make-adobe-rgb-color.texi
+@deffn {Function} {make-adobe-rgb-color} @w{red} @w{green} @w{blue} @k{&key} @w{byte-size}
+Create a new color in the Adobe RGB color space.
 
+@itemize
+@item
+First argument @var{red} is the normalized intensity of the red primary.
+
+@item
+Second argument @var{green} is the normalized intensity of the green primary.
+
+@item
+Third argument @var{blue} is the normalized intensity of the blue primary.
+@end itemize
+
+Arguments @var{red}, @var{green}, and @var{blue} have to be normalized
+intensity values in the closed @interval{[0, 1]}.
+
+Keyword argument @var{byte-size} is the number of bits used to represent
+a primary.  If specified, arguments @var{red}, @var{green}, and
+@var{blue} have to be integral numbers in the @range{0, 2^n - 1} where
+@math{n} is the number of bits.  If so, arguments @var{red},
+@var{green}, and @var{blue} are scaled accordingly.
+
+@noindent
+Example:
+
+@lisp
+@group
+(make-adobe-rgb-color 252/255 175/255 62/255)
+ @result{} #<ADOBE-RGB-COLOR (84/85 35/51 62/255)>
+
+(make-adobe-rgb-color 252 175 62 :byte-size 8)
+ @result{} #<ADOBE-RGB-COLOR (84/85 35/51 62/255)>
+@end group
+@end lisp
+@end deffn
+
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:make-adobe-rgb-color-from-number}
-@include function-rs-colors-make-adobe-rgb-color-from-number.texi
+@deffn {Function} {make-adobe-rgb-color-from-number} @w{value} @k{&key} @w{byte-size}
+Create a new color in the Adobe RGB color space.
 
+@itemize
+@item
+Argument @var{value} is the numerical value of the encoded RGB color
+coordinates.
+@end itemize
+
+Keyword argument @var{byte-size} is the number of bits used to represent
+a primary.  Default is eight bit (one byte).  Argument @var{value} has
+to be an integral number in the @range{0, 2^{3n} - 1} where @math{n} is
+the number of bits per primary.  The most significant bits denote the
+intensity of the red primary.
+
+@noindent
+Example:
+
+@lisp
+@group
+(make-adobe-rgb-color-from-number #XFCAF3E)
+ @result{} #<ADOBE-RGB-COLOR (84/85 35/51 62/255)>
+@end group
+@end lisp
+@end deffn
+
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:adobe-rgb-color-coordinates}
-@include generic-function-rs-colors-adobe-rgb-color-coordinates.texi
+@deffn {Generic Function} {adobe-rgb-color-coordinates} @w{color}
+Return the Adobe RGB color space coordinates of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Values are the normalized intensities of the red, green, and blue
+primary.
+@end deffn
 
 
 @node Color Properties, Color Conversions, RGB Color Spaces, Reference Manual
 @section Color Properties
 
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:color-coordinates}
-@include generic-function-rs-colors-color-coordinates.texi
+@deffn {Generic Function} {color-coordinates} @w{color}
+Return the color space coordinates of the color.
 
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+@end deffn
+
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:white-point}
-@include generic-function-rs-colors-white-point.texi
+@deffn {Generic Function} {white-point} @w{color}
+Return the white point of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Value is the color object of the color's white point, or nil if the
+white point is not defined or if multiple white points exist.
+@end deffn
 
 
 @node Color Conversions, Input and Output, Color Properties, Reference Manual
 @section Color Conversions
 
 @c ---------------------------------------------------------------------
-@anchor{function:common-lisp:change-class}
-@deffn {Function} change-class
+@anchor{generic-function:common-lisp:change-class}
+@deffn {Generic Function} {change-class} @w{color} @w{color-type}
+Change the class of the color object.
+
+@itemize
+@item
+First argument @var{color} is a color object.
+
+@item
+Second argument @var{color-type} is a color data type.
+@end itemize
+
+The @code{change-class} function destructively modifies @var{color} by
+converting it's color coordinates into the color space denoted by
+@var{color-type}.
+
+@noindent
+Example:
+
+@lisp
+@group
+(let ((red (make-srgb-color 1 0 0)))
+  (change-class red 'cie-xyy-color)
+  red)
+ @result{} #<CIE-XYY-COLOR (0.64d0 0.33d0 @r{@dots{}})>
+@end group
+@end lisp
 @end deffn
 
+@c ---------------------------------------------------------------------
 @anchor{function:rs-colors:coerce-color}
-@include function-rs-colors-coerce-color.texi
+@deffn {Function} {coerce-color} @w{color} @w{color-type}
+Coerce the color object into the specified color type.
 
+@itemize
+@item
+First argument @var{color} is a color object.
+
+@item
+Second argument @var{color-type} is a color data type.
+@end itemize
+
+If argument @var{color} is already a color of the requested color data
+type, return @var{color} as is (no conversion).  Otherwise, return a new
+color with the color coordinates of @var{color} converted into the color
+space denoted by @var{color-type}.
+@end deffn
+
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:copy-color}
-@include generic-function-rs-colors-copy-color.texi
+@deffn {Generic Function} {copy-color} @w{color}
+Return a shallow copy of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Value is a color object with the same color coordinates as @var{color}.
+@end deffn
 
 
 @node Input and Output, Miscellaneous, Color Conversions, Reference Manual
 @section Input and Output
 
-@anchor{macro:rs-colors:define-color-printer}
-@include macro-rs-colors-define-color-printer.texi
+@menu
+* Reading Colors::
+* Printing Colors::
+@end menu
 
+
+@node Reading Colors, Printing Colors, Input and Output, Input and Output
+@subsection Reading Colors
+
+@c ---------------------------------------------------------------------
+@anchor{function:rs-colors:read-color-html}
+@deffn {Function} {read-color-html} @k{&optional} @w{stream}
+Read a numerical HTML color definition, that is a hexadecimal number
+prefixed by a hash mark.
+
+@itemize
+@item
+Optional argument @var{stream} is an input stream.  Default is to read
+from @code{*standard-input*}.
+@end itemize
+
+Reading stops at the first non-hexadecimal digit character.  The number
+of hexadecimal digits has to be a multiple of three.
+
+Value is a color object in the sRGB color space.
+
+@noindent
+Example:
+
+@lisp
+@group
+(with-input-from-string (stream "#4E9A06 junk")
+  (read-color-html stream))
+ @result{} #<SRGB-COLOR (26/85 154/255 2/85)>
+@end group
+@end lisp
+@end deffn
+
+@ignore
+@c ---------------------------------------------------------------------
 @anchor{macro:rs-colors:define-color-reader}
-@include macro-rs-colors-define-color-reader.texi
+@deffn {Macro} {define-color-reader} @w{style} @w{(stream @k{&key} export inline)} @k{&body} @w{body}
+Define a color reader function.
+
+@itemize
+@item
+Argument @var{style} is a string designator.  It is used to build the
+symbol name for the color reader function.
+
+@item
+Argument @var{stream} is a symbol to access the input stream in the
+@var{body} form.
+
+@item
+Argument @var{body} is a function body reading a color representation
+from the input stream @var{stream}.  The value of the form is a color
+object.
+
+@item
+If optional keyword argument @var{export} is true, add an export
+declaration for the color reader function.
+
+@item
+If optional keyword argument @var{inline} is true, add an inline
+declaration for the color reader function.
+@end itemize
+
+@table @code
+@item read-color-@var{style} @k{&optional} @var{stream}
+@end table
+@end deffn
+@end ignore
+
+
+@node Printing Colors,  , Reading Colors, Input and Output
+@subsection Printing Colors
+
+@c ---------------------------------------------------------------------
+@anchor{function:rs-colors:print-color-html}
+@deffn {Function} {print-color-html} color @k{&optional} stream
+Print a numerical HTML color definition, that is a hexadecimal number
+prefixed by a hash mark.
+
+@itemize
+@item
+First argument @var{color} is a color object.
+
+@item
+Optional second argument @var{stream} is an output stream.  Default is
+to print to @code{*standard-output*}.
+@end itemize
+
+Value is the color object.
+
+@noindent
+Example:
+
+@lisp
+@group
+(let ((color (make-srgb-color-from-number #X4E9A06)))
+  (with-output-to-string (stream)
+    (print-color-html color stream)))
+ @result{} "#4E9A06"
+@end group
+@end lisp
+@end deffn
+
+@c ---------------------------------------------------------------------
+@anchor{constant:rs-colors:color-formatter-html}
+@defvr {Constant} {color-formatter-html}
+A format function for printing a numerical HTML color definition.
+
+Value is a function which has a behavior equivalent to a function
+returned by the @code{formatter} macro.
+
+@noindent
+Example:
+
+@lisp
+@group
+(let ((color (make-srgb-color-from-number #X4E9A06)))
+  (format nil color-formatter-html color))
+ @result{} "#4E9A06"
+@end group
+@end lisp
+@end defvr
+
+@ignore
+@c ---------------------------------------------------------------------
+@anchor{macro:rs-colors:define-color-printer}
+@deffn {Macro} {define-color-printer} @w{style} @w{(color stream @k{&key} export inline)} @k{&body} @w{body}
+Argument @var{style} is a string designator.
+@end deffn
+
+@lisp
+@group
+(define-color-printer :html (color stream :export t)
+  (multiple-value-bind (r g b)
+      (srgb-color-coordinates color)
+    (format stream
+            "#~2,'0X~2,'0X~2,'0X"
+            (round (* r 255))
+            (round (* g 255))
+            (round (* b 255)))))
+@end group
+@end lisp
+@end ignore
 
 
 @node Miscellaneous,  , Input and Output, Reference Manual
 @section Miscellaneous
 
-@anchor{generic-function:rs-colors:absolute-color}
-@include generic-function-rs-colors-absolute-color.texi
-
+@c ---------------------------------------------------------------------
 @anchor{generic-function:rs-colors:normalize-color}
-@include generic-function-rs-colors-normalize-color.texi
+@deffn {Generic Function} {normalize-color} @w{color} @k{&key} @w{black} @w{white}
+Convert from absolute color coordinates to normalized color coordinates.
+@end deffn
 
+@c ---------------------------------------------------------------------
+@anchor{generic-function:rs-colors:absolute-color}
+@deffn {Generic Function} {absolute-color} @w{color} @k{&key} @w{black} @w{white}
+Convert from normalized color coordinates to absolute color coordinates.
+@end deffn
 
 
 @node Symbol Index, Concept Index, Reference Manual, Top
