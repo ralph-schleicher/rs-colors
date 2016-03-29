@@ -95,6 +95,25 @@ Please report any errors in this manual to @email{@value{ADDRESS}}.
 @end menu
 
 
+@chapheading References
+
+@table @asis
+@anchor {ref:HTML}
+@item [HTML]
+@w{@uref{http://www.w3.org/TR/1999/REC-html401-19991224}}
+
+@anchor {ref:sRGB}
+@item [sRGB]
+@w{@uref{http://www.w3.org/Graphics/Color/sRGB.html}}@*
+@w{@uref{http://www.color.org/chardata/rgb/srgb.xalter}}
+
+@anchor {ref:Adobe RGB}
+@item [Adobe RGB]
+Adobe RGB (1998) Color Image Encoding, Version 2005-05@*
+@w{@uref{http://www.color.org/chardata/rgb/adobergb.xalter}}
+@end table
+
+
 @node Introduction, User's Guide, Top, Top
 @chapter Introduction
 
@@ -1397,7 +1416,7 @@ than the CIE XYZ color space.
 Color coordinates are lightness and two chromaticity coordinates.
 Lightness @var{L*} is in the @range{0, 100}.  However, values
 greater than@tie{}@math{100} are accepted, too.  The two chromaticity
-coordinates @var{u*} and @var{v^*} are usually in the @range{-100, +100}.
+coordinates @var{u*} and @var{v*} are usually in the @range{-100, +100}.
 CIE L*u*v* color coordinates are always relative to a white point.  This
 is either the white point of the color space you are converting from or
 CIE standard illuminant D50.
@@ -1804,86 +1823,22 @@ Value is a color object with the same color coordinates as @var{color}.
 @section Input and Output
 
 @menu
+* HTML Format::
 * Reading Colors::
 * Printing Colors::
 @end menu
 
 
-@node Reading Colors, Printing Colors, Input and Output, Input and Output
-@subsection Reading Colors
+@node HTML Format, Reading Colors, Input and Output, Input and Output
+@subsection HTML Format
 
-@c ---------------------------------------------------------------------
-@anchor{function:rs-colors:read-color-html}
-@deffn {Function} {read-color-html} @k{&optional} @w{stream}
-Read a numerical HTML color definition, that is a hexadecimal number
-prefixed by a hash mark.
-
-@itemize
-@item
-Optional argument @var{stream} is an input stream.  Default is to read
-from @code{*standard-input*}.
-@end itemize
-
-Reading stops at the first non-hexadecimal digit character.  The number
-of hexadecimal digits has to be a multiple of three.
-
-Value is a color object in the sRGB color space.
-
-@noindent
-Example:
-
-@lisp
-@group
-(with-input-from-string (stream "#4E9A06 junk")
-  (read-color-html stream))
- @result{} #<SRGB-COLOR (26/85 154/255 2/85)>
-@end group
-@end lisp
-@end deffn
-
-@ignore
-@c ---------------------------------------------------------------------
-@anchor{macro:rs-colors:define-color-reader}
-@deffn {Macro} {define-color-reader} @w{style} @w{(stream @k{&key} export inline)} @k{&body} @w{body}
-Define a color reader function.
-
-@itemize
-@item
-Argument @var{style} is a string designator.  It is used to build the
-symbol name for the color reader function.
-
-@item
-Argument @var{stream} is a symbol to access the input stream in the
-@var{body} form.
-
-@item
-Argument @var{body} is a function body reading a color representation
-from the input stream @var{stream}.  The value of the form is a color
-object.
-
-@item
-If optional keyword argument @var{export} is true, add an export
-declaration for the color reader function.
-
-@item
-If optional keyword argument @var{inline} is true, add an inline
-declaration for the color reader function.
-@end itemize
-
-@table @code
-@item read-color-@var{style} @k{&optional} @var{stream}
-@end table
-@end deffn
-@end ignore
-
-
-@node Printing Colors,  , Reading Colors, Input and Output
-@subsection Printing Colors
+A HTML color value is either a hexadecimal number prefixed by a hash
+mark or a keyword.  This section only covers numerical color values.
 
 @c ---------------------------------------------------------------------
 @anchor{function:rs-colors:print-color-html}
 @deffn {Function} {print-color-html} color @k{&optional} stream
-Print a numerical HTML color definition, that is a hexadecimal number
+Print a numerical HTML color value, that is a hexadecimal number
 prefixed by a hash mark.
 
 @itemize
@@ -1929,6 +1884,78 @@ Example:
 @end group
 @end lisp
 @end defvr
+
+@c ---------------------------------------------------------------------
+@anchor{function:rs-colors:read-color-html}
+@deffn {Function} {read-color-html} @k{&optional} @w{stream}
+Read a numerical HTML color value, that is a hexadecimal number
+prefixed by a hash mark.
+
+@itemize
+@item
+Optional argument @var{stream} is an input stream.  Default is to read
+from @code{*standard-input*}.
+@end itemize
+
+Reading stops at the first non-hexadecimal digit character.  The number
+of hexadecimal digits has to be a multiple of three.
+
+Value is a color object in the sRGB color space.
+
+@noindent
+Example:
+
+@lisp
+@group
+(with-input-from-string (stream "#4E9A06 junk")
+  (read-color-html stream))
+ @result{} #<SRGB-COLOR (26/85 154/255 2/85)>
+@end group
+@end lisp
+@end deffn
+
+
+@node Reading Colors, Printing Colors, HTML Format, Input and Output
+@subsection Reading Colors
+
+@ignore
+@c ---------------------------------------------------------------------
+@anchor{macro:rs-colors:define-color-reader}
+@deffn {Macro} {define-color-reader} @w{style} @w{(stream @k{&key} export inline)} @k{&body} @w{body}
+Define a color reader function.
+
+@itemize
+@item
+Argument @var{style} is a string designator.  It is used to build the
+symbol name for the color reader function.
+
+@item
+Argument @var{stream} is a symbol to access the input stream in the
+@var{body} form.
+
+@item
+Argument @var{body} is a function body reading a color representation
+from the input stream @var{stream}.  The value of the form is a color
+object.
+
+@item
+If optional keyword argument @var{export} is true, add an export
+declaration for the color reader function.
+
+@item
+If optional keyword argument @var{inline} is true, add an inline
+declaration for the color reader function.
+@end itemize
+
+@table @code
+@item read-color-@var{style} @k{&optional} @var{stream}
+@end table
+@end deffn
+@end ignore
+
+
+@node Printing Colors,  , Reading Colors, Input and Output
+@subsection Printing Colors
 
 @ignore
 @c ---------------------------------------------------------------------
