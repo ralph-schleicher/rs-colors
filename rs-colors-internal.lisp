@@ -1,4 +1,4 @@
-;;; rs-colors.lisp --- a color data type for Common Lisp.
+;;; rs-colors-internal.lisp --- utility definitions for RS-COLORS.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -34,11 +34,8 @@
 
 (in-package :common-lisp-user)
 
-(defpackage :rs-colors
+(defpackage :rs-colors-internal
   (:use :common-lisp
-	:iterate
-	:rs-colors-internal)
-  (:import-from :alexandria
-		#:clamp))
+	:iterate))
 
-;;; rs-colors.lisp ends here
+;;; rs-colors-internal.lisp ends here

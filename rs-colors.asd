@@ -39,10 +39,9 @@
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
   :version "20140225.2041"
-  :depends-on (:iterate :alexandria :closer-mop)
+  :depends-on (:iterate :alexandria :closer-mop :rs-colors-internal)
   :serial t
   :components ((:file "rs-colors")
-	       (:file "utilities")
 	       (:file "types")
 	       (:file "generic-rgb")
 	       (:file "generic-cmy")

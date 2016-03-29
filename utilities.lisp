@@ -32,10 +32,11 @@
 
 ;;; Code:
 
-(in-package :rs-colors)
+(in-package :rs-colors-internal)
 
 ;;;; Data and Control Flow
 
+(export 'defconst)
 (defmacro defconst (name value &optional doc)
   "Define a constant variable.
 
@@ -44,6 +45,7 @@ is reused when the `defconst' form is evaluated again."
   `(defconstant ,name (if (boundp ',name) (symbol-value ',name) ,value)
      ,@(when doc (list doc))))
 
+(export 'defsubst)
 (defmacro defsubst (name arg-list &body body)
   "Define an inline function.
 
@@ -56,6 +58,7 @@ for inline expansion by the compiler."
 
 ;;;; Conditions
 
+(export 'ensure-type)
 (defun ensure-type (object type)
   "Signal a type error if OBJECT is not of the type TYPE.
 Otherwise, return OBJECT."
@@ -65,6 +68,7 @@ Otherwise, return OBJECT."
 
 ;;;; Exponential Functions
 
+(export 'cube)
 (defun cube (z)
   "Return Z cubed, that is Z raised to the power three.
 
@@ -77,6 +81,7 @@ Argument Z has to be a real number."
 	(t
 	 (* z z z))))
 
+(export 'cube-root)
 (defun cube-root (z)
   "Return the cube root of Z.
 
@@ -101,6 +106,7 @@ of the argument Z to its value."
 
 ;;;; Linear Algebra
 
+(export 'make-vector)
 (defun make-vector (&optional (x1 0) (x2 0) (x3 0))
   "Create a vector."
   (let ((x (make-array '(3) :element-type 'real :initial-element 0)))
@@ -109,12 +115,14 @@ of the argument Z to its value."
 	  (svref x 2) x3)
     x))
 
+(export 'copy-vector)
 (defun copy-vector (x)
   "Return a copy of vector X."
   (make-vector (svref x 0)
 	       (svref x 1)
 	       (svref x 2)))
 
+(export 'make-matrix)
 (defun make-matrix (&optional (a11 0) (a12 0) (a13 0)
 			      (a21 0) (a22 0) (a23 0)
 			      (a31 0) (a32 0) (a33 0))
@@ -125,6 +133,7 @@ of the argument Z to its value."
 	  (aref a 2 0) a31 (aref a 2 1) a32 (aref a 2 2) a33)
     a))
 
+(export 'copy-matrix)
 (defun copy-matrix (a)
   "Return a copy of matrix A."
   (make-matrix (aref a 0 0) (aref a 0 1) (aref a 0 2)
@@ -173,6 +182,7 @@ of the argument Z to its value."
   "Calculate adjugate matrix of matrix A in place."
   (matrix-transpose (matrix-cofactors a)))
 
+(export 'matrix-inverse)
 (defun matrix-inverse (a)
   "Calculate inverse matrix of matrix A in place."
   (let ((det (det a)))
@@ -234,6 +244,7 @@ of the argument Z to its value."
 			 (* (aref a 2 2) (aref b 2 2))))
   c)
 
+(export 'float-array)
 (defun float-array (a &optional (prototype 1F0))
   "Convert elements of a numeric array to floating-point numbers."
   (iter (for k :from 0 :below (array-total-size a))
@@ -241,6 +252,7 @@ of the argument Z to its value."
   a)
 
 ;; GEMV with multiple values.
+(export 'linear-transformation)
 (defun linear-transformation (a x1 x2 x3)
   "Perform a linear transformation."
   (values (+ (* (aref a 0 0) x1)
@@ -255,10 +267,12 @@ of the argument Z to its value."
 
 ;;;; Tuple
 
+(export 'encode-triple)
 (defun encode-triple (a b c &optional (byte-size 8))
   (let ((s (expt 2 byte-size)))
     (+ (* (+ (* a s) b) s) c)))
 
+(export 'decode-triple)
 (defun decode-triple (value &optional (byte-size 8))
   (let ((s (expt 2 byte-size))
 	(v value)
@@ -271,10 +285,12 @@ of the argument Z to its value."
       (truncate v s))
     (values a b c)))
 
+(export 'encode-quadruple)
 (defun encode-quadruple (a b c d &optional (byte-size 8))
   (let ((s (expt 2 byte-size)))
     (+ (* (+ (* (+ (* a s) b) s) c) s) d)))
 
+(export 'decode-quadruple)
 (defun decode-quadruple (value &optional (byte-size 8))
   (let ((s (expt 2 byte-size))
 	(v value)
@@ -292,12 +308,14 @@ of the argument Z to its value."
 
 ;;;; CIE Color Spaces
 
+(export 'cie-L*-from-Y/Yn)
 (defun cie-L*-from-Y/Yn (Y/Yn)
   "Map relative luminance Y/Yn to lightness L*."
   (if (> Y/Yn 216/24389)
       (- (* 116 (cube-root Y/Yn)) 16)
     (* 24389/27 Y/Yn)))
 
+(export 'cie-Y/Yn-from-L*)
 (defun cie-Y/Yn-from-L* (L*)
   "Map lightness L* to relative luminance Y/Yn."
   (if (> L* 8)
@@ -306,6 +324,7 @@ of the argument Z to its value."
 
 ;;;; RGB Color Spaces
 
+(export 'rgb-transformation-matrices)
 (defun rgb-transformation-matrices (red green blue white)
   "Return the transformation matrix for converting CIE XYZ color space
 coordinates into RGB color space coordinates and vice versa.
@@ -339,6 +358,7 @@ the inverse matrix."
 	   (c (gemm p d)))
       (values (matrix-inverse (copy-matrix c)) c))))
 
+(export 'make-rgb-color)
 (defun make-rgb-color (color-type red green blue &optional byte-size)
   "Create a new color in an RGB color space."
   (let (r g b)
@@ -352,6 +372,7 @@ the inverse matrix."
 	      b (/ (ensure-type blue `(integer 0 ,s)) s))))
     (make-instance color-type :red r :green g :blue b)))
 
+(export 'make-rgb-color-from-number)
 (defun make-rgb-color-from-number (color-type value &optional (byte-size 8))
   "Create a new color in an RGB color space."
   (ensure-type value '(integer 0))
