@@ -1,4 +1,4 @@
-;;; rs-colors.lisp --- a color data type for Common Lisp.
+;;; rs-colors-internal.asd --- ASDF system definition.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -34,11 +34,21 @@
 
 (in-package :common-lisp-user)
 
-(defpackage :rs-colors
-  (:use :common-lisp
-	:iterate
-	:rs-colors-internal)
-  (:import-from :alexandria
-		#:clamp))
+(asdf:defsystem :rs-colors-internal
+  :description "Internal definitions for RS-COLORS."
+  :author "Ralph Schleicher <rs@ralph-schleicher.de>"
+  :license "Modified BSD License"
+  :version "20140629.1901"
+  :depends-on (:iterate)
+  :serial t
+  :components ((:file "rs-colors-internal")
+	       (:file "utilities")))
 
-;;; rs-colors.lisp ends here
+;; local variables:
+;; time-stamp-time-zone: "UTC"
+;; time-stamp-format: "%:y%02m%02d.%02H%02M"
+;; time-stamp-start: ":version\\s-+\""
+;; time-stamp-end: "\""
+;; end:
+
+;;; rs-colors-internal.asd ends here
