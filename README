@@ -3,10 +3,13 @@ A color data type for Common Lisp.
 
 Implemented color spaces:
 
+   * CIE RGB
    * CIE XYZ
    * CIE xyY
-   * CIE RGB
+   * CIE L*u*v*
+   * CIE L*a*b*
    * sRGB
+   * Adobe RGB
 
 and
 
