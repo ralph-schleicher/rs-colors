@@ -103,16 +103,15 @@
 	     (round (* g 255))
 	     (round (* b 255))))))
 
-
 ;; Read a numerical HTML color definition, that is
 ;; a hexadecimal number prefixed by a hash mark.
 ;;
 ;; Argument STREAM is an input stream.
 ;;
-;; Value is a color object in the sRGB color space."
+;; Value is a color object in the sRGB color space.
 (define-color-reader :html (stream :export t)
   (unless (char= (read-char stream) #\#)
-    (error "Invalid HTML color syntax; expect a `#' character."))
+    (error "Invalid HTML color syntax; expect a '#' character."))
   (iter (with val = 0)
 	(with len = 0)
 	(for ch = (read-char stream nil))
