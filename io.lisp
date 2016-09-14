@@ -77,21 +77,23 @@
 (define-color-printer :xcms-cie-xyy (color stream :export t)
   (multiple-value-bind (x* y* y)
       (cie-xyy-color-coordinates color)
-    (format stream
-	    "CIExyY:~A/~A/~A"
-	    (float x* 1F0)
-	    (float y* 1F0)
-	    (float y  1F0))))
+    (let ((*read-default-float-format* 'single-float))
+      (format stream
+	      "CIExyY:~A/~A/~A"
+	      (float x* 1F0)
+	      (float y* 1F0)
+	      (float y  1F0)))))
 
 (define-color-printer :xcms-rgb (color stream :export t)
   (ensure-type color 'rgb-color-object)
   (multiple-value-bind (r g b)
       (color-coordinates color)
-    (format stream
-	    "RGBi:~A/~A/~A"
-	    (float r 1F0)
-	    (float g 1F0)
-	    (float b 1F0))))
+    (let ((*read-default-float-format* 'single-float))
+      (format stream
+	      "RGBi:~A/~A/~A"
+	      (float r 1F0)
+	      (float g 1F0)
+	      (float b 1F0)))))
 
 (define-color-printer :html (color stream :export t)
   (multiple-value-bind (r g b)
@@ -139,20 +141,22 @@
 (define-color-printer :css-rgb (color stream :export t)
   (multiple-value-bind (r g b)
       (srgb-color-coordinates color)
-    (format stream
-	    "rgb(~A%, ~A%, ~A%)"
-	    (float (* r 100) 1F0)
-	    (float (* g 100) 1F0)
-	    (float (* b 100) 1F0))))
+    (let ((*read-default-float-format* 'single-float))
+      (format stream
+	      "rgb(~A%, ~A%, ~A%)"
+	      (float (* r 100) 1F0)
+	      (float (* g 100) 1F0)
+	      (float (* b 100) 1F0)))))
 
 (define-color-printer :css-hsl (color stream :export t)
   (multiple-value-bind (h s l)
       (multiple-value-call #'generic-hsl-from-generic-rgb
 	(srgb-color-coordinates color))
-    (format stream
-	    "hsl(~A, ~A%, ~A%)"
-	    (float h 1F0)
-	    (float (* s 100) 1F0)
-	    (float (* l 100) 1F0))))
+    (let ((*read-default-float-format* 'single-float))
+      (format stream
+	      "hsl(~A, ~A%, ~A%)"
+	      (float h 1F0)
+	      (float (* s 100) 1F0)
+	      (float (* l 100) 1F0)))))
 
 ;;; io.lisp ends here
