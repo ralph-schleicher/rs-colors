@@ -97,7 +97,9 @@ This conversion requires a reference white point."
 
 (defun cie-xyz-from-cie-lab (L* a* b* w)
   "Convert CIE L*a*b* color space coordinates
-into CIE XYZ color space coordinates."
+into CIE XYZ color space coordinates.
+
+This conversion requires a reference white point."
   (declare (type real L* a* b*))
   (labels ((decode (c)
 	     (if (> c #.(cube-root 216/24389))
