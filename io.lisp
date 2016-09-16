@@ -65,7 +65,7 @@
        (defun ,reader (&optional (,stream *standard-input*))
 	 ,@body))))
 
-(define-color-printer :xcms-cie-xyz (color stream :export t)
+(define-color-printer xcms-cie-xyz (color stream :export t)
   (multiple-value-bind (x y z)
       (cie-xyz-color-coordinates color)
     (format stream
@@ -74,7 +74,7 @@
 	    (float y 1F0)
 	    (float z 1F0))))
 
-(define-color-printer :xcms-cie-xyy (color stream :export t)
+(define-color-printer xcms-cie-xyy (color stream :export t)
   (multiple-value-bind (x* y* y)
       (cie-xyy-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
@@ -84,7 +84,7 @@
 	      (float y* 1F0)
 	      (float y  1F0)))))
 
-(define-color-printer :xcms-rgb (color stream :export t)
+(define-color-printer xcms-rgb (color stream :export t)
   (ensure-type color 'rgb-color-object)
   (multiple-value-bind (r g b)
       (color-coordinates color)
@@ -95,7 +95,7 @@
 	      (float g 1F0)
 	      (float b 1F0)))))
 
-(define-color-printer :html (color stream :export t)
+(define-color-printer html (color stream :export t)
   (multiple-value-bind (r g b)
       (srgb-color-coordinates color)
     (format stream
@@ -111,7 +111,7 @@
 ;; Argument STREAM is an input stream.
 ;;
 ;; Value is a color object in the sRGB color space.
-(define-color-reader :html (stream :export t)
+(define-color-reader html (stream :export t)
   (unless (char= (read-char stream) #\#)
     (error "Invalid HTML color syntax; expect a '#' character."))
   (iter (with val = 0)
@@ -138,7 +138,7 @@
 	       (return (make-srgb-color r g b :byte-size byte-size))))))
 	))
 
-(define-color-printer :css-rgb (color stream :export t)
+(define-color-printer css-rgb (color stream :export t)
   (multiple-value-bind (r g b)
       (srgb-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
@@ -148,7 +148,7 @@
 	      (float (* g 100) 1F0)
 	      (float (* b 100) 1F0)))))
 
-(define-color-printer :css-hsl (color stream :export t)
+(define-color-printer css-hsl (color stream :export t)
   (multiple-value-bind (h s l)
       (multiple-value-call #'generic-hsl-from-generic-rgb
 	(srgb-color-coordinates color))
