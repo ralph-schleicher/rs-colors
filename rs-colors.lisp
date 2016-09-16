@@ -40,6 +40,9 @@
 	:iterate
 	:rs-colors-internal)
   (:import-from :alexandria
-		#:clamp))
+		#:clamp)
+  (:import-from :read-number
+		#:read-integer
+		#:read-float))
 
 ;;; rs-colors.lisp ends here
