@@ -40,7 +40,7 @@
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
   :version "20160501.1832"
-  :depends-on (:iterate :alexandria :closer-mop :rs-colors-internal)
+  :depends-on (:iterate :alexandria :closer-mop :read-number :rs-colors-internal)
   :serial t
   :components ((:file "rs-colors")
 	       (:file "types")
