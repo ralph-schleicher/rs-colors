@@ -41,8 +41,8 @@
 (defmacro defconst (name value &optional doc)
   "Define a constant variable.
 
-This is like `defconstant' except that the initially set value
-is reused when the `defconst' form is evaluated again."
+This is like ‘defconstant’ except that the initially set value
+is reused when the ‘defconst’ form is evaluated again."
   `(defconstant ,name (if (boundp ',name) (symbol-value ',name) ,value)
      ,@(when doc (list doc))))
 
@@ -50,7 +50,7 @@ is reused when the `defconst' form is evaluated again."
 (defmacro defsubst (name arg-list &body body)
   "Define an inline function.
 
-This is like `defun' except that the function is globally marked
+This is like ‘defun’ except that the function is globally marked
 for inline expansion by the compiler."
   `(progn
      (declaim (inline ,name))
