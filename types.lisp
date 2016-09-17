@@ -191,7 +191,7 @@ space denoted by COLOR-TYPE."
   (with-slots (c m y) color
     (values c m y)))
 
-;; Do not inherit from `cmy-color-object' because the numerical values
+;; Do not inherit from ‘cmy-color-object’ because the numerical values
 ;; of cyan, magenta, and yellow have a different meaning.
 (export 'cmyk-color-object)
 (defclass cmyk-color-object (color-object)
