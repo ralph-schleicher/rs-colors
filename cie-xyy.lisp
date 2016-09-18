@@ -64,7 +64,7 @@
 
 Arguments X* and Y* are the chromaticity coordinates.
 Argument Y is the second tristimulus value (luminance)."
-  (make-instance 'cie-xyy-color :x* (ensure-type x* '(real 0 1)) :y* (ensure-type y* '(real 0 1)) :y (ensure-type y '(real 0))))
+  (make-instance 'cie-xyy-color :x* x* :y* y* :y y))
 
 (defun cie-xyy-from-cie-xyz (x y z)
   "Convert CIE XYZ color space coordinates
