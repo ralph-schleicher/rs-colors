@@ -40,6 +40,18 @@
   ()
   (:documentation "Base class for a color."))
 
+(defmethod initialize-instance :after ((color color-object) &key)
+  (iter (with class = (class-of color))
+	(for slot :in (closer-mop:class-slots class))
+	(for slot-name = (closer-mop:slot-definition-name slot))
+	(when (slot-boundp color slot-name)
+	  (for slot-value = (slot-value color slot-name))
+	  ;; Check that the contents of the slot is of the specified
+	  ;; data type.
+	  (for slot-type = (closer-mop:slot-definition-type slot))
+	  (unless (typep slot-value slot-type)
+	    (error 'type-error :datum slot-value :expected-type slot-type)))))
+
 (export 'colorp)
 (defun colorp (object)
   "Return true if OBJECT is a color object."
