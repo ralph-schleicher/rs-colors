@@ -69,11 +69,7 @@
 (export 'make-cie-lab-color)
 (defun make-cie-lab-color (L* a* b* &optional white-point)
   "Create a new color in the CIE L*a*b* color space."
-  (make-instance 'cie-lab-color
-    :L* (ensure-type L* '(real 0))
-    :a* (ensure-type a* 'real)
-    :b* (ensure-type b* 'real)
-    :white-point (ensure-type (or white-point CIE-1931-D50) 'color-object)))
+  (make-instance 'cie-lab-color :L* L* :a* a* :b* b* :white-point (or white-point CIE-1931-D50)))
 
 (defun cie-lab-from-cie-xyz (x y z w)
   "Convert CIE XYZ color space coordinates
