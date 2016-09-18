@@ -111,6 +111,9 @@ space denoted by COLOR-TYPE."
   (print-unreadable-object (color stream :type t :identity t)
     (princ (multiple-value-list (color-coordinates color)) stream)))
 
+(defmethod make-load-form ((color color-object) &optional environment)
+  (make-load-form-saving-slots color :environment environment))
+
 (export 'rgb-color-object)
 (defclass rgb-color-object (color-object)
   ((r
