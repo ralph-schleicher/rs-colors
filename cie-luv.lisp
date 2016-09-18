@@ -35,6 +35,11 @@
 
 (in-package :rs-colors)
 
+(export '*cie-luv-default-white-point*)
+(defvar *cie-luv-default-white-point* CIE-1931-D50
+  "The default white point for colors in the CIE L*u*v* color space.
+Default value is the CIE 1931 D50 standard illuminant.")
+
 (export 'cie-luv-color)
 (defclass cie-luv-color (color-object)
   ((L*
@@ -54,9 +59,9 @@
     :documentation "Second chromaticity coordinate, default zero.")
    (white-point
     :initarg :white-point
-    :initform (error "Reference white point is not defined.")
+    :initform *cie-luv-default-white-point*
     :type color-object
-    :documentation "Reference white point."))
+    :documentation "White point, default ‘*cie-luv-default-white-point*’."))
   (:documentation "Color class for the CIE L*u*v* color space."))
 
 (defmethod color-coordinates ((color cie-luv-color))
@@ -67,9 +72,9 @@
   (slot-value color 'white-point))
 
 (export 'make-cie-luv-color)
-(defun make-cie-luv-color (L* u* v* &optional white-point)
+(defun make-cie-luv-color (L* u* v* &optional (white-point *cie-luv-default-white-point*))
   "Create a new color in the CIE L*u*v* color space."
-  (make-instance 'cie-luv-color :L* L* :u* u* :v* v* :white-point (or white-point CIE-1931-D50)))
+  (make-instance 'cie-luv-color :L* L* :u* u* :v* v* :white-point white-point))
 
 (defun cie-uv-from-xy (x y s)
   (declare (type real x y s))
