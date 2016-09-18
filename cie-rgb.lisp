@@ -50,7 +50,7 @@ Third argument BLUE is the intensity of the blue primary.
 
 Arguments RED, GREEN, and BLUE have to be normalized intensity values
 in the closed interval [0, 1]."
-  (make-instance 'cie-rgb-color :red (ensure-type red '(real 0 1)) :green (ensure-type green '(real 0 1)) :blue (ensure-type blue '(real 0 1))))
+  (make-instance 'cie-rgb-color :red red :green green :blue blue))
 
 (let ((c (make-matrix 49000/100000 31000/100000 20000/100000
 		      17697/100000 81240/100000  1063/100000
