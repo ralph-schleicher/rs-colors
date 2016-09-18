@@ -106,7 +106,7 @@ This conversion requires a reference white point."
 		 (cube c)
 	       (/ (- c 16/116) 24389/3132))))
     (multiple-value-bind (xn yn zn)
-	(cie-xyz-color-coordinates white-point)
+	(cie-xyz-color-coordinates w)
       (let* ((y (/ (+ L* 16) 116))
 	     (x (+ y (/ a* 500)))
 	     (z (- y (/ b* 200))))
