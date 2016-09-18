@@ -63,7 +63,7 @@
   "Create a new color in the CIE XYZ color space.
 
 Arguments X, Y, and Z are the tristimulus values."
-  (make-instance 'cie-xyz-color :x (ensure-type x '(real 0)) :y (ensure-type y '(real 0)) :z (ensure-type z '(real 0))))
+  (make-instance 'cie-xyz-color :x x :y y :z z))
 
 (export 'cie-xyz-color-coordinates)
 (defgeneric cie-xyz-color-coordinates (color)
