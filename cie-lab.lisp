@@ -35,6 +35,11 @@
 
 (in-package :rs-colors)
 
+(export '*cie-lab-default-white-point*)
+(defvar *cie-lab-default-white-point* CIE-1931-D50
+  "The default white point for colors in the CIE L*a*b* color space.
+Default value is the CIE 1931 D50 standard illuminant.")
+
 (export 'cie-lab-color)
 (defclass cie-lab-color (color-object)
   ((L*
@@ -54,9 +59,9 @@
     :documentation "Yellow/blue scale, default zero.")
    (white-point
     :initarg :white-point
-    :initform (error "White point is not defined.")
+    :initform *cie-lab-default-white-point*
     :type color-object
-    :documentation "White point."))
+    :documentation "White point, default ‘*cie-lab-default-white-point*’."))
   (:documentation "Color class for the CIE L*a*b* color space."))
 
 (defmethod color-coordinates ((color cie-lab-color))
@@ -67,9 +72,9 @@
   (slot-value color 'white-point))
 
 (export 'make-cie-lab-color)
-(defun make-cie-lab-color (L* a* b* &optional white-point)
+(defun make-cie-lab-color (L* a* b* &optional (white-point *cie-lab-default-white-point*))
   "Create a new color in the CIE L*a*b* color space."
-  (make-instance 'cie-lab-color :L* L* :a* a* :b* b* :white-point (or white-point CIE-1931-D50)))
+  (make-instance 'cie-lab-color :L* L* :a* a* :b* b* :white-point white-point))
 
 (defun cie-lab-from-cie-xyz (x y z w)
   "Convert CIE XYZ color space coordinates
