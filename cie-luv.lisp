@@ -92,7 +92,7 @@ into CIE L*u*v* color space coordinates.
 This conversion requires a reference white point."
   (declare (type real x y z))
   (multiple-value-bind (x*n y*n yn)
-      (cie-xyy-color-coordinates w)
+      (cie-xyy-color-coordinates (or w *cie-luv-default-white-point*))
     (multiple-value-bind (un vn)
 	(cie-uv-from-xy x*n y*n (+ (- (* 2 x*n)) (* 12 y*n) 3))
       (multiple-value-bind (u v)
@@ -109,7 +109,7 @@ into CIE XYZ color space coordinates.
 This conversion requires a reference white point."
   (declare (type real L* u* v*))
   (multiple-value-bind (x*n y*n yn)
-      (cie-xyy-color-coordinates w)
+      (cie-xyy-color-coordinates (or w *cie-luv-default-white-point*))
     (multiple-value-bind (un vn)
 	(cie-uv-from-xy x*n y*n (+ (- (* 2 x*n)) (* 12 y*n) 3))
       (let* ((u (+ (/ u* (* 13 L*) un)))
