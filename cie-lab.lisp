@@ -134,8 +134,9 @@ Argument COLOR is a color object.")
     (cie-xyz-from-cie-lab L* a* b* (white-point color))))
 
 (defmethod update-instance-for-different-class :after ((old color-object) (new cie-lab-color) &key)
-  (with-slots (L* a* b*) new
+  (with-slots (L* a* b* white-point) new
     (multiple-value-setq (L* a* b*)
-      (cie-lab-color-coordinates old))))
+      (cie-lab-color-coordinates old))
+    (setf white-point (or (white-point old) *cie-lab-default-white-point*))))
 
 ;;; cie-lab.lisp ends here

@@ -138,8 +138,9 @@ Argument COLOR is a color object.")
     (cie-xyz-from-cie-luv L* u* v* (white-point color))))
 
 (defmethod update-instance-for-different-class :after ((old color-object) (new cie-luv-color) &key)
-  (with-slots (L* u* v*) new
+  (with-slots (L* u* v* white-point) new
     (multiple-value-setq (L* u* v*)
-      (cie-luv-color-coordinates old))))
+      (cie-luv-color-coordinates old))
+    (setf white-point (or (white-point old) *cie-luv-default-white-point*))))
 
 ;;; cie-luv.lisp ends here
