@@ -51,7 +51,7 @@
     :initarg :b*
     :initform 0
     :type real
-    :documentation "Blue/yellow scale, default zero.")
+    :documentation "Yellow/blue scale, default zero.")
    (white-point
     :initarg :white-point
     :initform (error "White point is not defined.")
