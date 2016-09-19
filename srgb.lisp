@@ -138,9 +138,9 @@ into sRGB color space coordinates."
   (multiple-value-bind (r g b)
       (linear-transformation srgb-from-cie-xyz-transformation-matrix x y z)
     (declare (type real r g b))
-    (values (srgb-gamma-encoding (alexandria:clamp r 0 1))
-	    (srgb-gamma-encoding (alexandria:clamp g 0 1))
-	    (srgb-gamma-encoding (alexandria:clamp b 0 1)))))
+    (values (srgb-gamma-encoding (clamp r 0 1))
+	    (srgb-gamma-encoding (clamp g 0 1))
+	    (srgb-gamma-encoding (clamp b 0 1)))))
 
 (defun cie-xyz-from-srgb (r g b)
   "Convert sRGB color space coordinates

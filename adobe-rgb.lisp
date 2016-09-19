@@ -130,9 +130,9 @@ into Adobe RGB color space coordinates."
   (multiple-value-bind (r g b)
       (linear-transformation adobe-rgb-from-cie-xyz-transformation-matrix x y z)
     (declare (type real r g b))
-    (values (adobe-rgb-gamma-encoding (alexandria:clamp r 0 1))
-	    (adobe-rgb-gamma-encoding (alexandria:clamp g 0 1))
-	    (adobe-rgb-gamma-encoding (alexandria:clamp b 0 1)))))
+    (values (adobe-rgb-gamma-encoding (clamp r 0 1))
+	    (adobe-rgb-gamma-encoding (clamp g 0 1))
+	    (adobe-rgb-gamma-encoding (clamp b 0 1)))))
 
 (defun cie-xyz-from-adobe-rgb (r g b)
   "Convert Adobe RGB color space coordinates

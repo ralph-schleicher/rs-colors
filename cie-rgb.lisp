@@ -69,9 +69,9 @@ into CIE RGB color space coordinates."
   (declare (type real x y z))
   (multiple-value-bind (r g b)
       (linear-transformation cie-rgb-from-cie-xyz-transformation-matrix x y z)
-    (values (alexandria:clamp r 0 1)
-	    (alexandria:clamp g 0 1)
-	    (alexandria:clamp b 0 1))))
+    (values (clamp r 0 1)
+	    (clamp g 0 1)
+	    (clamp b 0 1))))
 
 (defun cie-xyz-from-cie-rgb (r g b)
   "Convert CIE RGB color space coordinates
