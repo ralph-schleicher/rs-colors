@@ -109,6 +109,11 @@ Argument COLOR is a color object.")
       (cie-lch-color-coordinates color)
     (cie-lab-from-cie-lch L* C* h)))
 
+(defmethod cie-xyz-color-coordinates ((color cie-lch-color))
+  (multiple-value-bind (L* a* b*)
+      (cie-lab-color-coordinates color)
+    (cie-xyz-from-cie-lab L* a* b* (white-point color))))
+
 (defmethod update-instance-for-different-class :after ((old color-object) (new cie-lch-color) &key)
   (with-slots (L* C* h white-point) new
     (multiple-value-setq (L* C* h)
