@@ -1,0 +1,62 @@
+--- texinfo.tex.orig	2014-03-09 14:36:35.000000000 +0100
++++ texinfo.tex	2016-09-20 23:37:42.701620115 +0200
+@@ -3,7 +3,7 @@
+ % Load plain if necessary, i.e., if running under initex.
+ \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
+ %
+-\def\texinfoversion{2014-02-16.16}
++\def\texinfoversion{2016-09-20.23}
+ %
+ % Copyright 1985, 1986, 1988, 1990, 1991, 1992, 1993, 1994, 1995,
+ % 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006,
+@@ -7958,6 +7958,7 @@
+ %
+ \def\pxref#1{\putwordsee{} \xrefX[#1,,,,,,,]}
+ \def\xref#1{\putwordSee{} \xrefX[#1,,,,,,,]}
++\def\aref#1{\xrefX[#1,,,,,aref,,]}
+ \def\ref#1{\xrefX[#1,,,,,,,]}
+ %
+ \newbox\toprefbox
+@@ -7965,7 +7966,7 @@
+ \newbox\infofilenamebox
+ \newbox\printedmanualbox
+ %
+-\def\xrefX[#1,#2,#3,#4,#5,#6]{\begingroup
++\def\xrefX[#1,#2,#3,#4,#5,#6,#7]{\begingroup
+   \unsepspaces
+   %
+   % Get args without leading/trailing spaces.
+@@ -8094,14 +8095,17 @@
+        \setbox2 = \hbox{\ignorespaces \refx{#1-snt}{}}%
+        \ifdim \wd2 > 0pt \refx{#1-snt}\space\fi
+       }%
+-      % output the `[mynode]' via the macro below so it can be overridden.
+-      \xrefprintnodename\printedrefname
+-      %
+-      % But we always want a comma and a space:
+-      ,\space
+-      %
+-      % output the `page 3'.
+-      \turnoffactive \putwordpage\tie\refx{#1-pg}{}%
++      \def\refstyle{\ignorespaces #6}%
++      \ifx\refstyle\empty
++        % output the `[mynode]' via the macro below so it can be overridden.
++        \xrefprintnodename\printedrefname
++        % But we always want a comma and a space:
++        ,\space
++        % output the `page 3'.
++        \turnoffactive \putwordpage\tie\refx{#1-pg}{}%
++      \else
++        \arefprintnodename\printedrefname
++      \fi
+     \fi\fi
+   \fi
+   \endlink
+@@ -8139,6 +8143,7 @@
+ % one that Bob is working on :).
+ %
+ \def\xrefprintnodename#1{[#1]}
++\def\arefprintnodename#1{#1}
+ 
+ % Things referred to by \setref.
+ %

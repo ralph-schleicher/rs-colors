@@ -1,0 +1,4 @@
+@set PACKAGE rs-colors
+@set VERSION 20160920.2156
+@set ADDRESS rs@@ralph-schleicher.de
+@set TARNAME rs-colors
