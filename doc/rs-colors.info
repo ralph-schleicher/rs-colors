@@ -1,8 +1,8 @@
 This is rs-colors.info, produced by makeinfo version 6.1 from
 rs-colors.texi.
 
-This is edition 1 (draft), last updated 2014-03-20, of 'RS-COLORS - A
-Color Data Type for Common Lisp', for RS-COLORS version 20131204.2148.
+This is edition 1 (draft), last updated 2016-09-20, of 'RS-COLORS - A
+Color Data Type for Common Lisp', for RS-COLORS version 20160920.2156.
 
      Copyright (C) 2014 Ralph Schleicher
 
@@ -22,8 +22,8 @@ File: rs-colors.info,  Node: Top,  Next: Introduction,  Prev: (dir),  Up: (dir)
 RS-COLORS
 *********
 
-This is edition 1 (draft), last updated 2014-03-20, of 'RS-COLORS - A
-Color Data Type for Common Lisp', for RS-COLORS version 20131204.2148.
+This is edition 1 (draft), last updated 2016-09-20, of 'RS-COLORS - A
+Color Data Type for Common Lisp', for RS-COLORS version 20160920.2156.
 
      Copyright (C) 2014 Ralph Schleicher
 
@@ -167,6 +167,9 @@ Color Classes for Absolute Color Spaces
 *note 'cie-lab-color': class:rs-colors:cie-lab-color.
      The CIE L*a*b* color space.
 
+*note 'cie-lch-color': class:rs-colors:cie-lch-color.
+     The CIE L*C*h color space.
+
 Color Classes for Device Dependent Color Spaces
 ===============================================
 
@@ -245,6 +248,9 @@ The built-in constructors are listed in the following table.
 
 *note 'make-cie-lab-color': function:rs-colors:make-cie-lab-color.
      Create a CIE L*a*b* color object.
+
+*note 'make-cie-lch-color': function:rs-colors:make-cie-lch-color.
+     Create a CIE L*C*h color object.
 
 *note 'make-srgb-color': function:rs-colors:make-srgb-color.
 *note 'make-srgb-color-from-number': function:rs-colors:make-srgb-color-from-number.
@@ -328,6 +334,7 @@ following functions to get them.
 *note 'cie-xyy-color-coordinates': generic-function:rs-colors:cie-xyy-color-coordinates.
 *note 'cie-luv-color-coordinates': generic-function:rs-colors:cie-luv-color-coordinates.
 *note 'cie-lab-color-coordinates': generic-function:rs-colors:cie-lab-color-coordinates.
+*note 'cie-lch-color-coordinates': generic-function:rs-colors:cie-lch-color-coordinates.
 
 *note 'srgb-color-coordinates': generic-function:rs-colors:srgb-color-coordinates.
 *note 'adobe-rgb-color-coordinates': generic-function:rs-colors:adobe-rgb-color-coordinates.
@@ -854,6 +861,7 @@ device independent.
 * CIE xyY Color Space::
 * CIE L*u*v* Color Space::
 * CIE L*a*b* Color Space::
+* CIE L*C*h Color Space::
 
 
 File: rs-colors.info,  Node: CIE RGB Color Space,  Next: CIE XYZ Color Space,  Prev: CIE Color Spaces,  Up: CIE Color Spaces
@@ -1045,7 +1053,7 @@ illuminant D50.
      Values are the lightness and the two chromaticity coordinates.
 
 
-File: rs-colors.info,  Node: CIE L*a*b* Color Space,  Prev: CIE L*u*v* Color Space,  Up: CIE Color Spaces
+File: rs-colors.info,  Node: CIE L*a*b* Color Space,  Next: CIE L*C*h Color Space,  Prev: CIE L*u*v* Color Space,  Up: CIE Color Spaces
 
 4.4.5 CIE L*a*b* Color Space
 ----------------------------
@@ -1084,6 +1092,57 @@ converting from or CIE standard illuminant D50.
         * Argument COLOR is a color object.
 
      Values are the lightness and the two chromaticity coordinates.
+
+
+File: rs-colors.info,  Node: CIE L*C*h Color Space,  Prev: CIE L*a*b* Color Space,  Up: CIE Color Spaces
+
+4.4.6 CIE L*C*h Color Space
+---------------------------
+
+The CIE L*C*h color space is the transformation of the CIE L*a*b* color
+space from a Cartesian coordinate system into a cylindrical coordinate
+system.
+
+Color coordinates are lightness, chroma, and hue.  Lightness L* is equal
+to the lightness of the CIE L*a*b* color space.  Chroma C* and hue H are
+the polar coordinates, i.e.  radius and angle, of a color in the
+(A*, B*) plane.
+
+Hue is measured in degree angle; h = 0^\circ is the positive A*-axis
+(red), h = 90^\circ is the positive B*-axis (yellow), h = 180^\circ is
+the negative A*-axis (green), and h = 270^\circ is the negative B*-axis
+(blue).
+
+CIE L*C*h color coordinates are always relative to a white point.  This
+is either the white point of the color space you are converting from or
+CIE standard illuminant D50.
+
+ -- Class: cie-lch-color
+     Color class for the CIE L*C*h color space.
+
+     *Class Precedence List*
+     *note 'cie-lch-color': class:rs-colors:cie-lch-color, *note
+     'color-object': class:rs-colors:color-object, ...
+
+ -- Function: make-cie-lch-color L* C* h &optional white-point
+     Create a new color in the CIE L*C*h color space.
+
+        * First argument L* is the lightness.
+
+        * Second argument C* is the chroma.
+
+        * Third argument H is the hue.
+
+     Arguments L* and C* have to be non-negative real numbers.  Argument
+     H has to be a real number.  It's value is reduced to the
+     half-closed interval [0, 360).
+
+ -- Generic Function: cie-lch-color-coordinates color
+     Return the CIE L*C*h color space coordinates of the color.
+
+        * Argument COLOR is a color object.
+
+     Values are the lightness, chroma, and hue.
 
 
 File: rs-colors.info,  Node: RGB Color Spaces,  Next: Color Properties,  Prev: CIE Color Spaces,  Up: Reference Manual
@@ -1408,6 +1467,10 @@ Symbol Index
                                                                (line 20)
 * cie-lab-color-coordinates:             CIE L*a*b* Color Space.
                                                                (line 36)
+* cie-lch-color:                         CIE L*C*h Color Space.
+                                                               (line 24)
+* cie-lch-color-coordinates:             CIE L*C*h Color Space.
+                                                               (line 45)
 * cie-luv-color:                         CIE L*u*v* Color Space.
                                                                (line 20)
 * cie-luv-color-coordinates:             CIE L*u*v* Color Space.
@@ -1461,6 +1524,8 @@ Symbol Index
                                                                (line 45)
 * make-cie-lab-color:                    CIE L*a*b* Color Space.
                                                                (line 27)
+* make-cie-lch-color:                    CIE L*C*h Color Space.
+                                                               (line 31)
 * make-cie-luv-color:                    CIE L*u*v* Color Space.
                                                                (line 27)
 * make-cie-rgb-color:                    CIE RGB Color Space.  (line 23)
@@ -1509,98 +1574,102 @@ Ref: ref:Adobe RGB1502
 Node: Introduction1632
 Node: User's Guide3167
 Node: The Color Data Type3421
-Node: Creating Color Objects5471
-Node: Color Coordinates8713
-Node: White Point9347
-Node: Color Conversion9681
-Ref: figure:color-conversion9812
-Node: Programmer's Guide11945
-Node: Reference Manual14204
-Node: Color Predicates14572
-Ref: function:rs-colors:colorp14873
-Node: Abstract Color Classes14948
-Ref: class:rs-colors:color-object15229
-Ref: class:rs-colors:rgb-color-object15399
-Ref: class:rs-colors:hsv-color-object15782
-Ref: class:rs-colors:hsl-color-object16220
-Ref: class:rs-colors:cmy-color-object16649
-Ref: class:rs-colors:cmyk-color-object17037
-Ref: class:rs-colors:generic-color-object17442
-Node: Generic Color Spaces (Color Models)17701
-Node: Generic RGB Color Space18230
-Ref: class:rs-colors:generic-rgb-color18764
-Ref: function:rs-colors:make-generic-rgb-color19137
-Ref: function:rs-colors:make-generic-rgb-color-from-number20178
-Ref: generic-function:rs-colors:generic-rgb-color-coordinates20858
-Node: Generic HSV Color Space21114
-Ref: class:rs-colors:generic-hsv-color21758
-Ref: function:rs-colors:make-generic-hsv-color22131
-Ref: generic-function:rs-colors:generic-hsv-color-coordinates22643
-Node: Generic HSL Color Space22875
-Ref: class:rs-colors:generic-hsl-color23461
-Ref: function:rs-colors:make-generic-hsl-color23834
-Ref: generic-function:rs-colors:generic-hsl-color-coordinates24357
-Node: Generic CMY Color Space24580
-Ref: class:rs-colors:generic-cmy-color25109
-Ref: function:rs-colors:make-generic-cmy-color25482
-Ref: function:rs-colors:make-generic-cmy-color-from-number26549
-Ref: generic-function:rs-colors:generic-cmy-color-coordinates27230
-Node: Generic CMYK Color Space27491
-Ref: class:rs-colors:generic-cmyk-color28005
-Ref: function:rs-colors:make-generic-cmyk-color28384
-Ref: function:rs-colors:make-generic-cmyk-color-from-number29714
-Ref: generic-function:rs-colors:generic-cmyk-color-coordinates30403
-Node: CIE Color Spaces30673
-Node: CIE RGB Color Space31082
-Ref: class:rs-colors:cie-rgb-color31550
-Ref: function:rs-colors:make-cie-rgb-color31837
-Ref: generic-function:rs-colors:cie-rgb-color-coordinates32306
-Ref: CIE RGB Color Space-Footnote-132590
-Node: CIE XYZ Color Space32784
-Ref: class:rs-colors:cie-xyz-color33308
-Ref: function:rs-colors:make-cie-xyz-color33530
-Ref: generic-function:rs-colors:cie-xyz-color-coordinates33857
-Node: CIE xyY Color Space34655
-Ref: class:rs-colors:cie-xyy-color35231
-Ref: function:rs-colors:make-cie-xyy-color35453
-Ref: generic-function:rs-colors:cie-xyy-color-coordinates35773
-Node: CIE L*u*v* Color Space36008
-Ref: class:rs-colors:cie-luv-color36805
-Ref: function:rs-colors:make-cie-luv-color37030
-Ref: generic-function:rs-colors:cie-luv-color-coordinates37333
-Node: CIE L*a*b* Color Space37567
-Ref: class:rs-colors:cie-lab-color38371
-Ref: function:rs-colors:make-cie-lab-color38596
-Ref: generic-function:rs-colors:cie-lab-color-coordinates38899
-Node: RGB Color Spaces39133
-Node: sRGB Color Space39355
-Ref: class:rs-colors:srgb-color39529
-Ref: function:rs-colors:make-srgb-color39804
-Ref: function:rs-colors:make-srgb-color-from-number40818
-Ref: generic-function:rs-colors:srgb-color-coordinates41470
-Node: Adobe RGB Color Space41712
-Ref: class:rs-colors:adobe-rgb-color41871
-Ref: function:rs-colors:make-adobe-rgb-color42166
-Ref: function:rs-colors:make-adobe-rgb-color-from-number43210
-Ref: generic-function:rs-colors:adobe-rgb-color-coordinates43882
-Node: Color Properties44134
-Ref: generic-function:rs-colors:color-coordinates44300
-Ref: generic-function:rs-colors:white-point44446
-Node: Color Conversions44715
-Ref: generic-function:common-lisp:change-class44883
-Ref: function:rs-colors:coerce-color45421
-Ref: generic-function:rs-colors:copy-color45886
-Node: Input and Output46084
-Node: HTML Format46312
-Ref: function:rs-colors:print-color-html46603
-Ref: constant:rs-colors:color-formatter-html47157
-Ref: function:rs-colors:read-color-html47533
-Node: Reading Colors48143
-Node: Printing Colors48300
-Node: Miscellaneous48439
-Ref: generic-function:rs-colors:normalize-color48570
-Ref: generic-function:rs-colors:absolute-color48715
-Node: Symbol Index48859
-Node: Concept Index55610
+Node: Creating Color Objects5558
+Node: Color Coordinates8906
+Node: White Point9540
+Node: Color Conversion9874
+Ref: figure:color-conversion10005
+Node: Programmer's Guide12227
+Node: Reference Manual14486
+Node: Color Predicates14854
+Ref: function:rs-colors:colorp15155
+Node: Abstract Color Classes15230
+Ref: class:rs-colors:color-object15511
+Ref: class:rs-colors:rgb-color-object15681
+Ref: class:rs-colors:hsv-color-object16064
+Ref: class:rs-colors:hsl-color-object16502
+Ref: class:rs-colors:cmy-color-object16931
+Ref: class:rs-colors:cmyk-color-object17319
+Ref: class:rs-colors:generic-color-object17724
+Node: Generic Color Spaces (Color Models)17983
+Node: Generic RGB Color Space18512
+Ref: class:rs-colors:generic-rgb-color19046
+Ref: function:rs-colors:make-generic-rgb-color19419
+Ref: function:rs-colors:make-generic-rgb-color-from-number20460
+Ref: generic-function:rs-colors:generic-rgb-color-coordinates21140
+Node: Generic HSV Color Space21396
+Ref: class:rs-colors:generic-hsv-color22040
+Ref: function:rs-colors:make-generic-hsv-color22413
+Ref: generic-function:rs-colors:generic-hsv-color-coordinates22925
+Node: Generic HSL Color Space23157
+Ref: class:rs-colors:generic-hsl-color23743
+Ref: function:rs-colors:make-generic-hsl-color24116
+Ref: generic-function:rs-colors:generic-hsl-color-coordinates24639
+Node: Generic CMY Color Space24862
+Ref: class:rs-colors:generic-cmy-color25391
+Ref: function:rs-colors:make-generic-cmy-color25764
+Ref: function:rs-colors:make-generic-cmy-color-from-number26831
+Ref: generic-function:rs-colors:generic-cmy-color-coordinates27512
+Node: Generic CMYK Color Space27773
+Ref: class:rs-colors:generic-cmyk-color28287
+Ref: function:rs-colors:make-generic-cmyk-color28666
+Ref: function:rs-colors:make-generic-cmyk-color-from-number29996
+Ref: generic-function:rs-colors:generic-cmyk-color-coordinates30685
+Node: CIE Color Spaces30955
+Node: CIE RGB Color Space31390
+Ref: class:rs-colors:cie-rgb-color31858
+Ref: function:rs-colors:make-cie-rgb-color32145
+Ref: generic-function:rs-colors:cie-rgb-color-coordinates32614
+Ref: CIE RGB Color Space-Footnote-132898
+Node: CIE XYZ Color Space33092
+Ref: class:rs-colors:cie-xyz-color33616
+Ref: function:rs-colors:make-cie-xyz-color33838
+Ref: generic-function:rs-colors:cie-xyz-color-coordinates34165
+Node: CIE xyY Color Space34963
+Ref: class:rs-colors:cie-xyy-color35539
+Ref: function:rs-colors:make-cie-xyy-color35761
+Ref: generic-function:rs-colors:cie-xyy-color-coordinates36081
+Node: CIE L*u*v* Color Space36316
+Ref: class:rs-colors:cie-luv-color37113
+Ref: function:rs-colors:make-cie-luv-color37338
+Ref: generic-function:rs-colors:cie-luv-color-coordinates37641
+Node: CIE L*a*b* Color Space37875
+Ref: class:rs-colors:cie-lab-color38709
+Ref: function:rs-colors:make-cie-lab-color38934
+Ref: generic-function:rs-colors:cie-lab-color-coordinates39237
+Node: CIE L*C*h Color Space39471
+Ref: class:rs-colors:cie-lch-color40411
+Ref: function:rs-colors:make-cie-lch-color40635
+Ref: generic-function:rs-colors:cie-lch-color-coordinates41057
+Node: RGB Color Spaces41270
+Node: sRGB Color Space41492
+Ref: class:rs-colors:srgb-color41666
+Ref: function:rs-colors:make-srgb-color41941
+Ref: function:rs-colors:make-srgb-color-from-number42955
+Ref: generic-function:rs-colors:srgb-color-coordinates43607
+Node: Adobe RGB Color Space43849
+Ref: class:rs-colors:adobe-rgb-color44008
+Ref: function:rs-colors:make-adobe-rgb-color44303
+Ref: function:rs-colors:make-adobe-rgb-color-from-number45347
+Ref: generic-function:rs-colors:adobe-rgb-color-coordinates46019
+Node: Color Properties46271
+Ref: generic-function:rs-colors:color-coordinates46437
+Ref: generic-function:rs-colors:white-point46583
+Node: Color Conversions46852
+Ref: generic-function:common-lisp:change-class47020
+Ref: function:rs-colors:coerce-color47558
+Ref: generic-function:rs-colors:copy-color48023
+Node: Input and Output48221
+Node: HTML Format48449
+Ref: function:rs-colors:print-color-html48740
+Ref: constant:rs-colors:color-formatter-html49294
+Ref: function:rs-colors:read-color-html49670
+Node: Reading Colors50280
+Node: Printing Colors50437
+Node: Miscellaneous50576
+Ref: generic-function:rs-colors:normalize-color50707
+Ref: generic-function:rs-colors:absolute-color50852
+Node: Symbol Index50996
+Node: Concept Index58158
 
 End Tag Table
