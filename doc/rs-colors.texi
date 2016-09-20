@@ -5,7 +5,7 @@
 @settitle rs-colors
 
 @set EDITION 1 (draft)
-@set UPDATED 2014-03-20
+@set UPDATED 2016-09-20
 
 @include package.texi
 
@@ -281,6 +281,9 @@ The CIE L*u*v* color space.
 
 @item @classref{rs-colors, cie-lab-color}
 The CIE L*a*b* color space.
+
+@item @classref{rs-colors, cie-lch-color}
+The CIE L*C*h color space.
 @end table
 
 @heading Color Classes for Device Dependent Color Spaces
@@ -377,6 +380,9 @@ Create a CIE L*u*v* color object.
 
 @item @funref{rs-colors, make-cie-lab-color}
 Create a CIE L*a*b* color object.
+
+@item @funref{rs-colors, make-cie-lch-color}
+Create a CIE L*C*h color object.
 @end table
 
 @table @asis
@@ -471,6 +477,7 @@ following functions to get them.
 @item @genericref{rs-colors, cie-xyy-color-coordinates}
 @item @genericref{rs-colors, cie-luv-color-coordinates}
 @item @genericref{rs-colors, cie-lab-color-coordinates}
+@item @genericref{rs-colors, cie-lch-color-coordinates}
 @end table
 
 @table @asis
@@ -1166,6 +1173,7 @@ device independent.
 * CIE xyY Color Space::
 * CIE L*u*v* Color Space::
 * CIE L*a*b* Color Space::
+* CIE L*C*h Color Space::
 @end menu
 
 
@@ -1463,7 +1471,7 @@ Values are the lightness and the two chromaticity coordinates.
 @end deffn
 
 
-@node CIE L*a*b* Color Space,  , CIE L*u*v* Color Space, CIE Color Spaces
+@node CIE L*a*b* Color Space, CIE L*C*h Color Space, CIE L*u*v* Color Space, CIE Color Spaces
 @subsection CIE L*a*b* Color Space
 
 The CIE L*a*b* color space is a non-linear transformation of the CIE XYZ
@@ -1504,7 +1512,6 @@ Second argument @var{a*} is the first chromaticity coordinate.
 
 @item
 Third argument @var{b*} is the second chromaticity coordinate.
-
 @end itemize
 @end deffn
 
@@ -1519,6 +1526,73 @@ Argument @var{color} is a color object.
 @end itemize
 
 Values are the lightness and the two chromaticity coordinates.
+@end deffn
+
+
+@node CIE L*C*h Color Space,  , CIE L*a*b* Color Space, CIE Color Spaces
+@subsection CIE L*C*h Color Space
+
+The CIE L*C*h color space is the transformation of the CIE L*a*b* color
+space from a Cartesian coordinate system into a cylindrical coordinate
+system.
+
+Color coordinates are lightness, chroma, and hue.  Lightness @var{L*} is
+equal to the lightness of the CIE L*a*b* color space.  Chroma @var{C*}
+and hue @var{h} are the polar coordinates, i.e. radius and angle, of a
+color in the (@var{a*},@tie{}@var{b*}) plane.
+
+Hue is measured in degree angle; @math{h = 0^\circ} is the positive
+@var{a*}-axis (red), @math{h = 90^\circ} is the positive @var{b*}-axis
+(yellow), @math{h = 180^\circ} is the negative @var{a*}-axis (green),
+and @math{h = 270^\circ} is the negative @var{b*}-axis (blue).
+
+CIE L*C*h color coordinates are always relative to a white point.  This is
+either the white point of the color space you are converting from or CIE
+standard illuminant D50.
+
+@c ---------------------------------------------------------------------
+@anchor{class:rs-colors:cie-lch-color}
+@deftp {Class} {cie-lch-color}
+Color class for the CIE L*C*h color space.
+
+@classprecedencelist
+@classref{rs-colors, cie-lch-color},
+@classref{rs-colors, color-object},
+@dots{}
+@end deftp
+
+@c ---------------------------------------------------------------------
+@anchor{function:rs-colors:make-cie-lch-color}
+@deffn {Function} {make-cie-lch-color} @w{L*} @w{C*} @w{h} @k{&optional} @w{white-point}
+Create a new color in the CIE L*C*h color space.
+
+@itemize
+@item
+First argument @var{L*} is the lightness.
+
+@item
+Second argument @var{C*} is the chroma.
+
+@item
+Third argument @var{h} is the hue.
+@end itemize
+
+Arguments @var{L*} and @var{C*} have to be non-negative real numbers.
+Argument @var{h} has to be a real number.  It's value is reduced to the
+half-closed @interval{[0, 360)}.
+@end deffn
+
+@c ---------------------------------------------------------------------
+@anchor{generic-function:rs-colors:cie-lch-color-coordinates}
+@deffn {Generic Function} {cie-lch-color-coordinates} @w{color}
+Return the CIE L*C*h color space coordinates of the color.
+
+@itemize
+@item
+Argument @var{color} is a color object.
+@end itemize
+
+Values are the lightness, chroma, and hue.
 @end deffn
 
 
