@@ -52,6 +52,7 @@
 	       (:file "cie-white-points")
 	       (:file "cie-luv")
 	       (:file "cie-lab")
+	       (:file "cie-lch")
 	       (:file "cie-rgb")
 	       (:file "srgb")
 	       (:file "adobe-rgb")
