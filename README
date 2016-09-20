@@ -8,6 +8,7 @@ Implemented color spaces:
    * CIE xyY
    * CIE L*u*v*
    * CIE L*a*b*
+   * CIE L*C*h
    * sRGB
    * Adobe RGB
 
