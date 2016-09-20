@@ -105,6 +105,28 @@ of the argument Z to its value."
 		 (if (or (= r f) (= (cube r) z)) r f))
 	     f)))))
 
+;;;; Quantities
+
+(export 'radian-from-degree)
+(defsubst radian-from-degree (deg)
+  "Convert a plane angle from degree to radian.
+
+Argument DEG is the angle given in degree.
+
+Value is the corresponding angle given in radian."
+  (declare (type real deg))
+  (* (/ deg 180) pi))
+
+(export 'degree-from-radian)
+(defsubst degree-from-radian (rad)
+  "Convert a plane angle from radian to degree.
+
+Argument RAD is the angle given in radian.
+
+Value is the corresponding angle given in degree."
+  (declare (type real rad))
+  (* (/ rad pi) 180))
+
 ;;;; Linear Algebra
 
 (export 'make-vector)
