@@ -81,15 +81,34 @@ Hue is measured in degree angle."))
   "Convert CIE L*a*b* color space coordinates
 into CIE L*C*h color space coordinates."
   (declare (type real L* a* b*))
-  (let ((C*h (complex a* b*)))
-    (values L* (abs C*h) (mod (degree-from-radian (phase C*h)) 360))))
+  ;; Attempt to be exact, see also ‘cie-lab-from-cie-lch’ below.
+  (cond ((zerop b*)
+	 (values L* (abs a*) (if (minusp a*) 180 0)))
+	((zerop a*)
+	 (values L* (abs b*) (if (minusp b*) 270 90)))
+	(t
+	 (let ((C*h (complex (float a* pi) (float b* pi))))
+	   (values L* (abs C*h) (mod (degree-from-radian (phase C*h)) 360))))))
 
 (defun cie-lab-from-cie-lch (L* C* h)
   "Convert CIE L*C*h color space coordinates
 into CIE L*a*b* color space coordinates."
   (declare (type real L* C* h))
-  (let ((C*h (* C* (cis (radian-from-degree h)))))
-    (values L* (realpart C*h) (imagpart C*h))))
+  ;; On IEEE 754 machines, and maybe others, values of sin(π) and
+  ;; cos(π/2) are usually non-zero.
+  (cond ((zerop C*)
+	 (values L* 0 0))
+	((= h 0)
+	 (values L* C* 0))
+	((= h 90)
+	 (values L* 0 C*))
+	((= h 180)
+	 (values L* (- C*) 0))
+	((= h 270)
+	 (values L* 0 (- C*)))
+	(t
+	 (let ((C*h (* C* (cis (radian-from-degree (float h pi))))))
+	   (values L* (realpart C*h) (imagpart C*h))))))
 
 (export 'cie-lch-color-coordinates)
 (defgeneric cie-lch-color-coordinates (color)
