@@ -1,0 +1,64 @@
+@c Lambda list keywords.
+@macro k {NAME}
+@r{\NAME\}
+@end macro
+
+@ifnottex
+@alias aref = ref
+@end ifnottex
+
+@macro lispref {KIND, PACKAGE, NAME}
+@aref{\KIND\:\PACKAGE\:\NAME\, , @code{\NAME\}}
+@end macro
+
+@macro typeref {PACKAGE, NAME}
+@lispref{type, \PACKAGE\, \NAME\}
+@end macro
+
+@macro structureref {PACKAGE, NAME}
+@lispref{structure, \PACKAGE\, \NAME\}
+@end macro
+
+@macro classref {PACKAGE, NAME}
+@lispref{class, \PACKAGE\, \NAME\}
+@end macro
+
+@macro conditionref {PACKAGE, NAME}
+@lispref{condition, \PACKAGE\, \NAME\}
+@end macro
+
+@macro varref {PACKAGE, NAME}
+@lispref{variable, \PACKAGE\, \NAME\}
+@end macro
+
+@macro constref {PACKAGE, NAME}
+@lispref{constant, \PACKAGE\, \NAME\}
+@end macro
+
+@macro specialref {PACKAGE, NAME}
+@lispref{special-operator, \PACKAGE\, \NAME\}
+@end macro
+
+@macro funref {PACKAGE, NAME}
+@lispref{function, \PACKAGE\, \NAME\}
+@end macro
+
+@macro genericref {PACKAGE, NAME}
+@lispref{generic-function, \PACKAGE\, \NAME\}
+@end macro
+
+@macro methodref {PACKAGE, NAME}
+@lispref{method, \PACKAGE\, \NAME\}
+@end macro
+
+@macro macroref {PACKAGE, NAME}
+@lispref{macro, \PACKAGE\, \NAME\}
+@end macro
+
+@macro slots {}
+@strong{Slots}@*
+@end macro
+
+@macro classprecedencelist {}
+@strong{Class Precedence List}@*
+@end macro
