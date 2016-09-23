@@ -39,7 +39,7 @@
   :description "Internal definitions for RS-COLORS."
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
-  :version "20160501.1832"
+  :version "20160920.2156"
   :depends-on (:iterate)
   :serial t
   :components ((:file "rs-colors-internal")
