@@ -1,0 +1,97 @@
+%% rs-colors-conversion.tex -- visualize color conversion paths.
+
+% Copyright (C) 2016 Ralph Schleicher
+
+% Redistribution and use in source and binary forms, with or without
+% modification, are permitted provided that the following conditions
+% are met:
+%
+%    * Redistributions of source code must retain the above copyright
+%      notice, this list of conditions and the following disclaimer.
+%
+%    * Redistributions in binary form must reproduce the above copyright
+%      notice, this list of conditions and the following disclaimer in
+%      the documentation and/or other materials provided with the
+%      distribution.
+%
+%    * The name of the author may not be used to endorse or promote
+%      products derived from this software without specific prior
+%      written permission.
+%
+% THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS
+% OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+% WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+% ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+% INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+% (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+% SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+% HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+% STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+% IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+% POSSIBILITY OF SUCH DAMAGE.
+
+%% Code:
+
+\documentclass[a4paper,11pt,landscape]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{dejavu}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+\pagenumbering{gobble}
+
+\tikzset{%
+  col/.style={%
+    ellipse,
+    % All nodes should have the same size.
+    minimum width=4cm,
+    minimum height=1cm,
+    very thick,
+    draw=black!50,
+    top color=white,
+    bottom color=black!20,
+    font=\sffamily}}
+
+\begin{tikzpicture}[scale=3.5]
+\draw
+node (CIEXYZ) [col] at (  0: 0cm) {CIE XYZ}
+node (CIELuv) [col] at (150: 1cm) {CIE L*u*v*}
+node (CIELab) [col] at ( 30: 1cm) {CIE L*a*b*}
+node (CIELCh) [col] at ( 30: 2cm) {CIE L*C*h}
+node (CIERGB) [col] at (210: 1cm) {CIE RGB}
+node (anyRGB) [col] at (330: 1cm) {sRGB, \ldots}
+% Set CIE xyY to the right of CIE XYZ and below CIE L*C*h;
+% 1.7321 = 2 cos(30°).
+node (CIExyY) [col] at (  0: 1.7321cm) {CIE xyY}
+% Generic RGB color space below CIE XYZ.
+node (genRGB) [col] at (270: 1cm) {generic RGB}
+node (genHSV) [col] at (210: 2cm) {generic HSV}
+node (genHSL) [col] at (330: 2cm) {generic HSL}
+% Generic CMY below generic RGB; 0.58114 is magic.
+node (genCMY) [col] at (0cm, -1.58114cm) {generic CMY}
+% Generic CMYL below generic CMY.
+node (genCMYK) [col] at (0cm, -2.16228cm) {generic CMYK};
+
+\path[very thick,
+      draw=black!50,
+      arrows={Latex[round,fill=black!50,sep=1mm]
+            - Latex[round,fill=black!50,sep=1mm]}]
+(CIEXYZ) edge (CIExyY)
+(CIEXYZ) edge (CIELuv)
+(CIEXYZ) edge (CIELab)
+(CIELab) edge (CIELCh)
+(CIERGB) edge (CIEXYZ)
+(CIERGB) edge (genRGB)
+(anyRGB) edge (CIEXYZ)
+(anyRGB) edge (genRGB)
+(genRGB) edge (genHSV)
+(genRGB) edge (genHSL)
+(genRGB) edge (genCMY)
+(genCMY) edge (genCMYK);
+\end{tikzpicture}
+\end{document}
+
+%% rs-colors-conversion.tex ends here
