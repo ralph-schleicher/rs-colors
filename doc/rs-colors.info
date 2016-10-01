@@ -1,7 +1,7 @@
 This is rs-colors.info, produced by makeinfo version 6.1 from
 rs-colors.texi.
 
-This is edition 1 (draft), last updated 2016-09-20, of 'RS-COLORS - A
+This is edition 1 (draft), last updated 2016-10-01, of 'RS-COLORS - A
 Color Data Type for Common Lisp', for RS-COLORS version 20160920.2156.
 
      Copyright (C) 2014 Ralph Schleicher
@@ -22,7 +22,7 @@ File: rs-colors.info,  Node: Top,  Next: Introduction,  Prev: (dir),  Up: (dir)
 RS-COLORS
 *********
 
-This is edition 1 (draft), last updated 2016-09-20, of 'RS-COLORS - A
+This is edition 1 (draft), last updated 2016-10-01, of 'RS-COLORS - A
 Color Data Type for Common Lisp', for RS-COLORS version 20160920.2156.
 
      Copyright (C) 2014 Ralph Schleicher
@@ -296,13 +296,13 @@ File: rs-colors.info,  Node: Color Conversion,  Prev: White Point,  Up: User's G
 2.5 Color Conversion
 ====================
 
- [image src="color-conversion.png" ]
+ [image src="rs-colors-conversion.png" ]
 
 Figure 2.1
 
-*note Figure 2.1: figure:color-conversion. depicts the implemented color
-conversions.  The nice thing about RS-COLORS is that all these color
-conversions can be performed with the 'change-class' function.
+*note Figure 2.1: figure:rs-colors-conversion. depicts the implemented
+color conversions.  The nice thing about RS-COLORS is that all these
+color conversions can be performed with the 'change-class' function.
 
      (let ((color (make-srgb-color 252 175 62 :byte-size 8)))
        (values (change-class color 'generic-cmyk-color) color))
@@ -1578,98 +1578,98 @@ Node: Creating Color Objects5558
 Node: Color Coordinates8906
 Node: White Point9540
 Node: Color Conversion9874
-Ref: figure:color-conversion10005
-Node: Programmer's Guide12227
-Node: Reference Manual14486
-Node: Color Predicates14854
-Ref: function:rs-colors:colorp15155
-Node: Abstract Color Classes15230
-Ref: class:rs-colors:color-object15511
-Ref: class:rs-colors:rgb-color-object15681
-Ref: class:rs-colors:hsv-color-object16064
-Ref: class:rs-colors:hsl-color-object16502
-Ref: class:rs-colors:cmy-color-object16931
-Ref: class:rs-colors:cmyk-color-object17319
-Ref: class:rs-colors:generic-color-object17724
-Node: Generic Color Spaces (Color Models)17983
-Node: Generic RGB Color Space18512
-Ref: class:rs-colors:generic-rgb-color19046
-Ref: function:rs-colors:make-generic-rgb-color19419
-Ref: function:rs-colors:make-generic-rgb-color-from-number20460
-Ref: generic-function:rs-colors:generic-rgb-color-coordinates21140
-Node: Generic HSV Color Space21396
-Ref: class:rs-colors:generic-hsv-color22040
-Ref: function:rs-colors:make-generic-hsv-color22413
-Ref: generic-function:rs-colors:generic-hsv-color-coordinates22925
-Node: Generic HSL Color Space23157
-Ref: class:rs-colors:generic-hsl-color23743
-Ref: function:rs-colors:make-generic-hsl-color24116
-Ref: generic-function:rs-colors:generic-hsl-color-coordinates24639
-Node: Generic CMY Color Space24862
-Ref: class:rs-colors:generic-cmy-color25391
-Ref: function:rs-colors:make-generic-cmy-color25764
-Ref: function:rs-colors:make-generic-cmy-color-from-number26831
-Ref: generic-function:rs-colors:generic-cmy-color-coordinates27512
-Node: Generic CMYK Color Space27773
-Ref: class:rs-colors:generic-cmyk-color28287
-Ref: function:rs-colors:make-generic-cmyk-color28666
-Ref: function:rs-colors:make-generic-cmyk-color-from-number29996
-Ref: generic-function:rs-colors:generic-cmyk-color-coordinates30685
-Node: CIE Color Spaces30955
-Node: CIE RGB Color Space31390
-Ref: class:rs-colors:cie-rgb-color31858
-Ref: function:rs-colors:make-cie-rgb-color32145
-Ref: generic-function:rs-colors:cie-rgb-color-coordinates32614
-Ref: CIE RGB Color Space-Footnote-132898
-Node: CIE XYZ Color Space33092
-Ref: class:rs-colors:cie-xyz-color33616
-Ref: function:rs-colors:make-cie-xyz-color33838
-Ref: generic-function:rs-colors:cie-xyz-color-coordinates34165
-Node: CIE xyY Color Space34963
-Ref: class:rs-colors:cie-xyy-color35539
-Ref: function:rs-colors:make-cie-xyy-color35761
-Ref: generic-function:rs-colors:cie-xyy-color-coordinates36081
-Node: CIE L*u*v* Color Space36316
-Ref: class:rs-colors:cie-luv-color37113
-Ref: function:rs-colors:make-cie-luv-color37338
-Ref: generic-function:rs-colors:cie-luv-color-coordinates37641
-Node: CIE L*a*b* Color Space37875
-Ref: class:rs-colors:cie-lab-color38709
-Ref: function:rs-colors:make-cie-lab-color38934
-Ref: generic-function:rs-colors:cie-lab-color-coordinates39237
-Node: CIE L*C*h Color Space39471
-Ref: class:rs-colors:cie-lch-color40411
-Ref: function:rs-colors:make-cie-lch-color40635
-Ref: generic-function:rs-colors:cie-lch-color-coordinates41057
-Node: RGB Color Spaces41270
-Node: sRGB Color Space41492
-Ref: class:rs-colors:srgb-color41666
-Ref: function:rs-colors:make-srgb-color41941
-Ref: function:rs-colors:make-srgb-color-from-number42955
-Ref: generic-function:rs-colors:srgb-color-coordinates43607
-Node: Adobe RGB Color Space43849
-Ref: class:rs-colors:adobe-rgb-color44008
-Ref: function:rs-colors:make-adobe-rgb-color44303
-Ref: function:rs-colors:make-adobe-rgb-color-from-number45347
-Ref: generic-function:rs-colors:adobe-rgb-color-coordinates46019
-Node: Color Properties46271
-Ref: generic-function:rs-colors:color-coordinates46437
-Ref: generic-function:rs-colors:white-point46583
-Node: Color Conversions46852
-Ref: generic-function:common-lisp:change-class47020
-Ref: function:rs-colors:coerce-color47558
-Ref: generic-function:rs-colors:copy-color48023
-Node: Input and Output48221
-Node: HTML Format48449
-Ref: function:rs-colors:print-color-html48740
-Ref: constant:rs-colors:color-formatter-html49294
-Ref: function:rs-colors:read-color-html49670
-Node: Reading Colors50280
-Node: Printing Colors50437
-Node: Miscellaneous50576
-Ref: generic-function:rs-colors:normalize-color50707
-Ref: generic-function:rs-colors:absolute-color50852
-Node: Symbol Index50996
-Node: Concept Index58158
+Ref: figure:rs-colors-conversion10005
+Node: Programmer's Guide12235
+Node: Reference Manual14494
+Node: Color Predicates14862
+Ref: function:rs-colors:colorp15163
+Node: Abstract Color Classes15238
+Ref: class:rs-colors:color-object15519
+Ref: class:rs-colors:rgb-color-object15689
+Ref: class:rs-colors:hsv-color-object16072
+Ref: class:rs-colors:hsl-color-object16510
+Ref: class:rs-colors:cmy-color-object16939
+Ref: class:rs-colors:cmyk-color-object17327
+Ref: class:rs-colors:generic-color-object17732
+Node: Generic Color Spaces (Color Models)17991
+Node: Generic RGB Color Space18520
+Ref: class:rs-colors:generic-rgb-color19054
+Ref: function:rs-colors:make-generic-rgb-color19427
+Ref: function:rs-colors:make-generic-rgb-color-from-number20468
+Ref: generic-function:rs-colors:generic-rgb-color-coordinates21148
+Node: Generic HSV Color Space21404
+Ref: class:rs-colors:generic-hsv-color22048
+Ref: function:rs-colors:make-generic-hsv-color22421
+Ref: generic-function:rs-colors:generic-hsv-color-coordinates22933
+Node: Generic HSL Color Space23165
+Ref: class:rs-colors:generic-hsl-color23751
+Ref: function:rs-colors:make-generic-hsl-color24124
+Ref: generic-function:rs-colors:generic-hsl-color-coordinates24647
+Node: Generic CMY Color Space24870
+Ref: class:rs-colors:generic-cmy-color25399
+Ref: function:rs-colors:make-generic-cmy-color25772
+Ref: function:rs-colors:make-generic-cmy-color-from-number26839
+Ref: generic-function:rs-colors:generic-cmy-color-coordinates27520
+Node: Generic CMYK Color Space27781
+Ref: class:rs-colors:generic-cmyk-color28295
+Ref: function:rs-colors:make-generic-cmyk-color28674
+Ref: function:rs-colors:make-generic-cmyk-color-from-number30004
+Ref: generic-function:rs-colors:generic-cmyk-color-coordinates30693
+Node: CIE Color Spaces30963
+Node: CIE RGB Color Space31398
+Ref: class:rs-colors:cie-rgb-color31866
+Ref: function:rs-colors:make-cie-rgb-color32153
+Ref: generic-function:rs-colors:cie-rgb-color-coordinates32622
+Ref: CIE RGB Color Space-Footnote-132906
+Node: CIE XYZ Color Space33100
+Ref: class:rs-colors:cie-xyz-color33624
+Ref: function:rs-colors:make-cie-xyz-color33846
+Ref: generic-function:rs-colors:cie-xyz-color-coordinates34173
+Node: CIE xyY Color Space34971
+Ref: class:rs-colors:cie-xyy-color35547
+Ref: function:rs-colors:make-cie-xyy-color35769
+Ref: generic-function:rs-colors:cie-xyy-color-coordinates36089
+Node: CIE L*u*v* Color Space36324
+Ref: class:rs-colors:cie-luv-color37121
+Ref: function:rs-colors:make-cie-luv-color37346
+Ref: generic-function:rs-colors:cie-luv-color-coordinates37649
+Node: CIE L*a*b* Color Space37883
+Ref: class:rs-colors:cie-lab-color38717
+Ref: function:rs-colors:make-cie-lab-color38942
+Ref: generic-function:rs-colors:cie-lab-color-coordinates39245
+Node: CIE L*C*h Color Space39479
+Ref: class:rs-colors:cie-lch-color40419
+Ref: function:rs-colors:make-cie-lch-color40643
+Ref: generic-function:rs-colors:cie-lch-color-coordinates41065
+Node: RGB Color Spaces41278
+Node: sRGB Color Space41500
+Ref: class:rs-colors:srgb-color41674
+Ref: function:rs-colors:make-srgb-color41949
+Ref: function:rs-colors:make-srgb-color-from-number42963
+Ref: generic-function:rs-colors:srgb-color-coordinates43615
+Node: Adobe RGB Color Space43857
+Ref: class:rs-colors:adobe-rgb-color44016
+Ref: function:rs-colors:make-adobe-rgb-color44311
+Ref: function:rs-colors:make-adobe-rgb-color-from-number45355
+Ref: generic-function:rs-colors:adobe-rgb-color-coordinates46027
+Node: Color Properties46279
+Ref: generic-function:rs-colors:color-coordinates46445
+Ref: generic-function:rs-colors:white-point46591
+Node: Color Conversions46860
+Ref: generic-function:common-lisp:change-class47028
+Ref: function:rs-colors:coerce-color47566
+Ref: generic-function:rs-colors:copy-color48031
+Node: Input and Output48229
+Node: HTML Format48457
+Ref: function:rs-colors:print-color-html48748
+Ref: constant:rs-colors:color-formatter-html49302
+Ref: function:rs-colors:read-color-html49678
+Node: Reading Colors50288
+Node: Printing Colors50445
+Node: Miscellaneous50584
+Ref: generic-function:rs-colors:normalize-color50715
+Ref: generic-function:rs-colors:absolute-color50860
+Node: Symbol Index51004
+Node: Concept Index58166
 
 End Tag Table
