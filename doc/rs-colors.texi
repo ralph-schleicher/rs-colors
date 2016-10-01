@@ -5,7 +5,7 @@
 @settitle rs-colors
 
 @set EDITION 1 (draft)
-@set UPDATED 2016-09-20
+@set UPDATED 2016-10-01
 
 @include package.texi
 
@@ -428,13 +428,14 @@ of this white point.
 @node Color Conversion,  , White Point, User's Guide
 @section Color Conversion
 
-@float Figure,figure:color-conversion
-@image{color-conversion,4in,}
+@float Figure,figure:rs-colors-conversion
+@image{rs-colors-conversion,4in,}
 @end float
 
-@ref{figure:color-conversion} depicts the implemented color conversions.
-The nice thing about @sc{rs-colors} is that all these color conversions
-can be performed with the @code{change-class} function.
+@ref{figure:rs-colors-conversion} depicts the implemented color
+conversions.  The nice thing about @sc{rs-colors} is that all these
+color conversions can be performed with the @code{change-class}
+function.
 
 @lisp
 @group
