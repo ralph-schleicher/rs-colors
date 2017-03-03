@@ -8,7 +8,7 @@
 @end ifnottex
 
 @macro lispref {KIND, PACKAGE, NAME}
-@aref{\KIND\:\PACKAGE\:\NAME\, , @code{\NAME\}}
+@aref{\KIND\;\PACKAGE\;\NAME\, , @code{\NAME\}}
 @end macro
 
 @macro typeref {PACKAGE, NAME}
