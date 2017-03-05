@@ -4,7 +4,9 @@
 @end macro
 
 @ifnottex
-@alias aref = ref
+@macro aref {ARG1, ARG2, NAME}
+@code{\NAME\}
+@end macro
 @end ifnottex
 
 @macro lispref {KIND, PACKAGE, NAME}
