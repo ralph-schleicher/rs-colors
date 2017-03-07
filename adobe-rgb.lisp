@@ -89,10 +89,10 @@ Example:
 				 (multiple-value-bind (x* y*)
 				     (cie-xyy-color-coordinates adobe-rgb-white-point)
 				   (vector x* y*)))
-  (defconst adobe-rgb-from-cie-xyz-transformation-matrix (float-array rgb-from-xyz)
+  (defconst adobe-rgb-from-cie-xyz-transformation-matrix (float-array rgb-from-xyz 1D0)
     "Transformation matrix to convert normalized CIE XYZ color space coordinates
 into linear Adobe RGB color space coordinates.")
-  (defconst cie-xyz-from-adobe-rgb-transformation-matrix (float-array xyz-from-rgb)
+  (defconst cie-xyz-from-adobe-rgb-transformation-matrix (float-array xyz-from-rgb 1D0)
     "Transformation matrix to convert linear Adobe RGB color space coordinates
 into normalized CIE XYZ color space coordinates.")
   (values))
@@ -110,7 +110,7 @@ into Adobe RGB color space coordinates."
 	((= c 1)
 	 1)
 	(t
-	 (expt c 563/256))))
+	 (expt c #.(float 563/256 1D0)))))
 
 (defun adobe-rgb-gamma-decoding (c)
   "Convert Adobe RGB color space coordinates
@@ -121,7 +121,7 @@ into linear Adobe RGB color space coordinates."
 	((= c 1)
 	 1)
 	(t
-	 (expt c 256/563))))
+	 (expt c #.(float 256/563 1D0)))))
 
 (defun adobe-rgb-from-cie-xyz (x y z)
   "Convert normalized CIE XYZ color space coordinates
