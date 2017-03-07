@@ -111,6 +111,15 @@ space denoted by COLOR-TYPE."
   (print-unreadable-object (color stream :type t :identity t)
     (princ (multiple-value-list (color-coordinates color)) stream)))
 
+;; Steve Losh wrote:
+;;
+;; Some implementations (e.g. CCL) are particularly aggressive about
+;; inlining constants, and will fail during compilation without a way
+;; to dump them into FASLs:
+;;
+;; [ClozureCL] COMMON-LISP-USER> (ql:quickload 'rs-colors)
+;; ...
+;; > Error: No MAKE-LOAD-FORM method is defined for #<CIE-XYY-COLOR (0.34567 0.3585 1) #x302001EC0A0D>
 (defmethod make-load-form ((color color-object) &optional environment)
   (make-load-form-saving-slots color :environment environment))
 
