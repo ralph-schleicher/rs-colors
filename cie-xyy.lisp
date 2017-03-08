@@ -73,9 +73,7 @@ into CIE xyY color space coordinates."
   (let ((s (+ x y z)))
     (declare (type real s))
     (when (zerop s)
-      (error (make-condition 'division-by-zero
-			     :operation 'cie-xyy-from-cie-xyz
-			     :operands (list x y z))))
+      (error 'division-by-zero :operation 'cie-xyy-from-cie-xyz :operands (list x y z)))
     (values (/ x s) (/ y s) y)))
 
 (defun cie-xyz-from-cie-xyy (x* y* y)
@@ -83,9 +81,7 @@ into CIE xyY color space coordinates."
 into CIE XYZ color space coordinates."
   (declare (type real x* y* y))
   (when (zerop y*)
-    (error (make-condition 'division-by-zero
-			   :operation 'cie-xyz-from-cie-xyy
-			   :operands (list x* y* y))))
+    (error 'division-by-zero :operation 'cie-xyz-from-cie-xyy :operands (list x* y* y)))
   (let ((s (/ y y*)))
     (declare (type real s))
     (values (* x* s) y (* (- 1 x* y*) s))))

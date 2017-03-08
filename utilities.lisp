@@ -65,7 +65,7 @@ for inline expansion by the compiler."
 Otherwise, return OBJECT."
   (if (typep object type)
       object
-    (error (make-condition 'type-error :datum object :expected-type type))))
+    (error 'type-error :datum object :expected-type type)))
 
 ;;;; Exponential Functions
 
@@ -210,7 +210,7 @@ Value is the corresponding angle given in degree."
   "Calculate inverse matrix of matrix A in place."
   (let ((det (det a)))
     (when (zerop det)
-      (error (make-condition 'division-by-zero :operation 'matrix-inverse :operands (list a))))
+      (error 'division-by-zero :operation 'matrix-inverse :operands (list a)))
     (matrix-adjugate a)
     (setf (aref a 0 0) (/ (aref a 0 0) det)
 	  (aref a 0 1) (/ (aref a 0 1) det)
