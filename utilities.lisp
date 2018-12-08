@@ -288,6 +288,30 @@ Value is the corresponding angle given in degree."
 	     (* (aref a 2 1) x2)
 	     (* (aref a 2 2) x3))))
 
+(export 'hypot)
+(defsubst hypot (x y)
+  "Return the distance between a point and the origin
+in a two-dimensional Cartesian coordinate system.
+
+Arguments X and Y have to be real numbers."
+  (declare (type real x y))
+  (abs (complex x y)))
+
+(export 'hypot3)
+(defun hypot3 (x y z)
+  "Return the distance between a point and the origin
+in a three-dimensional Cartesian coordinate system.
+
+Arguments X, Y, and Z have to be real numbers."
+  (declare (type real x y z))
+  ;; Scale by largest element.
+  (let ((s (max (abs x) (abs y) (abs z))))
+    (when (/= s 0)
+      (setf x (/ x s)
+	    y (/ y s)
+	    z (/ z s)))
+    (* s (sqrt (+ (* x x) (* y y) (* z z))))))
+
 ;;;; Tuple
 
 (export 'encode-triple)
