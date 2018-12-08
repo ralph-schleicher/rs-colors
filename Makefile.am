@@ -57,6 +57,7 @@ cie-rgb.lisp \
 srgb.lisp \
 adobe-rgb.lisp \
 io.lisp \
+color-difference.lisp \
 $(nil)
 
 nobase_dist_rs_colors_DATA = \
