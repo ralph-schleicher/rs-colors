@@ -1,8 +1,8 @@
-This is rs-colors.info, produced by makeinfo version 6.3 from
+This is rs-colors.info, produced by makeinfo version 6.5 from
 rs-colors.texi.
 
-This is edition 1 (draft), last updated 2017-03-03, of 'RS-COLORS - A
-Color Data Type for Common Lisp', for RS-COLORS version 20160920.2156.
+This is edition 1 (draft), last updated 2018-12-08, of 'RS-COLORS - A
+Color Data Type for Common Lisp', for RS-COLORS version 20181208.1507.
 
      Copyright (C) 2014 Ralph Schleicher
 
@@ -22,8 +22,8 @@ File: rs-colors.info,  Node: Top,  Next: Introduction,  Prev: (dir),  Up: (dir)
 RS-COLORS
 *********
 
-This is edition 1 (draft), last updated 2017-03-03, of 'RS-COLORS - A
-Color Data Type for Common Lisp', for RS-COLORS version 20160920.2156.
+This is edition 1 (draft), last updated 2018-12-08, of 'RS-COLORS - A
+Color Data Type for Common Lisp', for RS-COLORS version 20181208.1507.
 
      Copyright (C) 2014 Ralph Schleicher
 
@@ -36,6 +36,7 @@ Please report any errors in this manual to <rs@ralph-schleicher.de>.
 * Menu:
 
 * Introduction::
+* Installation::
 * User's Guide::
 * Programmer's Guide::
 * Reference Manual::
@@ -57,7 +58,7 @@ References
      <http://www.color.org/chardata/rgb/adobergb.xalter>
 
 
-File: rs-colors.info,  Node: Introduction,  Next: User's Guide,  Prev: Top,  Up: Top
+File: rs-colors.info,  Node: Introduction,  Next: Installation,  Prev: Top,  Up: Top
 
 1 Introduction
 **************
@@ -104,9 +105,38 @@ and
      Y = min(1, y (1 - k) + k)
 
 
-File: rs-colors.info,  Node: User's Guide,  Next: Programmer's Guide,  Prev: Introduction,  Up: Top
+File: rs-colors.info,  Node: Installation,  Next: User's Guide,  Prev: Introduction,  Up: Top
 
-2 User's Guide
+2 Installation
+**************
+
+These installation instructions assume that you have a working Quicklisp
+(https://www.quicklisp.org) installation.
+
+To install RS-COLORS, download the source code from GitHub
+(https://github.com/ralph-schleicher/rs-colors.git).  I recommend
+cloning the RS-COLORS Git repository into the 'local-projects' folder of
+your Quicklisp installation.  You can do so by evaluating the following
+form.
+
+     (let ((repo "https://github.com/ralph-schleicher/rs-colors.git")
+           (out (merge-pathnames (make-pathname :directory '(:relative
+                                                             "local-projects"
+                                                             "rs-colors"))
+                                 ql:*quicklisp-home*)))
+       (uiop:run-program (list "git" "clone" "-q" repo (namestring out))))
+
+After that, you can load RS-COLORS as usual.
+
+     (ql:quickload :rs-colors)
+     (use-package :rs-colors)
+
+That's it.
+
+
+File: rs-colors.info,  Node: User's Guide,  Next: Programmer's Guide,  Prev: Installation,  Up: Top
+
+3 User's Guide
 **************
 
 * Menu:
@@ -120,7 +150,7 @@ File: rs-colors.info,  Node: User's Guide,  Next: Programmer's Guide,  Prev: Int
 
 File: rs-colors.info,  Node: The Color Data Type,  Next: Creating Color Objects,  Prev: User's Guide,  Up: User's Guide
 
-2.1 The Color Data Type
+3.1 The Color Data Type
 =======================
 
 First of all, there is not _one_ color data type.  Instead, every color
@@ -181,7 +211,7 @@ Color Classes for Device Dependent Color Spaces
 
 File: rs-colors.info,  Node: Creating Color Objects,  Next: Color Coordinates,  Prev: The Color Data Type,  Up: User's Guide
 
-2.2 Creating Color Objects
+3.2 Creating Color Objects
 ==========================
 
 Colors are instantiated by calling a constructor function.  Constructor
@@ -262,7 +292,7 @@ The built-in constructors are listed in the following table.
 
 File: rs-colors.info,  Node: Color Coordinates,  Next: White Point,  Prev: Creating Color Objects,  Up: User's Guide
 
-2.3 Color Coordinates
+3.3 Color Coordinates
 =====================
 
 Use the 'color-coordinates' function to get the color coordinates of a
@@ -281,7 +311,7 @@ in *note Color Conversion::.
 
 File: rs-colors.info,  Node: White Point,  Next: Color Conversion,  Prev: Color Coordinates,  Up: User's Guide
 
-2.4 White Point
+3.4 White Point
 ===============
 
 A device dependent color space usually has a "white point".  If so, the
@@ -290,14 +320,14 @@ A device dependent color space usually has a "white point".  If so, the
 
 File: rs-colors.info,  Node: Color Conversion,  Prev: White Point,  Up: User's Guide
 
-2.5 Color Conversion
+3.5 Color Conversion
 ====================
 
  [image src="rs-colors-conversion.png" ]
 
-Figure 2.1
+Figure 3.1
 
-*note Figure 2.1: figure:rs-colors-conversion. depicts the implemented
+*note Figure 3.1: figure:rs-colors-conversion. depicts the implemented
 color conversions.  The nice thing about RS-COLORS is that all these
 color conversions can be performed with the 'change-class' function.
 
@@ -339,7 +369,7 @@ following functions to get them.
 
 File: rs-colors.info,  Node: Programmer's Guide,  Next: Reference Manual,  Prev: User's Guide,  Up: Top
 
-3 Programmer's Guide
+4 Programmer's Guide
 ********************
 
 So you want to implement your own color type.
@@ -410,7 +440,7 @@ Abstact Color Classes
 
 File: rs-colors.info,  Node: Reference Manual,  Next: Symbol Index,  Prev: Programmer's Guide,  Up: Top
 
-4 Reference Manual
+5 Reference Manual
 ******************
 
 * Menu:
@@ -428,7 +458,7 @@ File: rs-colors.info,  Node: Reference Manual,  Next: Symbol Index,  Prev: Progr
 
 File: rs-colors.info,  Node: Color Predicates,  Next: Abstract Color Classes,  Prev: Reference Manual,  Up: Reference Manual
 
-4.1 Color Predicates
+5.1 Color Predicates
 ====================
 
 Use the 'colorp' function to check whether or not an object is a color.
@@ -440,7 +470,7 @@ This covers all color classes documented in this manual.
 
 File: rs-colors.info,  Node: Abstract Color Classes,  Next: Generic Color Spaces (Color Models),  Prev: Color Predicates,  Up: Reference Manual
 
-4.2 Abstract Color Classes
+5.2 Abstract Color Classes
 ==========================
 
 The color classes documented in this section are merely used as
@@ -511,7 +541,7 @@ superclasses.
 
 File: rs-colors.info,  Node: Generic Color Spaces (Color Models),  Next: CIE Color Spaces,  Prev: Abstract Color Classes,  Up: Reference Manual
 
-4.3 Generic Color Spaces (Color Models)
+5.3 Generic Color Spaces (Color Models)
 =======================================
 
 A generic color space implements a color model.  There are two major
@@ -529,7 +559,7 @@ model.
 
 File: rs-colors.info,  Node: Generic RGB Color Space,  Next: Generic HSV Color Space,  Prev: Generic Color Spaces (Color Models),  Up: Generic Color Spaces (Color Models)
 
-4.3.1 Generic RGB Color Space
+5.3.1 Generic RGB Color Space
 -----------------------------
 
 The generic RGB color space is a mathematical description of the RGB
@@ -603,7 +633,7 @@ There is no white point.
 
 File: rs-colors.info,  Node: Generic HSV Color Space,  Next: Generic HSL Color Space,  Prev: Generic RGB Color Space,  Up: Generic Color Spaces (Color Models)
 
-4.3.2 Generic HSV Color Space
+5.3.2 Generic HSV Color Space
 -----------------------------
 
 The HSV color space is a different representation of the RGB color
@@ -646,7 +676,7 @@ point.
 
 File: rs-colors.info,  Node: Generic HSL Color Space,  Next: Generic CMY Color Space,  Prev: Generic HSV Color Space,  Up: Generic Color Spaces (Color Models)
 
-4.3.3 Generic HSL Color Space
+5.3.3 Generic HSL Color Space
 -----------------------------
 
 The HSL color space is a different representation of the RGB color
@@ -689,7 +719,7 @@ point.
 
 File: rs-colors.info,  Node: Generic CMY Color Space,  Next: Generic CMYK Color Space,  Prev: Generic HSL Color Space,  Up: Generic Color Spaces (Color Models)
 
-4.3.4 Generic CMY Color Space
+5.3.4 Generic CMY Color Space
 -----------------------------
 
 The generic CMY color space is a mathematical description of the CMY
@@ -763,7 +793,7 @@ interval [0, 1].  There is no white point.
 
 File: rs-colors.info,  Node: Generic CMYK Color Space,  Prev: Generic CMY Color Space,  Up: Generic Color Spaces (Color Models)
 
-4.3.5 Generic CMYK Color Space
+5.3.5 Generic CMYK Color Space
 ------------------------------
 
 The generic CMYK color space is a mathematical description of the CMYK
@@ -843,7 +873,7 @@ interval [0, 1].  There is no white point.
 
 File: rs-colors.info,  Node: CIE Color Spaces,  Next: RGB Color Spaces,  Prev: Generic Color Spaces (Color Models),  Up: Reference Manual
 
-4.4 CIE Color Spaces
+5.4 CIE Color Spaces
 ====================
 
 All CIE color spaces are absolute color spaces, that means they are
@@ -861,7 +891,7 @@ device independent.
 
 File: rs-colors.info,  Node: CIE RGB Color Space,  Next: CIE XYZ Color Space,  Prev: CIE Color Spaces,  Up: CIE Color Spaces
 
-4.4.1 CIE RGB Color Space
+5.4.1 CIE RGB Color Space
 -------------------------
 
 The CIE RGB color space is the origin of all CIE color spaces.
@@ -911,7 +941,7 @@ CIE xyY color space:
 
 File: rs-colors.info,  Node: CIE XYZ Color Space,  Next: CIE xyY Color Space,  Prev: CIE RGB Color Space,  Up: CIE Color Spaces
 
-4.4.2 CIE XYZ Color Space
+5.4.2 CIE XYZ Color Space
 -------------------------
 
 The CIE XYZ color space is a linear transformation of the CIE RGB color
@@ -957,7 +987,7 @@ and vice versa.
 
 File: rs-colors.info,  Node: CIE xyY Color Space,  Next: CIE L*u*v* Color Space,  Prev: CIE XYZ Color Space,  Up: CIE Color Spaces
 
-4.4.3 CIE xyY Color Space
+5.4.3 CIE xyY Color Space
 -------------------------
 
 The CIE xyY color space uses the x and y chromaticity coordinates of the
@@ -1003,7 +1033,7 @@ Therefore, the inverse transformation is
 
 File: rs-colors.info,  Node: CIE L*u*v* Color Space,  Next: CIE L*a*b* Color Space,  Prev: CIE xyY Color Space,  Up: CIE Color Spaces
 
-4.4.4 CIE L*u*v* Color Space
+5.4.4 CIE L*u*v* Color Space
 ----------------------------
 
 The CIE L*u*v* color space is a non-linear transformation of the CIE XYZ
@@ -1043,7 +1073,7 @@ illuminant D50.
 
 File: rs-colors.info,  Node: CIE L*a*b* Color Space,  Next: CIE L*C*h Color Space,  Prev: CIE L*u*v* Color Space,  Up: CIE Color Spaces
 
-4.4.5 CIE L*a*b* Color Space
+5.4.5 CIE L*a*b* Color Space
 ----------------------------
 
 The CIE L*a*b* color space is a non-linear transformation of the CIE XYZ
@@ -1083,7 +1113,7 @@ converting from or CIE standard illuminant D50.
 
 File: rs-colors.info,  Node: CIE L*C*h Color Space,  Prev: CIE L*a*b* Color Space,  Up: CIE Color Spaces
 
-4.4.6 CIE L*C*h Color Space
+5.4.6 CIE L*C*h Color Space
 ---------------------------
 
 The CIE L*C*h color space is the transformation of the CIE L*a*b* color
@@ -1133,7 +1163,7 @@ CIE standard illuminant D50.
 
 File: rs-colors.info,  Node: RGB Color Spaces,  Next: Color Properties,  Prev: CIE Color Spaces,  Up: Reference Manual
 
-4.5 RGB Color Spaces
+5.5 RGB Color Spaces
 ====================
 
 * Menu:
@@ -1144,7 +1174,7 @@ File: rs-colors.info,  Node: RGB Color Spaces,  Next: Color Properties,  Prev: C
 
 File: rs-colors.info,  Node: sRGB Color Space,  Next: Adobe RGB Color Space,  Prev: RGB Color Spaces,  Up: RGB Color Spaces
 
-4.5.1 sRGB Color Space
+5.5.1 sRGB Color Space
 ----------------------
 
  -- Class: srgb-color
@@ -1210,7 +1240,7 @@ File: rs-colors.info,  Node: sRGB Color Space,  Next: Adobe RGB Color Space,  Pr
 
 File: rs-colors.info,  Node: Adobe RGB Color Space,  Prev: sRGB Color Space,  Up: RGB Color Spaces
 
-4.5.2 Adobe RGB Color Space
+5.5.2 Adobe RGB Color Space
 ---------------------------
 
  -- Class: adobe-rgb-color
@@ -1276,7 +1306,7 @@ File: rs-colors.info,  Node: Adobe RGB Color Space,  Prev: sRGB Color Space,  Up
 
 File: rs-colors.info,  Node: Color Properties,  Next: Color Conversions,  Prev: RGB Color Spaces,  Up: Reference Manual
 
-4.6 Color Properties
+5.6 Color Properties
 ====================
 
  -- Generic Function: color-coordinates color
@@ -1295,7 +1325,7 @@ File: rs-colors.info,  Node: Color Properties,  Next: Color Conversions,  Prev: 
 
 File: rs-colors.info,  Node: Color Conversions,  Next: Input and Output,  Prev: Color Properties,  Up: Reference Manual
 
-4.7 Color Conversions
+5.7 Color Conversions
 =====================
 
  -- Generic Function: change-class color color-type
@@ -1338,7 +1368,7 @@ File: rs-colors.info,  Node: Color Conversions,  Next: Input and Output,  Prev: 
 
 File: rs-colors.info,  Node: Input and Output,  Next: Miscellaneous,  Prev: Color Conversions,  Up: Reference Manual
 
-4.8 Input and Output
+5.8 Input and Output
 ====================
 
 * Menu:
@@ -1350,7 +1380,7 @@ File: rs-colors.info,  Node: Input and Output,  Next: Miscellaneous,  Prev: Colo
 
 File: rs-colors.info,  Node: HTML Format,  Next: Reading Colors,  Prev: Input and Output,  Up: Input and Output
 
-4.8.1 HTML Format
+5.8.1 HTML Format
 -----------------
 
 A HTML color value is either a hexadecimal number prefixed by a hash
@@ -1407,19 +1437,19 @@ mark or a keyword.  This section only covers numerical color values.
 
 File: rs-colors.info,  Node: Reading Colors,  Next: Printing Colors,  Prev: HTML Format,  Up: Input and Output
 
-4.8.2 Reading Colors
+5.8.2 Reading Colors
 --------------------
 
 
 File: rs-colors.info,  Node: Printing Colors,  Prev: Reading Colors,  Up: Input and Output
 
-4.8.3 Printing Colors
+5.8.3 Printing Colors
 ---------------------
 
 
 File: rs-colors.info,  Node: Miscellaneous,  Prev: Input and Output,  Up: Reference Manual
 
-4.9 Miscellaneous
+5.9 Miscellaneous
 =================
 
  -- Generic Function: normalize-color color &key black white
@@ -1550,108 +1580,109 @@ Concept Index
 
 Tag Table:
 Node: Top646
-Ref: ref;HTML1329
-Ref: ref;sRGB1391
-Ref: ref;Adobe RGB1502
-Node: Introduction1632
-Node: User's Guide3167
-Node: The Color Data Type3421
-Node: Creating Color Objects5007
-Node: Color Coordinates7435
-Node: White Point8016
-Node: Color Conversion8303
-Ref: figure:rs-colors-conversion8434
-Node: Programmer's Guide9851
-Node: Reference Manual11822
-Node: Color Predicates12190
-Ref: function;rs-colors;colorp12491
-Node: Abstract Color Classes12566
-Ref: class;rs-colors;color-object12847
-Ref: class;rs-colors;rgb-color-object12976
-Ref: class;rs-colors;hsv-color-object13278
-Ref: class;rs-colors;hsl-color-object13635
-Ref: class;rs-colors;cmy-color-object13983
-Ref: class;rs-colors;cmyk-color-object14290
-Ref: class;rs-colors;generic-color-object14613
-Node: Generic Color Spaces (Color Models)14787
-Node: Generic RGB Color Space15316
-Ref: class;rs-colors;generic-rgb-color15850
-Ref: function;rs-colors;make-generic-rgb-color16055
-Ref: function;rs-colors;make-generic-rgb-color-from-number17096
-Ref: generic-function;rs-colors;generic-rgb-color-coordinates17776
-Node: Generic HSV Color Space18032
-Ref: class;rs-colors;generic-hsv-color18676
-Ref: function;rs-colors;make-generic-hsv-color18881
-Ref: generic-function;rs-colors;generic-hsv-color-coordinates19393
-Node: Generic HSL Color Space19625
-Ref: class;rs-colors;generic-hsl-color20211
-Ref: function;rs-colors;make-generic-hsl-color20416
-Ref: generic-function;rs-colors;generic-hsl-color-coordinates20939
-Node: Generic CMY Color Space21162
-Ref: class;rs-colors;generic-cmy-color21691
-Ref: function;rs-colors;make-generic-cmy-color21896
-Ref: function;rs-colors;make-generic-cmy-color-from-number22963
-Ref: generic-function;rs-colors;generic-cmy-color-coordinates23644
-Node: Generic CMYK Color Space23905
-Ref: class;rs-colors;generic-cmyk-color24419
-Ref: function;rs-colors;make-generic-cmyk-color24628
-Ref: function;rs-colors;make-generic-cmyk-color-from-number25958
-Ref: generic-function;rs-colors;generic-cmyk-color-coordinates26647
-Node: CIE Color Spaces26917
-Node: CIE RGB Color Space27352
-Ref: class;rs-colors;cie-rgb-color27820
-Ref: function;rs-colors;make-cie-rgb-color27984
-Ref: generic-function;rs-colors;cie-rgb-color-coordinates28453
-Ref: CIE RGB Color Space-Footnote-128737
-Node: CIE XYZ Color Space28931
-Ref: class;rs-colors;cie-xyz-color29455
-Ref: function;rs-colors;make-cie-xyz-color29599
-Ref: generic-function;rs-colors;cie-xyz-color-coordinates29926
-Node: CIE xyY Color Space30586
-Ref: class;rs-colors;cie-xyy-color31162
-Ref: function;rs-colors;make-cie-xyy-color31306
-Ref: generic-function;rs-colors;cie-xyy-color-coordinates31626
-Node: CIE L*u*v* Color Space31861
-Ref: class;rs-colors;cie-luv-color32658
-Ref: function;rs-colors;make-cie-luv-color32805
-Ref: generic-function;rs-colors;cie-luv-color-coordinates33108
-Node: CIE L*a*b* Color Space33342
-Ref: class;rs-colors;cie-lab-color34176
-Ref: function;rs-colors;make-cie-lab-color34323
-Ref: generic-function;rs-colors;cie-lab-color-coordinates34626
-Node: CIE L*C*h Color Space34860
-Ref: class;rs-colors;cie-lch-color35800
-Ref: function;rs-colors;make-cie-lch-color35946
-Ref: generic-function;rs-colors;cie-lch-color-coordinates36368
-Node: RGB Color Spaces36581
-Node: sRGB Color Space36803
-Ref: class;rs-colors;srgb-color36977
-Ref: function;rs-colors;make-srgb-color37132
-Ref: function;rs-colors;make-srgb-color-from-number38146
-Ref: generic-function;rs-colors;srgb-color-coordinates38798
-Node: Adobe RGB Color Space39040
-Ref: class;rs-colors;adobe-rgb-color39199
-Ref: function;rs-colors;make-adobe-rgb-color39369
-Ref: function;rs-colors;make-adobe-rgb-color-from-number40413
-Ref: generic-function;rs-colors;adobe-rgb-color-coordinates41085
-Node: Color Properties41337
-Ref: generic-function;rs-colors;color-coordinates41503
-Ref: generic-function;rs-colors;white-point41649
-Node: Color Conversions41918
-Ref: generic-function;common-lisp;change-class42086
-Ref: function;rs-colors;coerce-color42624
-Ref: generic-function;rs-colors;copy-color43089
-Node: Input and Output43287
-Node: HTML Format43515
-Ref: function;rs-colors;print-color-html43806
-Ref: constant;rs-colors;color-formatter-html44360
-Ref: function;rs-colors;read-color-html44736
-Node: Reading Colors45346
-Node: Printing Colors45503
-Node: Miscellaneous45642
-Ref: generic-function;rs-colors;normalize-color45773
-Ref: generic-function;rs-colors;absolute-color45918
-Node: Symbol Index46062
-Node: Concept Index53224
+Ref: ref;HTML1346
+Ref: ref;sRGB1408
+Ref: ref;Adobe RGB1519
+Node: Introduction1649
+Node: Installation3184
+Node: User's Guide4251
+Node: The Color Data Type4505
+Node: Creating Color Objects6091
+Node: Color Coordinates8519
+Node: White Point9100
+Node: Color Conversion9387
+Ref: figure:rs-colors-conversion9518
+Node: Programmer's Guide10935
+Node: Reference Manual12906
+Node: Color Predicates13274
+Ref: function;rs-colors;colorp13575
+Node: Abstract Color Classes13650
+Ref: class;rs-colors;color-object13931
+Ref: class;rs-colors;rgb-color-object14060
+Ref: class;rs-colors;hsv-color-object14362
+Ref: class;rs-colors;hsl-color-object14719
+Ref: class;rs-colors;cmy-color-object15067
+Ref: class;rs-colors;cmyk-color-object15374
+Ref: class;rs-colors;generic-color-object15697
+Node: Generic Color Spaces (Color Models)15871
+Node: Generic RGB Color Space16400
+Ref: class;rs-colors;generic-rgb-color16934
+Ref: function;rs-colors;make-generic-rgb-color17139
+Ref: function;rs-colors;make-generic-rgb-color-from-number18180
+Ref: generic-function;rs-colors;generic-rgb-color-coordinates18860
+Node: Generic HSV Color Space19116
+Ref: class;rs-colors;generic-hsv-color19760
+Ref: function;rs-colors;make-generic-hsv-color19965
+Ref: generic-function;rs-colors;generic-hsv-color-coordinates20477
+Node: Generic HSL Color Space20709
+Ref: class;rs-colors;generic-hsl-color21295
+Ref: function;rs-colors;make-generic-hsl-color21500
+Ref: generic-function;rs-colors;generic-hsl-color-coordinates22023
+Node: Generic CMY Color Space22246
+Ref: class;rs-colors;generic-cmy-color22775
+Ref: function;rs-colors;make-generic-cmy-color22980
+Ref: function;rs-colors;make-generic-cmy-color-from-number24047
+Ref: generic-function;rs-colors;generic-cmy-color-coordinates24728
+Node: Generic CMYK Color Space24989
+Ref: class;rs-colors;generic-cmyk-color25503
+Ref: function;rs-colors;make-generic-cmyk-color25712
+Ref: function;rs-colors;make-generic-cmyk-color-from-number27042
+Ref: generic-function;rs-colors;generic-cmyk-color-coordinates27731
+Node: CIE Color Spaces28001
+Node: CIE RGB Color Space28436
+Ref: class;rs-colors;cie-rgb-color28904
+Ref: function;rs-colors;make-cie-rgb-color29068
+Ref: generic-function;rs-colors;cie-rgb-color-coordinates29537
+Ref: CIE RGB Color Space-Footnote-129821
+Node: CIE XYZ Color Space30015
+Ref: class;rs-colors;cie-xyz-color30539
+Ref: function;rs-colors;make-cie-xyz-color30683
+Ref: generic-function;rs-colors;cie-xyz-color-coordinates31010
+Node: CIE xyY Color Space31670
+Ref: class;rs-colors;cie-xyy-color32246
+Ref: function;rs-colors;make-cie-xyy-color32390
+Ref: generic-function;rs-colors;cie-xyy-color-coordinates32710
+Node: CIE L*u*v* Color Space32945
+Ref: class;rs-colors;cie-luv-color33742
+Ref: function;rs-colors;make-cie-luv-color33889
+Ref: generic-function;rs-colors;cie-luv-color-coordinates34192
+Node: CIE L*a*b* Color Space34426
+Ref: class;rs-colors;cie-lab-color35260
+Ref: function;rs-colors;make-cie-lab-color35407
+Ref: generic-function;rs-colors;cie-lab-color-coordinates35710
+Node: CIE L*C*h Color Space35944
+Ref: class;rs-colors;cie-lch-color36884
+Ref: function;rs-colors;make-cie-lch-color37030
+Ref: generic-function;rs-colors;cie-lch-color-coordinates37452
+Node: RGB Color Spaces37665
+Node: sRGB Color Space37887
+Ref: class;rs-colors;srgb-color38061
+Ref: function;rs-colors;make-srgb-color38216
+Ref: function;rs-colors;make-srgb-color-from-number39230
+Ref: generic-function;rs-colors;srgb-color-coordinates39882
+Node: Adobe RGB Color Space40124
+Ref: class;rs-colors;adobe-rgb-color40283
+Ref: function;rs-colors;make-adobe-rgb-color40453
+Ref: function;rs-colors;make-adobe-rgb-color-from-number41497
+Ref: generic-function;rs-colors;adobe-rgb-color-coordinates42169
+Node: Color Properties42421
+Ref: generic-function;rs-colors;color-coordinates42587
+Ref: generic-function;rs-colors;white-point42733
+Node: Color Conversions43002
+Ref: generic-function;common-lisp;change-class43170
+Ref: function;rs-colors;coerce-color43708
+Ref: generic-function;rs-colors;copy-color44173
+Node: Input and Output44371
+Node: HTML Format44599
+Ref: function;rs-colors;print-color-html44890
+Ref: constant;rs-colors;color-formatter-html45444
+Ref: function;rs-colors;read-color-html45820
+Node: Reading Colors46430
+Node: Printing Colors46587
+Node: Miscellaneous46726
+Ref: generic-function;rs-colors;normalize-color46857
+Ref: generic-function;rs-colors;absolute-color47002
+Node: Symbol Index47146
+Node: Concept Index54308
 
 End Tag Table
