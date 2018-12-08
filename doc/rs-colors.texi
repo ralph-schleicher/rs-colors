@@ -5,7 +5,7 @@
 @settitle rs-colors
 
 @set EDITION 1 (draft)
-@set UPDATED 2017-03-03
+@set UPDATED 2018-12-08
 
 @include package.texi
 
@@ -86,6 +86,7 @@ Please report any errors in this manual to @email{@value{ADDRESS}}.
 
 @menu
 * Introduction::
+* Installation::
 * User's Guide::
 * Programmer's Guide::
 * Reference Manual::
@@ -113,7 +114,7 @@ Adobe RGB (1998) Color Image Encoding, Version 2005-05@*
 @end table
 
 
-@node Introduction, User's Guide, Top, Top
+@node Introduction, Installation, Top, Top
 @chapter Introduction
 
 A color is either associated with a color model or a color space.  Two
@@ -222,7 +223,44 @@ Y &= \min(1, y\cdot(1 - k) + k)\cr
 @end iftex
 
 
-@node User's Guide, Programmer's Guide, Introduction, Top
+@node Installation, User's Guide, Introduction, Top
+@chapter Installation
+
+These installation instructions assume that you have a working
+@uref{https://www.quicklisp.org, Quicklisp} installation.
+
+To install @sc{rs-colors}, download the source code from
+@uref{https://github.com/ralph-schleicher/rs-colors.git, GitHub}.
+I recommend cloning the @sc{rs-colors} Git repository into the
+@w{@file{local-projects}} folder of your Quicklisp installation.
+You can do so by evaluating the following form.
+
+@lisp
+@group
+(let ((repo "https://github.com/ralph-schleicher/rs-colors.git")
+      (out (merge-pathnames (make-pathname :directory '(:relative
+                                                        "local-projects"
+                                                        "rs-colors"))
+                            ql:*quicklisp-home*)))
+  (uiop:run-program (list "git" "clone" "-q" repo (namestring out))))
+@end group
+@end lisp
+
+@noindent
+After that, you can load @sc{rs-colors} as usual.
+
+@lisp
+@group
+(ql:quickload :rs-colors)
+(use-package :rs-colors)
+@end group
+@end lisp
+
+@noindent
+That's it.
+
+
+@node User's Guide, Programmer's Guide, Installation, Top
 @chapter User's Guide
 
 @menu
