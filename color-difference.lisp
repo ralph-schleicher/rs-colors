@@ -35,6 +35,7 @@
 
 (in-package :rs-colors)
 
+(export 'cie76)
 (defun cie76 (first-color second-color)
   "Calculate the CIE76 color difference between two colors.
 
@@ -48,6 +49,7 @@ i.e. CIE76(a,b) = CIE76(b,a)."
       (cie-lab-color-coordinates second-color))
     (hypot3 (- L2 L1) (- a2 a1) (- b2 b1))))
 
+(export 'cie94)
 (defun cie94 (reference other &optional textile (kL (if textile 2 1)) (kC 1) (kH 1))
   "Calculate the CIE94 color difference between two colors.
 
