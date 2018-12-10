@@ -91,7 +91,7 @@ Argument Z has to be a real number.
 If argument Z is zero, value is zero.  If argument Z is
 a real number, value is the real cube root of Z.
 
-The `cube-root' function attempts to propagate the type
+The ‘cube-root’ function attempts to propagate the type
 of the argument Z to its value."
   (declare (type real z))
   (cond ((= z 0)
