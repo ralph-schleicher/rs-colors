@@ -88,7 +88,6 @@ Please report any errors in this manual to @email{@value{ADDRESS}}.
 * Introduction::
 * Installation::
 * User's Guide::
-* Programmer's Guide::
 * Reference Manual::
 * Symbol Index::
 * Concept Index::
@@ -260,7 +259,7 @@ After that, you can load @sc{rs-colors} as usual.
 That's it.
 
 
-@node User's Guide, Programmer's Guide, Installation, Top
+@node User's Guide, Reference Manual, Installation, Top
 @chapter User's Guide
 
 @menu
@@ -524,83 +523,7 @@ following functions to get them.
 @end table
 
 
-@node Programmer's Guide, Reference Manual, User's Guide, Top
-@chapter Programmer's Guide
-
-So you want to implement your own color type.
-
-@heading Abstact Color Classes
-
-@table @asis
-@item @classref{rs-colors, color-object}
-Base class for a color.
-
-@item @classref{rs-colors, rgb-color-object}
-Base class for a RGB color space.
-
-@noindent
-@strong{Slots}
-
-@table @code
-@item r
-Normalized intensity of the red primary.
-
-Value has to be a real number in the closed @interval{[0, 1]}.
-Default value for initialization keyword argument @var{red} is zero.
-
-@item g
-Normalized intensity of the red primary.
-
-Value has to be a real number in the closed @interval{[0, 1]}.
-Default value for initialization keyword argument @var{green} is zero.
-
-@item b
-Normalized intensity of the red primary.
-
-Value has to be a real number in the closed @interval{[0, 1]}.
-Default value for initialization keyword argument @var{blue} is zero.
-@end table
-
-@itemize
-@item
-Slot @code{r} is the normalized intensity of the red primary.
-
-Value has to be a real number in the closed @interval{[0, 1]}.
-Default value for initialization keyword argument @var{red} is zero.
-
-@item
-Slot @code{g} is the normalized intensity of the green primary.
-
-Value has to be a real number in the closed @interval{[0, 1]}.
-Default value for the initialization keyword argument @var{green} is
-zero.
-
-@item
-Slot @code{b} is the normalized intensity of the blue primary.
-
-Value has to be a real number in the closed @interval{[0, 1]}.
-Default value for the initialization keyword argument @var{blue} is
-zero.
-@end itemize
-
-@item @classref{rs-colors, hsv-color-object}
-Base class for a HSV color space.
-
-@item @classref{rs-colors, hsl-color-object}
-Base class for a HSL color space.
-
-@item @classref{rs-colors, cmy-color-object}
-Base class for a CMY color space.
-
-@item @classref{rs-colors, cmyk-color-object}
-Base class for a CMYK color space.
-
-@item @classref{rs-colors, generic-color-object}
-Base class for a color model.
-@end table
-
-
-@node Reference Manual, Symbol Index, Programmer's Guide, Top
+@node Reference Manual, Symbol Index, User's Guide, Top
 @chapter Reference Manual
 
 @menu
