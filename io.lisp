@@ -138,7 +138,7 @@
 	       (return (make-srgb-color r g b :byte-size byte-size))))))
 	))
 
-(define-color-printer css-rgb (color stream :export t)
+(define-color-printer css3-rgb (color stream :export t)
   (multiple-value-bind (r g b)
       (srgb-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
@@ -155,7 +155,7 @@
 ;; Argument STREAM is an input stream.
 ;;
 ;; Value is a color object in the sRGB color space.
-(define-color-reader css-rgb (stream :export t)
+(define-color-reader css3-rgb (stream :export t)
   (if (char= (peek-char nil stream nil #\Space) #\#)
       (read-color-html stream)
     ;; Read functional notation of the form ‘rgb(RED,GREEN,BLUE)’.
@@ -224,7 +224,7 @@
 	    (make-srgb-color r g b :byte-size 8)
 	  (make-srgb-color r g b))))))
 
-(define-color-printer css-hsl (color stream :export t)
+(define-color-printer css3-hsl (color stream :export t)
   (multiple-value-bind (h s l)
       (multiple-value-call #'generic-hsl-from-generic-rgb
 	(srgb-color-coordinates color))
@@ -234,5 +234,46 @@
 	      (float h 1F0)
 	      (float (* s 100) 1F0)
 	      (float (* l 100) 1F0)))))
+
+(define-color-reader css3-hsl (stream :export t)
+  ;; Read functional notation of the form ‘hsl(HUE,SATURATION,LIGHTNESS)’.
+  ;; Whitespace characters are allowed around the numerical values.
+  ;; Values outside the device gamut should be clipped...
+  (let (h s l)
+    (labels ((read-number (stream &optional percentage)
+	       (let (value)
+		 ;; Skip leading white-space characters.
+		 (peek-char t stream)
+		 ;; Read the numeric value.
+		 (setf value (read-float stream t nil nil
+					 :unsigned-number :plus
+					 :exponent-marker ()
+					 :float-format 'double-float))
+		 (when percentage
+		   (unless (char= (read-char stream) #\%)
+		     (error "Invalid CSS color syntax; expect a '%' character."))
+		   (setf value (clamp (/ value 100D0) 0D0 1D0)))
+		 ;; Skip trailing white-space characters.
+		 (peek-char t stream)
+		 ;; Return value.
+		 value)))
+      (unless (char= (read-char stream) #\h)
+	(error "Invalid CSS color syntax; expect a 'h' character."))
+      (unless (char= (read-char stream) #\s)
+	(error "Invalid CSS color syntax; expect a 's' character."))
+      (unless (char= (read-char stream) #\l)
+	(error "Invalid CSS color syntax; expect a 'l' character."))
+      (unless (char= (read-char stream) #\()
+	(error "Invalid CSS color syntax; expect a '(' character."))
+      (setf h (mod (read-number stream) 360))
+      (unless (char= (read-char stream) #\,)
+	(error "Invalid CSS color syntax; expect a ',' character."))
+      (setf s (read-number stream t))
+      (unless (char= (read-char stream) #\,)
+	(error "Invalid CSS color syntax; expect a ',' character."))
+      (setf l (read-number stream t))
+      (unless (char= (read-char stream) #\))
+	(error "Invalid CSS color syntax; expect a ')' character."))
+      (change-class (make-generic-hsl-color h s l) 'srgb-color))))
 
 ;;; io.lisp ends here
