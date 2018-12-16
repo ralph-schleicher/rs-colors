@@ -68,11 +68,12 @@
 (define-color-printer xcms-cie-xyz (color stream :export t)
   (multiple-value-bind (x y z)
       (cie-xyz-color-coordinates color)
-    (format stream
-	    "CIEXYZ:~A/~A/~A"
-	    (float x 1F0)
-	    (float y 1F0)
-	    (float z 1F0))))
+    (let ((*read-default-float-format* 'single-float))
+      (format stream
+	      "CIEXYZ:~A/~A/~A"
+	      (float x 1F0)
+	      (float y 1F0)
+	      (float z 1F0)))))
 
 (define-color-printer xcms-cie-xyy (color stream :export t)
   (multiple-value-bind (x* y* y)
