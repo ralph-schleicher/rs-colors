@@ -142,12 +142,16 @@
 (define-color-printer css3-rgb (color stream :export t)
   (multiple-value-bind (r g b)
       (srgb-color-coordinates color)
-    (let ((*read-default-float-format* 'single-float))
-      (format stream
-	      "rgb(~A%, ~A%, ~A%)"
-	      (float (* r 100) 1F0)
-	      (float (* g 100) 1F0)
-	      (float (* b 100) 1F0)))))
+    (alexandria:if-let ((red   (multiples r 255))
+			(green (multiples g 255))
+			(blue  (multiples b 255)))
+	(format stream "rgb(~A, ~A, ~A)" red green blue)
+      (let ((*read-default-float-format* 'single-float))
+	(format stream
+		"rgb(~A%, ~A%, ~A%)"
+		(float (* r 100) 1F0)
+		(float (* g 100) 1F0)
+		(float (* b 100) 1F0))))))
 
 ;; Read a CSS RGB color value, i.e. either a numerical HTML color
 ;; definition or an RGB value in the functional notation.  See
