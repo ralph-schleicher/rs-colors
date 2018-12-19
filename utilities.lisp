@@ -428,4 +428,15 @@ the inverse matrix."
       (decode-triple value byte-size)
     (make-rgb-color color-type red green blue byte-size)))
 
+(export 'multiples)
+(defun multiples (number 1/fraction)
+  "Return NUMBER/FRACTION if NUMBER is a multiple of 1/FRACTION.
+Otherwise, return null.
+
+First argument NUMBER has to be a number.
+Second argument 1/FRACTION has to be a positive number."
+  (multiple-value-bind (quotient remainder)
+      (truncate (* number 1/fraction))
+    (and (zerop remainder) quotient)))
+
 ;;; utilities.lisp ends here
