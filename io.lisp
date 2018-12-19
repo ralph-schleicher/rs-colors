@@ -272,4 +272,16 @@
 	(error "Invalid CSS color syntax; expect a ')' character."))
       (change-class (make-generic-hsl-color h s l) 'srgb-color))))
 
+;; Read a CSS3 color value.
+(define-color-reader css3 (stream :export t)
+  (case (peek-char nil stream nil #\Space)
+    (#\#
+     (read-color-html stream))
+    (#\r
+     (read-color-css3-rgb stream))
+    (#\h
+     (read-color-css3-hsl stream))
+    (t
+     (error "Unknown CSS3 color syntax."))))
+
 ;;; io.lisp ends here
