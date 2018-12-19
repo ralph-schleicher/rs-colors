@@ -272,8 +272,13 @@
 	(error "Invalid CSS color syntax; expect a ')' character."))
       (change-class (make-generic-hsl-color h s l) 'srgb-color))))
 
-;; Read a CSS3 color value.
 (define-color-reader css3 (stream :export t)
+  "Read a CSS3 color value, i.e. either a numerical HTML color
+definition or a RGB value or HSL value in functional notation.
+
+Argument STREAM is an input stream.
+
+Value is a color object in the sRGB color space."
   (case (peek-char nil stream nil #\Space)
     (#\#
      (read-color-html stream))
