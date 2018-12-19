@@ -153,81 +153,72 @@
 		(float (* g 100) 1F0)
 		(float (* b 100) 1F0))))))
 
-;; Read a CSS RGB color value, i.e. either a numerical HTML color
-;; definition or an RGB value in the functional notation.  See
-;; ‘http://www.w3.org/TR/css3-color/#rgb-color’.
-;;
-;; Argument STREAM is an input stream.
-;;
-;; Value is a color object in the sRGB color space.
 (define-color-reader css3-rgb (stream :export t)
-  (if (char= (peek-char nil stream nil #\Space) #\#)
-      (read-color-html stream)
-    ;; Read functional notation of the form ‘rgb(RED,GREEN,BLUE)’.
-    ;; Whitespace characters are allowed around the numerical values.
-    ;; All RGB colors are specified in the sRGB color space...
-    ;; Values outside the device gamut should be clipped...
-    (let (r g b number-format)
-      (labels ((read-number (stream)
-		 (let (value)
-		   ;; Skip leading white-space characters.
-		   (peek-char t stream)
-		   ;; Read the numeric value.
-		   (cond ((eq number-format 'integer)
-			  (setf value (read-integer stream t nil nil
-						    :unsigned-number :plus))
-			  (setf value (clamp value 0 255)))
-			 ((eq number-format 'float)
-			  (setf value (read-float stream t nil nil
-						  :unsigned-number :plus
-						  :exponent-marker ()
-						  :float-format 'double-float))
-			  (unless (char= (read-char stream) #\%)
-			    (error "Invalid CSS color syntax; expect a '%' character."))
-			  (setf value (clamp (/ value 100D0) 0D0 1D0)))
-			 (t
-			  ;; Variable NUMBER-FORMAT is not set.
-			  (setf value (read-float stream t nil nil
-						  :unsigned-number :plus
-						  :exponent-marker ()
-						  :float-format 'double-float))
-			  (cond ((char= (peek-char nil stream nil #\Space) #\%)
-				 ;; It's a percentage value.
-				 (setf value (clamp (/ value 100D0) 0D0 1D0))
-				 ;; Next value has to be a percentage, too.
-				 (setf number-format 'float)
-				 ;; Gobble ‘%’ character.
-				 (read-char stream))
-				((integerp value)
-				 (setf value (clamp value 0 255))
-				 (setf number-format 'integer))
-				(t
-				 ;; Value is a floating-point number.
-				 (error "Invalid CSS color syntax; expect a '%' character.")))))
-		   ;; Skip trailing white-space characters.
-		   (peek-char t stream)
-		   ;; Return value.
-		   value)))
-	(unless (char= (read-char stream) #\r)
-	  (error "Invalid CSS color syntax; expect a 'r' character."))
-	(unless (char= (read-char stream) #\g)
-	  (error "Invalid CSS color syntax; expect a 'g' character."))
-	(unless (char= (read-char stream) #\b)
-	  (error "Invalid CSS color syntax; expect a 'b' character."))
-	(unless (char= (read-char stream) #\()
-	  (error "Invalid CSS color syntax; expect a '(' character."))
-	(setf r (read-number stream))
-	(unless (char= (read-char stream) #\,)
-	  (error "Invalid CSS color syntax; expect a ',' character."))
-	(setf g (read-number stream))
-	(unless (char= (read-char stream) #\,)
-	  (error "Invalid CSS color syntax; expect a ',' character."))
-	(setf b (read-number stream))
-	(unless (char= (read-char stream) #\))
-	  (error "Invalid CSS color syntax; expect a ')' character."))
-	(if (eq number-format 'integer)
-	    (make-srgb-color r g b :byte-size 8)
-	  (make-srgb-color r g b))))))
+  ;; Read functional notation of the form ‘rgb(RED,GREEN,BLUE)’.
+  ;; Whitespace characters are allowed around the numerical values.
+  ;; All RGB colors are specified in the sRGB color space...
+  ;; Values outside the device gamut should be clipped...
+  (let (r g b number-format)
+    (labels ((read-number (stream)
+	       (let (value)
+		 ;; Skip leading white-space characters.
+		 (peek-char t stream)
+		 ;; Read the numeric value.
+		 (cond ((eq number-format 'integer)
+			(setf value (read-integer stream t nil nil
+						  :unsigned-number :plus))
+			(setf value (clamp value 0 255)))
+		       ((eq number-format 'float)
+			(setf value (read-float stream t nil nil
+						:unsigned-number :plus
+						:exponent-marker ()
+						:float-format 'double-float))
+			(unless (char= (read-char stream) #\%)
+			  (error "Invalid CSS color syntax; expect a '%' character."))
+			(setf value (clamp (/ value 100D0) 0D0 1D0)))
+		       (t
+			;; Variable NUMBER-FORMAT is not set.
+			(setf value (read-float stream t nil nil
+						:unsigned-number :plus
+						:exponent-marker ()
+						:float-format 'double-float))
+			(cond ((char= (peek-char nil stream nil #\Space) #\%)
+			       ;; It's a percentage value.
+			       (setf value (clamp (/ value 100D0) 0D0 1D0))
+			       ;; Next value has to be a percentage, too.
+			       (setf number-format 'float)
+			       ;; Gobble ‘%’ character.
+			       (read-char stream))
+			      ((integerp value)
+			       (setf value (clamp value 0 255))
+			       (setf number-format 'integer))
+			      (t
+			       ;; Value is a floating-point number.
+			       (error "Invalid CSS color syntax; expect a '%' character.")))))
+		 ;; Skip trailing white-space characters.
+		 (peek-char t stream)
+		 ;; Return value.
+		 value)))
+      (unless (char= (read-char stream) #\r)
+	(error "Invalid CSS color syntax; expect a 'r' character."))
+      (unless (char= (read-char stream) #\g)
+	(error "Invalid CSS color syntax; expect a 'g' character."))
+      (unless (char= (read-char stream) #\b)
+	(error "Invalid CSS color syntax; expect a 'b' character."))
+      (unless (char= (read-char stream) #\()
+	(error "Invalid CSS color syntax; expect a '(' character."))
+      (setf r (read-number stream))
+      (unless (char= (read-char stream) #\,)
+	(error "Invalid CSS color syntax; expect a ',' character."))
+      (setf g (read-number stream))
+      (unless (char= (read-char stream) #\,)
+	(error "Invalid CSS color syntax; expect a ',' character."))
+      (setf b (read-number stream))
+      (unless (char= (read-char stream) #\))
+	(error "Invalid CSS color syntax; expect a ')' character."))
+      (if (eq number-format 'integer)
+	  (make-srgb-color r g b :byte-size 8)
+	(make-srgb-color r g b)))))
 
 (define-color-printer css3-hsl (color stream :export t)
   (multiple-value-bind (h s l)
