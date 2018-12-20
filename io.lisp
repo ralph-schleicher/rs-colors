@@ -85,6 +85,26 @@
 	      (float y* 1F0)
 	      (float y  1F0)))))
 
+(define-color-printer xcms-cie-luv (color stream :export t)
+  (multiple-value-bind (L u v)
+      (cie-luv-color-coordinates color)
+    (let ((*read-default-float-format* 'single-float))
+      (format stream
+	      "CIELuv:~A/~A/~A"
+	      (float L 1F0)
+	      (float u 1F0)
+	      (float v 1F0)))))
+
+(define-color-printer xcms-cie-lab (color stream :export t)
+  (multiple-value-bind (L a b)
+      (cie-lab-color-coordinates color)
+    (let ((*read-default-float-format* 'single-float))
+      (format stream
+	      "CIELab:~A/~A/~A"
+	      (float L 1F0)
+	      (float a 1F0)
+	      (float b 1F0)))))
+
 (define-color-printer xcms-rgbi (color stream :export t)
   (ensure-type color 'rgb-color-object)
   (multiple-value-bind (r g b)
