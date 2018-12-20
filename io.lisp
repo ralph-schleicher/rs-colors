@@ -85,7 +85,7 @@
 	      (float y* 1F0)
 	      (float y  1F0)))))
 
-(define-color-printer xcms-rgb (color stream :export t)
+(define-color-printer xcms-rgbi (color stream :export t)
   (ensure-type color 'rgb-color-object)
   (multiple-value-bind (r g b)
       (color-coordinates color)
