@@ -65,6 +65,17 @@
        (defun ,reader (&optional (,stream *standard-input*))
 	 ,@body))))
 
+;; This is an unofficial Xcms prefix.
+(define-color-printer xcms-cie-rgb (color stream :export t)
+  (multiple-value-bind (r g b)
+      (cie-rgb-color-coordinates color)
+    (let ((*read-default-float-format* 'single-float))
+      (format stream
+	      "CIERGB:~A/~A/~A"
+	      (float r 1F0)
+	      (float g 1F0)
+	      (float b 1F0)))))
+
 (define-color-printer xcms-cie-xyz (color stream :export t)
   (multiple-value-bind (x y z)
       (cie-xyz-color-coordinates color)
@@ -105,16 +116,40 @@
 	      (float a 1F0)
 	      (float b 1F0)))))
 
+;; This is an unofficial Xcms prefix.
+(define-color-printer xcms-cie-lch (color stream :export t)
+  (multiple-value-bind (L C h)
+      (cie-lch-color-coordinates color)
+    (let ((*read-default-float-format* 'single-float))
+      (format stream
+	      "CIELCh:~A/~A/~A"
+	      (float L 1F0)
+	      (float C 1F0)
+	      (float h 1F0)))))
+
 (define-color-printer xcms-rgbi (color stream :export t)
-  (ensure-type color 'rgb-color-object)
   (multiple-value-bind (r g b)
-      (color-coordinates color)
+      (generic-rgb-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
       (format stream
 	      "RGBi:~A/~A/~A"
 	      (float r 1F0)
 	      (float g 1F0)
 	      (float b 1F0)))))
+
+(define-color-printer xcms-rgb (color stream :export t)
+  (multiple-value-bind (r g b)
+      (generic-rgb-color-coordinates color)
+    (alexandria:if-let ((red   (multiples r 255))
+			(green (multiples g 255))
+			(blue  (multiples b 255)))
+	(format stream "RGB:~(~2,'0X/~2,'0X/~2,'0X~)" red green blue)
+      (let ((*read-default-float-format* 'single-float))
+	(format stream
+		"RGBi:~A/~A/~A"
+		(float r 1F0)
+		(float g 1F0)
+		(float b 1F0))))))
 
 (define-color-printer html (color stream :export t)
   (multiple-value-bind (r g b)
