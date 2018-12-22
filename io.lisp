@@ -144,12 +144,11 @@
 			(green (multiples g 255))
 			(blue  (multiples b 255)))
 	(format stream "RGB:~(~2,'0X/~2,'0X/~2,'0X~)" red green blue)
-      (let ((*read-default-float-format* 'single-float))
-	(format stream
-		"RGBi:~A/~A/~A"
-		(float r 1F0)
-		(float g 1F0)
-		(float b 1F0))))))
+      (format stream
+	      "RGB:~(~4,'0X/~4,'0X/~4,'0X~)"
+	      (round (* r 65535))
+	      (round (* g 65535))
+	      (round (* b 65535))))))
 
 (define-color-printer html (color stream :export t)
   (multiple-value-bind (r g b)
