@@ -1858,17 +1858,166 @@ Value is a color object with the same color coordinates as @var{color}.
 @section Input and Output
 
 @menu
+* Xcms Formats::
 * HTML Format::
-* Reading Colors::
-* Printing Colors::
+* CSS3 Formats::
 @end menu
 
 
-@node HTML Format, Reading Colors, Input and Output, Input and Output
+@node Xcms Formats, HTML Format, Input and Output, Input and Output
+@subsection Xcms Formats
+
+The syntax of a Xcms (X Color Management System) color is
+
+@example
+@var{prefix}:@var{first}/@var{second}/@var{third}
+@end example
+
+The @var{prefix} part specifies the color space or format and
+@var{first}, @var{second}, and @var{third} are the color coordinates.
+
+@multitable {mmmmmmmmmm} {mmmmmm} {mm}
+@headitem Color Space @tab Prefix @tab R5
+@item CIE RGB       @tab @code{CIERGB} @tab
+@item CIE XYZ       @tab @code{CIEXYZ} @tab @bullet{}
+@item CIE xyY       @tab @code{CIExyY} @tab @bullet{}
+@item CIE L*u*v*    @tab @code{CIELuv} @tab @bullet{}
+@item CIE L*a*b*    @tab @code{CIELab} @tab @bullet{}
+@item CIE L*C*h     @tab @code{CIELCh} @tab
+@item Tektronix HVC @tab @code{TekHVC} @tab @bullet{}
+@item generic RGB   @tab @code{RGBi}   @tab @bullet{}
+@end multitable
+
+@noindent
+The @var{prefix} part is case insensitive.
+
+@c ---------------------------------------------------------------------
+@anchor{function;rs-colors;print-color-xcms-cie-rgb}
+@anchor{function;rs-colors;print-color-xcms-cie-xyz}
+@anchor{function;rs-colors;print-color-xcms-cie-xyy}
+@anchor{function;rs-colors;print-color-xcms-cie-luv}
+@anchor{function;rs-colors;print-color-xcms-cie-lab}
+@anchor{function;rs-colors;print-color-xcms-cie-lch}
+@anchor{function;rs-colors;print-color-xcms-rgbi}
+@anchor{function;rs-colors;print-color-xcms-rgb}
+@deffn  {Function} {print-color-xcms-cie-rgb} color @k{&optional} stream
+@deffnx {Function} {print-color-xcms-cie-xyz} color @k{&optional} stream
+@deffnx {Function} {print-color-xcms-cie-xyy} color @k{&optional} stream
+@deffnx {Function} {print-color-xcms-cie-luv} color @k{&optional} stream
+@deffnx {Function} {print-color-xcms-cie-lab} color @k{&optional} stream
+@deffnx {Function} {print-color-xcms-cie-lch} color @k{&optional} stream
+@deffnx {Function} {print-color-xcms-rgbi} color @k{&optional} stream
+@deffnx {Function} {print-color-xcms-rgb} color @k{&optional} stream
+Print a color in Xcms notation.
+
+@itemize
+@item
+First argument @var{color} is a color object.
+
+@item
+Optional second argument @var{stream} is an output stream.
+Default is to print to @code{*standard-output*}.
+@end itemize
+
+Value is the color object.
+
+The RGBi and RGB formats are device dependent.  Thus, you can only print
+colors in these formats if the color conversion path to the generic RGB
+color space is unambiguous.
+
+The RGB format prints the color coordinates as hexadecimal numbers if
+all RGB color intensities are multiples of @math{1/255}.  Otherwise, the
+color is printed in RGBi notation.
+
+@noindent
+Example:
+
+@lisp
+@group
+(let ((color (make-srgb-color 78 154 6 :byte-size 8)))
+  (with-output-to-string (stream)
+    (print-color-xcms-cie-xyz color stream)))
+ @result{} "CIEXYZ:0.14729778/0.24743336/0.04172078"
+@end group
+
+@group
+(let ((color (make-srgb-color-from-number #X4E9A06)))
+  (with-output-to-string (stream)
+    (print-color-xcms-rgb color stream)))
+ @result{} "RGB:4e/9a/06"
+@end group
+@end lisp
+@end deffn
+
+@c ---------------------------------------------------------------------
+@anchor{function;rs-colors;color-formatter-xcms-cie-rgb}
+@anchor{function;rs-colors;color-formatter-xcms-cie-xyz}
+@anchor{function;rs-colors;color-formatter-xcms-cie-xyy}
+@anchor{function;rs-colors;color-formatter-xcms-cie-luv}
+@anchor{function;rs-colors;color-formatter-xcms-cie-lab}
+@anchor{function;rs-colors;color-formatter-xcms-cie-lch}
+@anchor{function;rs-colors;color-formatter-xcms-rgbi}
+@anchor{function;rs-colors;color-formatter-xcms-rgb}
+@defvr  {Constant} {color-formatter-xcms-cie-rgb}
+@defvrx {Constant} {color-formatter-xcms-cie-xyz}
+@defvrx {Constant} {color-formatter-xcms-cie-xyy}
+@defvrx {Constant} {color-formatter-xcms-cie-luv}
+@defvrx {Constant} {color-formatter-xcms-cie-lab}
+@defvrx {Constant} {color-formatter-xcms-cie-lch}
+@defvrx {Constant} {color-formatter-xcms-rgbi}
+@defvrx {Constant} {color-formatter-xcms-rgb}
+A format function for printing a color in Xcms notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the @code{formatter} macro.
+
+@noindent
+Example:
+
+@lisp
+@group
+(let ((color (make-srgb-color 78 154 6 :byte-size 8)))
+  (format nil color-formatter-xcms-cie-xyz color))
+ @result{} "CIEXYZ:0.14729778/0.24743336/0.04172078"
+@end group
+@end lisp
+@end defvr
+
+
+@node HTML Format, CSS3 Formats, Xcms Formats, Input and Output
 @subsection HTML Format
 
 A HTML color value is either a hexadecimal number prefixed by a hash
 mark or a keyword.  This section only covers numerical color values.
+
+@c ---------------------------------------------------------------------
+@anchor{function;rs-colors;read-color-html}
+@deffn {Function} {read-color-html} @k{&optional} @w{stream}
+Read a numerical HTML color value, that is a hexadecimal number prefixed
+by a hash mark.
+
+Reading stops at the first non-hexadecimal digit character.  The number
+of hexadecimal digits has to be a multiple of three.
+
+@itemize
+@item
+Optional argument @var{stream} is an input stream.  Default is to read
+from @code{*standard-input*}.
+@end itemize
+
+Value is a color object in the sRGB color space.
+
+@noindent
+Example:
+
+@lisp
+@group
+(with-input-from-string (stream "#4E9A06 junk")
+  (read-color-html stream))
+ @result{} #<SRGB-COLOR (26/85 154/255 2/85)>
+@end group
+@end lisp
+@end deffn
 
 @c ---------------------------------------------------------------------
 @anchor{function;rs-colors;print-color-html}
@@ -1903,7 +2052,7 @@ Example:
 @c ---------------------------------------------------------------------
 @anchor{constant;rs-colors;color-formatter-html}
 @defvr {Constant} {color-formatter-html}
-A format function for printing a numerical HTML color definition.
+A format function for printing a numerical HTML color value.
 
 Value is a function which has a behavior equivalent to a function
 returned by the @code{formatter} macro.
@@ -1920,11 +2069,36 @@ Example:
 @end lisp
 @end defvr
 
+
+@node CSS3 Formats,  , HTML Format, Input and Output
+@subsection CSS3 Formats
+
+A CSS3 (cascading style sheets, level 3) color is either a HTML color
+value or a color value in functional notation.  The later has the form
+
+@example
+rgb(@var{red}, @var{green}, @var{blue})
+@end example
+
+@noindent
+where @var{red}, @var{green}, and @var{blue} are either integers in the
+@range{0, 255} or percentage values in the @range{0@dmn{%}, 100@dmn{%}}.
+CSS3 also supports a functional notation for RGB colors represented in
+the HSL color space.  The format is
+
+@example
+hsl(@var{hue}, @var{saturation}, @var{lightness})
+@end example
+
+@noindent
+where @var{hue} is the angle in degree and @var{saturation}
+and @var{lightness} are percentage values in the
+@range{0@dmn{%}, 100@dmn{%}}.
+
 @c ---------------------------------------------------------------------
-@anchor{function;rs-colors;read-color-html}
-@deffn {Function} {read-color-html} @k{&optional} @w{stream}
-Read a numerical HTML color value, that is a hexadecimal number
-prefixed by a hash mark.
+@anchor{function;rs-colors;read-color-css3-rgb}
+@deffn {Function} {read-color-css3-rgb} @k{&optional} @w{stream}
+Read a color in CSS3 RGB functional notation.
 
 @itemize
 @item
@@ -1932,8 +2106,7 @@ Optional argument @var{stream} is an input stream.  Default is to read
 from @code{*standard-input*}.
 @end itemize
 
-Reading stops at the first non-hexadecimal digit character.  The number
-of hexadecimal digits has to be a multiple of three.
+Reading stops after the closing parenthesis.
 
 Value is a color object in the sRGB color space.
 
@@ -1942,76 +2115,78 @@ Example:
 
 @lisp
 @group
-(with-input-from-string (stream "#4E9A06 junk")
-  (read-color-html stream))
+(with-input-from-string (stream "rgb(78, 154, 6) junk")
+  (read-color-css3-rgb stream))
  @result{} #<SRGB-COLOR (26/85 154/255 2/85)>
+@end group
+
+@group
+(with-input-from-string (stream "rgb(30%, 60%, 10%) junk")
+  (read-color-css3-rgb stream))
+ @result{} #<SRGB-COLOR (0.3d0 0.6d0 0.1d0)>
 @end group
 @end lisp
 @end deffn
 
-
-@node Reading Colors, Printing Colors, HTML Format, Input and Output
-@subsection Reading Colors
-
-@ignore
 @c ---------------------------------------------------------------------
-@anchor{macro;rs-colors;define-color-reader}
-@deffn {Macro} {define-color-reader} @w{style} @w{(stream @k{&key} export inline)} @k{&body} @w{body}
-Define a color reader function.
+@anchor{function;rs-colors;print-color-css3-rgb}
+@deffn {Function} {print-color-css3-rgb} color @k{&optional} stream
+Print a color in CSS3 RGB functional notation.
 
 @itemize
 @item
-Argument @var{style} is a string designator.  It is used to build the
-symbol name for the color reader function.
+First argument @var{color} is a color object.
 
 @item
-Argument @var{stream} is a symbol to access the input stream in the
-@var{body} form.
-
-@item
-Argument @var{body} is a function body reading a color representation
-from the input stream @var{stream}.  The value of the form is a color
-object.
-
-@item
-If optional keyword argument @var{export} is true, add an export
-declaration for the color reader function.
-
-@item
-If optional keyword argument @var{inline} is true, add an inline
-declaration for the color reader function.
+Optional second argument @var{stream} is an output stream.  Default is
+to print to @code{*standard-output*}.
 @end itemize
 
-@table @code
-@item read-color-@var{style} @k{&optional} @var{stream}
-@end table
-@end deffn
-@end ignore
+Value is the color object.
 
+If all sRGB color intensities are multiples of @math{1/255}, the
+@var{red}, @var{green}, and @var{blue} color intensities are printed
+as integers.  Otherwise, they are printed as percentage values.
 
-@node Printing Colors,  , Reading Colors, Input and Output
-@subsection Printing Colors
-
-@ignore
-@c ---------------------------------------------------------------------
-@anchor{macro;rs-colors;define-color-printer}
-@deffn {Macro} {define-color-printer} @w{style} @w{(color stream @k{&key} export inline)} @k{&body} @w{body}
-Argument @var{style} is a string designator.
-@end deffn
+@noindent
+Example:
 
 @lisp
 @group
-(define-color-printer :html (color stream :export t)
-  (multiple-value-bind (r g b)
-      (srgb-color-coordinates color)
-    (format stream
-            "#~2,'0X~2,'0X~2,'0X"
-            (round (* r 255))
-            (round (* g 255))
-            (round (* b 255)))))
+(let ((color (make-srgb-color-from-number #X4E9A06)))
+  (with-output-to-string (stream)
+    (print-color-css3-rgb color stream)))
+ @result{} "rgb(78, 154, 6)"
+@end group
+
+@group
+(let ((color (make-srgb-color 0.3D0 0.6D0 0.1D0)))
+  (with-output-to-string (stream)
+    (print-color-css3-rgb color stream)))
+ @result{} "rgb(30.0%, 60.0%, 10.0%)"
 @end group
 @end lisp
-@end ignore
+@end deffn
+
+@c ---------------------------------------------------------------------
+@anchor{constant;rs-colors;color-formatter-css3-rgb}
+@defvr {Constant} {color-formatter-css3-rgb}
+A format function for printing a color in CSS3 RGB functional notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the @code{formatter} macro.
+
+@noindent
+Example:
+
+@lisp
+@group
+(let ((color (make-srgb-color-from-number #X4E9A06)))
+  (format nil color-formatter-css3-rgb color))
+ @result{} "rgb(78, 154, 6)"
+@end group
+@end lisp
+@end defvr
 
 
 @node Miscellaneous,  , Input and Output, Reference Manual
