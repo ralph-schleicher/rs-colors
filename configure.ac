@@ -2,7 +2,7 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.50])
 
-AC_INIT([rs-colors], [20181208.1507], [rs@ralph-schleicher.de])
+AC_INIT([rs-colors], [20181222.1549], [rs@ralph-schleicher.de])
 AM_INIT_AUTOMAKE([foreign no-define dist-bzip2])
 
 AC_CONFIG_SRCDIR([rs-colors.asd])
