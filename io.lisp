@@ -65,6 +65,33 @@
        (defun ,reader (&optional (,stream *standard-input*))
 	 ,@body))))
 
+(defun %read-xcms (stream prefix make-color)
+  "Read a color in Xcms notation."
+  (labels ((read-number (stream)
+	     "Read a floating-point number."
+	     (read-float stream t nil nil
+			 :exponent-marker "Ee"
+			 :float-format 'double-float)))
+    (let (a b c)
+      ;; Read the prefix.
+      (iter (for char :in-vector prefix)
+	    (unless (char-equal (read-char stream) char)
+	      (error "Invalid Xcms color syntax; expect a ‘~A’ character." char)))
+      (unless (char= (read-char stream) #\:)
+	(error "Invalid Xcms color syntax; expect a ‘:’ character."))
+      ;; Read the color coordinates.
+      (setf a (read-number stream))
+      (unless (char= (read-char stream) #\/)
+	(error "Invalid Xcms color syntax; expect a ‘/’ character."))
+      (setf b (read-number stream))
+      (unless (char= (read-char stream) #\/)
+	(error "Invalid Xcms color syntax; expect a ‘/’ character."))
+      (setf c (read-number stream))
+      ;; Return value.
+      (if (null make-color)
+	  (values a b c)
+	(funcall make-color a b c)))))
+
 ;; This is an unofficial Xcms prefix.
 (define-color-printer xcms-cie-rgb (color stream :export t)
   (multiple-value-bind (r g b)
@@ -76,6 +103,9 @@
 	      (float g 1F0)
 	      (float b 1F0)))))
 
+(define-color-reader xcms-cie-rgb (stream :export t)
+  (%read-xcms stream "CIERGB" #'make-cie-rgb-color))
+
 (define-color-printer xcms-cie-xyz (color stream :export t)
   (multiple-value-bind (x y z)
       (cie-xyz-color-coordinates color)
@@ -85,6 +115,9 @@
 	      (float x 1F0)
 	      (float y 1F0)
 	      (float z 1F0)))))
+
+(define-color-reader xcms-cie-xyz (stream :export t)
+  (%read-xcms stream "CIEXYZ" #'make-cie-xyz-color))
 
 (define-color-printer xcms-cie-xyy (color stream :export t)
   (multiple-value-bind (x* y* y)
@@ -96,6 +129,9 @@
 	      (float y* 1F0)
 	      (float y  1F0)))))
 
+(define-color-reader xcms-cie-xyy (stream :export t)
+  (%read-xcms stream "CIExyY" #'make-cie-xyy-color))
+
 (define-color-printer xcms-cie-luv (color stream :export t)
   (multiple-value-bind (L u v)
       (cie-luv-color-coordinates color)
@@ -106,6 +142,9 @@
 	      (float u 1F0)
 	      (float v 1F0)))))
 
+(define-color-reader xcms-cie-luv (stream :export t)
+  (%read-xcms stream "CIELuv" #'make-cie-luv-color))
+
 (define-color-printer xcms-cie-lab (color stream :export t)
   (multiple-value-bind (L a b)
       (cie-lab-color-coordinates color)
@@ -115,6 +154,9 @@
 	      (float L 1F0)
 	      (float a 1F0)
 	      (float b 1F0)))))
+
+(define-color-reader xcms-cie-lab (stream :export t)
+  (%read-xcms stream "CIELab" #'make-cie-lab-color))
 
 ;; This is an unofficial Xcms prefix.
 (define-color-printer xcms-cie-lch (color stream :export t)
@@ -127,6 +169,9 @@
 	      (float C 1F0)
 	      (float h 1F0)))))
 
+(define-color-reader xcms-cie-lch (stream :export t)
+  (%read-xcms stream "CIELCh" #'make-cie-lch-color))
+
 (define-color-printer xcms-rgbi (color stream :export t)
   (multiple-value-bind (r g b)
       (generic-rgb-color-coordinates color)
@@ -136,6 +181,9 @@
 	      (float r 1F0)
 	      (float g 1F0)
 	      (float b 1F0)))))
+
+(define-color-reader xcms-rgbi (stream :export t)
+  (%read-xcms stream "RGBi" #'make-generic-rgb-color))
 
 (define-color-printer xcms-rgb (color stream :export t)
   (multiple-value-bind (r g b)
