@@ -2,7 +2,7 @@ This is rs-colors.info, produced by makeinfo version 6.5 from
 rs-colors.texi.
 
 This is edition 1 (draft), last updated 2018-12-08, of 'RS-COLORS - A
-Color Data Type for Common Lisp', for RS-COLORS version 20181208.1507.
+Color Data Type for Common Lisp', for RS-COLORS version 20181222.1549.
 
      Copyright (C) 2014 Ralph Schleicher
 
@@ -23,7 +23,7 @@ RS-COLORS
 *********
 
 This is edition 1 (draft), last updated 2018-12-08, of 'RS-COLORS - A
-Color Data Type for Common Lisp', for RS-COLORS version 20181208.1507.
+Color Data Type for Common Lisp', for RS-COLORS version 20181222.1549.
 
      Copyright (C) 2014 Ralph Schleicher
 
@@ -38,7 +38,6 @@ Please report any errors in this manual to <rs@ralph-schleicher.de>.
 * Introduction::
 * Installation::
 * User's Guide::
-* Programmer's Guide::
 * Reference Manual::
 * Symbol Index::
 * Concept Index::
@@ -134,7 +133,7 @@ After that, you can load RS-COLORS as usual.
 That's it.
 
 
-File: rs-colors.info,  Node: User's Guide,  Next: Programmer's Guide,  Prev: Installation,  Up: Top
+File: rs-colors.info,  Node: User's Guide,  Next: Reference Manual,  Prev: Installation,  Up: Top
 
 3 User's Guide
 **************
@@ -367,80 +366,9 @@ following functions to get them.
 'adobe-rgb-color-coordinates'
 
 
-File: rs-colors.info,  Node: Programmer's Guide,  Next: Reference Manual,  Prev: User's Guide,  Up: Top
+File: rs-colors.info,  Node: Reference Manual,  Next: Symbol Index,  Prev: User's Guide,  Up: Top
 
-4 Programmer's Guide
-********************
-
-So you want to implement your own color type.
-
-Abstact Color Classes
-=====================
-
-'color-object'
-     Base class for a color.
-
-'rgb-color-object'
-     Base class for a RGB color space.
-
-     *Slots*
-
-     'r'
-          Normalized intensity of the red primary.
-
-          Value has to be a real number in the closed interval [0, 1].
-          Default value for initialization keyword argument RED is zero.
-
-     'g'
-          Normalized intensity of the red primary.
-
-          Value has to be a real number in the closed interval [0, 1].
-          Default value for initialization keyword argument GREEN is
-          zero.
-
-     'b'
-          Normalized intensity of the red primary.
-
-          Value has to be a real number in the closed interval [0, 1].
-          Default value for initialization keyword argument BLUE is
-          zero.
-
-        * Slot 'r' is the normalized intensity of the red primary.
-
-          Value has to be a real number in the closed interval [0, 1].
-          Default value for initialization keyword argument RED is zero.
-
-        * Slot 'g' is the normalized intensity of the green primary.
-
-          Value has to be a real number in the closed interval [0, 1].
-          Default value for the initialization keyword argument GREEN is
-          zero.
-
-        * Slot 'b' is the normalized intensity of the blue primary.
-
-          Value has to be a real number in the closed interval [0, 1].
-          Default value for the initialization keyword argument BLUE is
-          zero.
-
-'hsv-color-object'
-     Base class for a HSV color space.
-
-'hsl-color-object'
-     Base class for a HSL color space.
-
-'cmy-color-object'
-     Base class for a CMY color space.
-
-'cmyk-color-object'
-     Base class for a CMYK color space.
-
-'generic-color-object'
-     Base class for a color model.
-
-
-File: rs-colors.info,  Node: Reference Manual,  Next: Symbol Index,  Prev: Programmer's Guide,  Up: Top
-
-5 Reference Manual
+4 Reference Manual
 ******************
 
 * Menu:
@@ -458,7 +386,7 @@ File: rs-colors.info,  Node: Reference Manual,  Next: Symbol Index,  Prev: Progr
 
 File: rs-colors.info,  Node: Color Predicates,  Next: Abstract Color Classes,  Prev: Reference Manual,  Up: Reference Manual
 
-5.1 Color Predicates
+4.1 Color Predicates
 ====================
 
 Use the 'colorp' function to check whether or not an object is a color.
@@ -470,7 +398,7 @@ This covers all color classes documented in this manual.
 
 File: rs-colors.info,  Node: Abstract Color Classes,  Next: Generic Color Spaces (Color Models),  Prev: Color Predicates,  Up: Reference Manual
 
-5.2 Abstract Color Classes
+4.2 Abstract Color Classes
 ==========================
 
 The color classes documented in this section are merely used as
@@ -541,7 +469,7 @@ superclasses.
 
 File: rs-colors.info,  Node: Generic Color Spaces (Color Models),  Next: CIE Color Spaces,  Prev: Abstract Color Classes,  Up: Reference Manual
 
-5.3 Generic Color Spaces (Color Models)
+4.3 Generic Color Spaces (Color Models)
 =======================================
 
 A generic color space implements a color model.  There are two major
@@ -559,7 +487,7 @@ model.
 
 File: rs-colors.info,  Node: Generic RGB Color Space,  Next: Generic HSV Color Space,  Prev: Generic Color Spaces (Color Models),  Up: Generic Color Spaces (Color Models)
 
-5.3.1 Generic RGB Color Space
+4.3.1 Generic RGB Color Space
 -----------------------------
 
 The generic RGB color space is a mathematical description of the RGB
@@ -633,7 +561,7 @@ There is no white point.
 
 File: rs-colors.info,  Node: Generic HSV Color Space,  Next: Generic HSL Color Space,  Prev: Generic RGB Color Space,  Up: Generic Color Spaces (Color Models)
 
-5.3.2 Generic HSV Color Space
+4.3.2 Generic HSV Color Space
 -----------------------------
 
 The HSV color space is a different representation of the RGB color
@@ -676,7 +604,7 @@ point.
 
 File: rs-colors.info,  Node: Generic HSL Color Space,  Next: Generic CMY Color Space,  Prev: Generic HSV Color Space,  Up: Generic Color Spaces (Color Models)
 
-5.3.3 Generic HSL Color Space
+4.3.3 Generic HSL Color Space
 -----------------------------
 
 The HSL color space is a different representation of the RGB color
@@ -719,7 +647,7 @@ point.
 
 File: rs-colors.info,  Node: Generic CMY Color Space,  Next: Generic CMYK Color Space,  Prev: Generic HSL Color Space,  Up: Generic Color Spaces (Color Models)
 
-5.3.4 Generic CMY Color Space
+4.3.4 Generic CMY Color Space
 -----------------------------
 
 The generic CMY color space is a mathematical description of the CMY
@@ -793,7 +721,7 @@ interval [0, 1].  There is no white point.
 
 File: rs-colors.info,  Node: Generic CMYK Color Space,  Prev: Generic CMY Color Space,  Up: Generic Color Spaces (Color Models)
 
-5.3.5 Generic CMYK Color Space
+4.3.5 Generic CMYK Color Space
 ------------------------------
 
 The generic CMYK color space is a mathematical description of the CMYK
@@ -873,7 +801,7 @@ interval [0, 1].  There is no white point.
 
 File: rs-colors.info,  Node: CIE Color Spaces,  Next: RGB Color Spaces,  Prev: Generic Color Spaces (Color Models),  Up: Reference Manual
 
-5.4 CIE Color Spaces
+4.4 CIE Color Spaces
 ====================
 
 All CIE color spaces are absolute color spaces, that means they are
@@ -891,7 +819,7 @@ device independent.
 
 File: rs-colors.info,  Node: CIE RGB Color Space,  Next: CIE XYZ Color Space,  Prev: CIE Color Spaces,  Up: CIE Color Spaces
 
-5.4.1 CIE RGB Color Space
+4.4.1 CIE RGB Color Space
 -------------------------
 
 The CIE RGB color space is the origin of all CIE color spaces.
@@ -941,7 +869,7 @@ CIE xyY color space:
 
 File: rs-colors.info,  Node: CIE XYZ Color Space,  Next: CIE xyY Color Space,  Prev: CIE RGB Color Space,  Up: CIE Color Spaces
 
-5.4.2 CIE XYZ Color Space
+4.4.2 CIE XYZ Color Space
 -------------------------
 
 The CIE XYZ color space is a linear transformation of the CIE RGB color
@@ -987,7 +915,7 @@ and vice versa.
 
 File: rs-colors.info,  Node: CIE xyY Color Space,  Next: CIE L*u*v* Color Space,  Prev: CIE XYZ Color Space,  Up: CIE Color Spaces
 
-5.4.3 CIE xyY Color Space
+4.4.3 CIE xyY Color Space
 -------------------------
 
 The CIE xyY color space uses the x and y chromaticity coordinates of the
@@ -1033,7 +961,7 @@ Therefore, the inverse transformation is
 
 File: rs-colors.info,  Node: CIE L*u*v* Color Space,  Next: CIE L*a*b* Color Space,  Prev: CIE xyY Color Space,  Up: CIE Color Spaces
 
-5.4.4 CIE L*u*v* Color Space
+4.4.4 CIE L*u*v* Color Space
 ----------------------------
 
 The CIE L*u*v* color space is a non-linear transformation of the CIE XYZ
@@ -1073,7 +1001,7 @@ illuminant D50.
 
 File: rs-colors.info,  Node: CIE L*a*b* Color Space,  Next: CIE L*C*h Color Space,  Prev: CIE L*u*v* Color Space,  Up: CIE Color Spaces
 
-5.4.5 CIE L*a*b* Color Space
+4.4.5 CIE L*a*b* Color Space
 ----------------------------
 
 The CIE L*a*b* color space is a non-linear transformation of the CIE XYZ
@@ -1113,7 +1041,7 @@ converting from or CIE standard illuminant D50.
 
 File: rs-colors.info,  Node: CIE L*C*h Color Space,  Prev: CIE L*a*b* Color Space,  Up: CIE Color Spaces
 
-5.4.6 CIE L*C*h Color Space
+4.4.6 CIE L*C*h Color Space
 ---------------------------
 
 The CIE L*C*h color space is the transformation of the CIE L*a*b* color
@@ -1163,7 +1091,7 @@ CIE standard illuminant D50.
 
 File: rs-colors.info,  Node: RGB Color Spaces,  Next: Color Properties,  Prev: CIE Color Spaces,  Up: Reference Manual
 
-5.5 RGB Color Spaces
+4.5 RGB Color Spaces
 ====================
 
 * Menu:
@@ -1174,7 +1102,7 @@ File: rs-colors.info,  Node: RGB Color Spaces,  Next: Color Properties,  Prev: C
 
 File: rs-colors.info,  Node: sRGB Color Space,  Next: Adobe RGB Color Space,  Prev: RGB Color Spaces,  Up: RGB Color Spaces
 
-5.5.1 sRGB Color Space
+4.5.1 sRGB Color Space
 ----------------------
 
  -- Class: srgb-color
@@ -1240,7 +1168,7 @@ File: rs-colors.info,  Node: sRGB Color Space,  Next: Adobe RGB Color Space,  Pr
 
 File: rs-colors.info,  Node: Adobe RGB Color Space,  Prev: sRGB Color Space,  Up: RGB Color Spaces
 
-5.5.2 Adobe RGB Color Space
+4.5.2 Adobe RGB Color Space
 ---------------------------
 
  -- Class: adobe-rgb-color
@@ -1306,7 +1234,7 @@ File: rs-colors.info,  Node: Adobe RGB Color Space,  Prev: sRGB Color Space,  Up
 
 File: rs-colors.info,  Node: Color Properties,  Next: Color Conversions,  Prev: RGB Color Spaces,  Up: Reference Manual
 
-5.6 Color Properties
+4.6 Color Properties
 ====================
 
  -- Generic Function: color-coordinates color
@@ -1325,7 +1253,7 @@ File: rs-colors.info,  Node: Color Properties,  Next: Color Conversions,  Prev: 
 
 File: rs-colors.info,  Node: Color Conversions,  Next: Input and Output,  Prev: Color Properties,  Up: Reference Manual
 
-5.7 Color Conversions
+4.7 Color Conversions
 =====================
 
  -- Generic Function: change-class color color-type
@@ -1368,23 +1296,126 @@ File: rs-colors.info,  Node: Color Conversions,  Next: Input and Output,  Prev: 
 
 File: rs-colors.info,  Node: Input and Output,  Next: Miscellaneous,  Prev: Color Conversions,  Up: Reference Manual
 
-5.8 Input and Output
+4.8 Input and Output
 ====================
 
 * Menu:
 
+* Xcms Formats::
 * HTML Format::
-* Reading Colors::
-* Printing Colors::
+* CSS3 Formats::
 
 
-File: rs-colors.info,  Node: HTML Format,  Next: Reading Colors,  Prev: Input and Output,  Up: Input and Output
+File: rs-colors.info,  Node: Xcms Formats,  Next: HTML Format,  Prev: Input and Output,  Up: Input and Output
 
-5.8.1 HTML Format
+4.8.1 Xcms Formats
+------------------
+
+The syntax of a Xcms (X Color Management System) color is
+
+     PREFIX:FIRST/SECOND/THIRD
+
+The PREFIX part specifies the color space or format and FIRST, SECOND,
+and THIRD are the color coordinates.
+
+Color        Prefix   R5
+Space
+---------------------------
+CIE RGB      'CIERGB'
+CIE XYZ      'CIEXYZ' *
+CIE xyY      'CIExyY' *
+CIE L*u*v*   'CIELuv' *
+CIE L*a*b*   'CIELab' *
+CIE L*C*h    'CIELCh'
+Tektronix    'TekHVC' *
+HVC
+generic      'RGBi'   *
+RGB
+
+The PREFIX part is case insensitive.
+
+ -- Function: print-color-xcms-cie-rgb color &optional stream
+ -- Function: print-color-xcms-cie-xyz color &optional stream
+ -- Function: print-color-xcms-cie-xyy color &optional stream
+ -- Function: print-color-xcms-cie-luv color &optional stream
+ -- Function: print-color-xcms-cie-lab color &optional stream
+ -- Function: print-color-xcms-cie-lch color &optional stream
+ -- Function: print-color-xcms-rgbi color &optional stream
+ -- Function: print-color-xcms-rgb color &optional stream
+     Print a color in Xcms notation.
+
+        * First argument COLOR is a color object.
+
+        * Optional second argument STREAM is an output stream.  Default
+          is to print to '*standard-output*'.
+
+     Value is the color object.
+
+     The RGBi and RGB formats are device dependent.  Thus, you can only
+     print colors in these formats if the color conversion path to the
+     generic RGB color space is unambiguous.
+
+     The RGB format prints the color coordinates as hexadecimal numbers
+     if all RGB color intensities are multiples of 1/255.  Otherwise,
+     the color is printed in RGBi notation.
+
+     Example:
+
+          (let ((color (make-srgb-color 78 154 6 :byte-size 8)))
+            (with-output-to-string (stream)
+              (print-color-xcms-cie-xyz color stream)))
+           => "CIEXYZ:0.14729778/0.24743336/0.04172078"
+
+          (let ((color (make-srgb-color-from-number #X4E9A06)))
+            (with-output-to-string (stream)
+              (print-color-xcms-rgb color stream)))
+           => "RGB:4e/9a/06"
+
+ -- Constant: color-formatter-xcms-cie-rgb
+ -- Constant: color-formatter-xcms-cie-xyz
+ -- Constant: color-formatter-xcms-cie-xyy
+ -- Constant: color-formatter-xcms-cie-luv
+ -- Constant: color-formatter-xcms-cie-lab
+ -- Constant: color-formatter-xcms-cie-lch
+ -- Constant: color-formatter-xcms-rgbi
+ -- Constant: color-formatter-xcms-rgb
+     A format function for printing a color in Xcms notation.
+
+     Value is a function which has a behavior equivalent to a function
+     returned by the 'formatter' macro.
+
+     Example:
+
+          (let ((color (make-srgb-color 78 154 6 :byte-size 8)))
+            (format nil color-formatter-xcms-cie-xyz color))
+           => "CIEXYZ:0.14729778/0.24743336/0.04172078"
+
+
+File: rs-colors.info,  Node: HTML Format,  Next: CSS3 Formats,  Prev: Xcms Formats,  Up: Input and Output
+
+4.8.2 HTML Format
 -----------------
 
 A HTML color value is either a hexadecimal number prefixed by a hash
 mark or a keyword.  This section only covers numerical color values.
+
+ -- Function: read-color-html &optional stream
+     Read a numerical HTML color value, that is a hexadecimal number
+     prefixed by a hash mark.
+
+     Reading stops at the first non-hexadecimal digit character.  The
+     number of hexadecimal digits has to be a multiple of three.
+
+        * Optional argument STREAM is an input stream.  Default is to
+          read from '*standard-input*'.
+
+     Value is a color object in the sRGB color space.
+
+     Example:
+
+          (with-input-from-string (stream "#4E9A06 junk")
+            (read-color-html stream))
+           => #<SRGB-COLOR (26/85 154/255 2/85)>
 
  -- Function: print-color-html color &optional stream
      Print a numerical HTML color value, that is a hexadecimal number
@@ -1405,7 +1436,7 @@ mark or a keyword.  This section only covers numerical color values.
            => "#4E9A06"
 
  -- Constant: color-formatter-html
-     A format function for printing a numerical HTML color definition.
+     A format function for printing a numerical HTML color value.
 
      Value is a function which has a behavior equivalent to a function
      returned by the 'formatter' macro.
@@ -1416,40 +1447,90 @@ mark or a keyword.  This section only covers numerical color values.
             (format nil color-formatter-html color))
            => "#4E9A06"
 
- -- Function: read-color-html &optional stream
-     Read a numerical HTML color value, that is a hexadecimal number
-     prefixed by a hash mark.
+
+File: rs-colors.info,  Node: CSS3 Formats,  Prev: HTML Format,  Up: Input and Output
+
+4.8.3 CSS3 Formats
+------------------
+
+A CSS3 (cascading style sheets, level 3) color is either a HTML color
+value or a color value in functional notation.  The later has the form
+
+     rgb(RED, GREEN, BLUE)
+
+where RED, GREEN, and BLUE are either integers in the range from 0
+to 255 or percentage values in the range from 0% to 100%.  CSS3 also
+supports a functional notation for RGB colors represented in the HSL
+color space.  The format is
+
+     hsl(HUE, SATURATION, LIGHTNESS)
+
+where HUE is the angle in degree and SATURATION and LIGHTNESS are
+percentage values in the range from 0% to 100%.
+
+ -- Function: read-color-css3-rgb &optional stream
+     Read a color in CSS3 RGB functional notation.
 
         * Optional argument STREAM is an input stream.  Default is to
           read from '*standard-input*'.
 
-     Reading stops at the first non-hexadecimal digit character.  The
-     number of hexadecimal digits has to be a multiple of three.
+     Reading stops after the closing parenthesis.
 
      Value is a color object in the sRGB color space.
 
      Example:
 
-          (with-input-from-string (stream "#4E9A06 junk")
-            (read-color-html stream))
+          (with-input-from-string (stream "rgb(78, 154, 6) junk")
+            (read-color-css3-rgb stream))
            => #<SRGB-COLOR (26/85 154/255 2/85)>
 
-
-File: rs-colors.info,  Node: Reading Colors,  Next: Printing Colors,  Prev: HTML Format,  Up: Input and Output
+          (with-input-from-string (stream "rgb(30%, 60%, 10%) junk")
+            (read-color-css3-rgb stream))
+           => #<SRGB-COLOR (0.3d0 0.6d0 0.1d0)>
 
-5.8.2 Reading Colors
---------------------
+ -- Function: print-color-css3-rgb color &optional stream
+     Print a color in CSS3 RGB functional notation.
 
-
-File: rs-colors.info,  Node: Printing Colors,  Prev: Reading Colors,  Up: Input and Output
+        * First argument COLOR is a color object.
 
-5.8.3 Printing Colors
----------------------
+        * Optional second argument STREAM is an output stream.  Default
+          is to print to '*standard-output*'.
+
+     Value is the color object.
+
+     If all sRGB color intensities are multiples of 1/255, the RED,
+     GREEN, and BLUE color intensities are printed as integers.
+     Otherwise, they are printed as percentage values.
+
+     Example:
+
+          (let ((color (make-srgb-color-from-number #X4E9A06)))
+            (with-output-to-string (stream)
+              (print-color-css3-rgb color stream)))
+           => "rgb(78, 154, 6)"
+
+          (let ((color (make-srgb-color 0.3D0 0.6D0 0.1D0)))
+            (with-output-to-string (stream)
+              (print-color-css3-rgb color stream)))
+           => "rgb(30.0%, 60.0%, 10.0%)"
+
+ -- Constant: color-formatter-css3-rgb
+     A format function for printing a color in CSS3 RGB functional
+     notation.
+
+     Value is a function which has a behavior equivalent to a function
+     returned by the 'formatter' macro.
+
+     Example:
+
+          (let ((color (make-srgb-color-from-number #X4E9A06)))
+            (format nil color-formatter-css3-rgb color))
+           => "rgb(78, 154, 6)"
 
 
 File: rs-colors.info,  Node: Miscellaneous,  Prev: Input and Output,  Up: Reference Manual
 
-5.9 Miscellaneous
+4.9 Miscellaneous
 =================
 
  -- Generic Function: normalize-color color &key black white
@@ -1499,7 +1580,16 @@ Symbol Index
                                                                (line 56)
 * coerce-color:                          Color Conversions.    (line 24)
 * color-coordinates:                     Color Properties.     (line  6)
-* color-formatter-html:                  HTML Format.          (line 27)
+* color-formatter-css3-rgb:              CSS3 Formats.         (line 68)
+* color-formatter-html:                  HTML Format.          (line 45)
+* color-formatter-xcms-cie-lab:          Xcms Formats.         (line 70)
+* color-formatter-xcms-cie-lch:          Xcms Formats.         (line 71)
+* color-formatter-xcms-cie-luv:          Xcms Formats.         (line 69)
+* color-formatter-xcms-cie-rgb:          Xcms Formats.         (line 66)
+* color-formatter-xcms-cie-xyy:          Xcms Formats.         (line 68)
+* color-formatter-xcms-cie-xyz:          Xcms Formats.         (line 67)
+* color-formatter-xcms-rgb:              Xcms Formats.         (line 73)
+* color-formatter-xcms-rgbi:             Xcms Formats.         (line 72)
 * color-object:                          Abstract Color Classes.
                                                                (line  9)
 * colorp:                                Color Predicates.     (line  9)
@@ -1562,8 +1652,18 @@ Symbol Index
 * make-srgb-color:                       sRGB Color Space.     (line 12)
 * make-srgb-color-from-number:           sRGB Color Space.     (line 42)
 * normalize-color:                       Miscellaneous.        (line  6)
-* print-color-html:                      HTML Format.          (line  9)
-* read-color-html:                       HTML Format.          (line 39)
+* print-color-css3-rgb:                  CSS3 Formats.         (line 42)
+* print-color-html:                      HTML Format.          (line 27)
+* print-color-xcms-cie-lab:              Xcms Formats.         (line 33)
+* print-color-xcms-cie-lch:              Xcms Formats.         (line 34)
+* print-color-xcms-cie-luv:              Xcms Formats.         (line 32)
+* print-color-xcms-cie-rgb:              Xcms Formats.         (line 29)
+* print-color-xcms-cie-xyy:              Xcms Formats.         (line 31)
+* print-color-xcms-cie-xyz:              Xcms Formats.         (line 30)
+* print-color-xcms-rgb:                  Xcms Formats.         (line 36)
+* print-color-xcms-rgbi:                 Xcms Formats.         (line 35)
+* read-color-css3-rgb:                   CSS3 Formats.         (line 22)
+* read-color-html:                       HTML Format.          (line  9)
 * rgb-color-object:                      Abstract Color Classes.
                                                                (line 15)
 * srgb-color:                            sRGB Color Space.     (line  6)
@@ -1580,109 +1680,127 @@ Concept Index
 
 Tag Table:
 Node: Top646
-Ref: ref;HTML1346
-Ref: ref;sRGB1408
-Ref: ref;Adobe RGB1519
-Node: Introduction1649
-Node: Installation3184
-Node: User's Guide4251
-Node: The Color Data Type4505
-Node: Creating Color Objects6091
-Node: Color Coordinates8519
-Node: White Point9100
-Node: Color Conversion9387
-Ref: figure:rs-colors-conversion9518
-Node: Programmer's Guide10935
-Node: Reference Manual12906
-Node: Color Predicates13274
-Ref: function;rs-colors;colorp13575
-Node: Abstract Color Classes13650
-Ref: class;rs-colors;color-object13931
-Ref: class;rs-colors;rgb-color-object14060
-Ref: class;rs-colors;hsv-color-object14362
-Ref: class;rs-colors;hsl-color-object14719
-Ref: class;rs-colors;cmy-color-object15067
-Ref: class;rs-colors;cmyk-color-object15374
-Ref: class;rs-colors;generic-color-object15697
-Node: Generic Color Spaces (Color Models)15871
-Node: Generic RGB Color Space16400
-Ref: class;rs-colors;generic-rgb-color16934
-Ref: function;rs-colors;make-generic-rgb-color17139
-Ref: function;rs-colors;make-generic-rgb-color-from-number18180
-Ref: generic-function;rs-colors;generic-rgb-color-coordinates18860
-Node: Generic HSV Color Space19116
-Ref: class;rs-colors;generic-hsv-color19760
-Ref: function;rs-colors;make-generic-hsv-color19965
-Ref: generic-function;rs-colors;generic-hsv-color-coordinates20477
-Node: Generic HSL Color Space20709
-Ref: class;rs-colors;generic-hsl-color21295
-Ref: function;rs-colors;make-generic-hsl-color21500
-Ref: generic-function;rs-colors;generic-hsl-color-coordinates22023
-Node: Generic CMY Color Space22246
-Ref: class;rs-colors;generic-cmy-color22775
-Ref: function;rs-colors;make-generic-cmy-color22980
-Ref: function;rs-colors;make-generic-cmy-color-from-number24047
-Ref: generic-function;rs-colors;generic-cmy-color-coordinates24728
-Node: Generic CMYK Color Space24989
-Ref: class;rs-colors;generic-cmyk-color25503
-Ref: function;rs-colors;make-generic-cmyk-color25712
-Ref: function;rs-colors;make-generic-cmyk-color-from-number27042
-Ref: generic-function;rs-colors;generic-cmyk-color-coordinates27731
-Node: CIE Color Spaces28001
-Node: CIE RGB Color Space28436
-Ref: class;rs-colors;cie-rgb-color28904
-Ref: function;rs-colors;make-cie-rgb-color29068
-Ref: generic-function;rs-colors;cie-rgb-color-coordinates29537
-Ref: CIE RGB Color Space-Footnote-129821
-Node: CIE XYZ Color Space30015
-Ref: class;rs-colors;cie-xyz-color30539
-Ref: function;rs-colors;make-cie-xyz-color30683
-Ref: generic-function;rs-colors;cie-xyz-color-coordinates31010
-Node: CIE xyY Color Space31670
-Ref: class;rs-colors;cie-xyy-color32246
-Ref: function;rs-colors;make-cie-xyy-color32390
-Ref: generic-function;rs-colors;cie-xyy-color-coordinates32710
-Node: CIE L*u*v* Color Space32945
-Ref: class;rs-colors;cie-luv-color33742
-Ref: function;rs-colors;make-cie-luv-color33889
-Ref: generic-function;rs-colors;cie-luv-color-coordinates34192
-Node: CIE L*a*b* Color Space34426
-Ref: class;rs-colors;cie-lab-color35260
-Ref: function;rs-colors;make-cie-lab-color35407
-Ref: generic-function;rs-colors;cie-lab-color-coordinates35710
-Node: CIE L*C*h Color Space35944
-Ref: class;rs-colors;cie-lch-color36884
-Ref: function;rs-colors;make-cie-lch-color37030
-Ref: generic-function;rs-colors;cie-lch-color-coordinates37452
-Node: RGB Color Spaces37665
-Node: sRGB Color Space37887
-Ref: class;rs-colors;srgb-color38061
-Ref: function;rs-colors;make-srgb-color38216
-Ref: function;rs-colors;make-srgb-color-from-number39230
-Ref: generic-function;rs-colors;srgb-color-coordinates39882
-Node: Adobe RGB Color Space40124
-Ref: class;rs-colors;adobe-rgb-color40283
-Ref: function;rs-colors;make-adobe-rgb-color40453
-Ref: function;rs-colors;make-adobe-rgb-color-from-number41497
-Ref: generic-function;rs-colors;adobe-rgb-color-coordinates42169
-Node: Color Properties42421
-Ref: generic-function;rs-colors;color-coordinates42587
-Ref: generic-function;rs-colors;white-point42733
-Node: Color Conversions43002
-Ref: generic-function;common-lisp;change-class43170
-Ref: function;rs-colors;coerce-color43708
-Ref: generic-function;rs-colors;copy-color44173
-Node: Input and Output44371
-Node: HTML Format44599
-Ref: function;rs-colors;print-color-html44890
-Ref: constant;rs-colors;color-formatter-html45444
-Ref: function;rs-colors;read-color-html45820
-Node: Reading Colors46430
-Node: Printing Colors46587
-Node: Miscellaneous46726
-Ref: generic-function;rs-colors;normalize-color46857
-Ref: generic-function;rs-colors;absolute-color47002
-Node: Symbol Index47146
-Node: Concept Index54308
+Ref: ref;HTML1323
+Ref: ref;sRGB1385
+Ref: ref;Adobe RGB1496
+Node: Introduction1626
+Node: Installation3161
+Node: User's Guide4228
+Node: The Color Data Type4480
+Node: Creating Color Objects6066
+Node: Color Coordinates8494
+Node: White Point9075
+Node: Color Conversion9362
+Ref: figure:rs-colors-conversion9493
+Node: Reference Manual10910
+Node: Color Predicates11272
+Ref: function;rs-colors;colorp11573
+Node: Abstract Color Classes11648
+Ref: class;rs-colors;color-object11929
+Ref: class;rs-colors;rgb-color-object12058
+Ref: class;rs-colors;hsv-color-object12360
+Ref: class;rs-colors;hsl-color-object12717
+Ref: class;rs-colors;cmy-color-object13065
+Ref: class;rs-colors;cmyk-color-object13372
+Ref: class;rs-colors;generic-color-object13695
+Node: Generic Color Spaces (Color Models)13869
+Node: Generic RGB Color Space14398
+Ref: class;rs-colors;generic-rgb-color14932
+Ref: function;rs-colors;make-generic-rgb-color15137
+Ref: function;rs-colors;make-generic-rgb-color-from-number16178
+Ref: generic-function;rs-colors;generic-rgb-color-coordinates16858
+Node: Generic HSV Color Space17114
+Ref: class;rs-colors;generic-hsv-color17758
+Ref: function;rs-colors;make-generic-hsv-color17963
+Ref: generic-function;rs-colors;generic-hsv-color-coordinates18475
+Node: Generic HSL Color Space18707
+Ref: class;rs-colors;generic-hsl-color19293
+Ref: function;rs-colors;make-generic-hsl-color19498
+Ref: generic-function;rs-colors;generic-hsl-color-coordinates20021
+Node: Generic CMY Color Space20244
+Ref: class;rs-colors;generic-cmy-color20773
+Ref: function;rs-colors;make-generic-cmy-color20978
+Ref: function;rs-colors;make-generic-cmy-color-from-number22045
+Ref: generic-function;rs-colors;generic-cmy-color-coordinates22726
+Node: Generic CMYK Color Space22987
+Ref: class;rs-colors;generic-cmyk-color23501
+Ref: function;rs-colors;make-generic-cmyk-color23710
+Ref: function;rs-colors;make-generic-cmyk-color-from-number25040
+Ref: generic-function;rs-colors;generic-cmyk-color-coordinates25729
+Node: CIE Color Spaces25999
+Node: CIE RGB Color Space26434
+Ref: class;rs-colors;cie-rgb-color26902
+Ref: function;rs-colors;make-cie-rgb-color27066
+Ref: generic-function;rs-colors;cie-rgb-color-coordinates27535
+Ref: CIE RGB Color Space-Footnote-127819
+Node: CIE XYZ Color Space28013
+Ref: class;rs-colors;cie-xyz-color28537
+Ref: function;rs-colors;make-cie-xyz-color28681
+Ref: generic-function;rs-colors;cie-xyz-color-coordinates29008
+Node: CIE xyY Color Space29668
+Ref: class;rs-colors;cie-xyy-color30244
+Ref: function;rs-colors;make-cie-xyy-color30388
+Ref: generic-function;rs-colors;cie-xyy-color-coordinates30708
+Node: CIE L*u*v* Color Space30943
+Ref: class;rs-colors;cie-luv-color31740
+Ref: function;rs-colors;make-cie-luv-color31887
+Ref: generic-function;rs-colors;cie-luv-color-coordinates32190
+Node: CIE L*a*b* Color Space32424
+Ref: class;rs-colors;cie-lab-color33258
+Ref: function;rs-colors;make-cie-lab-color33405
+Ref: generic-function;rs-colors;cie-lab-color-coordinates33708
+Node: CIE L*C*h Color Space33942
+Ref: class;rs-colors;cie-lch-color34882
+Ref: function;rs-colors;make-cie-lch-color35028
+Ref: generic-function;rs-colors;cie-lch-color-coordinates35450
+Node: RGB Color Spaces35663
+Node: sRGB Color Space35885
+Ref: class;rs-colors;srgb-color36059
+Ref: function;rs-colors;make-srgb-color36214
+Ref: function;rs-colors;make-srgb-color-from-number37228
+Ref: generic-function;rs-colors;srgb-color-coordinates37880
+Node: Adobe RGB Color Space38122
+Ref: class;rs-colors;adobe-rgb-color38281
+Ref: function;rs-colors;make-adobe-rgb-color38451
+Ref: function;rs-colors;make-adobe-rgb-color-from-number39495
+Ref: generic-function;rs-colors;adobe-rgb-color-coordinates40167
+Node: Color Properties40419
+Ref: generic-function;rs-colors;color-coordinates40585
+Ref: generic-function;rs-colors;white-point40731
+Node: Color Conversions41000
+Ref: generic-function;common-lisp;change-class41168
+Ref: function;rs-colors;coerce-color41706
+Ref: generic-function;rs-colors;copy-color42171
+Node: Input and Output42369
+Node: Xcms Formats42592
+Ref: function;rs-colors;print-color-xcms-cie-rgb43238
+Ref: function;rs-colors;print-color-xcms-cie-xyz43238
+Ref: function;rs-colors;print-color-xcms-cie-xyy43238
+Ref: function;rs-colors;print-color-xcms-cie-luv43238
+Ref: function;rs-colors;print-color-xcms-cie-lab43238
+Ref: function;rs-colors;print-color-xcms-cie-lch43238
+Ref: function;rs-colors;print-color-xcms-rgbi43238
+Ref: function;rs-colors;print-color-xcms-rgb43238
+Ref: function;rs-colors;color-formatter-xcms-cie-rgb44771
+Ref: function;rs-colors;color-formatter-xcms-cie-xyz44771
+Ref: function;rs-colors;color-formatter-xcms-cie-xyy44771
+Ref: function;rs-colors;color-formatter-xcms-cie-luv44771
+Ref: function;rs-colors;color-formatter-xcms-cie-lab44771
+Ref: function;rs-colors;color-formatter-xcms-cie-lch44771
+Ref: function;rs-colors;color-formatter-xcms-rgbi44771
+Ref: function;rs-colors;color-formatter-xcms-rgb44771
+Node: HTML Format45481
+Ref: function;rs-colors;read-color-html45766
+Ref: function;rs-colors;print-color-html46376
+Ref: constant;rs-colors;color-formatter-html46930
+Node: CSS3 Formats47301
+Ref: function;rs-colors;read-color-css3-rgb47985
+Ref: function;rs-colors;print-color-css3-rgb48638
+Ref: constant;rs-colors;color-formatter-css3-rgb49547
+Node: Miscellaneous49950
+Ref: generic-function;rs-colors;normalize-color50081
+Ref: generic-function;rs-colors;absolute-color50226
+Node: Symbol Index50370
+Node: Concept Index58919
 
 End Tag Table

@@ -39,7 +39,7 @@
   :description "A color data type for Common Lisp."
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
-  :version "20181208.1507"
+  :version "20181222.1549"
   :depends-on (:iterate :alexandria :closer-mop :read-number :rs-colors-internal)
   :serial t
   :components ((:file "rs-colors")
