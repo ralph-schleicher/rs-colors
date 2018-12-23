@@ -201,16 +201,10 @@
 (define-color-reader xcms-rgb (stream :export t)
   (labels ((read-number (stream)
 	     "Read a hexadecimal number."
-	     (let* ((start (or (file-position stream)
-			       (error "Can not determine start position.")))
-		    (value (read-integer stream t nil nil
-					 :unsigned-number t
-					 :radix 16))
-		    (end (or (file-position stream)
-			     (error "Can not determine end position.")))
-		    (length (- end start)))
-	       ;; TODO: We have to evaluate the number of
-	       ;; characters and not the number of bytes.
+	     (multiple-value-bind (value length)
+		 (read-integer stream t nil nil
+			       :unsigned-number t
+			       :radix 16)
 	       (when (> length 4)
 		 (error "Too many hexadecimal digits"))
 	       ;; Scale value, see function ‘XcmsLRGB_RGB_ParseString’
