@@ -21,9 +21,7 @@
 @iftex
 @finalout
 @paragraphindent 1
-@c afourpaper
-@afourlatex
-@c afourwide
+@afourpaper
 @end iftex
 
 @setchapternewpage odd
