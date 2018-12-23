@@ -1886,6 +1886,7 @@ The @var{prefix} part specifies the color space or format and
 @item CIE L*C*h     @tab @code{CIELCh} @tab
 @item Tektronix HVC @tab @code{TekHVC} @tab @bullet{}
 @item generic RGB   @tab @code{RGBi}   @tab @bullet{}
+@item generic RGB   @tab @code{RGB}    @tab @bullet{}
 @end multitable
 
 @noindent
@@ -1925,9 +1926,10 @@ The RGBi and RGB formats are device dependent.  Thus, you can only print
 colors in these formats if the color conversion path to the generic RGB
 color space is unambiguous.
 
-The RGB format prints the color coordinates as hexadecimal numbers if
-all RGB color intensities are multiples of @math{1/255}.  Otherwise, the
-color is printed in RGBi notation.
+The RGB format prints the color coordinates as hexadecimal numbers.
+If all RGB color intensities are multiples of @math{1/255}, it uses
+two digits.  Otherwise, it uses four digits with a precision of
+@math{1/65535}.
 
 @noindent
 Example:
@@ -1983,41 +1985,55 @@ Example:
 @end lisp
 @end defvr
 
-
-@node HTML Format, CSS3 Formats, Xcms Formats, Input and Output
-@subsection HTML Format
-
-A HTML color value is either a hexadecimal number prefixed by a hash
-mark or a keyword.  This section only covers numerical color values.
-
 @c ---------------------------------------------------------------------
-@anchor{function;rs-colors;read-color-html}
-@deffn {Function} {read-color-html} @k{&optional} @w{stream}
-Read a numerical HTML color value, that is a hexadecimal number prefixed
-by a hash mark.
-
-Reading stops at the first non-hexadecimal digit character.  The number
-of hexadecimal digits has to be a multiple of three.
+@anchor{function;rs-colors;read-color-xcms-cie-rgb}
+@anchor{function;rs-colors;read-color-xcms-cie-xyz}
+@anchor{function;rs-colors;read-color-xcms-cie-xyy}
+@anchor{function;rs-colors;read-color-xcms-cie-luv}
+@anchor{function;rs-colors;read-color-xcms-cie-lab}
+@anchor{function;rs-colors;read-color-xcms-cie-lch}
+@anchor{function;rs-colors;read-color-xcms-rgbi}
+@anchor{function;rs-colors;read-color-xcms-rgb}
+@deffn  {Function} {read-color-xcms-cie-rgb} @k{&optional} @w{stream}
+@deffnx {Function} {read-color-xcms-cie-xyz} @k{&optional} @w{stream}
+@deffnx {Function} {read-color-xcms-cie-xyy} @k{&optional} @w{stream}
+@deffnx {Function} {read-color-xcms-cie-luv} @k{&optional} @w{stream}
+@deffnx {Function} {read-color-xcms-cie-lab} @k{&optional} @w{stream}
+@deffnx {Function} {read-color-xcms-cie-lch} @k{&optional} @w{stream}
+@deffnx {Function} {read-color-xcms-rgbi} @k{&optional} @w{stream}
+@deffnx {Function} {read-color-xcms-rgb} @k{&optional} @w{stream}
+Read a color in Xcms format.
 
 @itemize
 @item
-Optional argument @var{stream} is an input stream.  Default is to read
-from @code{*standard-input*}.
+Optional argument @var{stream} is an input stream.
+Default is to read from @code{*standard-input*}.
 @end itemize
 
-Value is a color object in the sRGB color space.
+Value is a color object in the respective color space.
+The RGB format prints the color coordinates as hexadecimal numbers.
+If all RGB color intensities are multiples of @math{1/255}, it uses
+two digits.  Otherwise, it uses four digits with a precision of
+@math{1/65535}.
 
 @noindent
 Example:
 
 @lisp
 @group
-(with-input-from-string (stream "#4E9A06 junk")
-  (read-color-html stream))
+(with-input-from-string (stream "RGB:4e/9a/06 junk")
+  (change-class (read-color-xcms-rgb stream) 'srgb-color))
  @result{} #<SRGB-COLOR (26/85 154/255 2/85)>
 @end group
 @end lisp
 @end deffn
+
+
+@node HTML Format, CSS3 Formats, Xcms Formats, Input and Output
+@subsection HTML Format
+
+A HTML color value is either a hexadecimal number prefixed by a hash
+mark or a keyword.  This section only covers numerical color values.
 
 @c ---------------------------------------------------------------------
 @anchor{function;rs-colors;print-color-html}
@@ -2069,6 +2085,35 @@ Example:
 @end lisp
 @end defvr
 
+@c ---------------------------------------------------------------------
+@anchor{function;rs-colors;read-color-html}
+@deffn {Function} {read-color-html} @k{&optional} @w{stream}
+Read a numerical HTML color value, that is a hexadecimal number prefixed
+by a hash mark.
+
+Reading stops at the first non-hexadecimal digit character.  The number
+of hexadecimal digits has to be a multiple of three.
+
+@itemize
+@item
+Optional argument @var{stream} is an input stream.  Default is to read
+from @code{*standard-input*}.
+@end itemize
+
+Value is a color object in the sRGB color space.
+
+@noindent
+Example:
+
+@lisp
+@group
+(with-input-from-string (stream "#4E9A06 junk")
+  (read-color-html stream))
+ @result{} #<SRGB-COLOR (26/85 154/255 2/85)>
+@end group
+@end lisp
+@end deffn
+
 
 @node CSS3 Formats,  , HTML Format, Input and Output
 @subsection CSS3 Formats
@@ -2094,39 +2139,6 @@ hsl(@var{hue}, @var{saturation}, @var{lightness})
 where @var{hue} is the angle in degree and @var{saturation}
 and @var{lightness} are percentage values in the
 @range{0@dmn{%}, 100@dmn{%}}.
-
-@c ---------------------------------------------------------------------
-@anchor{function;rs-colors;read-color-css3-rgb}
-@deffn {Function} {read-color-css3-rgb} @k{&optional} @w{stream}
-Read a color in CSS3 RGB functional notation.
-
-@itemize
-@item
-Optional argument @var{stream} is an input stream.  Default is to read
-from @code{*standard-input*}.
-@end itemize
-
-Reading stops after the closing parenthesis.
-
-Value is a color object in the sRGB color space.
-
-@noindent
-Example:
-
-@lisp
-@group
-(with-input-from-string (stream "rgb(78, 154, 6) junk")
-  (read-color-css3-rgb stream))
- @result{} #<SRGB-COLOR (26/85 154/255 2/85)>
-@end group
-
-@group
-(with-input-from-string (stream "rgb(30%, 60%, 10%) junk")
-  (read-color-css3-rgb stream))
- @result{} #<SRGB-COLOR (0.3d0 0.6d0 0.1d0)>
-@end group
-@end lisp
-@end deffn
 
 @c ---------------------------------------------------------------------
 @anchor{function;rs-colors;print-color-css3-rgb}
@@ -2187,6 +2199,39 @@ Example:
 @end group
 @end lisp
 @end defvr
+
+@c ---------------------------------------------------------------------
+@anchor{function;rs-colors;read-color-css3-rgb}
+@deffn {Function} {read-color-css3-rgb} @k{&optional} @w{stream}
+Read a color in CSS3 RGB functional notation.
+
+@itemize
+@item
+Optional argument @var{stream} is an input stream.  Default is to read
+from @code{*standard-input*}.
+@end itemize
+
+Reading stops after the closing parenthesis.
+
+Value is a color object in the sRGB color space.
+
+@noindent
+Example:
+
+@lisp
+@group
+(with-input-from-string (stream "rgb(78, 154, 6) junk")
+  (read-color-css3-rgb stream))
+ @result{} #<SRGB-COLOR (26/85 154/255 2/85)>
+@end group
+
+@group
+(with-input-from-string (stream "rgb(30%, 60%, 10%) junk")
+  (read-color-css3-rgb stream))
+ @result{} #<SRGB-COLOR (0.3d0 0.6d0 0.1d0)>
+@end group
+@end lisp
+@end deffn
 
 
 @node Miscellaneous,  , Input and Output, Reference Manual
