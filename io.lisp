@@ -198,6 +198,42 @@
 	      (round (* g 65535))
 	      (round (* b 65535))))))
 
+(define-color-reader xcms-rgb (stream :export t)
+  (labels ((read-number (stream)
+	     "Read a hexadecimal number."
+	     (let* ((start (or (file-position stream)
+			       (error "Can not determine start position.")))
+		    (value (read-integer stream t nil nil
+					 :unsigned-number t
+					 :radix 16))
+		    (end (or (file-position stream)
+			     (error "Can not determine end position.")))
+		    (length (- end start)))
+	       ;; TODO: We have to evaluate the number of
+	       ;; characters and not the number of bytes.
+	       (when (> length 4)
+		 (error "Too many hexadecimal digits"))
+	       ;; Scale value, see function ‘XcmsLRGB_RGB_ParseString’
+	       ;; in file ‘XcmsLRGB.c’.
+	       (/ value (1- (expt 2 (* 4 length)))))))
+    (let (r g b)
+      ;; Read the prefix.
+      (iter (for char :in-vector "RGB")
+	    (unless (char-equal (read-char stream) char)
+	      (error "Invalid Xcms color syntax; expect a ‘~A’ character." char)))
+      (unless (char= (read-char stream) #\:)
+	(error "Invalid Xcms color syntax; expect a ‘:’ character."))
+      ;; Read the color coordinates.
+      (setf r (read-number stream))
+      (unless (char= (read-char stream) #\/)
+	(error "Invalid Xcms color syntax; expect a ‘/’ character."))
+      (setf g (read-number stream))
+      (unless (char= (read-char stream) #\/)
+	(error "Invalid Xcms color syntax; expect a ‘/’ character."))
+      (setf b (read-number stream))
+      ;; Return value.
+      (make-generic-rgb-color r g b))))
+
 (define-color-printer html (color stream :export t)
   (multiple-value-bind (r g b)
       (srgb-color-coordinates color)
