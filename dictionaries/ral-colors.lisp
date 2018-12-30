@@ -172,7 +172,7 @@
 (ral-classic #X6C7C59 RAL-6011 resedagruen resedagreen vertreseda verdereseda resedagroen)
 (ral-classic #X303D3A RAL-6012 schwarzgruen blackgreen vertnoir verdenegruzco verdenerastro zwartgroen)
 (ral-classic #X7D765A RAL-6013 schilfgruen reedgreen vertjonc verdecana verdecanna rietgroen)
-(ral-classic #X474135 RAL-6014 gelboliv yellowolive olivejaune amarillooliva olivagiallastro geelolijfgroen)
+(ral-classic #X474135 RAL-6014 gelboliv yellowolive olivejaune olivaamarillo olivagiallastro geelolijfgroen)
 (ral-classic #X3D3D36 RAL-6015 schwarzoliv blackolive olivenoir olivanegruzco olivanerastro zwartolijfgroen)
 (ral-classic #X00694C RAL-6016 tuerkisgruen turquoisegreen vertturquoise verdeturquesa verdeturchese turkooisgroen)
 (ral-classic #X587F40 RAL-6017 maigruen maygreen vertmai verdemayo verdemaggio meigroen)
