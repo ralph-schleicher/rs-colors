@@ -1,4 +1,4 @@
-;;; rs-colors-tango.asd --- ASDF system definition.
+;;; rs-colors-tango.asd --- Tango desktop project colors.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 

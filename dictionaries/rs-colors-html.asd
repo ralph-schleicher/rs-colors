@@ -1,4 +1,4 @@
-;;; rs-colors-html.asd --- ASDF system definition.
+;;; rs-colors-html.asd --- HTML basic colors.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 

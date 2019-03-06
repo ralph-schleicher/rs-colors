@@ -1,4 +1,4 @@
-;;; rs-colors-x11.asd --- ASDF system definition.
+;;; rs-colors-x11.asd --- X11 color names.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 

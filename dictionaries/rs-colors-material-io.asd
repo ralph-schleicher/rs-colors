@@ -1,4 +1,4 @@
-;;; rs-colors-material-io.asd --- ASDF system definition.
+;;; rs-colors-material-io.asd --- material design color palette.
 
 ;; Copyright (C) 2017 Ralph Schleicher
 

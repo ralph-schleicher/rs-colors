@@ -1,4 +1,4 @@
-;;; rs-colors-ral.asd --- ASDF system definition.
+;;; rs-colors-ral.asd --- RAL Classic color names.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -36,7 +36,7 @@
 (in-package :common-lisp-user)
 
 (asdf:defsystem :rs-colors-ral
-  :description "RAL color names."
+  :description "RAL Classic color names."
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
   :version "1.0"

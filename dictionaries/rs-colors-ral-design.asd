@@ -1,4 +1,4 @@
-;;; rs-colors-ral-design.asd --- ASDF system definition.
+;;; rs-colors-ral-design.asd --- RAL Design color names.
 
 ;; Copyright (C) 2018 Ralph Schleicher
 

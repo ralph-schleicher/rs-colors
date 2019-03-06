@@ -1,4 +1,4 @@
-;;; rs-colors-svg.asd --- ASDF system definition.
+;;; rs-colors-svg.asd --- SVG color names.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
