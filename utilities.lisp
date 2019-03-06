@@ -439,4 +439,22 @@ Second argument 1/FRACTION has to be a positive number."
       (truncate (* number 1/fraction))
     (and (zerop remainder) quotient)))
 
+;;;; Color Dictionaries
+
+(export 'define-color-name)
+(defmacro define-color-name (name value &optional doc)
+  `(progn
+     (export ',name)
+     (defvar ,name ,value
+       ,@(when doc (list doc)))))
+
+(export 'define-color-names)
+(defmacro define-color-names ((name &rest aliases) value &optional doc)
+  `(progn
+     (define-color-name ,name ,value
+       ,@(when doc (list doc)))
+     ,@(mapcar (lambda (alias)
+		 (list* 'define-color-name alias name (when doc (list doc))))
+	       aliases)))
+
 ;;; utilities.lisp ends here
