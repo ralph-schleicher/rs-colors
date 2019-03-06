@@ -61,19 +61,19 @@ You can define your own formats:
 
 There are dictionaries with predefined colors:
 
-     (ql:quickload "html-colors")
+     (ql:quickload "rs-colors-html")
      html-color:silver
       ==> #<SRGB-COLOR (64/85 64/85 64/85)>
 
-     (ql:quickload "svg-colors")
+     (ql:quickload "rs-colors-svg")
      svg-color:tan
       ==> #<SRGB-COLOR (14/17 12/17 28/51)>
 
-     (ql:quickload "tango-colors")
+     (ql:quickload "rs-colors-tango")
      (tango-color:orange :light)
       ==> #<SRGB-COLOR (84/85 35/51 62/255)>
 
-     (ql:quickload "x11-colors")
+     (ql:quickload "rs-colors-x11")
      x11-color:ghost-white
       ==> #<SRGB-COLOR (248/255 248/255 1)>
 
