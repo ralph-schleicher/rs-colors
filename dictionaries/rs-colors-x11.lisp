@@ -1,4 +1,4 @@
-;;; x11-colors.lisp --- X11 color names.
+;;; rs-colors-x11.lisp --- X11 color names.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -805,4 +805,4 @@
 (RGB 144 238 144 light-green
 		 lightgreen)
 
-;;; x11-colors.lisp ends here
+;;; rs-colors-x11.lisp ends here

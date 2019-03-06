@@ -1,4 +1,4 @@
-;;; ral-colors.lisp --- RAL color names.
+;;; rs-colors-ral.lisp --- RAL color names.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -267,4 +267,4 @@
 (ral-classic #X858583 RAL-9022 perlhellgrau pearllightgrey grisclairnacre grisclaroperlado grigiochiaroperlato parelmoerlichtgrijs)
 (ral-classic #X797B7A RAL-9023 perldunkelgrau pearldarkgrey grisfoncenacre grisoscuroperlado grigioscuroperlato parelmoerdonkergrijs)
 
-;;; ral-colors.lisp ends here
+;;; rs-colors-ral.lisp ends here

@@ -1,4 +1,4 @@
-;;; tango-colors.lisp --- Tango desktop project colors.
+;;; rs-colors-tango.lisp --- Tango desktop project colors.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -229,4 +229,4 @@ Value is an RGB color object."
     (:dark
      gray6)))
 
-;;; tango-colors.lisp ends here
+;;; rs-colors-tango.lisp ends here

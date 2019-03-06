@@ -1,4 +1,4 @@
-;;; material-io-colors.lisp --- material design color palette.
+;;; rs-colors-material-io.lisp --- material design color palette.
 
 ;; Copyright (C) 2017 Ralph Schleicher
 
@@ -325,4 +325,4 @@ See <https://material.io/guidelines/style/color.html>."))
 (RGB #000000 black)
 (RGB #FFFFFF white)
 
-;;; material-io-colors.lisp ends here
+;;; rs-colors-material-io.lisp ends here

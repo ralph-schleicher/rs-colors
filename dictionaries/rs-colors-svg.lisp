@@ -1,4 +1,4 @@
-;;; svg-colors.lisp --- SVG color names.
+;;; rs-colors-svg.lisp --- SVG color names.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -199,4 +199,4 @@ and <http://www.w3.org/TR/SVG11/types.html>."))
 (RGB 255 255   0 yellow)
 (RGB 154 205  50 yellowgreen)
 
-;;; svg-colors.lisp ends here
+;;; rs-colors-svg.lisp ends here

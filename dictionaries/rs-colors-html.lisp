@@ -1,4 +1,4 @@
-;;; html-colors.lisp --- HTML basic colors.
+;;; rs-colors-html.lisp --- HTML basic colors.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -70,4 +70,4 @@ See <http://www.w3.org/TR/css3-color/#html4>."))
 (RGB #XFFFFFF white)
 (RGB #XFFFF00 yellow)
 
-;;; html-colors.lisp ends here
+;;; rs-colors-html.lisp ends here

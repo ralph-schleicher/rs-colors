@@ -1,4 +1,4 @@
-;;; ral-design-colors.lisp --- RAL Design color names.
+;;; rs-colors-ral-design.lisp --- RAL Design color names.
 
 ;; Copyright (C) 2018 Ralph Schleicher
 
@@ -1885,4 +1885,4 @@
 (ral-design #XF9DFE5 RAL-360-90-10 tortencreme cake-frosting cakefrosting)
 (ral-design #XF9EAEB RAL-360-93-05 pfeilkrautweiss arrowhead-white arrowheadwhite)
 
-;;; ral-design-colors.lisp ends here
+;;; rs-colors-ral-design.lisp ends here
