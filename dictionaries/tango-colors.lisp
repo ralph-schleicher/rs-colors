@@ -38,7 +38,7 @@
 (defpackage :tango-color
   (:use :common-lisp
 	:rs-colors
-	:rs-colors-dictionary)
+	:rs-colors-internal)
   (:documentation "Tango desktop project colors."))
 
 (in-package :tango-color)

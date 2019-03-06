@@ -38,7 +38,7 @@
 (defpackage :svg-color
   (:use :common-lisp
 	:rs-colors
-	:rs-colors-dictionary)
+	:rs-colors-internal)
   (:shadow #:tan)
   (:documentation "SVG color names.
 

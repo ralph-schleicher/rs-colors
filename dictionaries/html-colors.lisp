@@ -38,7 +38,7 @@
 (defpackage :html-color
   (:use :common-lisp
 	:rs-colors
-	:rs-colors-dictionary)
+	:rs-colors-internal)
   (:documentation "HTML basic colors.
 
 The list of basic color keywords is: aqua, black, blue, fuchsia, gray,

@@ -44,7 +44,7 @@
 (defpackage :ral-design-color
   (:use :common-lisp
 	:rs-colors
-	:rs-colors-dictionary)
+	:rs-colors-internal)
   (:documentation "RAL Design color names."))
 
 (in-package :ral-design-color)

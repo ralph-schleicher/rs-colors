@@ -38,7 +38,7 @@
 (defpackage :material-io-color
   (:use :common-lisp
 	:rs-colors
-	:rs-colors-dictionary)
+	:rs-colors-internal)
   (:documentation "Material design color palette.
 
 See <https://material.io/guidelines/style/color.html>."))
