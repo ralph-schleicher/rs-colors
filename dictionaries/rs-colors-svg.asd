@@ -41,6 +41,6 @@
   :license "Modified BSD License"
   :version "1.0"
   :depends-on (:rs-colors)
-  :components ((:file "svg-colors")))
+  :components ((:file "rs-colors-svg")))
 
 ;;; rs-colors-svg.asd ends here

@@ -41,6 +41,6 @@
   :license "Modified BSD License"
   :version "1.0"
   :depends-on (:rs-colors)
-  :components ((:file "x11-colors")))
+  :components ((:file "rs-colors-x11")))
 
 ;;; rs-colors-x11.asd ends here

@@ -41,6 +41,6 @@
   :license "Modified BSD License"
   :version "1.0"
   :depends-on (:rs-colors)
-  :components ((:file "html-colors")))
+  :components ((:file "rs-colors-html")))
 
 ;;; rs-colors-html.asd ends here

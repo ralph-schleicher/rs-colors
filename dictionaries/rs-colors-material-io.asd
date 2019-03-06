@@ -41,6 +41,6 @@
   :license "Modified BSD License"
   :version "1.0"
   :depends-on (:rs-colors)
-  :components ((:file "material-io-colors")))
+  :components ((:file "rs-colors-material-io")))
 
 ;;; rs-colors-material-io.asd ends here

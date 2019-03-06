@@ -41,6 +41,6 @@
   :license "Modified BSD License"
   :version "1.0"
   :depends-on (:rs-colors)
-  :components ((:file "ral-design-colors")))
+  :components ((:file "rs-colors-ral-design")))
 
 ;;; rs-colors-ral-design.asd ends here

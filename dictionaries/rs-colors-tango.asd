@@ -41,6 +41,6 @@
   :license "Modified BSD License"
   :version "1.0"
   :depends-on (:rs-colors)
-  :components ((:file "tango-colors")))
+  :components ((:file "rs-colors-tango")))
 
 ;;; rs-colors-tango.asd ends here
