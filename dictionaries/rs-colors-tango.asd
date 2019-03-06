@@ -1,6 +1,6 @@
-;;; material-io-colors.asd --- ASDF system definition.
+;;; rs-colors-tango.asd --- ASDF system definition.
 
-;; Copyright (C) 2017 Ralph Schleicher
+;; Copyright (C) 2014 Ralph Schleicher
 
 ;; Redistribution and use in source and binary forms, with or without
 ;; modification, are permitted provided that the following conditions
@@ -35,12 +35,12 @@
 
 (in-package :common-lisp-user)
 
-(asdf:defsystem :material-io-colors
-  :description "Material design color palette."
+(asdf:defsystem :rs-colors-tango
+  :description "Tango desktop project colors."
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
   :version "1.0"
-  :depends-on (:rs-colors-dictionary)
-  :components ((:file "material-io-colors")))
+  :depends-on (:rs-colors)
+  :components ((:file "tango-colors")))
 
-;;; material-io-colors.asd ends here
+;;; rs-colors-tango.asd ends here

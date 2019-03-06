@@ -1,6 +1,6 @@
-;;; svg-colors.asd --- ASDF system definition.
+;;; rs-colors-material-io.asd --- ASDF system definition.
 
-;; Copyright (C) 2014 Ralph Schleicher
+;; Copyright (C) 2017 Ralph Schleicher
 
 ;; Redistribution and use in source and binary forms, with or without
 ;; modification, are permitted provided that the following conditions
@@ -35,12 +35,12 @@
 
 (in-package :common-lisp-user)
 
-(asdf:defsystem :svg-colors
-  :description "SVG color names."
+(asdf:defsystem :rs-colors-material-io
+  :description "Material design color palette."
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
   :version "1.0"
-  :depends-on (:rs-colors-dictionary)
-  :components ((:file "svg-colors")))
+  :depends-on (:rs-colors)
+  :components ((:file "material-io-colors")))
 
-;;; svg-colors.asd ends here
+;;; rs-colors-material-io.asd ends here

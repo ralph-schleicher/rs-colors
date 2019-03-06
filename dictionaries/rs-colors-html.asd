@@ -1,4 +1,4 @@
-;;; tango-colors.asd --- ASDF system definition.
+;;; rs-colors-html.asd --- ASDF system definition.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -35,12 +35,12 @@
 
 (in-package :common-lisp-user)
 
-(asdf:defsystem :tango-colors
-  :description "Tango desktop project colors."
+(asdf:defsystem :rs-colors-html
+  :description "HTML basic colors."
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
   :version "1.0"
-  :depends-on (:rs-colors-dictionary)
-  :components ((:file "tango-colors")))
+  :depends-on (:rs-colors)
+  :components ((:file "html-colors")))
 
-;;; tango-colors.asd ends here
+;;; rs-colors-html.asd ends here

@@ -1,4 +1,4 @@
-;;; ral-colors.asd --- ASDF system definition.
+;;; rs-colors-svg.asd --- ASDF system definition.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -35,12 +35,12 @@
 
 (in-package :common-lisp-user)
 
-(asdf:defsystem :ral-colors
-  :description "RAL color names."
+(asdf:defsystem :rs-colors-svg
+  :description "SVG color names."
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
   :version "1.0"
-  :depends-on (:rs-colors-dictionary)
-  :components ((:file "ral-colors")))
+  :depends-on (:rs-colors)
+  :components ((:file "svg-colors")))
 
-;;; ral-colors.asd ends here
+;;; rs-colors-svg.asd ends here

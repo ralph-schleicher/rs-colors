@@ -1,6 +1,6 @@
-;;; html-colors.asd --- ASDF system definition.
+;;; rs-colors-ral-design.asd --- ASDF system definition.
 
-;; Copyright (C) 2014 Ralph Schleicher
+;; Copyright (C) 2018 Ralph Schleicher
 
 ;; Redistribution and use in source and binary forms, with or without
 ;; modification, are permitted provided that the following conditions
@@ -35,12 +35,12 @@
 
 (in-package :common-lisp-user)
 
-(asdf:defsystem :html-colors
-  :description "HTML basic colors."
+(asdf:defsystem :rs-colors-ral-design
+  :description "RAL Design color names."
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
   :version "1.0"
-  :depends-on (:rs-colors-dictionary)
-  :components ((:file "html-colors")))
+  :depends-on (:rs-colors)
+  :components ((:file "ral-design-colors")))
 
-;;; html-colors.asd ends here
+;;; rs-colors-ral-design.asd ends here

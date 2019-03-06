@@ -1,6 +1,6 @@
-;;; ral-design-colors.asd --- ASDF system definition.
+;;; rs-colors-x11.asd --- ASDF system definition.
 
-;; Copyright (C) 2018 Ralph Schleicher
+;; Copyright (C) 2014 Ralph Schleicher
 
 ;; Redistribution and use in source and binary forms, with or without
 ;; modification, are permitted provided that the following conditions
@@ -35,12 +35,12 @@
 
 (in-package :common-lisp-user)
 
-(asdf:defsystem :ral-design-colors
-  :description "RAL Design color names."
+(asdf:defsystem :rs-colors-x11
+  :description "X11 color names."
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
   :version "1.0"
-  :depends-on (:rs-colors-dictionary)
-  :components ((:file "ral-design-colors")))
+  :depends-on (:rs-colors)
+  :components ((:file "x11-colors")))
 
-;;; ral-design-colors.asd ends here
+;;; rs-colors-x11.asd ends here
