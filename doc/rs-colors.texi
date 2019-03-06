@@ -5,7 +5,7 @@
 @settitle rs-colors
 
 @set EDITION 1 (draft)
-@set UPDATED 2018-12-08
+@set UPDATED 2019-03-06
 
 @include package.texi
 
@@ -265,6 +265,7 @@ That's it.
 * Color Coordinates::
 * White Point::
 * Color Conversion::
+* Color Dictionaries::
 @end menu
 
 
@@ -446,8 +447,8 @@ color coordinates of a color.
 @end group
 @end lisp
 
-A more useful way to get the color coordinates of a color is described
-in @ref{Color Conversion}.
+A more practical way to get the color coordinates of a color is
+described in @ref{Color Conversion}.
 
 
 @node White Point, Color Conversion, Color Coordinates, User's Guide
@@ -458,7 +459,7 @@ the @genericref{rs-colors, white-point} function returns a color object
 of this white point.
 
 
-@node Color Conversion,  , White Point, User's Guide
+@node Color Conversion, Color Dictionaries, White Point, User's Guide
 @section Color Conversion
 
 @float Figure,figure:rs-colors-conversion
@@ -517,6 +518,68 @@ following functions to get them.
 @table @asis
 @item @genericref{rs-colors, srgb-color-coordinates}
 @item @genericref{rs-colors, adobe-rgb-color-coordinates}
+@end table
+
+
+@node Color Dictionaries,  , Color Conversion, User's Guide
+@section Color Dictionaries
+
+The @sc{rs-colors} software distribution provides several packages with
+predefined named colors.  The recommended way to use these packages is
+to load it, for example, with QuickLisp.  Then you should refer to the
+named colors via the package prefix to avoid name clashes.
+
+@lisp
+@group
+;; @r{Load a color dictionary.}
+(ql:quickload :rs-colors-html)
+@end group
+
+@group
+;; @r{Use a named color.}
+(format nil color-formatter-css3-rgb html-color:green)
+ @result{} "rgb(0, 128, 0)"
+@end group
+@end lisp
+
+@noindent
+Below is a list of all package prefixes together with their meaning.
+
+@table @asis
+@item @code{rs-colors-x11}, @code{x11-color}
+X11 color names,
+@samp{@w{(ql:quickload :rs-colors-x11)}}.@*
+See @uref{https://en.wikipedia.org/wiki/X11_color_names}.
+
+@item @code{rs-colors-html}, @code{html-color}
+HTML basic colors,
+@samp{@w{(ql:quickload :rs-colors-html)}}.@*
+See @uref{https://www.w3.org/TR/css3-color/#html4}.
+
+@item @code{rs-colors-svg}, @code{svg-color}
+SVG color names,
+@samp{@w{(ql:quickload :rs-colors-svg)}}.@*
+See @uref{https://www.w3.org/TR/css3-color/#svg-color}.
+
+@item @code{rs-colors-ral}, @code{ral-color}
+RAL Classic color names,
+@samp{@w{(ql:quickload :rs-colors-ral)}}.@*
+See @uref{https://www.ral-farben.de}.
+
+@item @code{rs-colors-ral-design}, @code{ral-design-color}
+RAL Design color names,
+@samp{@w{(ql:quickload :rs-colors-ral-design)}}.@*
+See @uref{https://www.ral-farben.de}.
+
+@item @code{rs-colors-tango}, @code{tango-color}
+Tango desktop project colors,
+@samp{@w{(ql:quickload :rs-colors-tango)}}.@*
+See @uref{http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines}.
+
+@item @code{rs-colors-material-io}, @code{material-io-color}
+Material design color palette,
+@samp{@w{(ql:quickload :rs-colors-material-io)}}.@*
+See @uref{https://material.io/guidelines/style/color.html}.
 @end table
 
 
