@@ -41,13 +41,14 @@
 
 (in-package :common-lisp-user)
 
-(defpackage :ral-color
+(defpackage :rs-colors-ral
+  (:nicknames :ral-color)
   (:use :common-lisp
 	:rs-colors
 	:rs-colors-internal)
   (:documentation "RAL color names."))
 
-(in-package :ral-color)
+(in-package :rs-colors-ral)
 
 (defmacro ral-classic (number name &rest aliases)
   `(define-color-names (,name ,@aliases)

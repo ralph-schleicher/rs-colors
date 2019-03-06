@@ -35,7 +35,8 @@
 
 (in-package :common-lisp-user)
 
-(defpackage :html-color
+(defpackage :rs-colors-html
+  (:nicknames :html-color)
   (:use :common-lisp
 	:rs-colors
 	:rs-colors-internal)
@@ -47,7 +48,7 @@ and yellow.  The color names are case-insensitive.
 
 See <http://www.w3.org/TR/css3-color/#html4>."))
 
-(in-package :html-color)
+(in-package :rs-colors-html)
 
 (defmacro RGB (value name)
   `(define-color-name ,name

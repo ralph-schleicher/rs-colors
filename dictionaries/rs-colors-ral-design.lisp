@@ -41,13 +41,14 @@
 
 (in-package :common-lisp-user)
 
-(defpackage :ral-design-color
+(defpackage :rs-colors-ral-design
+  (:nicknames :ral-design-color)
   (:use :common-lisp
 	:rs-colors
 	:rs-colors-internal)
   (:documentation "RAL Design color names."))
 
-(in-package :ral-design-color)
+(in-package :rs-colors-ral-design)
 
 ;; Color names are of the form ‘RAL-HHH-LL-CC’ where HHH, LL, and CC
 ;; is an approximation of the color's hue, lightness, and chroma in

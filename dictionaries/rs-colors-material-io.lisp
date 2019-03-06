@@ -35,7 +35,8 @@
 
 (in-package :common-lisp-user)
 
-(defpackage :material-io-color
+(defpackage :rs-colors-material-io
+  (:nicknames :material-io-color)
   (:use :common-lisp
 	:rs-colors
 	:rs-colors-internal)
@@ -43,7 +44,7 @@
 
 See <https://material.io/guidelines/style/color.html>."))
 
-(in-package :material-io-color)
+(in-package :rs-colors-material-io)
 
 (defmacro RGB (value name &rest aliases)
   `(define-color-names (,name ,@aliases)
@@ -322,7 +323,7 @@ See <https://material.io/guidelines/style/color.html>."))
 (RGB #X37474F blue-grey-800)
 (RGB #X263238 blue-grey-900)
 
-(RGB #000000 black)
-(RGB #FFFFFF white)
+(RGB #X000000 black)
+(RGB #XFFFFFF white)
 
 ;;; rs-colors-material-io.lisp ends here

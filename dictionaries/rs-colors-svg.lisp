@@ -35,7 +35,8 @@
 
 (in-package :common-lisp-user)
 
-(defpackage :svg-color
+(defpackage :rs-colors-svg
+  (:nicknames :svg-color)
   (:use :common-lisp
 	:rs-colors
 	:rs-colors-internal)
@@ -45,7 +46,7 @@
 See <http://www.w3.org/TR/css3-color/#svg-color>
 and <http://www.w3.org/TR/SVG11/types.html>."))
 
-(in-package :svg-color)
+(in-package :rs-colors-svg)
 
 (defmacro RGB (red green blue name &rest aliases)
   `(define-color-names (,name ,@aliases)

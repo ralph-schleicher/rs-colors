@@ -35,13 +35,14 @@
 
 (in-package :common-lisp-user)
 
-(defpackage :tango-color
+(defpackage :rs-colors-tango
+  (:nicknames :tango-color)
   (:use :common-lisp
 	:rs-colors
 	:rs-colors-internal)
   (:documentation "Tango desktop project colors."))
 
-(in-package :tango-color)
+(in-package :rs-colors-tango)
 
 (defmacro RGB (value name &rest aliases)
   `(define-color-names (,name ,@aliases)

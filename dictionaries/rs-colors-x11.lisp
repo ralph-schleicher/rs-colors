@@ -35,14 +35,15 @@
 
 (in-package :common-lisp-user)
 
-(defpackage :x11-color
+(defpackage :rs-colors-x11
+  (:nicknames :x11-color)
   (:use :common-lisp
 	:rs-colors
 	:rs-colors-internal)
   (:shadow #:tan)
   (:documentation "X11 color names."))
 
-(in-package :x11-color)
+(in-package :rs-colors-x11)
 
 (defmacro RGB (red green blue name &rest aliases)
   `(define-color-names (,name ,@aliases)
