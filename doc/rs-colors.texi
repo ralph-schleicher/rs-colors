@@ -5,7 +5,7 @@
 @settitle rs-colors
 
 @set EDITION 1 (draft)
-@set UPDATED 2019-03-06
+@set UPDATED 2019-03-07
 
 @include package.texi
 
@@ -594,6 +594,7 @@ See @uref{https://material.io/guidelines/style/color.html}.
 * RGB Color Spaces::
 * Color Properties::
 * Color Conversions::
+* Color Difference::
 * Input and Output::
 * Miscellaneous::
 @end menu
@@ -1848,7 +1849,7 @@ white point is not defined or if multiple white points exist.
 @end deffn
 
 
-@node Color Conversions, Input and Output, Color Properties, Reference Manual
+@node Color Conversions, Color Difference, Color Properties, Reference Manual
 @section Color Conversions
 
 @c ---------------------------------------------------------------------
@@ -1914,7 +1915,48 @@ Value is a color object with the same color coordinates as @var{color}.
 @end deffn
 
 
-@node Input and Output, Miscellaneous, Color Conversions, Reference Manual
+@node Color Difference, Input and Output, Color Conversions, Reference Manual
+@section Color Difference
+
+@c ---------------------------------------------------------------------
+@anchor{function;rs-colors;cie76}
+@deffn {Function} {cie76} @w{first-color} @w{second-color}
+Calculate the CIE76 color difference between two colors.
+
+Value is the Euclidean distance between the two colors in the
+CIE L*a*b* color space.  The CIE76 color difference is symmetric,
+i.e. CIE76(a,b) is equal to CIE76(b,a).
+@end deffn
+
+@c ---------------------------------------------------------------------
+@anchor{function;rs-colors;cie94}
+@deffn {Function} {cie94} @w{reference} @w{other} @k{&optional} @w{textile} @w{kL} @w{kC} @w{kH}
+Calculate the CIE94 color difference between two colors.
+
+@itemize
+@item
+First argument @var{reference} is the reference color.
+
+@item
+Second argument @var{other} is the other color.
+
+@item
+If optional third argument @var{textile} is non-null, use parameters for
+calculating the color difference for textiles.  Default is to calculate
+the color difference for graphic arts.
+
+@item
+Optional fourth to sixth argument @var{kL}, @var{kC}, and @var{kH} are
+the weighting factors for differences in lightness, chroma, and hue
+respectively.
+@end itemize
+
+The CIE94 color difference is asymmetric, i.e. CIE94(a,b) is not equal
+to CIE94(b,a).
+@end deffn
+
+
+@node Input and Output, Miscellaneous, Color Difference, Reference Manual
 @section Input and Output
 
 @menu
