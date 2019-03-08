@@ -1930,7 +1930,7 @@ i.e. CIE76(a,b) is equal to CIE76(b,a).
 
 @c ---------------------------------------------------------------------
 @anchor{function;rs-colors;cie94}
-@deffn {Function} {cie94} @w{reference} @w{other} @k{&optional} @w{textile} @w{kL} @w{kC} @w{kH}
+@deffn {Function} {cie94} @w{reference} @w{other} @k{&optional} @w{textile} @w{lightness} @w{chroma} @w{hue}
 Calculate the CIE94 color difference between two colors.
 
 @itemize
@@ -1946,9 +1946,11 @@ calculating the color difference for textiles.  Default is to calculate
 the color difference for graphic arts.
 
 @item
-Optional fourth to sixth argument @var{kL}, @var{kC}, and @var{kH} are
-the weighting factors for differences in lightness, chroma, and hue
-respectively.
+Optional fourth to sixth argument @var{lightness}, @var{chroma}, and
+@var{HUE} are the weighting factors for differences in lightness,
+chroma, and hue respectively.  Higher value means less weight.  Default
+is one for all weighting factors (if @var{textile} is true, the default
+for @var{lightness} is two).
 @end itemize
 
 The CIE94 color difference is asymmetric, i.e. CIE94(a,b) is not equal
