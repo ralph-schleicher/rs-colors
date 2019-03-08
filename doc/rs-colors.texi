@@ -1456,9 +1456,17 @@ Color coordinates are lightness and two chromaticity coordinates.
 Lightness @var{L*} is in the @range{0, 100}.  However, values
 greater than@tie{}@math{100} are accepted, too.  The two chromaticity
 coordinates @var{u*} and @var{v*} are usually in the @range{-100, +100}.
+
 CIE L*u*v* color coordinates are always relative to a white point.  This
 is either the white point of the color space you are converting from or
 CIE standard illuminant D50.
+
+@c ---------------------------------------------------------------------
+@anchor{variable;rs-colors;*cie-luv-default-white-point*}
+@defvr {Variable} {*cie-luv-default-white-point*}
+The default white point for colors in the CIE L*u*v* color space.
+Default value is the CIE 1931 D50 standard illuminant.
+@end defvr
 
 @c ---------------------------------------------------------------------
 @anchor{class;rs-colors;cie-luv-color}
@@ -1485,6 +1493,10 @@ Second argument @var{u*} is the first chromaticity coordinate.
 
 @item
 Third argument @var{v*} is the second chromaticity coordinate.
+
+@item
+Optional fourth argument @var{white-point} is the white point.  Default
+is the value of @code{*cie-luv-default-white-point*}.
 @end itemize
 @end deffn
 
@@ -1513,10 +1525,18 @@ Color coordinates are lightness and two chromaticity coordinates.
 Lightness @var{L*} is in the @range{0, 100}.  However, values
 greater than@tie{}@math{100} are accepted, too.  The two chromaticity
 coordinates @var{a*} and @var{b*} are usually in the @range{-250, +250}
-and from@tie{}@math{-100} to@tie{}@math{+100} respectively.  CIE L*a*b* color
-coordinates are always relative to a white point.  This is either the
-white point of the color space you are converting from or CIE standard
-illuminant D50.
+and from@tie{}@math{-100} to@tie{}@math{+100} respectively.
+
+CIE L*a*b* color coordinates are always relative to a white point.  This
+is either the white point of the color space you are converting from or
+CIE standard illuminant D50.
+
+@c ---------------------------------------------------------------------
+@anchor{variable;rs-colors;*cie-lab-default-white-point*}
+@defvr {Variable} {*cie-lab-default-white-point*}
+The default white point for colors in the CIE L*a*b* color space.
+Default value is the CIE 1931 D50 standard illuminant.
+@end defvr
 
 @c ---------------------------------------------------------------------
 @anchor{class;rs-colors;cie-lab-color}
@@ -1543,6 +1563,10 @@ Second argument @var{a*} is the first chromaticity coordinate.
 
 @item
 Third argument @var{b*} is the second chromaticity coordinate.
+
+@item
+Optional fourth argument @var{white-point} is the white point.  Default
+is the value of @code{*cie-lab-default-white-point*}.
 @end itemize
 @end deffn
 
@@ -1582,6 +1606,13 @@ either the white point of the color space you are converting from or CIE
 standard illuminant D50.
 
 @c ---------------------------------------------------------------------
+@anchor{variable;rs-colors;*cie-lch-default-white-point*}
+@defvr {Variable} {*cie-lch-default-white-point*}
+The default white point for colors in the CIE L*C*h* color space.
+Default value is the CIE 1931 D50 standard illuminant.
+@end defvr
+
+@c ---------------------------------------------------------------------
 @anchor{class;rs-colors;cie-lch-color}
 @deftp {Class} {cie-lch-color}
 Color class for the CIE L*C*h color space.
@@ -1606,6 +1637,10 @@ Second argument @var{C*} is the chroma.
 
 @item
 Third argument @var{h} is the hue.
+
+@item
+Optional fourth argument @var{white-point} is the white point.  Default
+is the value of @code{*cie-lch-default-white-point*}.
 @end itemize
 
 Arguments @var{L*} and @var{C*} have to be non-negative real numbers.
