@@ -2246,8 +2246,10 @@ and @var{lightness} are percentage values in the
 
 @c ---------------------------------------------------------------------
 @anchor{function;rs-colors;print-color-css3-rgb}
-@deffn {Function} {print-color-css3-rgb} color @k{&optional} stream
-Print a color in CSS3 RGB functional notation.
+@anchor{function;rs-colors;print-color-css3-hsl}
+@deffn  {Function} {print-color-css3-rgb} color @k{&optional} stream
+@deffnx {Function} {print-color-css3-hsl} color @k{&optional} stream
+Print a color in CSS3 functional notation.
 
 @itemize
 @item
@@ -2286,8 +2288,10 @@ Example:
 
 @c ---------------------------------------------------------------------
 @anchor{constant;rs-colors;color-formatter-css3-rgb}
-@defvr {Constant} {color-formatter-css3-rgb}
-A format function for printing a color in CSS3 RGB functional notation.
+@anchor{constant;rs-colors;color-formatter-css3-hsl}
+@defvr  {Constant} {color-formatter-css3-rgb}
+@defvrx {Constant} {color-formatter-css3-hsl}
+A format function for printing a color in CSS3 functional notation.
 
 Value is a function which has a behavior equivalent to a function
 returned by the @code{formatter} macro.
@@ -2306,8 +2310,10 @@ Example:
 
 @c ---------------------------------------------------------------------
 @anchor{function;rs-colors;read-color-css3-rgb}
-@deffn {Function} {read-color-css3-rgb} @k{&optional} @w{stream}
-Read a color in CSS3 RGB functional notation.
+@anchor{function;rs-colors;read-color-css3-hsl}
+@deffn  {Function} {read-color-css3-rgb} @k{&optional} @w{stream}
+@deffnx {Function} {read-color-css3-hsl} @k{&optional} @w{stream}
+Read a color in CSS3 functional notation.
 
 @itemize
 @item
@@ -2335,6 +2341,21 @@ Example:
  @result{} #<SRGB-COLOR (0.3d0 0.6d0 0.1d0)>
 @end group
 @end lisp
+@end deffn
+
+@c ---------------------------------------------------------------------
+@anchor{function;rs-colors;read-color-css3}
+@deffn {Function} {read-color-css3} @k{&optional} @w{stream}
+Read a CSS3 color value, i.e. either a numerical HTML color
+definition or a RGB value or HSL value in functional notation.
+
+@itemize
+@item
+Optional argument @var{stream} is an input stream.  Default is to read
+from @code{*standard-input*}.
+@end itemize
+
+Value is a color object in the sRGB color space.
 @end deffn
 
 
