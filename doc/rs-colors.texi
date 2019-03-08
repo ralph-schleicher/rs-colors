@@ -94,10 +94,6 @@ Please report any errors in this manual to @email{@value{ADDRESS}}.
 @chapheading References
 
 @table @asis
-@anchor {ref;HTML}
-@item [HTML]
-@w{@uref{http://www.w3.org/TR/1999/REC-html401-19991224}}
-
 @anchor {ref;sRGB}
 @item [sRGB]
 @w{@uref{http://www.w3.org/Graphics/Color/sRGB.html}}@*
@@ -107,6 +103,19 @@ Please report any errors in this manual to @email{@value{ADDRESS}}.
 @item [Adobe RGB]
 Adobe RGB (1998) Color Image Encoding, Version 2005-05@*
 @w{@uref{http://www.color.org/chardata/rgb/adobergb.xalter}}
+
+@anchor {ref;Xcms}
+@item [Xcms]
+Valerie Quercia, Tim O'Reilly: X Window System User's Guide, for X11
+Release 5
+
+@anchor {ref;HTML}
+@item [HTML]
+@w{@uref{http://www.w3.org/TR/1999/REC-html401-19991224}}
+
+@anchor {ref;CSS3}
+@item [CSS3]
+@w{@uref{https://www.w3.org/TR/css-color-3}}
 @end table
 
 
