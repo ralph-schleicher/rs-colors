@@ -50,7 +50,7 @@ i.e. CIE76(a,b) = CIE76(b,a)."
     (hypot3 (- L2 L1) (- a2 a1) (- b2 b1))))
 
 (export 'cie94)
-(defun cie94 (reference other &optional textile (kL (if textile 2 1)) (kC 1) (kH 1))
+(defun cie94 (reference other &optional textile (lightness (if textile 2 1)) (chroma 1) (hue 1))
   "Calculate the CIE94 color difference between two colors.
 
 First argument REFERENCE is the reference color.
@@ -58,13 +58,16 @@ Second argument OTHER is the other color.
 If optional third argument TEXTILE is non-null, use parameters
  for calculating the color difference for textiles.  Default is
  to calculate the color difference for graphic arts.
-Optional fourth to sixth argument KL, KC, and KH are the weighting
- factors for differences in lightness, chroma, and hue respectively.
+Optional fourth to sixth argument LIGHTNESS, CHROMA, and HUE are
+ the weighting factors for differences in lightness, chroma, and
+ hue respectively.  Higher value means less weight.  Default is
+ one for all weighting factors (if TEXTILE is true, the default
+ for LIGHTNESS is two).
 
 The CIE94 color difference is asymmetric, i.e. CIE94(a,b) ≠ CIE94(b,a)."
-  (check-type kL alexandria:positive-real)
-  (check-type kC alexandria:positive-real)
-  (check-type kH alexandria:positive-real)
+  (check-type lightness alexandria:positive-real)
+  (check-type chroma alexandria:positive-real)
+  (check-type hue alexandria:positive-real)
   ;; Get L*a*b* color space coordinates.
   (let (L1 a1 b1 L2 a2 b2)
     (multiple-value-setq (L1 a1 b1)
@@ -82,8 +85,8 @@ The CIE94 color difference is asymmetric, i.e. CIE94(a,b) ≠ CIE94(b,a)."
 	  (if (not textile)
 	      (values 0.045D0 0.015D0)
 	    (values 0.048D0 0.014D0))
-	(hypot3 (/ dL kL)
-		(/ dC kC (1+ (* K1 C1)))
-		(/ dH kH (1+ (* K2 C1))))))))
+	(hypot3 (/ dL lightness)
+		(/ dC chroma (1+ (* K1 C1)))
+		(/ dH hue (1+ (* K2 C1))))))))
 
 ;;; color-difference.lisp ends here
