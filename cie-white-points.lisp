@@ -37,8 +37,10 @@
 
 ;; See <http://en.wikipedia.org/wiki/Standard_illuminant>.
 (macrolet ((define-white-point (name (x y) &optional doc)
-	     `(defconst ,name (make-cie-xyy-color ,x ,y 1)
-		,@(when doc (list doc)))))
+	     `(progn
+		(export (quote ,name))
+		(defconst ,name (make-cie-xyy-color ,x ,y 1)
+		  ,@(when doc (list doc))))))
   (define-white-point CIE-1931-A   (0.44757 0.40745))
   (define-white-point CIE-1931-B   (0.34842 0.35161))
   (define-white-point CIE-1931-C   (0.31006 0.31616))
