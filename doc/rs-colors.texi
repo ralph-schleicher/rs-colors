@@ -5,7 +5,7 @@
 @settitle rs-colors
 
 @set EDITION 1 (draft)
-@set UPDATED 2019-03-07
+@set UPDATED 2019-03-10
 
 @include package.texi
 
@@ -1205,6 +1205,7 @@ device independent.
 * CIE L*u*v* Color Space::
 * CIE L*a*b* Color Space::
 * CIE L*C*h Color Space::
+* CIE Standard Illuminants::
 @end menu
 
 
@@ -1584,7 +1585,7 @@ Values are the lightness and the two chromaticity coordinates.
 @end deffn
 
 
-@node CIE L*C*h Color Space,  , CIE L*a*b* Color Space, CIE Color Spaces
+@node CIE L*C*h Color Space, CIE Standard Illuminants, CIE L*a*b* Color Space, CIE Color Spaces
 @subsection CIE L*C*h Color Space
 
 The CIE L*C*h color space is the transformation of the CIE L*a*b* color
@@ -1660,6 +1661,58 @@ Argument @var{color} is a color object.
 
 Values are the lightness, chroma, and hue.
 @end deffn
+
+
+@node CIE Standard Illuminants,  , CIE L*C*h Color Space, CIE Color Spaces
+@subsection CIE Standard Illuminants
+
+@defvr  {Constant} CIE-1931-A
+@defvrx {Constant} CIE-1931-B
+@defvrx {Constant} CIE-1931-C
+@defvrx {Constant} CIE-1931-D50
+@defvrx {Constant} CIE-1931-D55
+@defvrx {Constant} CIE-1931-D65
+@defvrx {Constant} CIE-1931-D75
+@defvrx {Constant} CIE-1931-E
+@defvrx {Constant} CIE-1931-F1
+@defvrx {Constant} CIE-1931-F2
+@defvrx {Constant} CIE-1931-F3
+@defvrx {Constant} CIE-1931-F4
+@defvrx {Constant} CIE-1931-F5
+@defvrx {Constant} CIE-1931-F6
+@defvrx {Constant} CIE-1931-F7
+@defvrx {Constant} CIE-1931-F8
+@defvrx {Constant} CIE-1931-F9
+@defvrx {Constant} CIE-1931-F10
+@defvrx {Constant} CIE-1931-F11
+@defvrx {Constant} CIE-1931-F12
+White points of the CIE standard illuminants for a 2@textdegree{} field
+of view (2@textdegree{} standard observer).
+@end defvr
+
+@defvr  {Constant} CIE-1964-A
+@defvrx {Constant} CIE-1964-B
+@defvrx {Constant} CIE-1964-C
+@defvrx {Constant} CIE-1964-D50
+@defvrx {Constant} CIE-1964-D55
+@defvrx {Constant} CIE-1964-D65
+@defvrx {Constant} CIE-1964-D75
+@defvrx {Constant} CIE-1964-E
+@defvrx {Constant} CIE-1964-F1
+@defvrx {Constant} CIE-1964-F2
+@defvrx {Constant} CIE-1964-F3
+@defvrx {Constant} CIE-1964-F4
+@defvrx {Constant} CIE-1964-F5
+@defvrx {Constant} CIE-1964-F6
+@defvrx {Constant} CIE-1964-F7
+@defvrx {Constant} CIE-1964-F8
+@defvrx {Constant} CIE-1964-F9
+@defvrx {Constant} CIE-1964-F10
+@defvrx {Constant} CIE-1964-F11
+@defvrx {Constant} CIE-1964-F12
+White points of the CIE standard illuminants for a 10@textdegree{} field
+of view (10@textdegree{} standard observer).
+@end defvr
 
 
 @node RGB Color Spaces, Color Properties, CIE Color Spaces, Reference Manual
