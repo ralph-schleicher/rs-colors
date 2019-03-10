@@ -1666,6 +1666,27 @@ Values are the lightness, chroma, and hue.
 @node CIE Standard Illuminants,  , CIE L*C*h Color Space, CIE Color Spaces
 @subsection CIE Standard Illuminants
 
+@c ---------------------------------------------------------------------
+@anchor{constant;rs-colors;CIE-1931-A}
+@anchor{constant;rs-colors;CIE-1931-B}
+@anchor{constant;rs-colors;CIE-1931-C}
+@anchor{constant;rs-colors;CIE-1931-D50}
+@anchor{constant;rs-colors;CIE-1931-D55}
+@anchor{constant;rs-colors;CIE-1931-D65}
+@anchor{constant;rs-colors;CIE-1931-D75}
+@anchor{constant;rs-colors;CIE-1931-E}
+@anchor{constant;rs-colors;CIE-1931-F1}
+@anchor{constant;rs-colors;CIE-1931-F2}
+@anchor{constant;rs-colors;CIE-1931-F3}
+@anchor{constant;rs-colors;CIE-1931-F4}
+@anchor{constant;rs-colors;CIE-1931-F5}
+@anchor{constant;rs-colors;CIE-1931-F6}
+@anchor{constant;rs-colors;CIE-1931-F7}
+@anchor{constant;rs-colors;CIE-1931-F8}
+@anchor{constant;rs-colors;CIE-1931-F9}
+@anchor{constant;rs-colors;CIE-1931-F10}
+@anchor{constant;rs-colors;CIE-1931-F11}
+@anchor{constant;rs-colors;CIE-1931-F12}
 @defvr  {Constant} CIE-1931-A
 @defvrx {Constant} CIE-1931-B
 @defvrx {Constant} CIE-1931-C
@@ -1690,6 +1711,27 @@ White points of the CIE standard illuminants for a 2@textdegree{} field
 of view (2@textdegree{} standard observer).
 @end defvr
 
+@c ---------------------------------------------------------------------
+@anchor{constant;rs-colors;CIE-1964-A}
+@anchor{constant;rs-colors;CIE-1964-B}
+@anchor{constant;rs-colors;CIE-1964-C}
+@anchor{constant;rs-colors;CIE-1964-D50}
+@anchor{constant;rs-colors;CIE-1964-D55}
+@anchor{constant;rs-colors;CIE-1964-D65}
+@anchor{constant;rs-colors;CIE-1964-D75}
+@anchor{constant;rs-colors;CIE-1964-E}
+@anchor{constant;rs-colors;CIE-1964-F1}
+@anchor{constant;rs-colors;CIE-1964-F2}
+@anchor{constant;rs-colors;CIE-1964-F3}
+@anchor{constant;rs-colors;CIE-1964-F4}
+@anchor{constant;rs-colors;CIE-1964-F5}
+@anchor{constant;rs-colors;CIE-1964-F6}
+@anchor{constant;rs-colors;CIE-1964-F7}
+@anchor{constant;rs-colors;CIE-1964-F8}
+@anchor{constant;rs-colors;CIE-1964-F9}
+@anchor{constant;rs-colors;CIE-1964-F10}
+@anchor{constant;rs-colors;CIE-1964-F11}
+@anchor{constant;rs-colors;CIE-1964-F12}
 @defvr  {Constant} CIE-1964-A
 @defvrx {Constant} CIE-1964-B
 @defvrx {Constant} CIE-1964-C
