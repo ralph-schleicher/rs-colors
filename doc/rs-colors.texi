@@ -88,6 +88,7 @@ Please report any errors in this manual to @email{@value{ADDRESS}}.
 * User's Guide::
 * Reference Manual::
 * Symbol Index::
+* Concept Index::
 @end menu
 
 
@@ -135,11 +136,15 @@ The subtractive CMY color model with the primary colors cyan, magenta,
 and yellow.
 @end itemize
 
+@cindex RGB color model
+@cindex color model, RGB
 The RGB color model is the usual color model for computer displays.  If
 the color intensity of all primary colors is zero, that means ``off'',
 the display appears ``black''.  Otherwise, if the color intensity of all
 primary colors is one, that means ``on'', the display appears ``white''.
 
+@cindex CMY color model
+@cindex color model, CMY
 The CMY color model is the usual color model for paper printers.  If the
 color intensity of all primary colors is zero, that means ``off'', the
 paper appears ``white''.  Otherwise, if the color intensity of all
@@ -184,6 +189,8 @@ B &= 1 - Y\cr
 @end tex
 @end iftex
 
+@cindex CMYK color model
+@cindex color model, CMYK
 The CMYK color model is an extension of the CMY color model to save ink.
 Theoretically, a CMY tuple @w{@math{(C, M, Y)}} and a CMYK quadruple
 @w{@math{(c, m, y, k)}} can be related to each other via the equations
@@ -281,6 +288,8 @@ That's it.
 @node The Color Data Type, Creating Color Objects, User's Guide, User's Guide
 @section The Color Data Type
 
+@cindex color data type
+@cindex data type, color
 First of all, there is not @emph{one} color data type.  Instead, every
 color is an instance of a particular color class.  All color classes are
 sub-classes of the abstract @classref{rs-colors, color-object} class.
@@ -288,6 +297,7 @@ The built-in color classes are listed in the following tables.
 
 @heading Color Classes for Color Models
 
+@cindex color model
 @table @asis
 @item @classref{rs-colors, generic-rgb-color}
 Mathematical description of the RGB color model.
@@ -309,6 +319,8 @@ Mathematical description of the CMYK color model.
 
 @heading Color Classes for Absolute Color Spaces
 
+@cindex absolute color space
+@cindex color space, absolute
 @table @asis
 @item @classref{rs-colors, cie-rgb-color}
 The CIE RGB color space.
@@ -331,6 +343,8 @@ The CIE L*C*h color space.
 
 @heading Color Classes for Device Dependent Color Spaces
 
+@cindex device dependent color space
+@cindex color space, device dependent
 @table @asis
 @item @classref{rs-colors, srgb-color}
 The sRGB color space.
@@ -343,6 +357,8 @@ The Adobe RGB color space.
 @node Creating Color Objects, Color Coordinates, The Color Data Type, User's Guide
 @section Creating Color Objects
 
+@cindex making colors
+@cindex creating colors
 Colors are instantiated by calling a constructor function.  Constructor
 arguments are usually the color coordinates in the respective color
 space.  To create, for example, a color in the sRGB color space, say
@@ -442,6 +458,8 @@ Create an Adobe RGB color object.
 @node Color Coordinates, White Point, Creating Color Objects, User's Guide
 @section Color Coordinates
 
+@cindex color coordinates
+@cindex coordinates, color
 Use the @genericref{rs-colors, color-coordinates} function to get the
 color coordinates of a color.
 
@@ -463,6 +481,7 @@ described in @ref{Color Conversion}.
 @node White Point, Color Conversion, Color Coordinates, User's Guide
 @section White Point
 
+@cindex white point
 A device dependent color space usually has a @dfn{white point}.  If so,
 the @genericref{rs-colors, white-point} function returns a color object
 of this white point.
@@ -475,6 +494,8 @@ of this white point.
 @image{rs-colors-conversion,4in,}
 @end float
 
+@cindex color conversion
+@cindex converting colors
 @ref{figure:rs-colors-conversion} depicts the implemented color
 conversions.  The nice thing about @sc{rs-colors} is that all these
 color conversions can be performed with the @code{change-class}
@@ -504,6 +525,8 @@ If you wish to keep the original color object unchanged, use the
 The @code{coerce-color} function only creates a copy of the color if the
 color object is not already of the correct type.
 
+@cindex color coordinates
+@cindex coordinates, color
 If you only need the color coordinates, you can call one of the
 following functions to get them.
 
@@ -533,6 +556,8 @@ following functions to get them.
 @node Color Dictionaries,  , Color Conversion, User's Guide
 @section Color Dictionaries
 
+@cindex color names
+@cindex named colors
 The @sc{rs-colors} software distribution provides several packages with
 predefined named colors.  The recommended way to use these packages is
 to load it, for example, with QuickLisp.  Then you should refer to the
@@ -731,6 +756,7 @@ Color class for the mathematical model of a color space.
 @node Generic Color Spaces (Color Models), CIE Color Spaces, Abstract Color Classes, Reference Manual
 @section Generic Color Spaces (Color Models)
 
+@cindex color model
 A generic color space implements a color model.  There are two major
 color models: the additive RGB color model and the subtractive CMY color
 model.
@@ -747,6 +773,8 @@ model.
 @node Generic RGB Color Space, Generic HSV Color Space, Generic Color Spaces (Color Models), Generic Color Spaces (Color Models)
 @subsection Generic RGB Color Space
 
+@cindex RGB color model
+@cindex color model, RGB
 The generic RGB color space is a mathematical description of the RGB
 color model.  It is not associated with a particular device.
 
@@ -852,6 +880,10 @@ primary.
 @node Generic HSV Color Space, Generic HSL Color Space, Generic RGB Color Space, Generic Color Spaces (Color Models)
 @subsection Generic HSV Color Space
 
+@cindex HSV color space
+@cindex color space, HSV
+@cindex HSB color space
+@cindex color space, HSB
 The HSV color space is a different representation of the RGB color
 model.  The HSV color space is also called HSB color space.  The generic
 HSV color space is not associated with a particular device.
@@ -912,6 +944,8 @@ Values are the hue, saturation, and value (brightness).
 @node Generic HSL Color Space, Generic CMY Color Space, Generic HSV Color Space, Generic Color Spaces (Color Models)
 @subsection Generic HSL Color Space
 
+@cindex HSL color space
+@cindex color space, HSL
 The HSL color space is a different representation of the RGB color
 model.  The generic HSL color space is not associated with a particular
 device.
@@ -972,6 +1006,8 @@ Values are the hue, saturation, and lightness.
 @node Generic CMY Color Space, Generic CMYK Color Space, Generic HSL Color Space, Generic Color Spaces (Color Models)
 @subsection Generic CMY Color Space
 
+@cindex CMY color model
+@cindex color model, CMY
 The generic CMY color space is a mathematical description of the CMY
 color model.  It is not associated with a particular device.
 
@@ -1080,6 +1116,8 @@ primary.
 @node Generic CMYK Color Space,  , Generic CMY Color Space, Generic Color Spaces (Color Models)
 @subsection Generic CMYK Color Space
 
+@cindex CMYK color model
+@cindex color model, CMYK
 The generic CMYK color space is a mathematical description of the CMYK
 color model.  It is not associated with a particular device.
 
@@ -1212,6 +1250,8 @@ device independent.
 @node CIE RGB Color Space, CIE XYZ Color Space, CIE Color Spaces, CIE Color Spaces
 @subsection CIE RGB Color Space
 
+@cindex CIE RGB color space
+@cindex color space, CIE RGB
 The CIE RGB color space is the origin of all CIE color spaces.
 
 Color coordinates are the normalized intensities of the red, green, and
@@ -1280,6 +1320,8 @@ primary.
 @node CIE XYZ Color Space, CIE xyY Color Space, CIE RGB Color Space, CIE Color Spaces
 @subsection CIE XYZ Color Space
 
+@cindex CIE XYZ color space
+@cindex color space, CIE XYZ
 The CIE XYZ color space is a linear transformation of the CIE RGB color
 space.  The CIE XYZ color space covers all colors an average person can
 experience.  Many other color spaces are defined against the CIE XYZ
@@ -1346,6 +1388,8 @@ color coordinates to normalized color coordinates and vice versa.
 @node CIE xyY Color Space, CIE L*u*v* Color Space, CIE XYZ Color Space, CIE Color Spaces
 @subsection CIE xyY Color Space
 
+@cindex CIE xyY color space
+@cindex color space, CIE xyY
 The CIE xyY color space uses the @math{x} and @math{y} chromaticity
 coordinates of the CIE XYZ color space.  That is,
 
@@ -1449,6 +1493,8 @@ luminance.
 @node CIE L*u*v* Color Space, CIE L*a*b* Color Space, CIE xyY Color Space, CIE Color Spaces
 @subsection CIE L*u*v* Color Space
 
+@cindex CIE L*u*v* color space
+@cindex color space, CIE L*u*v*
 The CIE L*u*v* color space is a non-linear transformation of the CIE XYZ
 color space.  The CIE L*u*v* color space is more perceptually uniform
 than the CIE XYZ color space.
@@ -1518,6 +1564,8 @@ Values are the lightness and the two chromaticity coordinates.
 @node CIE L*a*b* Color Space, CIE L*C*h Color Space, CIE L*u*v* Color Space, CIE Color Spaces
 @subsection CIE L*a*b* Color Space
 
+@cindex CIE L*a*b* color space
+@cindex color space, CIE L*a*b*
 The CIE L*a*b* color space is a non-linear transformation of the CIE XYZ
 color space.  The CIE L*a*b* color space is more perceptually uniform
 than the CIE XYZ color space.
@@ -1588,6 +1636,8 @@ Values are the lightness and the two chromaticity coordinates.
 @node CIE L*C*h Color Space, CIE Standard Illuminants, CIE L*a*b* Color Space, CIE Color Spaces
 @subsection CIE L*C*h Color Space
 
+@cindex CIE L*C*h color space
+@cindex color space, CIE L*C*h
 The CIE L*C*h color space is the transformation of the CIE L*a*b* color
 space from a Cartesian coordinate system into a cylindrical coordinate
 system.
@@ -1666,6 +1716,7 @@ Values are the lightness, chroma, and hue.
 @node CIE Standard Illuminants,  , CIE L*C*h Color Space, CIE Color Spaces
 @subsection CIE Standard Illuminants
 
+@cindex white point, CIE standard illuminant
 @c ---------------------------------------------------------------------
 @anchor{constant;rs-colors;CIE-1931-A}
 @anchor{constant;rs-colors;CIE-1931-B}
@@ -1707,6 +1758,7 @@ Values are the lightness, chroma, and hue.
 @defvrx {Constant} CIE-1931-F10
 @defvrx {Constant} CIE-1931-F11
 @defvrx {Constant} CIE-1931-F12
+@cindex white point
 White points of the CIE standard illuminants for a 2@textdegree{} field
 of view (2@textdegree{} standard observer).
 @end defvr
@@ -1752,6 +1804,7 @@ of view (2@textdegree{} standard observer).
 @defvrx {Constant} CIE-1964-F10
 @defvrx {Constant} CIE-1964-F11
 @defvrx {Constant} CIE-1964-F12
+@cindex white point
 White points of the CIE standard illuminants for a 10@textdegree{} field
 of view (10@textdegree{} standard observer).
 @end defvr
@@ -1768,6 +1821,8 @@ of view (10@textdegree{} standard observer).
 @node sRGB Color Space, Adobe RGB Color Space, RGB Color Spaces, RGB Color Spaces
 @subsection sRGB Color Space
 
+@cindex sRGB color space
+@cindex color space, sRGB
 @c ---------------------------------------------------------------------
 @anchor{class;rs-colors;srgb-color}
 @deftp {Class} {srgb-color}
@@ -1865,6 +1920,8 @@ primary.
 @node Adobe RGB Color Space,  , sRGB Color Space, RGB Color Spaces
 @subsection Adobe RGB Color Space
 
+@cindex Adobe RGB color space
+@cindex color space, Adobe RGB
 @c ---------------------------------------------------------------------
 @anchor{class;rs-colors;adobe-rgb-color}
 @deftp {Class} {adobe-rgb-color}
@@ -2100,6 +2157,11 @@ to CIE94(b,a).
 @node Input and Output, Miscellaneous, Color Difference, Reference Manual
 @section Input and Output
 
+@cindex reading colors
+@cindex printing colors
+@cindex formatted I/O
+@cindex color format
+
 @menu
 * Xcms Formats::
 * HTML Format::
@@ -2110,6 +2172,7 @@ to CIE94(b,a).
 @node Xcms Formats, HTML Format, Input and Output, Input and Output
 @subsection Xcms Formats
 
+@cindex Xcms format
 The syntax of a Xcms (X Color Management System) color is
 
 @example
@@ -2275,6 +2338,7 @@ Example:
 @node HTML Format, CSS3 Formats, Xcms Formats, Input and Output
 @subsection HTML Format
 
+@cindex HTML format
 A HTML color value is either a hexadecimal number prefixed by a hash
 mark or a keyword.  This section only covers numerical color values.
 
@@ -2361,6 +2425,7 @@ Example:
 @node CSS3 Formats,  , HTML Format, Input and Output
 @subsection CSS3 Formats
 
+@cindex CSS3 format
 A CSS3 (cascading style sheets, level 3) color is either a HTML color
 value or a color value in functional notation.  The later has the form
 
@@ -2514,10 +2579,16 @@ Convert from normalized color coordinates to absolute color coordinates.
 @end deffn
 
 
-@node Symbol Index,  , Reference Manual, Top
+@node Symbol Index, Concept Index, Reference Manual, Top
 @unnumbered Symbol Index
 
 @printindex fn
+
+
+@node Concept Index,  , Symbol Index, Top
+@unnumbered Concept Index
+
+@printindex cp
 
 @bye
 
