@@ -1,23 +1,14 @@
---- texinfo.tex.orig	2014-03-09 14:36:35.000000000 +0100
-+++ texinfo.tex	2016-09-20 23:37:42.701620115 +0200
-@@ -3,7 +3,7 @@
- % Load plain if necessary, i.e., if running under initex.
- \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
- %
--\def\texinfoversion{2014-02-16.16}
-+\def\texinfoversion{2016-09-20.23}
- %
- % Copyright 1985, 1986, 1988, 1990, 1991, 1992, 1993, 1994, 1995,
- % 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006,
-@@ -7958,6 +7958,7 @@
- %
- \def\pxref#1{\putwordsee{} \xrefX[#1,,,,,,,]}
- \def\xref#1{\putwordSee{} \xrefX[#1,,,,,,,]}
-+\def\aref#1{\xrefX[#1,,,,,aref,,]}
- \def\ref#1{\xrefX[#1,,,,,,,]}
+--- texinfo.tex.orig	2019-03-14 21:01:14.628917927 +0100
++++ texinfo.tex	2019-03-14 21:05:44.972913653 +0100
+@@ -8816,13 +8816,15 @@
+ 
+ \def\xrefXX#1{\def\xrefXXarg{#1}\futurelet\tokenafterxref\xrefXXX}
+ \def\xrefXXX{\expandafter\xrefX\expandafter[\xrefXXarg,,,,,,,]}
++\def\aref#1{\def\xrefXXarg{#1}\futurelet\tokenafterxref\arefXXX}
++\def\arefXXX{\expandafter\xrefX\expandafter[\xrefXXarg,,,,,aref,,]}
  %
  \newbox\toprefbox
-@@ -7965,7 +7966,7 @@
+ \newbox\printedrefnamebox
  \newbox\infofilenamebox
  \newbox\printedmanualbox
  %
@@ -26,7 +17,7 @@
    \unsepspaces
    %
    % Get args without leading/trailing spaces.
-@@ -8094,14 +8095,17 @@
+@@ -8991,14 +8993,17 @@
         \setbox2 = \hbox{\ignorespaces \refx{#1-snt}{}}%
         \ifdim \wd2 > 0pt \refx{#1-snt}\space\fi
        }%
@@ -49,10 +40,10 @@
 +      \else
 +        \arefprintnodename\printedrefname
 +      \fi
-     \fi\fi
-   \fi
-   \endlink
-@@ -8139,6 +8143,7 @@
+       % Add a , if xref followed by a space
+       \if\space\noexpand\tokenafterxref ,%
+       \else\ifx\	\tokenafterxref ,% @TAB
+@@ -9045,6 +9050,7 @@
  % one that Bob is working on :).
  %
  \def\xrefprintnodename#1{[#1]}
