@@ -5,7 +5,7 @@
 @settitle rs-colors
 
 @set EDITION 1 (draft)
-@set UPDATED 2019-03-10
+@set UPDATED 2019-03-14
 
 @include package.texi
 
@@ -21,7 +21,7 @@
 @iftex
 @finalout
 @paragraphindent 1
-@afourpaper
+@afourlatex
 @end iftex
 
 @setchapternewpage odd
