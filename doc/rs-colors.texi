@@ -511,7 +511,7 @@ function.
 @end lisp
 
 If you wish to keep the original color object unchanged, use the
-@code{coerce-color} function.
+@funref{rs-colors, coerce-color} function.
 
 @lisp
 @group
@@ -522,8 +522,8 @@ If you wish to keep the original color object unchanged, use the
 @end group
 @end lisp
 
-The @code{coerce-color} function only creates a copy of the color if the
-color object is not already of the correct type.
+The @funref{rs-colors, coerce-color} function only creates a copy of the
+color if the color object is not already of the correct type.
 
 @cindex color coordinates
 @cindex coordinates, color
@@ -637,8 +637,9 @@ See @uref{https://material.io/guidelines/style/color.html}.
 @node Color Predicates, Abstract Color Classes, Reference Manual, Reference Manual
 @section Color Predicates
 
-Use the @code{colorp} function to check whether or not an object is a
-color.  This covers all color classes documented in this manual.
+Use the @funref{rs-colors, colorp} function to check whether or not an
+object is a color.  This covers all color classes documented in this
+manual.
 
 @c ---------------------------------------------------------------------
 @anchor{function;rs-colors;colorp}
@@ -1543,7 +1544,7 @@ Third argument @var{v*} is the second chromaticity coordinate.
 
 @item
 Optional fourth argument @var{white-point} is the white point.  Default
-is the value of @code{*cie-luv-default-white-point*}.
+is the value of @varref{rs-colors, *cie-luv-default-white-point*}.
 @end itemize
 @end deffn
 
@@ -1615,7 +1616,7 @@ Third argument @var{b*} is the second chromaticity coordinate.
 
 @item
 Optional fourth argument @var{white-point} is the white point.  Default
-is the value of @code{*cie-lab-default-white-point*}.
+is the value of @varref{rs-colors, *cie-lab-default-white-point*}.
 @end itemize
 @end deffn
 
@@ -1691,7 +1692,7 @@ Third argument @var{h} is the hue.
 
 @item
 Optional fourth argument @var{white-point} is the white point.  Default
-is the value of @code{*cie-lch-default-white-point*}.
+is the value of @varref{rs-colors, *cie-lch-default-white-point*}.
 @end itemize
 
 Arguments @var{L*} and @var{C*} have to be non-negative real numbers.
