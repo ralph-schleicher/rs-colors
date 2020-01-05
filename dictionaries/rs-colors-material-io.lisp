@@ -42,7 +42,16 @@
 	:rs-colors-internal)
   (:documentation "Material design color palette.
 
-See <https://material.io/guidelines/style/color.html>."))
+See <https://material.io/guidelines/style/color.html>.
+
+Color names are of the form ‘COLOR-VARIANT’.  First part COLOR is
+either ‘red’, ‘pink’, ‘purple’, ‘deep-purple’, ‘indigo’, ‘blue’,
+‘light-blue’, ‘cyan’, ‘teal’, ‘green’, ‘light-green’, ‘lime’,
+‘yellow’, ‘amber’, ‘orange’, ‘deep-orange’, ‘brown’, ‘grey’, or
+‘blue-grey’.  Second part VARIANT is either 50, 100, 200, 300, 400,
+500, 600, 700, 800, or 900.  Color names for accented variants have
+a trailing asterisk character.  The color name ‘COLOR’ is an alias
+for ‘COLOR-500’.  Finally, there is a ‘white’ and ‘black’ color."))
 
 (in-package :rs-colors-material-io)
 
