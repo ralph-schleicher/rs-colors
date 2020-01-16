@@ -67,6 +67,17 @@ Otherwise, return OBJECT."
       object
     (error 'type-error :datum object :expected-type type)))
 
+;;;; Strings
+
+(export 'collapse)
+(defun collapse (string &optional (char #\Space))
+  "Remove consecutive duplicate characters."
+  (iter (with mark = nil)
+	(for point :in-string string)
+	(when (or (null mark) (char/= mark char) (char/= mark point))
+	  (collect point :result-type 'string))
+	(setf mark point)))
+
 ;;;; Exponential Functions
 
 (export 'cube)
