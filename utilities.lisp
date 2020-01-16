@@ -445,7 +445,7 @@ Second argument 1/FRACTION has to be a positive number."
 (defmacro define-color-name (name value &optional doc)
   `(progn
      (export ',name)
-     (defvar ,name ,value
+     (defconst ,name ,value
        ,@(when doc (list doc)))))
 
 (export 'define-color-names)
