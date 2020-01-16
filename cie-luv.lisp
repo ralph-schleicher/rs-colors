@@ -36,7 +36,7 @@
 (in-package :rs-colors)
 
 (export '*cie-luv-default-white-point*)
-(defvar *cie-luv-default-white-point* CIE-1931-D50
+(defvar *cie-luv-default-white-point* cie-1931-d50
   "The default white point for colors in the CIE L*u*v* color space.
 Default value is the CIE 1931 D50 standard illuminant.")
 
