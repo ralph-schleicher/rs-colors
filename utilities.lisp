@@ -468,9 +468,4 @@ Second argument 1/FRACTION has to be a positive number."
 		 (list* 'define-color-name alias name (when doc (list doc))))
 	       aliases)))
 
-(export 'define-white-point)
-(defmacro define-white-point (name (x y) &optional doc)
-  `(define-color-name ,name (make-cie-xyy-color ,x ,y 1)
-     ,@(when doc (list doc))))
-
 ;;; utilities.lisp ends here
