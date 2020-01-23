@@ -37,8 +37,8 @@
 
 ;; See <http://en.wikipedia.org/wiki/Standard_illuminant>.
 (macrolet ((define-white-point (name (x y) &optional doc)
-	       `(define-color-name ,name (make-cie-xyy-color ,x ,y 1)
-		  ,@(when doc (list doc)))))
+	     `(define-color-name ,name (make-cie-xyy-color ,x ,y 1)
+		,@(when doc (list doc)))))
   (define-white-point cie-1931-a   (0.44757 0.40745) "White point of CIE standard illuminant A given for the CIE 1931 standard observer.")
   (define-white-point cie-1931-b   (0.34842 0.35161) "White point of CIE standard illuminant B given for the CIE 1931 standard observer.")
   (define-white-point cie-1931-c   (0.31006 0.31616) "White point of CIE standard illuminant C given for the CIE 1931 standard observer.")
