@@ -47,6 +47,8 @@
 	       (:file "generic-rgb")
 	       (:file "generic-cmy")
 	       (:file "generic-cmyk")
+	       (:file "black-body")
+	       (:file "cie-standard-observer")
 	       (:file "cie-xyz")
 	       (:file "cie-xyy")
 	       (:file "cie-white-points")
