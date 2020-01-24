@@ -57,6 +57,8 @@ cie-rgb.lisp \
 srgb.lisp \
 adobe-rgb.lisp \
 io.lisp \
+black-body.lisp \
+color-matching-functions.lisp \
 color-difference.lisp \
 $(nil)
 
