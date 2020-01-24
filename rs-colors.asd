@@ -39,7 +39,7 @@
   :description "A color data type for Common Lisp."
   :author "Ralph Schleicher <rs@ralph-schleicher.de>"
   :license "Modified BSD License"
-  :version "20190306.2109"
+  :version "20200124.1824"
   :depends-on (:iterate :alexandria :closer-mop :read-number :rs-colors-internal)
   :serial t
   :components ((:file "rs-colors")
@@ -47,8 +47,6 @@
 	       (:file "generic-rgb")
 	       (:file "generic-cmy")
 	       (:file "generic-cmyk")
-	       (:file "black-body")
-	       (:file "cie-standard-observer")
 	       (:file "cie-xyz")
 	       (:file "cie-xyy")
 	       (:file "cie-white-points")
@@ -59,6 +57,8 @@
 	       (:file "srgb")
 	       (:file "adobe-rgb")
 	       (:file "io")
+	       (:file "black-body")
+	       (:file "color-matching-functions")
 	       (:file "color-difference")))
 
 ;; local variables:
