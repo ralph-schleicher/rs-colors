@@ -1,4 +1,4 @@
-;;; cie-standard-observer.lisp --- CIE color matching functions.
+;;; color-matching-functions.lisp --- color matching functions.
 
 ;; Copyright (C) 2020 Ralph Schleicher
 
@@ -374,4 +374,4 @@ special variable."
 	(values (coerce (/ x sum) 'single-float)
 		(coerce (/ y sum) 'single-float))))))
 
-;;; cie-standard-observer.lisp ends here
+;;; color-matching-functions.lisp ends here
