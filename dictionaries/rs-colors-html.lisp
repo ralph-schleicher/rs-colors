@@ -52,7 +52,8 @@ See <http://www.w3.org/TR/css3-color/#html4>."))
 
 (defmacro RGB (value name)
   `(define-color-name ,name
-     (make-srgb-color-from-number ,value)))
+     (make-srgb-color-from-number ,value :byte-size 8)
+     ,(format nil "HTML basic color ‘#~6,'0,X’." value)))
 
 (RGB #X00FFFF aqua)
 (RGB #X000000 black)

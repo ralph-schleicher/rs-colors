@@ -46,7 +46,8 @@
 
 (defmacro RGB (value name &rest aliases)
   `(define-color-names (,name ,@aliases)
-     (make-srgb-color-from-number ,value)))
+     (make-srgb-color-from-number ,value)
+     ,(format nil "Tango desktop project color #~6,'0,X." value)))
 
 (RGB #X000000 black)
 (RGB #XFFFFFF white)

@@ -57,7 +57,8 @@ for ‘COLOR-500’.  Finally, there is a ‘white’ and ‘black’ color."))
 
 (defmacro RGB (value name &rest aliases)
   `(define-color-names (,name ,@aliases)
-     (make-srgb-color-from-number ,value)))
+     (make-srgb-color-from-number ,value :byte-size 8)
+     ,(format nil "Material design color ‘#~6,'0,X’." value)))
 
 (RGB #XFFEBEE red-50)
 (RGB #XFFCDD2 red-100)

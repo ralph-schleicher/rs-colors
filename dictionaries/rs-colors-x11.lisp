@@ -47,7 +47,8 @@
 
 (defmacro RGB (red green blue name &rest aliases)
   `(define-color-names (,name ,@aliases)
-     (make-srgb-color ,red ,green ,blue :byte-size 8)))
+     (make-srgb-color ,red ,green ,blue :byte-size 8)
+     ,(format nil "X11 color ‘RGB:~(~2,'0X/~2,'0X/~2,'0X~)’." red green blue)))
 
 (RGB 255 250 250 snow)
 (RGB 248 248 255 ghost-white
