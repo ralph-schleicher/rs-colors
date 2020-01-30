@@ -391,6 +391,7 @@ The wavelength λ ranges from 380 nm to 780 nm in steps of 5 nm.
 
 See the ‘*color-matching-functions*’ parameter for more details.")
 
+(export '*color-matching-functions*)
 (defvar *color-matching-functions* cie-1931-standard-observer
   "A list of three color matching functions.
 Default is the CIE 1931 standard observer.
