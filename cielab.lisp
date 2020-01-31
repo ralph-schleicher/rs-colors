@@ -1,4 +1,4 @@
-;;; cie-lab.lisp --- CIE L*a*b* color space.
+;;; cielab.lisp --- CIE L*a*b* color space.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -35,13 +35,13 @@
 
 (in-package :rs-colors)
 
-(export '*cie-lab-default-white-point*)
-(defvar *cie-lab-default-white-point* cie-1931-d50
+(export '*cielab-default-white-point*)
+(defvar *cielab-default-white-point* cie-1931-d50
   "The default white point for colors in the CIE L*a*b* color space.
 Default value is the CIE 1931 D50 standard illuminant.")
 
-(export 'cie-lab-color)
-(defclass cie-lab-color (color-object)
+(export 'cielab-color)
+(defclass cielab-color (color-object)
   ((L*
     :initarg :L*
     :initform 0
@@ -59,24 +59,24 @@ Default value is the CIE 1931 D50 standard illuminant.")
     :documentation "Yellow/blue scale, default zero.")
    (white-point
     :initarg :white-point
-    :initform *cie-lab-default-white-point*
+    :initform *cielab-default-white-point*
     :type color-object
-    :documentation "White point, default ‘*cie-lab-default-white-point*’."))
+    :documentation "White point, default ‘*cielab-default-white-point*’."))
   (:documentation "Color class for the CIE L*a*b* color space."))
 
-(defmethod color-coordinates ((color cie-lab-color))
+(defmethod color-coordinates ((color cielab-color))
   (with-slots (L* a* b*) color
     (values L* a* b*)))
 
-(defmethod white-point ((color cie-lab-color))
+(defmethod white-point ((color cielab-color))
   (slot-value color 'white-point))
 
-(export 'make-cie-lab-color)
-(defun make-cie-lab-color (L* a* b* &optional (white-point *cie-lab-default-white-point*))
+(export 'make-cielab-color)
+(defun make-cielab-color (L* a* b* &optional (white-point *cielab-default-white-point*))
   "Create a new color in the CIE L*a*b* color space."
-  (make-instance 'cie-lab-color :L* L* :a* a* :b* b* :white-point white-point))
+  (make-instance 'cielab-color :L* L* :a* a* :b* b* :white-point white-point))
 
-(defun cie-lab-from-cie-xyz (x y z w)
+(defun cielab-from-ciexyz (x y z w)
   "Convert CIE XYZ color space coordinates
 into CIE L*a*b* color space coordinates.
 
@@ -87,7 +87,7 @@ This conversion requires a reference white point."
 		 (cube-root c)
 	       (+ (* 24389/3132 c) 16/116))))
     (multiple-value-bind (xn yn zn)
-	(cie-xyz-color-coordinates (or w *cie-lab-default-white-point*))
+	(ciexyz-color-coordinates (or w *cielab-default-white-point*))
       (let* ((x (encode (/ x xn)))
 	     (y (encode (/ y yn)))
 	     (z (encode (/ z zn)))
@@ -96,7 +96,7 @@ This conversion requires a reference white point."
 	     (b* (* 200 (- y z))))
 	(values L* a* b*)))))
 
-(defun cie-xyz-from-cie-lab (L* a* b* w)
+(defun ciexyz-from-cielab (L* a* b* w)
   "Convert CIE L*a*b* color space coordinates
 into CIE XYZ color space coordinates.
 
@@ -107,7 +107,7 @@ This conversion requires a reference white point."
 		 (cube c)
 	       (/ (- c 16/116) 24389/3132))))
     (multiple-value-bind (xn yn zn)
-	(cie-xyz-color-coordinates (or w *cie-lab-default-white-point*))
+	(ciexyz-color-coordinates (or w *cielab-default-white-point*))
       (let* ((y (/ (+ L* 16) 116))
 	     (x (+ y (/ a* 500)))
 	     (z (- y (/ b* 200))))
@@ -115,28 +115,28 @@ This conversion requires a reference white point."
 		(* (decode y) yn)
 		(* (decode z) zn))))))
 
-(export 'cie-lab-color-coordinates)
-(defgeneric cie-lab-color-coordinates (color)
+(export 'cielab-color-coordinates)
+(defgeneric cielab-color-coordinates (color)
   (:documentation "Return the CIE L*a*b* color space coordinates of the color.
 
 Argument COLOR is a color object.")
-  (:method ((color cie-lab-color))
+  (:method ((color cielab-color))
     (color-coordinates color))
   ;; Otherwise, go via CIE XYZ.
   (:method ((color color-object))
     (multiple-value-bind (x y z)
-	(cie-xyz-color-coordinates color)
-      (cie-lab-from-cie-xyz x y z (white-point color)))))
+	(ciexyz-color-coordinates color)
+      (cielab-from-ciexyz x y z (white-point color)))))
 
-(defmethod cie-xyz-color-coordinates ((color cie-lab-color))
+(defmethod ciexyz-color-coordinates ((color cielab-color))
   (multiple-value-bind (L* a* b*)
-      (cie-lab-color-coordinates color)
-    (cie-xyz-from-cie-lab L* a* b* (white-point color))))
+      (cielab-color-coordinates color)
+    (ciexyz-from-cielab L* a* b* (white-point color))))
 
-(defmethod update-instance-for-different-class :after ((old color-object) (new cie-lab-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new cielab-color) &key)
   (with-slots (L* a* b* white-point) new
     (multiple-value-setq (L* a* b*)
-      (cie-lab-color-coordinates old))
-    (setf white-point (or (white-point old) *cie-lab-default-white-point*))))
+      (cielab-color-coordinates old))
+    (setf white-point (or (white-point old) *cielab-default-white-point*))))
 
-;;; cie-lab.lisp ends here
+;;; cielab.lisp ends here

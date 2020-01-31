@@ -24,7 +24,7 @@ and
 Color space conversion is resolved by CLOS:
 
      (srgb-color-coordinates
-      (make-cie-xyy-color 1/3 1/3 1))
+      (make-ciexyy-color 1/3 1/3 1))
       ==> 1
           0.976911599934101d0
           0.9587075033783911d0
@@ -43,7 +43,7 @@ Colors can be read and written:
          (values color
                  (format nil color-formatter-html color)
                  (format nil color-formatter-css3-rgb color)
-                 (format nil color-formatter-xcms-cie-xyy color))))
+                 (format nil color-formatter-xcms-ciexyy color))))
       ==> #<SRGB-COLOR (26/85 154/255 2/85)>
           "#4E9A06"
           "rgb(78, 154, 6)"
@@ -89,19 +89,19 @@ Adding a new color space is straight forward:
      (defun make-abc-color (a b c) ...)
 
      ;; Color conversion.
-     (defun abc-from-cie-xyz (x y z) ...)
-     (defun cie-xyz-from-abc (a b c) ...)
+     (defun abc-from-ciexyz (x y z) ...)
+     (defun ciexyz-from-abc (a b c) ...)
 
      (defgeneric abc-color-coordinates (color)
        (:method ((color abc-color))
          (color-coordinates color))
        ;; Otherwise, go via CIE XYZ.
        (:method ((color color))
-         (multiple-value-call #'abc-from-cie-xyz
-           (cie-xyz-color-coordinates color))))
+         (multiple-value-call #'abc-from-ciexyz
+           (ciexyz-color-coordinates color))))
 
-     (defmethod cie-xyz-color-coordinates ((color abc-color))
-       (multiple-value-call #'cie-xyz-from-abc
+     (defmethod ciexyz-color-coordinates ((color abc-color))
+       (multiple-value-call #'ciexyz-from-abc
          (abc-color-coordinates color)))
 
 

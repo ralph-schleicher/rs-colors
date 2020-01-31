@@ -76,7 +76,7 @@ Example:
      (make-adobe-rgb-color-from-number #XFCAF3E)"
   (make-rgb-color-from-number 'adobe-rgb-color value byte-size))
 
-(defconst adobe-rgb-white-point (make-cie-xyy-color 3127/10000 3290/10000 1)
+(defconst adobe-rgb-white-point (make-ciexyy-color 3127/10000 3290/10000 1)
   "White point of the Adobe RGB color space.")
 
 (defmethod white-point ((color adobe-rgb-color))
@@ -87,12 +87,12 @@ Example:
 				 #(21/100 71/100)
 				 #(15/100  6/100)
 				 (multiple-value-bind (x* y*)
-				     (cie-xyy-color-coordinates adobe-rgb-white-point)
+				     (ciexyy-color-coordinates adobe-rgb-white-point)
 				   (vector x* y*)))
-  (defconst adobe-rgb-from-cie-xyz-transformation-matrix (float-array rgb-from-xyz 1D0)
+  (defconst adobe-rgb-from-ciexyz-transformation-matrix (float-array rgb-from-xyz 1D0)
     "Transformation matrix to convert normalized CIE XYZ color space coordinates
 into linear Adobe RGB color space coordinates.")
-  (defconst cie-xyz-from-adobe-rgb-transformation-matrix (float-array xyz-from-rgb 1D0)
+  (defconst ciexyz-from-adobe-rgb-transformation-matrix (float-array xyz-from-rgb 1D0)
     "Transformation matrix to convert linear Adobe RGB color space coordinates
 into normalized CIE XYZ color space coordinates.")
   (values))
@@ -123,22 +123,22 @@ into linear Adobe RGB color space coordinates."
 	(t
 	 (expt c #.(float 256/563 1D0)))))
 
-(defun adobe-rgb-from-cie-xyz (x y z)
+(defun adobe-rgb-from-ciexyz (x y z)
   "Convert normalized CIE XYZ color space coordinates
 into Adobe RGB color space coordinates."
   (declare (type real x y z))
   (multiple-value-bind (r g b)
-      (linear-transformation adobe-rgb-from-cie-xyz-transformation-matrix x y z)
+      (linear-transformation adobe-rgb-from-ciexyz-transformation-matrix x y z)
     (declare (type real r g b))
     (values (adobe-rgb-gamma-encoding (clamp r 0 1))
 	    (adobe-rgb-gamma-encoding (clamp g 0 1))
 	    (adobe-rgb-gamma-encoding (clamp b 0 1)))))
 
-(defun cie-xyz-from-adobe-rgb (r g b)
+(defun ciexyz-from-adobe-rgb (r g b)
   "Convert Adobe RGB color space coordinates
 into normalized CIE XYZ color space coordinates."
   (declare (type real r g b))
-  (linear-transformation cie-xyz-from-adobe-rgb-transformation-matrix
+  (linear-transformation ciexyz-from-adobe-rgb-transformation-matrix
 			 (adobe-rgb-gamma-decoding r)
 			 (adobe-rgb-gamma-decoding g)
 			 (adobe-rgb-gamma-decoding b)))
@@ -156,14 +156,14 @@ Values are the intensities of the red, green, and blue primary.")
     (generic-rgb-color-coordinates color))
   ;; Otherwise, go via CIE XYZ.
   (:method ((color color-object))
-    (multiple-value-call #'adobe-rgb-from-cie-xyz
-      (cie-xyz-color-coordinates color))))
+    (multiple-value-call #'adobe-rgb-from-ciexyz
+      (ciexyz-color-coordinates color))))
 
 (defmethod generic-rgb-color-coordinates ((color adobe-rgb-color))
   (color-coordinates color))
 
-(defmethod cie-xyz-color-coordinates ((color adobe-rgb-color))
-  (multiple-value-call #'cie-xyz-from-adobe-rgb (color-coordinates color)))
+(defmethod ciexyz-color-coordinates ((color adobe-rgb-color))
+  (multiple-value-call #'ciexyz-from-adobe-rgb (color-coordinates color)))
 
 (defmethod update-instance-for-different-class :after ((old color-object) (new adobe-rgb-color) &key)
   (with-slots (r g b) new

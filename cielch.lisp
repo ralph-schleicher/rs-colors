@@ -1,4 +1,4 @@
-;;; cie-lch.lisp --- CIE L*C*h color space.
+;;; cielch.lisp --- CIE L*C*h color space.
 
 ;; Copyright (C) 2016 Ralph Schleicher
 
@@ -35,13 +35,13 @@
 
 (in-package :rs-colors)
 
-(export '*cie-lch-default-white-point*)
-(defvar *cie-lch-default-white-point* cie-1931-d50
+(export '*cielch-default-white-point*)
+(defvar *cielch-default-white-point* cie-1931-d50
   "The default white point for colors in the CIE L*C*h color space.
 Default value is the CIE 1931 D50 standard illuminant.")
 
-(export 'cie-lch-color)
-(defclass cie-lch-color (color-object)
+(export 'cielch-color)
+(defclass cielch-color (color-object)
   ((L*
     :initarg :L*
     :initform 0
@@ -59,29 +59,29 @@ Default value is the CIE 1931 D50 standard illuminant.")
     :documentation "Hue, default zero.")
    (white-point
     :initarg :white-point
-    :initform *cie-lch-default-white-point*
+    :initform *cielch-default-white-point*
     :type color-object
-    :documentation "White point, default ‘*cie-lch-default-white-point*’."))
+    :documentation "White point, default ‘*cielch-default-white-point*’."))
   (:documentation "Color class for the CIE L*C*h color space.
 Hue is measured in degree angle."))
 
-(defmethod color-coordinates ((color cie-lch-color))
+(defmethod color-coordinates ((color cielch-color))
   (with-slots (L* C* h) color
     (values L* C* h)))
 
-(defmethod white-point ((color cie-lch-color))
+(defmethod white-point ((color cielch-color))
   (slot-value color 'white-point))
 
-(export 'make-cie-lch-color)
-(defun make-cie-lch-color (L* C* h &optional (white-point *cie-lch-default-white-point*))
+(export 'make-cielch-color)
+(defun make-cielch-color (L* C* h &optional (white-point *cielch-default-white-point*))
   "Create a new color in the CIE L*C*h color space."
-  (make-instance 'cie-lch-color :L* L* :C* C* :h (mod h 360) :white-point white-point))
+  (make-instance 'cielch-color :L* L* :C* C* :h (mod h 360) :white-point white-point))
 
-(defun cie-lch-from-cie-lab (L* a* b*)
+(defun cielch-from-cielab (L* a* b*)
   "Convert CIE L*a*b* color space coordinates
 into CIE L*C*h color space coordinates."
   (declare (type real L* a* b*))
-  ;; Attempt to be exact, see also ‘cie-lab-from-cie-lch’ below.
+  ;; Attempt to be exact, see also ‘cielab-from-cielch’ below.
   (cond ((zerop b*)
 	 (values L* (abs a*) (if (minusp a*) 180 0)))
 	((zerop a*)
@@ -90,7 +90,7 @@ into CIE L*C*h color space coordinates."
 	 (let ((C*h (complex (float a* pi) (float b* pi))))
 	   (values L* (abs C*h) (mod (degree-from-radian (phase C*h)) 360))))))
 
-(defun cie-lab-from-cie-lch (L* C* h)
+(defun cielab-from-cielch (L* C* h)
   "Convert CIE L*C*h color space coordinates
 into CIE L*a*b* color space coordinates."
   (declare (type real L* C* h))
@@ -110,33 +110,33 @@ into CIE L*a*b* color space coordinates."
 	 (let ((C*h (* C* (cis (radian-from-degree (float h pi))))))
 	   (values L* (realpart C*h) (imagpart C*h))))))
 
-(export 'cie-lch-color-coordinates)
-(defgeneric cie-lch-color-coordinates (color)
+(export 'cielch-color-coordinates)
+(defgeneric cielch-color-coordinates (color)
   (:documentation "Return the CIE L*C*h color space coordinates of the color.
 
 Argument COLOR is a color object.")
-  (:method ((color cie-lch-color))
+  (:method ((color cielch-color))
     (color-coordinates color))
   ;; Otherwise, go via CIE L*a*b*.
   (:method ((color color-object))
     (multiple-value-bind (L* a* b*)
-	(cie-lab-color-coordinates color)
-      (cie-lch-from-cie-lab L* a* b*))))
+	(cielab-color-coordinates color)
+      (cielch-from-cielab L* a* b*))))
 
-(defmethod cie-lab-color-coordinates ((color cie-lch-color))
+(defmethod cielab-color-coordinates ((color cielch-color))
   (multiple-value-bind (L* C* h)
-      (cie-lch-color-coordinates color)
-    (cie-lab-from-cie-lch L* C* h)))
+      (cielch-color-coordinates color)
+    (cielab-from-cielch L* C* h)))
 
-(defmethod cie-xyz-color-coordinates ((color cie-lch-color))
+(defmethod ciexyz-color-coordinates ((color cielch-color))
   (multiple-value-bind (L* a* b*)
-      (cie-lab-color-coordinates color)
-    (cie-xyz-from-cie-lab L* a* b* (white-point color))))
+      (cielab-color-coordinates color)
+    (ciexyz-from-cielab L* a* b* (white-point color))))
 
-(defmethod update-instance-for-different-class :after ((old color-object) (new cie-lch-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new cielch-color) &key)
   (with-slots (L* C* h white-point) new
     (multiple-value-setq (L* C* h)
-      (cie-lch-color-coordinates old))
-    (setf white-point (or (white-point old) *cie-lch-default-white-point*))))
+      (cielch-color-coordinates old))
+    (setf white-point (or (white-point old) *cielch-default-white-point*))))
 
-;;; cie-lch.lisp ends here
+;;; cielch.lisp ends here

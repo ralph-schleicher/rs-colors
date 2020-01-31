@@ -93,7 +93,7 @@
 	(funcall make-color a b c)))))
 
 ;; This is an unofficial Xcms prefix.
-(define-color-printer xcms-cie-rgb (color stream :export t)
+(define-color-printer xcms-ciergb (color stream :export t)
   "Print a color in Xcms CIE RGB notation.
 
 First argument COLOR is a color object.
@@ -102,7 +102,7 @@ Optional second argument STREAM is an output stream.
 
 Value is the color object."
   (multiple-value-bind (r g b)
-      (cie-rgb-color-coordinates color)
+      (ciergb-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
       (format stream
 	      "CIERGB:~A/~A/~A"
@@ -110,22 +110,22 @@ Value is the color object."
 	      (float g 1F0)
 	      (float b 1F0)))))
 
-(setf (documentation 'color-formatter-xcms-cie-rgb 'variable)
+(setf (documentation 'color-formatter-xcms-ciergb 'variable)
       "A format function for printing a color in Xcms CIE RGB notation.
 
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-cie-rgb (stream :export t)
+(define-color-reader xcms-ciergb (stream :export t)
   "Read a color in Xcms CIE RGB notation.
 
 Optional argument STREAM is an input stream.
  Default is to read from ‘*standard-input*’.
 
 Value is a color object in the CIE RGB color space."
-  (%read-xcms stream "CIERGB" #'make-cie-rgb-color))
+  (%read-xcms stream "CIERGB" #'make-ciergb-color))
 
-(define-color-printer xcms-cie-xyz (color stream :export t)
+(define-color-printer xcms-ciexyz (color stream :export t)
   "Print a color in Xcms CIE XYZ notation.
 
 First argument COLOR is a color object.
@@ -134,7 +134,7 @@ Optional second argument STREAM is an output stream.
 
 Value is the color object."
   (multiple-value-bind (x y z)
-      (cie-xyz-color-coordinates color)
+      (ciexyz-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
       (format stream
 	      "CIEXYZ:~A/~A/~A"
@@ -142,22 +142,22 @@ Value is the color object."
 	      (float y 1F0)
 	      (float z 1F0)))))
 
-(setf (documentation 'color-formatter-xcms-cie-xyz 'variable)
+(setf (documentation 'color-formatter-xcms-ciexyz 'variable)
       "A format function for printing a color in Xcms CIE XYZ notation.
 
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-cie-xyz (stream :export t)
+(define-color-reader xcms-ciexyz (stream :export t)
   "Read a color in Xcms CIE XYZ notation.
 
 Optional argument STREAM is an input stream.
  Default is to read from ‘*standard-input*’.
 
 Value is a color object in the CIE XYZ color space."
-  (%read-xcms stream "CIEXYZ" #'make-cie-xyz-color))
+  (%read-xcms stream "CIEXYZ" #'make-ciexyz-color))
 
-(define-color-printer xcms-cie-xyy (color stream :export t)
+(define-color-printer xcms-ciexyy (color stream :export t)
   "Print a color in Xcms CIE xyY notation.
 
 First argument COLOR is a color object.
@@ -166,7 +166,7 @@ Optional second argument STREAM is an output stream.
 
 Value is the color object."
   (multiple-value-bind (x* y* y)
-      (cie-xyy-color-coordinates color)
+      (ciexyy-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
       (format stream
 	      "CIExyY:~A/~A/~A"
@@ -174,22 +174,22 @@ Value is the color object."
 	      (float y* 1F0)
 	      (float y  1F0)))))
 
-(setf (documentation 'color-formatter-xcms-cie-xyy 'variable)
+(setf (documentation 'color-formatter-xcms-ciexyy 'variable)
       "A format function for printing a color in Xcms CIE xyY notation.
 
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-cie-xyy (stream :export t)
+(define-color-reader xcms-ciexyy (stream :export t)
   "Read a color in Xcms CIE xyY notation.
 
 Optional argument STREAM is an input stream.
  Default is to read from ‘*standard-input*’.
 
 Value is a color object in the CIE xyY color space."
-  (%read-xcms stream "CIExyY" #'make-cie-xyy-color))
+  (%read-xcms stream "CIExyY" #'make-ciexyy-color))
 
-(define-color-printer xcms-cie-luv (color stream :export t)
+(define-color-printer xcms-cieluv (color stream :export t)
   "Print a color in Xcms CIE L*u*v* notation.
 
 First argument COLOR is a color object.
@@ -198,7 +198,7 @@ Optional second argument STREAM is an output stream.
 
 Value is the color object."
   (multiple-value-bind (L u v)
-      (cie-luv-color-coordinates color)
+      (cieluv-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
       (format stream
 	      "CIELuv:~A/~A/~A"
@@ -206,22 +206,22 @@ Value is the color object."
 	      (float u 1F0)
 	      (float v 1F0)))))
 
-(setf (documentation 'color-formatter-xcms-cie-luv 'variable)
+(setf (documentation 'color-formatter-xcms-cieluv 'variable)
       "A format function for printing a color in Xcms CIE L*u*v* notation.
 
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-cie-luv (stream :export t)
+(define-color-reader xcms-cieluv (stream :export t)
   "Read a color in Xcms CIE L*u*v* notation.
 
 Optional argument STREAM is an input stream.
  Default is to read from ‘*standard-input*’.
 
 Value is a color object in the CIE L*u*v* color space."
-  (%read-xcms stream "CIELuv" #'make-cie-luv-color))
+  (%read-xcms stream "CIELuv" #'make-cieluv-color))
 
-(define-color-printer xcms-cie-lab (color stream :export t)
+(define-color-printer xcms-cielab (color stream :export t)
   "Print a color in Xcms CIE L*a*b* notation.
 
 First argument COLOR is a color object.
@@ -230,7 +230,7 @@ Optional second argument STREAM is an output stream.
 
 Value is the color object."
   (multiple-value-bind (L a b)
-      (cie-lab-color-coordinates color)
+      (cielab-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
       (format stream
 	      "CIELab:~A/~A/~A"
@@ -238,23 +238,23 @@ Value is the color object."
 	      (float a 1F0)
 	      (float b 1F0)))))
 
-(setf (documentation 'color-formatter-xcms-cie-lab 'variable)
+(setf (documentation 'color-formatter-xcms-cielab 'variable)
       "A format function for printing a color in Xcms CIE L*a*b* notation.
 
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-cie-lab (stream :export t)
+(define-color-reader xcms-cielab (stream :export t)
   "Read a color in Xcms CIE L*a*b* notation.
 
 Optional argument STREAM is an input stream.
  Default is to read from ‘*standard-input*’.
 
 Value is a color object in the CIE L*a*b* color space."
-  (%read-xcms stream "CIELab" #'make-cie-lab-color))
+  (%read-xcms stream "CIELab" #'make-cielab-color))
 
 ;; This is an unofficial Xcms prefix.
-(define-color-printer xcms-cie-lch (color stream :export t)
+(define-color-printer xcms-cielch (color stream :export t)
   "Print a color in Xcms CIE L*C*h notation.
 
 First argument COLOR is a color object.
@@ -263,7 +263,7 @@ Optional second argument STREAM is an output stream.
 
 Value is the color object."
   (multiple-value-bind (L C h)
-      (cie-lch-color-coordinates color)
+      (cielch-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
       (format stream
 	      "CIELCh:~A/~A/~A"
@@ -271,20 +271,20 @@ Value is the color object."
 	      (float C 1F0)
 	      (float h 1F0)))))
 
-(setf (documentation 'color-formatter-xcms-cie-lch 'variable)
+(setf (documentation 'color-formatter-xcms-cielch 'variable)
       "A format function for printing a color in Xcms CIE L*C*h notation.
 
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-cie-lch (stream :export t)
+(define-color-reader xcms-cielch (stream :export t)
   "Read a color in Xcms CIE L*C*h notation.
 
 Optional argument STREAM is an input stream.
  Default is to read from ‘*standard-input*’.
 
 Value is a color object in the CIE L*C*h color space."
-  (%read-xcms stream "CIELCh" #'make-cie-lch-color))
+  (%read-xcms stream "CIELCh" #'make-cielch-color))
 
 (define-color-printer xcms-rgbi (color stream :export t)
   "Print a color in Xcms RGBi notation.

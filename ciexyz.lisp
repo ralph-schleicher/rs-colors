@@ -1,4 +1,4 @@
-;;; cie-xyz.lisp --- CIE XYZ color space.
+;;; ciexyz.lisp --- CIE XYZ color space.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -35,8 +35,8 @@
 
 (in-package :rs-colors)
 
-(export 'cie-xyz-color)
-(defclass cie-xyz-color (color-object)
+(export 'ciexyz-color)
+(defclass ciexyz-color (color-object)
   ((x
     :initarg :x
     :initform 0
@@ -54,53 +54,53 @@
     :documentation "Third tristimulus value, default zero."))
   (:documentation "Color class for the CIE XYZ color space."))
 
-(defmethod color-coordinates ((color cie-xyz-color))
+(defmethod color-coordinates ((color ciexyz-color))
   (with-slots (x y z) color
     (values x y z)))
 
-(export 'make-cie-xyz-color)
-(defun make-cie-xyz-color (x y z)
+(export 'make-ciexyz-color)
+(defun make-ciexyz-color (x y z)
   "Create a new color in the CIE XYZ color space.
 
 Arguments X, Y, and Z are the tristimulus values."
-  (make-instance 'cie-xyz-color :x x :y y :z z))
+  (make-instance 'ciexyz-color :x x :y y :z z))
 
-(export 'cie-xyz-color-coordinates)
-(defgeneric cie-xyz-color-coordinates (color)
+(export 'ciexyz-color-coordinates)
+(defgeneric ciexyz-color-coordinates (color)
   (:documentation "Return the CIE XYZ color space coordinates of the color.
 
 Argument COLOR is a color object.
 
 Values are the X, Y, and Z tristimulus values.")
-  (:method ((color cie-xyz-color))
+  (:method ((color ciexyz-color))
     (color-coordinates color)))
 
-(defmethod update-instance-for-different-class :after ((old color-object) (new cie-xyz-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new ciexyz-color) &key)
   (with-slots (x y z) new
     (multiple-value-setq (x y z)
-      (cie-xyz-color-coordinates old))))
+      (ciexyz-color-coordinates old))))
 
-(defmethod absolute-luminance ((color cie-xyz-color))
+(defmethod absolute-luminance ((color ciexyz-color))
   (slot-value color 'y))
 
-(defmethod normalize-color ((color cie-xyz-color) &key (white 1) (black 0))
+(defmethod normalize-color ((color ciexyz-color) &key (white 1) (black 0))
   (let ((yw (absolute-luminance white))
 	(yk (absolute-luminance black)))
     (multiple-value-bind (x* y* ya)
-	(cie-xyy-color-coordinates color)
+	(ciexyy-color-coordinates color)
       (with-slots (x y z) color
 	(multiple-value-setq (x y z)
-	  (cie-xyz-from-cie-xyy x* y* (/ (- ya yk) (- yw yk)))))))
+	  (ciexyz-from-ciexyy x* y* (/ (- ya yk) (- yw yk)))))))
   color)
 
-(defmethod absolute-color ((color cie-xyz-color) &key (white 1) (black 0))
+(defmethod absolute-color ((color ciexyz-color) &key (white 1) (black 0))
   (let ((yw (absolute-luminance white))
 	(yk (absolute-luminance black)))
     (multiple-value-bind (x* y* yn)
-	(cie-xyy-color-coordinates color)
+	(ciexyy-color-coordinates color)
       (with-slots (x y z) color
 	(multiple-value-setq (x y z)
-	  (cie-xyz-from-cie-xyy x* y* (+ yk (* yn (- yw yk))))))))
+	  (ciexyz-from-ciexyy x* y* (+ yk (* yn (- yw yk))))))))
   color)
 
-;;; cie-xyz.lisp ends here
+;;; ciexyz.lisp ends here

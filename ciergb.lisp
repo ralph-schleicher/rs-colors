@@ -1,4 +1,4 @@
-;;; cie-rgb.lisp --- CIE RGB color space.
+;;; ciergb.lisp --- CIE RGB color space.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -35,13 +35,13 @@
 
 (in-package :rs-colors)
 
-(export 'cie-rgb-color)
-(defclass cie-rgb-color (rgb-color-object)
+(export 'ciergb-color)
+(defclass ciergb-color (rgb-color-object)
   ()
   (:documentation "Color class for the CIE RGB color space."))
 
-(export 'make-cie-rgb-color)
-(defun make-cie-rgb-color (red green blue)
+(export 'make-ciergb-color)
+(defun make-ciergb-color (red green blue)
   "Create a new color in the CIE RGB color space.
 
 First argument RED is the intensity of the red primary.
@@ -50,61 +50,61 @@ Third argument BLUE is the intensity of the blue primary.
 
 Arguments RED, GREEN, and BLUE have to be normalized intensity values
 in the closed interval [0, 1]."
-  (make-instance 'cie-rgb-color :red red :green green :blue blue))
+  (make-instance 'ciergb-color :red red :green green :blue blue))
 
 (let ((c (make-matrix 49000/100000 31000/100000 20000/100000
 		      17697/100000 81240/100000  1063/100000
 		          0/100000  1000/100000 99000/100000)))
-  (defconst cie-rgb-from-cie-xyz-transformation-matrix (matrix-inverse (copy-matrix c))
+  (defconst ciergb-from-ciexyz-transformation-matrix (matrix-inverse (copy-matrix c))
     "Transformation matrix to convert CIE XYZ color space coordinates
 into CIE RGB color space coordinates.")
-  (defconst cie-xyz-from-cie-rgb-transformation-matrix c
+  (defconst ciexyz-from-ciergb-transformation-matrix c
     "Transformation matrix to convert CIE RGB color space coordinates
 into CIE XYZ color space coordinates.")
   (values))
 
-(defun cie-rgb-from-cie-xyz (x y z)
+(defun ciergb-from-ciexyz (x y z)
   "Convert CIE XYZ color space coordinates
 into CIE RGB color space coordinates."
   (declare (type real x y z))
   (multiple-value-bind (r g b)
-      (linear-transformation cie-rgb-from-cie-xyz-transformation-matrix x y z)
+      (linear-transformation ciergb-from-ciexyz-transformation-matrix x y z)
     (values (clamp r 0 1)
 	    (clamp g 0 1)
 	    (clamp b 0 1))))
 
-(defun cie-xyz-from-cie-rgb (r g b)
+(defun ciexyz-from-ciergb (r g b)
   "Convert CIE RGB color space coordinates
 into CIE XYZ color space coordinates."
   (declare (type real r g b))
-  (linear-transformation cie-xyz-from-cie-rgb-transformation-matrix r g b))
+  (linear-transformation ciexyz-from-ciergb-transformation-matrix r g b))
 
-(export 'cie-rgb-color-coordinates)
-(defgeneric cie-rgb-color-coordinates (color)
+(export 'ciergb-color-coordinates)
+(defgeneric ciergb-color-coordinates (color)
   (:documentation "Return the CIE RGB color space coordinates of the color.
 
 Argument COLOR is a color object.
 
 Values are the intensities of the red, green, and blue primary.")
-  (:method ((color cie-rgb-color))
+  (:method ((color ciergb-color))
     (color-coordinates color))
   (:method ((color generic-color-object))
     (generic-rgb-color-coordinates color))
   ;; Otherwise, go via CIE XYZ.
   (:method ((color color-object))
-    (multiple-value-call #'cie-rgb-from-cie-xyz
-      (cie-xyz-color-coordinates color))))
+    (multiple-value-call #'ciergb-from-ciexyz
+      (ciexyz-color-coordinates color))))
 
-(defmethod generic-rgb-color-coordinates ((color cie-rgb-color))
+(defmethod generic-rgb-color-coordinates ((color ciergb-color))
   (color-coordinates color))
 
-(defmethod cie-xyz-color-coordinates ((color cie-rgb-color))
-  (multiple-value-call #'cie-xyz-from-cie-rgb
+(defmethod ciexyz-color-coordinates ((color ciergb-color))
+  (multiple-value-call #'ciexyz-from-ciergb
     (color-coordinates color)))
 
-(defmethod update-instance-for-different-class :after ((old color-object) (new cie-rgb-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new ciergb-color) &key)
   (with-slots (r g b) new
     (multiple-value-setq (r g b)
-      (cie-rgb-color-coordinates old))))
+      (ciergb-color-coordinates old))))
 
-;;; cie-rgb.lisp ends here
+;;; ciergb.lisp ends here

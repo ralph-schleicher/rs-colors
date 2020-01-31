@@ -44,9 +44,9 @@ CIE L*a*b* color space.  The CIE76 color difference is symmetric,
 i.e. CIE76(a,b) = CIE76(b,a)."
   (let (L1 a1 b1 L2 a2 b2)
     (multiple-value-setq (L1 a1 b1)
-      (cie-lab-color-coordinates first-color))
+      (cielab-color-coordinates first-color))
     (multiple-value-setq (L2 a2 b2)
-      (cie-lab-color-coordinates second-color))
+      (cielab-color-coordinates second-color))
     (hypot3 (- L2 L1) (- a2 a1) (- b2 b1))))
 
 (export 'cie94)
@@ -71,9 +71,9 @@ The CIE94 color difference is asymmetric, i.e. CIE94(a,b) ≠ CIE94(b,a)."
   ;; Get L*a*b* color space coordinates.
   (let (L1 a1 b1 L2 a2 b2)
     (multiple-value-setq (L1 a1 b1)
-      (cie-lab-color-coordinates reference))
+      (cielab-color-coordinates reference))
     (multiple-value-setq (L2 a2 b2)
-      (cie-lab-color-coordinates other))
+      (cielab-color-coordinates other))
     ;; Differences in the L*C*h color space.
     (let* ((C1 (hypot a1 b1))
 	   (C2 (hypot a2 b2))
