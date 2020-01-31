@@ -322,22 +322,22 @@ Mathematical description of the CMYK color model.
 @cindex absolute color space
 @cindex color space, absolute
 @table @asis
-@item @classref{rs-colors, cie-rgb-color}
+@item @classref{rs-colors, ciergb-color}
 The CIE RGB color space.
 
-@item @classref{rs-colors, cie-xyz-color}
+@item @classref{rs-colors, ciexyz-color}
 The CIE XYZ color space.
 
-@item @classref{rs-colors, cie-xyy-color}
+@item @classref{rs-colors, ciexyy-color}
 The CIE xyY color space.
 
-@item @classref{rs-colors, cie-luv-color}
+@item @classref{rs-colors, cieluv-color}
 The CIE L*u*v* color space.
 
-@item @classref{rs-colors, cie-lab-color}
+@item @classref{rs-colors, cielab-color}
 The CIE L*a*b* color space.
 
-@item @classref{rs-colors, cie-lch-color}
+@item @classref{rs-colors, cielch-color}
 The CIE L*C*h color space.
 @end table
 
@@ -425,22 +425,22 @@ Create a generic CMYK color object.
 @end table
 
 @table @asis
-@item @funref{rs-colors, make-cie-rgb-color}
+@item @funref{rs-colors, make-ciergb-color}
 Create a CIE RGB color object.
 
-@item @funref{rs-colors, make-cie-xyz-color}
+@item @funref{rs-colors, make-ciexyz-color}
 Create a CIE XYZ color object.
 
-@item @funref{rs-colors, make-cie-xyy-color}
+@item @funref{rs-colors, make-ciexyy-color}
 Create a CIE xyY color object.
 
-@item @funref{rs-colors, make-cie-luv-color}
+@item @funref{rs-colors, make-cieluv-color}
 Create a CIE L*u*v* color object.
 
-@item @funref{rs-colors, make-cie-lab-color}
+@item @funref{rs-colors, make-cielab-color}
 Create a CIE L*a*b* color object.
 
-@item @funref{rs-colors, make-cie-lch-color}
+@item @funref{rs-colors, make-cielch-color}
 Create a CIE L*C*h color object.
 @end table
 
@@ -539,12 +539,12 @@ following functions to get them.
 @end table
 
 @table @asis
-@item @genericref{rs-colors, cie-rgb-color-coordinates}
-@item @genericref{rs-colors, cie-xyz-color-coordinates}
-@item @genericref{rs-colors, cie-xyy-color-coordinates}
-@item @genericref{rs-colors, cie-luv-color-coordinates}
-@item @genericref{rs-colors, cie-lab-color-coordinates}
-@item @genericref{rs-colors, cie-lch-color-coordinates}
+@item @genericref{rs-colors, ciergb-color-coordinates}
+@item @genericref{rs-colors, ciexyz-color-coordinates}
+@item @genericref{rs-colors, ciexyy-color-coordinates}
+@item @genericref{rs-colors, cieluv-color-coordinates}
+@item @genericref{rs-colors, cielab-color-coordinates}
+@item @genericref{rs-colors, cielch-color-coordinates}
 @end table
 
 @table @asis
@@ -1263,27 +1263,27 @@ CIE RGB white into the CIE xyY color space:
 
 @lisp
 @group
-(change-class (make-cie-rgb-color 1 1 1) 'cie-xyy-color)
- @result{} #<CIE-XYY-COLOR (1/3 1/3 1)>
+(change-class (make-ciergb-color 1 1 1) 'ciexyy-color)
+ @result{} #<CIEXYY-COLOR (1/3 1/3 1)>
 @end group
 @end lisp
 }.
 
 @c ---------------------------------------------------------------------
-@anchor{class;rs-colors;cie-rgb-color}
-@deftp {Class} {cie-rgb-color}
+@anchor{class;rs-colors;ciergb-color}
+@deftp {Class} {ciergb-color}
 Color class for the CIE RGB color space.
 
 @classprecedencelist
-@classref{rs-colors, cie-rgb-color},
+@classref{rs-colors, ciergb-color},
 @classref{rs-colors, rgb-color-object},
 @classref{rs-colors, color-object},
 @dots{}
 @end deftp
 
 @c ---------------------------------------------------------------------
-@anchor{function;rs-colors;make-cie-rgb-color}
-@deffn {Function} {make-cie-rgb-color} @w{red} @w{green} @w{blue}
+@anchor{function;rs-colors;make-ciergb-color}
+@deffn {Function} {make-ciergb-color} @w{red} @w{green} @w{blue}
 Create a new color in the CIE RGB color space.
 
 @itemize
@@ -1304,8 +1304,8 @@ in the closed @interval{[0, 1]}.
 @end deffn
 
 @c ---------------------------------------------------------------------
-@anchor{generic-function;rs-colors;cie-rgb-color-coordinates}
-@deffn {Generic Function} {cie-rgb-color-coordinates} @w{color}
+@anchor{generic-function;rs-colors;ciergb-color-coordinates}
+@deffn {Generic Function} {ciergb-color-coordinates} @w{color}
 Return the CIE RGB color space coordinates of the color.
 
 @itemize
@@ -1332,19 +1332,19 @@ Color coordinates are the @math{X}, @math{Y}, and @math{Z} tristimulus
 values.  The CIE XYZ color space has no explicit white point.
 
 @c ---------------------------------------------------------------------
-@anchor{class;rs-colors;cie-xyz-color}
-@deftp {Class} {cie-xyz-color}
+@anchor{class;rs-colors;ciexyz-color}
+@deftp {Class} {ciexyz-color}
 Color class for the CIE XYZ color space.
 
 @classprecedencelist
-@classref{rs-colors, cie-xyz-color},
+@classref{rs-colors, ciexyz-color},
 @classref{rs-colors, color-object},
 @dots{}
 @end deftp
 
 @c ---------------------------------------------------------------------
-@anchor{function;rs-colors;make-cie-xyz-color}
-@deffn {Function} {make-cie-xyz-color} @w{x} @w{y} @w{z}
+@anchor{function;rs-colors;make-ciexyz-color}
+@deffn {Function} {make-ciexyz-color} @w{x} @w{y} @w{z}
 Create a new color in the CIE XYZ color space.
 
 @itemize
@@ -1363,8 +1363,8 @@ numbers.
 @end deffn
 
 @c ---------------------------------------------------------------------
-@anchor{generic-function;rs-colors;cie-xyz-color-coordinates}
-@deffn {Generic Function} {cie-xyz-color-coordinates} @w{color}
+@anchor{generic-function;rs-colors;ciexyz-color-coordinates}
+@deffn {Generic Function} {ciexyz-color-coordinates} @w{color}
 Return the CIE XYZ color space coordinates of the color.
 
 @itemize
@@ -1376,7 +1376,7 @@ Values are the @math{X}, @math{Y}, and @math{Z} tristimulus values.
 @end deffn
 
 @noindent
-Objects of the @classref{rs-colors, cie-xyz-color} class can be
+Objects of the @classref{rs-colors, ciexyz-color} class can be
 instantiated with absolute and normalized color coordinates.  However,
 if you want to convert colors from CIE XYZ color space to CIE RGB color
 space (or any other RGB color space), the CIE XYZ color coordinates have
@@ -1450,19 +1450,19 @@ Z &= z\cdot{Y\over y} = (1 - x - y)\cdot{Y\over y}\cr
 @end iftex
 
 @c ---------------------------------------------------------------------
-@anchor{class;rs-colors;cie-xyy-color}
-@deftp {Class} {cie-xyy-color}
+@anchor{class;rs-colors;ciexyy-color}
+@deftp {Class} {ciexyy-color}
 Color class for the CIE xyY color space.
 
 @classprecedencelist
-@classref{rs-colors, cie-xyy-color},
+@classref{rs-colors, ciexyy-color},
 @classref{rs-colors, color-object},
 @dots{}
 @end deftp
 
 @c ---------------------------------------------------------------------
-@anchor{function;rs-colors;make-cie-xyy-color}
-@deffn {Function} {make-cie-xyy-color} @w{x*} @w{y*} @w{y}
+@anchor{function;rs-colors;make-ciexyy-color}
+@deffn {Function} {make-ciexyy-color} @w{x*} @w{y*} @w{y}
 Create a new color in the CIE xyY color space.
 
 @itemize
@@ -1477,8 +1477,8 @@ tristimulus value of the CIE XYZ color space.
 @end deffn
 
 @c ---------------------------------------------------------------------
-@anchor{generic-function;rs-colors;cie-xyy-color-coordinates}
-@deffn {Generic Function} {cie-xyy-color-coordinates} @w{color}
+@anchor{generic-function;rs-colors;ciexyy-color-coordinates}
+@deffn {Generic Function} {ciexyy-color-coordinates} @w{color}
 Return the CIE xyY color space coordinates of the color.
 
 @itemize
@@ -1510,26 +1510,26 @@ is either the white point of the color space you are converting from or
 CIE standard illuminant D50.
 
 @c ---------------------------------------------------------------------
-@anchor{variable;rs-colors;*cie-luv-default-white-point*}
-@defvr {Variable} {*cie-luv-default-white-point*}
+@anchor{variable;rs-colors;*cieluv-default-white-point*}
+@defvr {Variable} {*cieluv-default-white-point*}
 The default white point for colors in the CIE L*u*v* color space.
 Default value is the CIE 1931 D50 standard illuminant.
 @end defvr
 
 @c ---------------------------------------------------------------------
-@anchor{class;rs-colors;cie-luv-color}
-@deftp {Class} {cie-luv-color}
+@anchor{class;rs-colors;cieluv-color}
+@deftp {Class} {cieluv-color}
 Color class for the CIE L*u*v* color space.
 
 @classprecedencelist
-@classref{rs-colors, cie-luv-color},
+@classref{rs-colors, cieluv-color},
 @classref{rs-colors, color-object},
 @dots{}
 @end deftp
 
 @c ---------------------------------------------------------------------
-@anchor{function;rs-colors;make-cie-luv-color}
-@deffn {Function} {make-cie-luv-color} @w{L*} @w{u*} @w{v*} @k{&optional} @w{white-point}
+@anchor{function;rs-colors;make-cieluv-color}
+@deffn {Function} {make-cieluv-color} @w{L*} @w{u*} @w{v*} @k{&optional} @w{white-point}
 Create a new color in the CIE L*u*v* color space.
 
 @itemize
@@ -1544,13 +1544,13 @@ Third argument @var{v*} is the second chromaticity coordinate.
 
 @item
 Optional fourth argument @var{white-point} is the white point.  Default
-is the value of @varref{rs-colors, *cie-luv-default-white-point*}.
+is the value of @varref{rs-colors, *cieluv-default-white-point*}.
 @end itemize
 @end deffn
 
 @c ---------------------------------------------------------------------
-@anchor{generic-function;rs-colors;cie-luv-color-coordinates}
-@deffn {Generic Function} {cie-luv-color-coordinates} @w{color}
+@anchor{generic-function;rs-colors;cieluv-color-coordinates}
+@deffn {Generic Function} {cieluv-color-coordinates} @w{color}
 Return the CIE L*u*v* color space coordinates of the color.
 
 @itemize
@@ -1582,26 +1582,26 @@ is either the white point of the color space you are converting from or
 CIE standard illuminant D50.
 
 @c ---------------------------------------------------------------------
-@anchor{variable;rs-colors;*cie-lab-default-white-point*}
-@defvr {Variable} {*cie-lab-default-white-point*}
+@anchor{variable;rs-colors;*cielab-default-white-point*}
+@defvr {Variable} {*cielab-default-white-point*}
 The default white point for colors in the CIE L*a*b* color space.
 Default value is the CIE 1931 D50 standard illuminant.
 @end defvr
 
 @c ---------------------------------------------------------------------
-@anchor{class;rs-colors;cie-lab-color}
-@deftp {Class} {cie-lab-color}
+@anchor{class;rs-colors;cielab-color}
+@deftp {Class} {cielab-color}
 Color class for the CIE L*a*b* color space.
 
 @classprecedencelist
-@classref{rs-colors, cie-lab-color},
+@classref{rs-colors, cielab-color},
 @classref{rs-colors, color-object},
 @dots{}
 @end deftp
 
 @c ---------------------------------------------------------------------
-@anchor{function;rs-colors;make-cie-lab-color}
-@deffn {Function} {make-cie-lab-color} @w{L*} @w{a*} @w{b*} @k{&optional} @w{white-point}
+@anchor{function;rs-colors;make-cielab-color}
+@deffn {Function} {make-cielab-color} @w{L*} @w{a*} @w{b*} @k{&optional} @w{white-point}
 Create a new color in the CIE L*a*b* color space.
 
 @itemize
@@ -1616,13 +1616,13 @@ Third argument @var{b*} is the second chromaticity coordinate.
 
 @item
 Optional fourth argument @var{white-point} is the white point.  Default
-is the value of @varref{rs-colors, *cie-lab-default-white-point*}.
+is the value of @varref{rs-colors, *cielab-default-white-point*}.
 @end itemize
 @end deffn
 
 @c ---------------------------------------------------------------------
-@anchor{generic-function;rs-colors;cie-lab-color-coordinates}
-@deffn {Generic Function} {cie-lab-color-coordinates} @w{color}
+@anchor{generic-function;rs-colors;cielab-color-coordinates}
+@deffn {Generic Function} {cielab-color-coordinates} @w{color}
 Return the CIE L*a*b* color space coordinates of the color.
 
 @itemize
@@ -1658,26 +1658,26 @@ either the white point of the color space you are converting from or CIE
 standard illuminant D50.
 
 @c ---------------------------------------------------------------------
-@anchor{variable;rs-colors;*cie-lch-default-white-point*}
-@defvr {Variable} {*cie-lch-default-white-point*}
+@anchor{variable;rs-colors;*cielch-default-white-point*}
+@defvr {Variable} {*cielch-default-white-point*}
 The default white point for colors in the CIE L*C*h* color space.
 Default value is the CIE 1931 D50 standard illuminant.
 @end defvr
 
 @c ---------------------------------------------------------------------
-@anchor{class;rs-colors;cie-lch-color}
-@deftp {Class} {cie-lch-color}
+@anchor{class;rs-colors;cielch-color}
+@deftp {Class} {cielch-color}
 Color class for the CIE L*C*h color space.
 
 @classprecedencelist
-@classref{rs-colors, cie-lch-color},
+@classref{rs-colors, cielch-color},
 @classref{rs-colors, color-object},
 @dots{}
 @end deftp
 
 @c ---------------------------------------------------------------------
-@anchor{function;rs-colors;make-cie-lch-color}
-@deffn {Function} {make-cie-lch-color} @w{L*} @w{C*} @w{h} @k{&optional} @w{white-point}
+@anchor{function;rs-colors;make-cielch-color}
+@deffn {Function} {make-cielch-color} @w{L*} @w{C*} @w{h} @k{&optional} @w{white-point}
 Create a new color in the CIE L*C*h color space.
 
 @itemize
@@ -1692,7 +1692,7 @@ Third argument @var{h} is the hue.
 
 @item
 Optional fourth argument @var{white-point} is the white point.  Default
-is the value of @varref{rs-colors, *cie-lch-default-white-point*}.
+is the value of @varref{rs-colors, *cielch-default-white-point*}.
 @end itemize
 
 Arguments @var{L*} and @var{C*} have to be non-negative real numbers.
@@ -1701,8 +1701,8 @@ half-closed @interval{[0, 360)}.
 @end deffn
 
 @c ---------------------------------------------------------------------
-@anchor{generic-function;rs-colors;cie-lch-color-coordinates}
-@deffn {Generic Function} {cie-lch-color-coordinates} @w{color}
+@anchor{generic-function;rs-colors;cielch-color-coordinates}
+@deffn {Generic Function} {cielch-color-coordinates} @w{color}
 Return the CIE L*C*h color space coordinates of the color.
 
 @itemize
@@ -2072,9 +2072,9 @@ Example:
 @lisp
 @group
 (let ((red (make-srgb-color 1 0 0)))
-  (change-class red 'cie-xyy-color)
+  (change-class red 'ciexyy-color)
   red)
- @result{} #<CIE-XYY-COLOR (0.64d0 0.33d0 @r{@dots{}})>
+ @result{} #<CIEXYY-COLOR (0.64d0 0.33d0 @r{@dots{}})>
 @end group
 @end lisp
 @end deffn
@@ -2200,20 +2200,20 @@ The @var{prefix} part specifies the color space or format and
 The @var{prefix} part is case insensitive.
 
 @c ---------------------------------------------------------------------
-@anchor{function;rs-colors;print-color-xcms-cie-rgb}
-@anchor{function;rs-colors;print-color-xcms-cie-xyz}
-@anchor{function;rs-colors;print-color-xcms-cie-xyy}
-@anchor{function;rs-colors;print-color-xcms-cie-luv}
-@anchor{function;rs-colors;print-color-xcms-cie-lab}
-@anchor{function;rs-colors;print-color-xcms-cie-lch}
+@anchor{function;rs-colors;print-color-xcms-ciergb}
+@anchor{function;rs-colors;print-color-xcms-ciexyz}
+@anchor{function;rs-colors;print-color-xcms-ciexyy}
+@anchor{function;rs-colors;print-color-xcms-cieluv}
+@anchor{function;rs-colors;print-color-xcms-cielab}
+@anchor{function;rs-colors;print-color-xcms-cielch}
 @anchor{function;rs-colors;print-color-xcms-rgbi}
 @anchor{function;rs-colors;print-color-xcms-rgb}
-@deffn  {Function} {print-color-xcms-cie-rgb} color @k{&optional} stream
-@deffnx {Function} {print-color-xcms-cie-xyz} color @k{&optional} stream
-@deffnx {Function} {print-color-xcms-cie-xyy} color @k{&optional} stream
-@deffnx {Function} {print-color-xcms-cie-luv} color @k{&optional} stream
-@deffnx {Function} {print-color-xcms-cie-lab} color @k{&optional} stream
-@deffnx {Function} {print-color-xcms-cie-lch} color @k{&optional} stream
+@deffn  {Function} {print-color-xcms-ciergb} color @k{&optional} stream
+@deffnx {Function} {print-color-xcms-ciexyz} color @k{&optional} stream
+@deffnx {Function} {print-color-xcms-ciexyy} color @k{&optional} stream
+@deffnx {Function} {print-color-xcms-cieluv} color @k{&optional} stream
+@deffnx {Function} {print-color-xcms-cielab} color @k{&optional} stream
+@deffnx {Function} {print-color-xcms-cielch} color @k{&optional} stream
 @deffnx {Function} {print-color-xcms-rgbi} color @k{&optional} stream
 @deffnx {Function} {print-color-xcms-rgb} color @k{&optional} stream
 Print a color in Xcms notation.
@@ -2245,7 +2245,7 @@ Example:
 @group
 (let ((color (make-srgb-color 78 154 6 :byte-size 8)))
   (with-output-to-string (stream)
-    (print-color-xcms-cie-xyz color stream)))
+    (print-color-xcms-ciexyz color stream)))
  @result{} "CIEXYZ:0.14729778/0.24743336/0.04172078"
 @end group
 
@@ -2259,20 +2259,20 @@ Example:
 @end deffn
 
 @c ---------------------------------------------------------------------
-@anchor{function;rs-colors;color-formatter-xcms-cie-rgb}
-@anchor{function;rs-colors;color-formatter-xcms-cie-xyz}
-@anchor{function;rs-colors;color-formatter-xcms-cie-xyy}
-@anchor{function;rs-colors;color-formatter-xcms-cie-luv}
-@anchor{function;rs-colors;color-formatter-xcms-cie-lab}
-@anchor{function;rs-colors;color-formatter-xcms-cie-lch}
+@anchor{function;rs-colors;color-formatter-xcms-ciergb}
+@anchor{function;rs-colors;color-formatter-xcms-ciexyz}
+@anchor{function;rs-colors;color-formatter-xcms-ciexyy}
+@anchor{function;rs-colors;color-formatter-xcms-cieluv}
+@anchor{function;rs-colors;color-formatter-xcms-cielab}
+@anchor{function;rs-colors;color-formatter-xcms-cielch}
 @anchor{function;rs-colors;color-formatter-xcms-rgbi}
 @anchor{function;rs-colors;color-formatter-xcms-rgb}
-@defvr  {Constant} {color-formatter-xcms-cie-rgb}
-@defvrx {Constant} {color-formatter-xcms-cie-xyz}
-@defvrx {Constant} {color-formatter-xcms-cie-xyy}
-@defvrx {Constant} {color-formatter-xcms-cie-luv}
-@defvrx {Constant} {color-formatter-xcms-cie-lab}
-@defvrx {Constant} {color-formatter-xcms-cie-lch}
+@defvr  {Constant} {color-formatter-xcms-ciergb}
+@defvrx {Constant} {color-formatter-xcms-ciexyz}
+@defvrx {Constant} {color-formatter-xcms-ciexyy}
+@defvrx {Constant} {color-formatter-xcms-cieluv}
+@defvrx {Constant} {color-formatter-xcms-cielab}
+@defvrx {Constant} {color-formatter-xcms-cielch}
 @defvrx {Constant} {color-formatter-xcms-rgbi}
 @defvrx {Constant} {color-formatter-xcms-rgb}
 A format function for printing a color in Xcms notation.
@@ -2286,27 +2286,27 @@ Example:
 @lisp
 @group
 (let ((color (make-srgb-color 78 154 6 :byte-size 8)))
-  (format nil color-formatter-xcms-cie-xyz color))
+  (format nil color-formatter-xcms-ciexyz color))
  @result{} "CIEXYZ:0.14729778/0.24743336/0.04172078"
 @end group
 @end lisp
 @end defvr
 
 @c ---------------------------------------------------------------------
-@anchor{function;rs-colors;read-color-xcms-cie-rgb}
-@anchor{function;rs-colors;read-color-xcms-cie-xyz}
-@anchor{function;rs-colors;read-color-xcms-cie-xyy}
-@anchor{function;rs-colors;read-color-xcms-cie-luv}
-@anchor{function;rs-colors;read-color-xcms-cie-lab}
-@anchor{function;rs-colors;read-color-xcms-cie-lch}
+@anchor{function;rs-colors;read-color-xcms-ciergb}
+@anchor{function;rs-colors;read-color-xcms-ciexyz}
+@anchor{function;rs-colors;read-color-xcms-ciexyy}
+@anchor{function;rs-colors;read-color-xcms-cieluv}
+@anchor{function;rs-colors;read-color-xcms-cielab}
+@anchor{function;rs-colors;read-color-xcms-cielch}
 @anchor{function;rs-colors;read-color-xcms-rgbi}
 @anchor{function;rs-colors;read-color-xcms-rgb}
-@deffn  {Function} {read-color-xcms-cie-rgb} @k{&optional} @w{stream}
-@deffnx {Function} {read-color-xcms-cie-xyz} @k{&optional} @w{stream}
-@deffnx {Function} {read-color-xcms-cie-xyy} @k{&optional} @w{stream}
-@deffnx {Function} {read-color-xcms-cie-luv} @k{&optional} @w{stream}
-@deffnx {Function} {read-color-xcms-cie-lab} @k{&optional} @w{stream}
-@deffnx {Function} {read-color-xcms-cie-lch} @k{&optional} @w{stream}
+@deffn  {Function} {read-color-xcms-ciergb} @k{&optional} @w{stream}
+@deffnx {Function} {read-color-xcms-ciexyz} @k{&optional} @w{stream}
+@deffnx {Function} {read-color-xcms-ciexyy} @k{&optional} @w{stream}
+@deffnx {Function} {read-color-xcms-cieluv} @k{&optional} @w{stream}
+@deffnx {Function} {read-color-xcms-cielab} @k{&optional} @w{stream}
+@deffnx {Function} {read-color-xcms-cielch} @k{&optional} @w{stream}
 @deffnx {Function} {read-color-xcms-rgbi} @k{&optional} @w{stream}
 @deffnx {Function} {read-color-xcms-rgb} @k{&optional} @w{stream}
 Read a color in Xcms format.

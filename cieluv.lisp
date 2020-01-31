@@ -1,4 +1,4 @@
-;;; cie-luv.lisp --- CIE L*u*v* color space.
+;;; cieluv.lisp --- CIE L*u*v* color space.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -35,13 +35,13 @@
 
 (in-package :rs-colors)
 
-(export '*cie-luv-default-white-point*)
-(defvar *cie-luv-default-white-point* cie-1931-d50
+(export '*cieluv-default-white-point*)
+(defvar *cieluv-default-white-point* cie-1931-d50
   "The default white point for colors in the CIE L*u*v* color space.
 Default value is the CIE 1931 D50 standard illuminant.")
 
-(export 'cie-luv-color)
-(defclass cie-luv-color (color-object)
+(export 'cieluv-color)
+(defclass cieluv-color (color-object)
   ((L*
     :initarg :L*
     :initform 0
@@ -59,22 +59,22 @@ Default value is the CIE 1931 D50 standard illuminant.")
     :documentation "Second chromaticity coordinate, default zero.")
    (white-point
     :initarg :white-point
-    :initform *cie-luv-default-white-point*
+    :initform *cieluv-default-white-point*
     :type color-object
-    :documentation "White point, default ‘*cie-luv-default-white-point*’."))
+    :documentation "White point, default ‘*cieluv-default-white-point*’."))
   (:documentation "Color class for the CIE L*u*v* color space."))
 
-(defmethod color-coordinates ((color cie-luv-color))
+(defmethod color-coordinates ((color cieluv-color))
   (with-slots (L* u* v*) color
     (values L* u* v*)))
 
-(defmethod white-point ((color cie-luv-color))
+(defmethod white-point ((color cieluv-color))
   (slot-value color 'white-point))
 
-(export 'make-cie-luv-color)
-(defun make-cie-luv-color (L* u* v* &optional (white-point *cie-luv-default-white-point*))
+(export 'make-cieluv-color)
+(defun make-cieluv-color (L* u* v* &optional (white-point *cieluv-default-white-point*))
   "Create a new color in the CIE L*u*v* color space."
-  (make-instance 'cie-luv-color :L* L* :u* u* :v* v* :white-point white-point))
+  (make-instance 'cieluv-color :L* L* :u* u* :v* v* :white-point white-point))
 
 (defun cie-uv-from-xy (x y s)
   (declare (type real x y s))
@@ -85,14 +85,14 @@ Default value is the CIE 1931 D50 standard illuminant.")
   (values (/ (* 4 x) s)
 	  (/ (* 9 y) s)))
 
-(defun cie-luv-from-cie-xyz (x y z w)
+(defun cieluv-from-ciexyz (x y z w)
   "Convert CIE XYZ color space coordinates
 into CIE L*u*v* color space coordinates.
 
 This conversion requires a reference white point."
   (declare (type real x y z))
   (multiple-value-bind (x*n y*n yn)
-      (cie-xyy-color-coordinates (or w *cie-luv-default-white-point*))
+      (ciexyy-color-coordinates (or w *cieluv-default-white-point*))
     (multiple-value-bind (un vn)
 	(cie-uv-from-xy x*n y*n (+ (- (* 2 x*n)) (* 12 y*n) 3))
       (multiple-value-bind (u v)
@@ -102,14 +102,14 @@ This conversion requires a reference white point."
 	       (v* (* 13 L* (- v vn))))
 	  (values L* u* v*))))))
 
-(defun cie-xyz-from-cie-luv (L* u* v* w)
+(defun ciexyz-from-cieluv (L* u* v* w)
   "Convert CIE L*u*v* color space coordinates
 into CIE XYZ color space coordinates.
 
 This conversion requires a reference white point."
   (declare (type real L* u* v*))
   (multiple-value-bind (x*n y*n yn)
-      (cie-xyy-color-coordinates (or w *cie-luv-default-white-point*))
+      (ciexyy-color-coordinates (or w *cieluv-default-white-point*))
     (multiple-value-bind (un vn)
 	(cie-uv-from-xy x*n y*n (+ (- (* 2 x*n)) (* 12 y*n) 3))
       (let* ((u (+ (/ u* (* 13 L*) un)))
@@ -119,28 +119,28 @@ This conversion requires a reference white point."
 	     (z (* y (/ (- 12 (* 3 u) (* 20 v)) (* 4 v)))))
 	(values x y z)))))
 
-(export 'cie-luv-color-coordinates)
-(defgeneric cie-luv-color-coordinates (color)
+(export 'cieluv-color-coordinates)
+(defgeneric cieluv-color-coordinates (color)
   (:documentation "Return the CIE L*u*v* color space coordinates of the color.
 
 Argument COLOR is a color object.")
-  (:method ((color cie-luv-color))
+  (:method ((color cieluv-color))
     (color-coordinates color))
   ;; Otherwise, go via CIE XYZ.
   (:method ((color color-object))
     (multiple-value-bind (x y z)
-	(cie-xyz-color-coordinates color)
-      (cie-luv-from-cie-xyz x y z (white-point color)))))
+	(ciexyz-color-coordinates color)
+      (cieluv-from-ciexyz x y z (white-point color)))))
 
-(defmethod cie-xyz-color-coordinates ((color cie-luv-color))
+(defmethod ciexyz-color-coordinates ((color cieluv-color))
   (multiple-value-bind (L* u* v*)
-      (cie-luv-color-coordinates color)
-    (cie-xyz-from-cie-luv L* u* v* (white-point color))))
+      (cieluv-color-coordinates color)
+    (ciexyz-from-cieluv L* u* v* (white-point color))))
 
-(defmethod update-instance-for-different-class :after ((old color-object) (new cie-luv-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new cieluv-color) &key)
   (with-slots (L* u* v* white-point) new
     (multiple-value-setq (L* u* v*)
-      (cie-luv-color-coordinates old))
-    (setf white-point (or (white-point old) *cie-luv-default-white-point*))))
+      (cieluv-color-coordinates old))
+    (setf white-point (or (white-point old) *cieluv-default-white-point*))))
 
-;;; cie-luv.lisp ends here
+;;; cieluv.lisp ends here

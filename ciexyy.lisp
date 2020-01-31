@@ -1,4 +1,4 @@
-;;; cie-xyy.lisp --- CIE xyY color space.
+;;; ciexyy.lisp --- CIE xyY color space.
 
 ;; Copyright (C) 2014 Ralph Schleicher
 
@@ -35,8 +35,8 @@
 
 (in-package :rs-colors)
 
-(export 'cie-xyy-color)
-(defclass cie-xyy-color (color-object)
+(export 'ciexyy-color)
+(defclass ciexyy-color (color-object)
   ((x*
     :initarg :x*
     :initform 0
@@ -54,77 +54,77 @@
     :documentation "Second tristimulus value, default zero."))
   (:documentation "Color class for the CIE xyY color space."))
 
-(defmethod color-coordinates ((color cie-xyy-color))
+(defmethod color-coordinates ((color ciexyy-color))
   (with-slots (x* y* y) color
     (values x* y* y)))
 
-(export 'make-cie-xyy-color)
-(defun make-cie-xyy-color (x* y* y)
+(export 'make-ciexyy-color)
+(defun make-ciexyy-color (x* y* y)
   "Create a new color in the CIE xyY color space.
 
 Arguments X* and Y* are the chromaticity coordinates.
 Argument Y is the second tristimulus value (luminance)."
-  (make-instance 'cie-xyy-color :x* x* :y* y* :y y))
+  (make-instance 'ciexyy-color :x* x* :y* y* :y y))
 
-(defun cie-xyy-from-cie-xyz (x y z)
+(defun ciexyy-from-ciexyz (x y z)
   "Convert CIE XYZ color space coordinates
 into CIE xyY color space coordinates."
   (declare (type real x y z))
   (let ((s (+ x y z)))
     (declare (type real s))
     (when (zerop s)
-      (error 'division-by-zero :operation 'cie-xyy-from-cie-xyz :operands (list x y z)))
+      (error 'division-by-zero :operation 'ciexyy-from-ciexyz :operands (list x y z)))
     (values (/ x s) (/ y s) y)))
 
-(defun cie-xyz-from-cie-xyy (x* y* y)
+(defun ciexyz-from-ciexyy (x* y* y)
   "Convert CIE xyY color space coordinates
 into CIE XYZ color space coordinates."
   (declare (type real x* y* y))
   (when (zerop y*)
-    (error 'division-by-zero :operation 'cie-xyz-from-cie-xyy :operands (list x* y* y)))
+    (error 'division-by-zero :operation 'ciexyz-from-ciexyy :operands (list x* y* y)))
   (let ((s (/ y y*)))
     (declare (type real s))
     (values (* x* s) y (* (- 1 x* y*) s))))
 
-(export 'cie-xyy-color-coordinates)
-(defgeneric cie-xyy-color-coordinates (color)
+(export 'ciexyy-color-coordinates)
+(defgeneric ciexyy-color-coordinates (color)
   (:documentation "Return the CIE xyY color space coordinates of the color.
 
 Argument COLOR is a color object.
 
 Values are the X and Y chromaticity coordinates and the Y tristimulus
 value (luminance).")
-  (:method ((color cie-xyy-color))
+  (:method ((color ciexyy-color))
     (color-coordinates color))
   ;; Otherwise, go via CIE XYZ.
   (:method ((color color-object))
-    (multiple-value-call #'cie-xyy-from-cie-xyz
-      (cie-xyz-color-coordinates color))))
+    (multiple-value-call #'ciexyy-from-ciexyz
+      (ciexyz-color-coordinates color))))
 
-(defmethod cie-xyz-color-coordinates ((color cie-xyy-color))
-  (multiple-value-call #'cie-xyz-from-cie-xyy
+(defmethod ciexyz-color-coordinates ((color ciexyy-color))
+  (multiple-value-call #'ciexyz-from-ciexyy
     (color-coordinates color)))
 
-(defmethod update-instance-for-different-class :after ((old color-object) (new cie-xyy-color) &key)
+(defmethod update-instance-for-different-class :after ((old color-object) (new ciexyy-color) &key)
   (with-slots (x* y* y) new
     (multiple-value-setq (x* y* y)
-      (cie-xyy-color-coordinates old))))
+      (ciexyy-color-coordinates old))))
 
-(defmethod absolute-luminance ((color cie-xyy-color))
+(defmethod absolute-luminance ((color ciexyy-color))
   (slot-value color 'y))
 
-(defmethod normalize-color ((color cie-xyy-color) &key (white 1) (black 0))
+(defmethod normalize-color ((color ciexyy-color) &key (white 1) (black 0))
   (let ((yw (absolute-luminance white))
 	(yk (absolute-luminance black)))
     (with-slots (y) color
       (setf y (/ (- y yk) (- yw yk)))))
   color)
 
-(defmethod absolute-color ((color cie-xyy-color) &key (white 1) (black 0))
+(defmethod absolute-color ((color ciexyy-color) &key (white 1) (black 0))
   (let ((yw (absolute-luminance white))
 	(yk (absolute-luminance black)))
     (with-slots (y) color
       (setf y (+ yk (* y (- yw yk))))))
   color)
 
-;;; cie-xyy.lisp ends here
+;;; ciexyy.lisp ends here

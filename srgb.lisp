@@ -84,7 +84,7 @@ Example:
 ;; ITU-R BT.709 truncates the CIE 1931 color space chromaticity
 ;; coordinates of the D65 standard illuminant to four decimal
 ;; places.
-(defconst srgb-white-point (make-cie-xyy-color 3127/10000 3290/10000 1)
+(defconst srgb-white-point (make-ciexyy-color 3127/10000 3290/10000 1)
   "White point of the sRGB color space.")
 
 (defmethod white-point ((color srgb-color))
@@ -95,12 +95,12 @@ Example:
 				 #(30/100 60/100)
 				 #(15/100  6/100)
 				 (multiple-value-bind (x* y*)
-				     (cie-xyy-color-coordinates srgb-white-point)
+				     (ciexyy-color-coordinates srgb-white-point)
 				   (vector x* y*)))
-  (defconst srgb-from-cie-xyz-transformation-matrix (float-array rgb-from-xyz 1D0)
+  (defconst srgb-from-ciexyz-transformation-matrix (float-array rgb-from-xyz 1D0)
     "Transformation matrix to convert normalized CIE XYZ color space coordinates
 into linear sRGB color space coordinates.")
-  (defconst cie-xyz-from-srgb-transformation-matrix (float-array xyz-from-rgb 1D0)
+  (defconst ciexyz-from-srgb-transformation-matrix (float-array xyz-from-rgb 1D0)
     "Transformation matrix to convert linear sRGB color space coordinates
 into normalized CIE XYZ color space coordinates.")
   (values))
@@ -131,22 +131,22 @@ into linear sRGB color space coordinates."
 	(t
 	 (/ c 12.92D0))))
 
-(defun srgb-from-cie-xyz (x y z)
+(defun srgb-from-ciexyz (x y z)
   "Convert normalized CIE XYZ color space coordinates
 into sRGB color space coordinates."
   (declare (type real x y z))
   (multiple-value-bind (r g b)
-      (linear-transformation srgb-from-cie-xyz-transformation-matrix x y z)
+      (linear-transformation srgb-from-ciexyz-transformation-matrix x y z)
     (declare (type real r g b))
     (values (srgb-gamma-encoding (clamp r 0 1))
 	    (srgb-gamma-encoding (clamp g 0 1))
 	    (srgb-gamma-encoding (clamp b 0 1)))))
 
-(defun cie-xyz-from-srgb (r g b)
+(defun ciexyz-from-srgb (r g b)
   "Convert sRGB color space coordinates
 into normalized CIE XYZ color space coordinates."
   (declare (type real r g b))
-  (linear-transformation cie-xyz-from-srgb-transformation-matrix
+  (linear-transformation ciexyz-from-srgb-transformation-matrix
 			 (srgb-gamma-decoding r)
 			 (srgb-gamma-decoding g)
 			 (srgb-gamma-decoding b)))
@@ -164,14 +164,14 @@ Values are the intensities of the red, green, and blue primary.")
     (generic-rgb-color-coordinates color))
   ;; Otherwise, go via CIE XYZ.
   (:method ((color color-object))
-    (multiple-value-call #'srgb-from-cie-xyz
-      (cie-xyz-color-coordinates color))))
+    (multiple-value-call #'srgb-from-ciexyz
+      (ciexyz-color-coordinates color))))
 
 (defmethod generic-rgb-color-coordinates ((color srgb-color))
   (color-coordinates color))
 
-(defmethod cie-xyz-color-coordinates ((color srgb-color))
-  (multiple-value-call #'cie-xyz-from-srgb
+(defmethod ciexyz-color-coordinates ((color srgb-color))
+  (multiple-value-call #'ciexyz-from-srgb
     (color-coordinates color)))
 
 (defmethod update-instance-for-different-class :after ((old color-object) (new srgb-color) &key)
