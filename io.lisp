@@ -94,6 +94,13 @@
 
 ;; This is an unofficial Xcms prefix.
 (define-color-printer xcms-cie-rgb (color stream :export t)
+  "Print a color in Xcms CIE RGB notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object."
   (multiple-value-bind (r g b)
       (cie-rgb-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
@@ -103,10 +110,29 @@
 	      (float g 1F0)
 	      (float b 1F0)))))
 
+(setf (documentation 'color-formatter-xcms-cie-rgb 'variable)
+      "A format function for printing a color in Xcms CIE RGB notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.")
+
 (define-color-reader xcms-cie-rgb (stream :export t)
+  "Read a color in Xcms CIE RGB notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the CIE RGB color space."
   (%read-xcms stream "CIERGB" #'make-cie-rgb-color))
 
 (define-color-printer xcms-cie-xyz (color stream :export t)
+  "Print a color in Xcms CIE XYZ notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object."
   (multiple-value-bind (x y z)
       (cie-xyz-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
@@ -116,10 +142,29 @@
 	      (float y 1F0)
 	      (float z 1F0)))))
 
+(setf (documentation 'color-formatter-xcms-cie-xyz 'variable)
+      "A format function for printing a color in Xcms CIE XYZ notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.")
+
 (define-color-reader xcms-cie-xyz (stream :export t)
+  "Read a color in Xcms CIE XYZ notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the CIE XYZ color space."
   (%read-xcms stream "CIEXYZ" #'make-cie-xyz-color))
 
 (define-color-printer xcms-cie-xyy (color stream :export t)
+  "Print a color in Xcms CIE xyY notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object."
   (multiple-value-bind (x* y* y)
       (cie-xyy-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
@@ -129,10 +174,29 @@
 	      (float y* 1F0)
 	      (float y  1F0)))))
 
+(setf (documentation 'color-formatter-xcms-cie-xyy 'variable)
+      "A format function for printing a color in Xcms CIE xyY notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.")
+
 (define-color-reader xcms-cie-xyy (stream :export t)
+  "Read a color in Xcms CIE xyY notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the CIE xyY color space."
   (%read-xcms stream "CIExyY" #'make-cie-xyy-color))
 
 (define-color-printer xcms-cie-luv (color stream :export t)
+  "Print a color in Xcms CIE L*u*v* notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object."
   (multiple-value-bind (L u v)
       (cie-luv-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
@@ -142,10 +206,29 @@
 	      (float u 1F0)
 	      (float v 1F0)))))
 
+(setf (documentation 'color-formatter-xcms-cie-luv 'variable)
+      "A format function for printing a color in Xcms CIE L*u*v* notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.")
+
 (define-color-reader xcms-cie-luv (stream :export t)
+  "Read a color in Xcms CIE L*u*v* notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the CIE L*u*v* color space."
   (%read-xcms stream "CIELuv" #'make-cie-luv-color))
 
 (define-color-printer xcms-cie-lab (color stream :export t)
+  "Print a color in Xcms CIE L*a*b* notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object."
   (multiple-value-bind (L a b)
       (cie-lab-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
@@ -155,11 +238,30 @@
 	      (float a 1F0)
 	      (float b 1F0)))))
 
+(setf (documentation 'color-formatter-xcms-cie-lab 'variable)
+      "A format function for printing a color in Xcms CIE L*a*b* notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.")
+
 (define-color-reader xcms-cie-lab (stream :export t)
+  "Read a color in Xcms CIE L*a*b* notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the CIE L*a*b* color space."
   (%read-xcms stream "CIELab" #'make-cie-lab-color))
 
 ;; This is an unofficial Xcms prefix.
 (define-color-printer xcms-cie-lch (color stream :export t)
+  "Print a color in Xcms CIE L*C*h notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object."
   (multiple-value-bind (L C h)
       (cie-lch-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
@@ -169,10 +271,29 @@
 	      (float C 1F0)
 	      (float h 1F0)))))
 
+(setf (documentation 'color-formatter-xcms-cie-lch 'variable)
+      "A format function for printing a color in Xcms CIE L*C*h notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.")
+
 (define-color-reader xcms-cie-lch (stream :export t)
+  "Read a color in Xcms CIE L*C*h notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the CIE L*C*h color space."
   (%read-xcms stream "CIELCh" #'make-cie-lch-color))
 
 (define-color-printer xcms-rgbi (color stream :export t)
+  "Print a color in Xcms RGBi notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object."
   (multiple-value-bind (r g b)
       (generic-rgb-color-coordinates color)
     (let ((*read-default-float-format* 'single-float))
@@ -182,10 +303,29 @@
 	      (float g 1F0)
 	      (float b 1F0)))))
 
+(setf (documentation 'color-formatter-xcms-rgbi 'variable)
+      "A format function for printing a color in Xcms RGBi notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.")
+
 (define-color-reader xcms-rgbi (stream :export t)
+  "Read a color in Xcms RGBi notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the generic RGB color space."
   (%read-xcms stream "RGBi" #'make-generic-rgb-color))
 
 (define-color-printer xcms-rgb (color stream :export t)
+  "Print a color in Xcms RGB notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object."
   (multiple-value-bind (r g b)
       (generic-rgb-color-coordinates color)
     (alexandria:if-let ((red   (multiples r 255))
@@ -198,7 +338,19 @@
 	      (round (* g 65535))
 	      (round (* b 65535))))))
 
+(setf (documentation 'color-formatter-xcms-rgb 'variable)
+      "A format function for printing a color in Xcms RGB notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.")
+
 (define-color-reader xcms-rgb (stream :export t)
+  "Read a color in Xcms RGB notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the generic RGB color space."
   (labels ((read-number (stream)
 	     "Read a hexadecimal number."
 	     (multiple-value-bind (value length)
@@ -229,6 +381,13 @@
       (make-generic-rgb-color r g b))))
 
 (define-color-printer html (color stream :export t)
+  "Print a numerical HTML color value.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object."
   (multiple-value-bind (r g b)
       (srgb-color-coordinates color)
     (format stream
@@ -238,6 +397,12 @@
 	     (round (* g 255))
 	     (round (* b 255))))))
 
+(setf (documentation 'color-formatter-html 'variable)
+      "A format function for printing a numerical HTML color value.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.")
+
 ;; Read a numerical HTML color definition, that is
 ;; a hexadecimal number prefixed by a hash mark.
 ;;
@@ -245,6 +410,12 @@
 ;;
 ;; Value is a color object in the sRGB color space.
 (define-color-reader html (stream :export t)
+  "Read a numerical HTML color value.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the sRGB color space."
   (unless (char= (read-char stream) #\#)
     (error "Invalid HTML color syntax; expect a ‘#’ character."))
   (iter (with val = 0)
@@ -272,6 +443,13 @@
 	))
 
 (define-color-printer css3-rgb (color stream :export t)
+  "Print a color in CSS3 RGB functional notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object."
   (multiple-value-bind (r g b)
       (srgb-color-coordinates color)
     (alexandria:if-let ((red   (multiples r 255))
@@ -285,7 +463,19 @@
 		(float (* g 100) 1F0)
 		(float (* b 100) 1F0))))))
 
+(setf (documentation 'color-formatter-css3-rgb 'variable)
+      "A format function for printing a color in CSS3 RGB functional notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.")
+
 (define-color-reader css3-rgb (stream :export t)
+  "Read a color in CSS3 RGB functional notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the sRGB color space."
   ;; Read functional notation of the form ‘rgb(RED,GREEN,BLUE)’.
   ;; Whitespace characters are allowed around the numerical values.
   ;; All RGB colors are specified in the sRGB color space...
@@ -353,6 +543,13 @@
 	(make-srgb-color r g b)))))
 
 (define-color-printer css3-hsl (color stream :export t)
+  "Print a color in CSS3 HSL functional notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object."
   (multiple-value-bind (h s l)
       (multiple-value-call #'generic-hsl-from-generic-rgb
 	(srgb-color-coordinates color))
@@ -363,7 +560,19 @@
 	      (float (* s 100) 1F0)
 	      (float (* l 100) 1F0)))))
 
+(setf (documentation 'color-formatter-css3-hsl 'variable)
+      "A format function for printing a color in CSS3 HSL functional notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.")
+
 (define-color-reader css3-hsl (stream :export t)
+  "Read a color in CSS3 HSL functional notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the sRGB color space."
   ;; Read functional notation of the form ‘hsl(HUE,SATURATION,LIGHTNESS)’.
   ;; Whitespace characters are allowed around the numerical values.
   ;; Values outside the device gamut should be clipped...
@@ -408,7 +617,8 @@
   "Read a CSS3 color value, i.e. either a numerical HTML color
 definition or a RGB value or HSL value in functional notation.
 
-Argument STREAM is an input stream.
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
 
 Value is a color object in the sRGB color space."
   (case (peek-char nil stream nil #\Space)
