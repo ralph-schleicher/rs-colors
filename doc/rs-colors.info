@@ -923,7 +923,7 @@ illuminant E(1).
 CIE xyY color space:
 
      (change-class (make-ciergb-color 1 1 1) 'ciexyy-color)
-      => #<CIE-XYY-COLOR (1/3 1/3 1)>
+      => #<CIEXYY-COLOR (1/3 1/3 1)>
 
 
 File: rs-colors.info,  Node: CIE XYZ Color Space,  Next: CIE xyY Color Space,  Prev: CIE RGB Color Space,  Up: CIE Color Spaces
@@ -1407,7 +1407,7 @@ File: rs-colors.info,  Node: Color Conversions,  Next: Color Difference,  Prev: 
           (let ((red (make-srgb-color 1 0 0)))
             (change-class red 'ciexyy-color)
             red)
-           => #<CIE-XYY-COLOR (0.64d0 0.33d0 ...)>
+           => #<CIEXYY-COLOR (0.64d0 0.33d0 ...)>
 
  -- Function: coerce-color color color-type
      Coerce the color object into the specified color type.
@@ -2136,134 +2136,134 @@ Ref: class;rs-colors;ciergb-color28867
 Ref: function;rs-colors;make-ciergb-color29029
 Ref: generic-function;rs-colors;ciergb-color-coordinates29497
 Ref: CIE RGB Color Space-Footnote-129780
-Node: CIE XYZ Color Space29972
-Ref: class;rs-colors;ciexyz-color30496
-Ref: function;rs-colors;make-ciexyz-color30638
-Ref: generic-function;rs-colors;ciexyz-color-coordinates30964
-Node: CIE xyY Color Space31622
-Ref: class;rs-colors;ciexyy-color32198
-Ref: function;rs-colors;make-ciexyy-color32340
-Ref: generic-function;rs-colors;ciexyy-color-coordinates32659
-Node: CIE L*u*v* Color Space32893
-Ref: variable;rs-colors;*cieluv-default-white-point*33690
-Ref: class;rs-colors;cieluv-color33865
-Ref: function;rs-colors;make-cieluv-color34010
-Ref: generic-function;rs-colors;cieluv-color-coordinates34446
-Node: CIE L*a*b* Color Space34679
-Ref: variable;rs-colors;*cielab-default-white-point*35513
-Ref: class;rs-colors;cielab-color35688
-Ref: function;rs-colors;make-cielab-color35833
-Ref: generic-function;rs-colors;cielab-color-coordinates36269
-Node: CIE L*C*h Color Space36502
-Ref: variable;rs-colors;*cielch-default-white-point*37475
-Ref: class;rs-colors;cielch-color37650
-Ref: function;rs-colors;make-cielch-color37794
-Ref: generic-function;rs-colors;cielch-color-coordinates38349
-Node: CIE Standard Illuminants38561
-Ref: constant;rs-colors;CIE-1931-A38734
-Ref: constant;rs-colors;CIE-1931-B38734
-Ref: constant;rs-colors;CIE-1931-C38734
-Ref: constant;rs-colors;CIE-1931-D5038734
-Ref: constant;rs-colors;CIE-1931-D5538734
-Ref: constant;rs-colors;CIE-1931-D6538734
-Ref: constant;rs-colors;CIE-1931-D7538734
-Ref: constant;rs-colors;CIE-1931-E38734
-Ref: constant;rs-colors;CIE-1931-F138734
-Ref: constant;rs-colors;CIE-1931-F238734
-Ref: constant;rs-colors;CIE-1931-F338734
-Ref: constant;rs-colors;CIE-1931-F438734
-Ref: constant;rs-colors;CIE-1931-F538734
-Ref: constant;rs-colors;CIE-1931-F638734
-Ref: constant;rs-colors;CIE-1931-F738734
-Ref: constant;rs-colors;CIE-1931-F838734
-Ref: constant;rs-colors;CIE-1931-F938734
-Ref: constant;rs-colors;CIE-1931-F1038734
-Ref: constant;rs-colors;CIE-1931-F1138734
-Ref: constant;rs-colors;CIE-1931-F1238734
-Ref: constant;rs-colors;CIE-1964-A39362
-Ref: constant;rs-colors;CIE-1964-B39362
-Ref: constant;rs-colors;CIE-1964-C39362
-Ref: constant;rs-colors;CIE-1964-D5039362
-Ref: constant;rs-colors;CIE-1964-D5539362
-Ref: constant;rs-colors;CIE-1964-D6539362
-Ref: constant;rs-colors;CIE-1964-D7539362
-Ref: constant;rs-colors;CIE-1964-E39362
-Ref: constant;rs-colors;CIE-1964-F139362
-Ref: constant;rs-colors;CIE-1964-F239362
-Ref: constant;rs-colors;CIE-1964-F339362
-Ref: constant;rs-colors;CIE-1964-F439362
-Ref: constant;rs-colors;CIE-1964-F539362
-Ref: constant;rs-colors;CIE-1964-F639362
-Ref: constant;rs-colors;CIE-1964-F739362
-Ref: constant;rs-colors;CIE-1964-F839362
-Ref: constant;rs-colors;CIE-1964-F939362
-Ref: constant;rs-colors;CIE-1964-F1039362
-Ref: constant;rs-colors;CIE-1964-F1139362
-Ref: constant;rs-colors;CIE-1964-F1239362
-Node: RGB Color Spaces39992
-Node: sRGB Color Space40214
-Ref: class;rs-colors;srgb-color40388
-Ref: function;rs-colors;make-srgb-color40543
-Ref: function;rs-colors;make-srgb-color-from-number41557
-Ref: generic-function;rs-colors;srgb-color-coordinates42209
-Node: Adobe RGB Color Space42451
-Ref: class;rs-colors;adobe-rgb-color42610
-Ref: function;rs-colors;make-adobe-rgb-color42780
-Ref: function;rs-colors;make-adobe-rgb-color-from-number43824
-Ref: generic-function;rs-colors;adobe-rgb-color-coordinates44496
-Node: Color Properties44748
-Ref: generic-function;rs-colors;color-coordinates44914
-Ref: generic-function;rs-colors;white-point45060
-Node: Color Conversions45329
-Ref: generic-function;common-lisp;change-class45497
-Ref: function;rs-colors;coerce-color46034
-Ref: generic-function;rs-colors;copy-color46499
-Node: Color Difference46697
-Ref: function;rs-colors;cie7646863
-Ref: function;rs-colors;cie9447155
-Node: Input and Output48051
-Node: Xcms Formats48273
-Ref: function;rs-colors;print-color-xcms-ciergb48947
-Ref: function;rs-colors;print-color-xcms-ciexyz48947
-Ref: function;rs-colors;print-color-xcms-ciexyy48947
-Ref: function;rs-colors;print-color-xcms-cieluv48947
-Ref: function;rs-colors;print-color-xcms-cielab48947
-Ref: function;rs-colors;print-color-xcms-cielch48947
-Ref: function;rs-colors;print-color-xcms-rgbi48947
-Ref: function;rs-colors;print-color-xcms-rgb48947
-Ref: function;rs-colors;color-formatter-xcms-ciergb50509
-Ref: function;rs-colors;color-formatter-xcms-ciexyz50509
-Ref: function;rs-colors;color-formatter-xcms-ciexyy50509
-Ref: function;rs-colors;color-formatter-xcms-cieluv50509
-Ref: function;rs-colors;color-formatter-xcms-cielab50509
-Ref: function;rs-colors;color-formatter-xcms-cielch50509
-Ref: function;rs-colors;color-formatter-xcms-rgbi50509
-Ref: function;rs-colors;color-formatter-xcms-rgb50509
-Ref: function;rs-colors;read-color-xcms-ciergb51212
-Ref: function;rs-colors;read-color-xcms-ciexyz51212
-Ref: function;rs-colors;read-color-xcms-ciexyy51212
-Ref: function;rs-colors;read-color-xcms-cieluv51212
-Ref: function;rs-colors;read-color-xcms-cielab51212
-Ref: function;rs-colors;read-color-xcms-cielch51212
-Ref: function;rs-colors;read-color-xcms-rgbi51212
-Ref: function;rs-colors;read-color-xcms-rgb51212
-Node: HTML Format52261
-Ref: function;rs-colors;print-color-html52546
-Ref: constant;rs-colors;color-formatter-html53100
-Ref: function;rs-colors;read-color-html53471
-Node: CSS3 Formats54081
-Ref: function;rs-colors;print-color-css3-rgb54765
-Ref: function;rs-colors;print-color-css3-hsl54765
-Ref: constant;rs-colors;color-formatter-css3-rgb55728
-Ref: constant;rs-colors;color-formatter-css3-hsl55728
-Ref: function;rs-colors;read-color-css3-rgb56161
-Ref: function;rs-colors;read-color-css3-hsl56161
-Ref: function;rs-colors;read-color-css356861
-Node: Miscellaneous57209
-Ref: generic-function;rs-colors;normalize-color57342
-Ref: generic-function;rs-colors;absolute-color57487
-Node: Symbol Index57631
-Node: Concept Index73215
+Node: CIE XYZ Color Space29971
+Ref: class;rs-colors;ciexyz-color30495
+Ref: function;rs-colors;make-ciexyz-color30637
+Ref: generic-function;rs-colors;ciexyz-color-coordinates30963
+Node: CIE xyY Color Space31621
+Ref: class;rs-colors;ciexyy-color32197
+Ref: function;rs-colors;make-ciexyy-color32339
+Ref: generic-function;rs-colors;ciexyy-color-coordinates32658
+Node: CIE L*u*v* Color Space32892
+Ref: variable;rs-colors;*cieluv-default-white-point*33689
+Ref: class;rs-colors;cieluv-color33864
+Ref: function;rs-colors;make-cieluv-color34009
+Ref: generic-function;rs-colors;cieluv-color-coordinates34445
+Node: CIE L*a*b* Color Space34678
+Ref: variable;rs-colors;*cielab-default-white-point*35512
+Ref: class;rs-colors;cielab-color35687
+Ref: function;rs-colors;make-cielab-color35832
+Ref: generic-function;rs-colors;cielab-color-coordinates36268
+Node: CIE L*C*h Color Space36501
+Ref: variable;rs-colors;*cielch-default-white-point*37474
+Ref: class;rs-colors;cielch-color37649
+Ref: function;rs-colors;make-cielch-color37793
+Ref: generic-function;rs-colors;cielch-color-coordinates38348
+Node: CIE Standard Illuminants38560
+Ref: constant;rs-colors;CIE-1931-A38733
+Ref: constant;rs-colors;CIE-1931-B38733
+Ref: constant;rs-colors;CIE-1931-C38733
+Ref: constant;rs-colors;CIE-1931-D5038733
+Ref: constant;rs-colors;CIE-1931-D5538733
+Ref: constant;rs-colors;CIE-1931-D6538733
+Ref: constant;rs-colors;CIE-1931-D7538733
+Ref: constant;rs-colors;CIE-1931-E38733
+Ref: constant;rs-colors;CIE-1931-F138733
+Ref: constant;rs-colors;CIE-1931-F238733
+Ref: constant;rs-colors;CIE-1931-F338733
+Ref: constant;rs-colors;CIE-1931-F438733
+Ref: constant;rs-colors;CIE-1931-F538733
+Ref: constant;rs-colors;CIE-1931-F638733
+Ref: constant;rs-colors;CIE-1931-F738733
+Ref: constant;rs-colors;CIE-1931-F838733
+Ref: constant;rs-colors;CIE-1931-F938733
+Ref: constant;rs-colors;CIE-1931-F1038733
+Ref: constant;rs-colors;CIE-1931-F1138733
+Ref: constant;rs-colors;CIE-1931-F1238733
+Ref: constant;rs-colors;CIE-1964-A39361
+Ref: constant;rs-colors;CIE-1964-B39361
+Ref: constant;rs-colors;CIE-1964-C39361
+Ref: constant;rs-colors;CIE-1964-D5039361
+Ref: constant;rs-colors;CIE-1964-D5539361
+Ref: constant;rs-colors;CIE-1964-D6539361
+Ref: constant;rs-colors;CIE-1964-D7539361
+Ref: constant;rs-colors;CIE-1964-E39361
+Ref: constant;rs-colors;CIE-1964-F139361
+Ref: constant;rs-colors;CIE-1964-F239361
+Ref: constant;rs-colors;CIE-1964-F339361
+Ref: constant;rs-colors;CIE-1964-F439361
+Ref: constant;rs-colors;CIE-1964-F539361
+Ref: constant;rs-colors;CIE-1964-F639361
+Ref: constant;rs-colors;CIE-1964-F739361
+Ref: constant;rs-colors;CIE-1964-F839361
+Ref: constant;rs-colors;CIE-1964-F939361
+Ref: constant;rs-colors;CIE-1964-F1039361
+Ref: constant;rs-colors;CIE-1964-F1139361
+Ref: constant;rs-colors;CIE-1964-F1239361
+Node: RGB Color Spaces39991
+Node: sRGB Color Space40213
+Ref: class;rs-colors;srgb-color40387
+Ref: function;rs-colors;make-srgb-color40542
+Ref: function;rs-colors;make-srgb-color-from-number41556
+Ref: generic-function;rs-colors;srgb-color-coordinates42208
+Node: Adobe RGB Color Space42450
+Ref: class;rs-colors;adobe-rgb-color42609
+Ref: function;rs-colors;make-adobe-rgb-color42779
+Ref: function;rs-colors;make-adobe-rgb-color-from-number43823
+Ref: generic-function;rs-colors;adobe-rgb-color-coordinates44495
+Node: Color Properties44747
+Ref: generic-function;rs-colors;color-coordinates44913
+Ref: generic-function;rs-colors;white-point45059
+Node: Color Conversions45328
+Ref: generic-function;common-lisp;change-class45496
+Ref: function;rs-colors;coerce-color46032
+Ref: generic-function;rs-colors;copy-color46497
+Node: Color Difference46695
+Ref: function;rs-colors;cie7646861
+Ref: function;rs-colors;cie9447153
+Node: Input and Output48049
+Node: Xcms Formats48271
+Ref: function;rs-colors;print-color-xcms-ciergb48945
+Ref: function;rs-colors;print-color-xcms-ciexyz48945
+Ref: function;rs-colors;print-color-xcms-ciexyy48945
+Ref: function;rs-colors;print-color-xcms-cieluv48945
+Ref: function;rs-colors;print-color-xcms-cielab48945
+Ref: function;rs-colors;print-color-xcms-cielch48945
+Ref: function;rs-colors;print-color-xcms-rgbi48945
+Ref: function;rs-colors;print-color-xcms-rgb48945
+Ref: function;rs-colors;color-formatter-xcms-ciergb50507
+Ref: function;rs-colors;color-formatter-xcms-ciexyz50507
+Ref: function;rs-colors;color-formatter-xcms-ciexyy50507
+Ref: function;rs-colors;color-formatter-xcms-cieluv50507
+Ref: function;rs-colors;color-formatter-xcms-cielab50507
+Ref: function;rs-colors;color-formatter-xcms-cielch50507
+Ref: function;rs-colors;color-formatter-xcms-rgbi50507
+Ref: function;rs-colors;color-formatter-xcms-rgb50507
+Ref: function;rs-colors;read-color-xcms-ciergb51210
+Ref: function;rs-colors;read-color-xcms-ciexyz51210
+Ref: function;rs-colors;read-color-xcms-ciexyy51210
+Ref: function;rs-colors;read-color-xcms-cieluv51210
+Ref: function;rs-colors;read-color-xcms-cielab51210
+Ref: function;rs-colors;read-color-xcms-cielch51210
+Ref: function;rs-colors;read-color-xcms-rgbi51210
+Ref: function;rs-colors;read-color-xcms-rgb51210
+Node: HTML Format52259
+Ref: function;rs-colors;print-color-html52544
+Ref: constant;rs-colors;color-formatter-html53098
+Ref: function;rs-colors;read-color-html53469
+Node: CSS3 Formats54079
+Ref: function;rs-colors;print-color-css3-rgb54763
+Ref: function;rs-colors;print-color-css3-hsl54763
+Ref: constant;rs-colors;color-formatter-css3-rgb55726
+Ref: constant;rs-colors;color-formatter-css3-hsl55726
+Ref: function;rs-colors;read-color-css3-rgb56159
+Ref: function;rs-colors;read-color-css3-hsl56159
+Ref: function;rs-colors;read-color-css356859
+Node: Miscellaneous57207
+Ref: generic-function;rs-colors;normalize-color57340
+Ref: generic-function;rs-colors;absolute-color57485
+Node: Symbol Index57629
+Node: Concept Index73213
 
 End Tag Table
 
