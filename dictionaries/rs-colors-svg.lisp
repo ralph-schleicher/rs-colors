@@ -48,10 +48,10 @@ and <http://www.w3.org/TR/SVG11/types.html>."))
 
 (in-package :rs-colors-svg)
 
-(defmacro RGB (red green blue name &rest aliases)
+(defmacro RGB (r g b name &rest aliases)
   `(define-color-names (,name ,@aliases)
-     (make-srgb-color ,red ,green ,blue :byte-size 8)
-     ,(format nil "SVG color rgb(~A, ~A, ~A)." red green blue)))
+     (make-srgb-color ,r ,g ,b :byte-size 8)
+     ,(format nil "SVG color rgb(~A, ~A, ~A)." r g b)))
 
 (RGB 240 248 255 aliceblue)
 (RGB 250 235 215 antiquewhite)
