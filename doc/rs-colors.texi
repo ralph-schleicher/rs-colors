@@ -1264,7 +1264,7 @@ CIE RGB white into the CIE xyY color space:
 @lisp
 @group
 (change-class (make-ciergb-color 1 1 1) 'ciexyy-color)
- @result{} #<CIE-XYY-COLOR (1/3 1/3 1)>
+ @result{} #<CIEXYY-COLOR (1/3 1/3 1)>
 @end group
 @end lisp
 }.
@@ -2074,7 +2074,7 @@ Example:
 (let ((red (make-srgb-color 1 0 0)))
   (change-class red 'ciexyy-color)
   red)
- @result{} #<CIE-XYY-COLOR (0.64d0 0.33d0 @r{@dots{}})>
+ @result{} #<CIEXYY-COLOR (0.64d0 0.33d0 @r{@dots{}})>
 @end group
 @end lisp
 @end deffn
