@@ -49,9 +49,9 @@
 	 ,@body
 	 ,color)
        ,@(when export `((export (quote ,formatter))))
-       (defvar ,formatter (lambda (,stream &optional (,color (error "Missing required argument.")) &rest ,rest)
-			    (,printer ,color ,stream)
-			    ,rest))
+       (defconst ,formatter (lambda (,stream &optional (,color (error "Missing required argument.")) &rest rest)
+			      (,printer ,color ,stream)
+			      rest))
        (values))))
 
 (export 'define-color-reader)
