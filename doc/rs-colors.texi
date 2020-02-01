@@ -1719,92 +1719,92 @@ Values are the lightness, chroma, and hue.
 
 @cindex white point, CIE standard illuminant
 @c ---------------------------------------------------------------------
-@anchor{constant;rs-colors;cie-1931-a}
-@anchor{constant;rs-colors;cie-1931-b}
-@anchor{constant;rs-colors;cie-1931-c}
-@anchor{constant;rs-colors;cie-1931-d50}
-@anchor{constant;rs-colors;cie-1931-d55}
-@anchor{constant;rs-colors;cie-1931-d65}
-@anchor{constant;rs-colors;cie-1931-d75}
-@anchor{constant;rs-colors;cie-1931-e}
-@anchor{constant;rs-colors;cie-1931-f1}
-@anchor{constant;rs-colors;cie-1931-f2}
-@anchor{constant;rs-colors;cie-1931-f3}
-@anchor{constant;rs-colors;cie-1931-f4}
-@anchor{constant;rs-colors;cie-1931-f5}
-@anchor{constant;rs-colors;cie-1931-f6}
-@anchor{constant;rs-colors;cie-1931-f7}
-@anchor{constant;rs-colors;cie-1931-f8}
-@anchor{constant;rs-colors;cie-1931-f9}
-@anchor{constant;rs-colors;cie-1931-f10}
-@anchor{constant;rs-colors;cie-1931-f11}
-@anchor{constant;rs-colors;cie-1931-f12}
-@defvr  {Constant} cie-1931-a
-@defvrx {Constant} cie-1931-b
-@defvrx {Constant} cie-1931-c
-@defvrx {Constant} cie-1931-d50
-@defvrx {Constant} cie-1931-d55
-@defvrx {Constant} cie-1931-d65
-@defvrx {Constant} cie-1931-d75
-@defvrx {Constant} cie-1931-e
-@defvrx {Constant} cie-1931-f1
-@defvrx {Constant} cie-1931-f2
-@defvrx {Constant} cie-1931-f3
-@defvrx {Constant} cie-1931-f4
-@defvrx {Constant} cie-1931-f5
-@defvrx {Constant} cie-1931-f6
-@defvrx {Constant} cie-1931-f7
-@defvrx {Constant} cie-1931-f8
-@defvrx {Constant} cie-1931-f9
-@defvrx {Constant} cie-1931-f10
-@defvrx {Constant} cie-1931-f11
-@defvrx {Constant} cie-1931-f12
+@anchor{constant;rs-colors;cie-1931-white-point-a}
+@anchor{constant;rs-colors;cie-1931-white-point-b}
+@anchor{constant;rs-colors;cie-1931-white-point-c}
+@anchor{constant;rs-colors;cie-1931-white-point-d50}
+@anchor{constant;rs-colors;cie-1931-white-point-d55}
+@anchor{constant;rs-colors;cie-1931-white-point-d65}
+@anchor{constant;rs-colors;cie-1931-white-point-d75}
+@anchor{constant;rs-colors;cie-1931-white-point-e}
+@anchor{constant;rs-colors;cie-1931-white-point-f1}
+@anchor{constant;rs-colors;cie-1931-white-point-f2}
+@anchor{constant;rs-colors;cie-1931-white-point-f3}
+@anchor{constant;rs-colors;cie-1931-white-point-f4}
+@anchor{constant;rs-colors;cie-1931-white-point-f5}
+@anchor{constant;rs-colors;cie-1931-white-point-f6}
+@anchor{constant;rs-colors;cie-1931-white-point-f7}
+@anchor{constant;rs-colors;cie-1931-white-point-f8}
+@anchor{constant;rs-colors;cie-1931-white-point-f9}
+@anchor{constant;rs-colors;cie-1931-white-point-f10}
+@anchor{constant;rs-colors;cie-1931-white-point-f11}
+@anchor{constant;rs-colors;cie-1931-white-point-f12}
+@defvr  {Constant} cie-1931-white-point-a
+@defvrx {Constant} cie-1931-white-point-b
+@defvrx {Constant} cie-1931-white-point-c
+@defvrx {Constant} cie-1931-white-point-d50
+@defvrx {Constant} cie-1931-white-point-d55
+@defvrx {Constant} cie-1931-white-point-d65
+@defvrx {Constant} cie-1931-white-point-d75
+@defvrx {Constant} cie-1931-white-point-e
+@defvrx {Constant} cie-1931-white-point-f1
+@defvrx {Constant} cie-1931-white-point-f2
+@defvrx {Constant} cie-1931-white-point-f3
+@defvrx {Constant} cie-1931-white-point-f4
+@defvrx {Constant} cie-1931-white-point-f5
+@defvrx {Constant} cie-1931-white-point-f6
+@defvrx {Constant} cie-1931-white-point-f7
+@defvrx {Constant} cie-1931-white-point-f8
+@defvrx {Constant} cie-1931-white-point-f9
+@defvrx {Constant} cie-1931-white-point-f10
+@defvrx {Constant} cie-1931-white-point-f11
+@defvrx {Constant} cie-1931-white-point-f12
 @cindex white point
 White points of the CIE standard illuminants for a 2@textdegree{} field
 of view (2@textdegree{} standard observer).
 @end defvr
 
 @c ---------------------------------------------------------------------
-@anchor{constant;rs-colors;cie-1964-a}
-@anchor{constant;rs-colors;cie-1964-b}
-@anchor{constant;rs-colors;cie-1964-c}
-@anchor{constant;rs-colors;cie-1964-d50}
-@anchor{constant;rs-colors;cie-1964-d55}
-@anchor{constant;rs-colors;cie-1964-d65}
-@anchor{constant;rs-colors;cie-1964-d75}
-@anchor{constant;rs-colors;cie-1964-e}
-@anchor{constant;rs-colors;cie-1964-f1}
-@anchor{constant;rs-colors;cie-1964-f2}
-@anchor{constant;rs-colors;cie-1964-f3}
-@anchor{constant;rs-colors;cie-1964-f4}
-@anchor{constant;rs-colors;cie-1964-f5}
-@anchor{constant;rs-colors;cie-1964-f6}
-@anchor{constant;rs-colors;cie-1964-f7}
-@anchor{constant;rs-colors;cie-1964-f8}
-@anchor{constant;rs-colors;cie-1964-f9}
-@anchor{constant;rs-colors;cie-1964-f10}
-@anchor{constant;rs-colors;cie-1964-f11}
-@anchor{constant;rs-colors;cie-1964-f12}
-@defvr  {Constant} cie-1964-a
-@defvrx {Constant} cie-1964-b
-@defvrx {Constant} cie-1964-c
-@defvrx {Constant} cie-1964-d50
-@defvrx {Constant} cie-1964-d55
-@defvrx {Constant} cie-1964-d65
-@defvrx {Constant} cie-1964-d75
-@defvrx {Constant} cie-1964-e
-@defvrx {Constant} cie-1964-f1
-@defvrx {Constant} cie-1964-f2
-@defvrx {Constant} cie-1964-f3
-@defvrx {Constant} cie-1964-f4
-@defvrx {Constant} cie-1964-f5
-@defvrx {Constant} cie-1964-f6
-@defvrx {Constant} cie-1964-f7
-@defvrx {Constant} cie-1964-f8
-@defvrx {Constant} cie-1964-f9
-@defvrx {Constant} cie-1964-f10
-@defvrx {Constant} cie-1964-f11
-@defvrx {Constant} cie-1964-f12
+@anchor{constant;rs-colors;cie-1964-white-point-a}
+@anchor{constant;rs-colors;cie-1964-white-point-b}
+@anchor{constant;rs-colors;cie-1964-white-point-c}
+@anchor{constant;rs-colors;cie-1964-white-point-d50}
+@anchor{constant;rs-colors;cie-1964-white-point-d55}
+@anchor{constant;rs-colors;cie-1964-white-point-d65}
+@anchor{constant;rs-colors;cie-1964-white-point-d75}
+@anchor{constant;rs-colors;cie-1964-white-point-e}
+@anchor{constant;rs-colors;cie-1964-white-point-f1}
+@anchor{constant;rs-colors;cie-1964-white-point-f2}
+@anchor{constant;rs-colors;cie-1964-white-point-f3}
+@anchor{constant;rs-colors;cie-1964-white-point-f4}
+@anchor{constant;rs-colors;cie-1964-white-point-f5}
+@anchor{constant;rs-colors;cie-1964-white-point-f6}
+@anchor{constant;rs-colors;cie-1964-white-point-f7}
+@anchor{constant;rs-colors;cie-1964-white-point-f8}
+@anchor{constant;rs-colors;cie-1964-white-point-f9}
+@anchor{constant;rs-colors;cie-1964-white-point-f10}
+@anchor{constant;rs-colors;cie-1964-white-point-f11}
+@anchor{constant;rs-colors;cie-1964-white-point-f12}
+@defvr  {Constant} cie-1964-white-point-a
+@defvrx {Constant} cie-1964-white-point-b
+@defvrx {Constant} cie-1964-white-point-c
+@defvrx {Constant} cie-1964-white-point-d50
+@defvrx {Constant} cie-1964-white-point-d55
+@defvrx {Constant} cie-1964-white-point-d65
+@defvrx {Constant} cie-1964-white-point-d75
+@defvrx {Constant} cie-1964-white-point-e
+@defvrx {Constant} cie-1964-white-point-f1
+@defvrx {Constant} cie-1964-white-point-f2
+@defvrx {Constant} cie-1964-white-point-f3
+@defvrx {Constant} cie-1964-white-point-f4
+@defvrx {Constant} cie-1964-white-point-f5
+@defvrx {Constant} cie-1964-white-point-f6
+@defvrx {Constant} cie-1964-white-point-f7
+@defvrx {Constant} cie-1964-white-point-f8
+@defvrx {Constant} cie-1964-white-point-f9
+@defvrx {Constant} cie-1964-white-point-f10
+@defvrx {Constant} cie-1964-white-point-f11
+@defvrx {Constant} cie-1964-white-point-f12
 @cindex white point
 White points of the CIE standard illuminants for a 10@textdegree{} field
 of view (10@textdegree{} standard observer).
