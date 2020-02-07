@@ -32,12 +32,12 @@
 
 ## Code:
 
-info_TEXINFOS = rs-colors.texi
-rs_colors_TEXINFOS = package.texi rs-texinfo.texi \
-rs-colors-conversion.png
+SUBDIRS = rs-colors-images
 
-EXTRA_DIST = rs-colors.pdf \
-rs-colors-conversion.tex rs-colors-conversion.pdf
+info_TEXINFOS = rs-colors.texi
+rs_colors_TEXINFOS = package.texi rs-texinfo.texi
+
+EXTRA_DIST = rs-colors.pdf
 
 $(srcdir)/package.texi: $(srcdir)/../configure.ac
 	cd $(srcdir) && \
@@ -46,23 +46,5 @@ $(srcdir)/package.texi: $(srcdir)/../configure.ac
 	  echo 'set ADDRESS $(PACKAGE_BUGREPORT)' ; \
 	  echo 'set TARNAME $(PACKAGE_TARNAME)' ) | \
 	sed -e 's,@,@@,g' -e 's,^,@,' > package.texi
-
-images = $(srcdir)/rs-colors-conversion.png
-
-.PHONY: images
-images: $(images)
-
-install-data-local: images
-	$(INSTALL_DATA) $(srcdir)/rs-colors-conversion.png $(infodir)
-
-$(srcdir)/rs-colors-conversion.png: $(srcdir)/rs-colors-conversion.pdf
-	cd $(srcdir) && \
-	convert -trim -density 96 rs-colors-conversion.pdf rs-colors-conversion.png
-
-$(srcdir)/rs-colors-conversion.pdf: $(srcdir)/rs-colors-conversion.tex
-	cd $(srcdir) && \
-	pdflatex -halt-on-error -file-line-error rs-colors-conversion.tex && \
-	pdfcrop rs-colors-conversion.pdf rs-colors-conversion.pdf && \
-	rm -f rs-colors-conversion.log rs-colors-conversion.aux
 
 ## Makefile.am ends here
