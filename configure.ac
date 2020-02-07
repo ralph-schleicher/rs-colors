@@ -2,7 +2,7 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.50])
 
-AC_INIT([rs-colors], [20200124.1824], [rs@ralph-schleicher.de])
+AC_INIT([rs-colors], [1.0], [rs@ralph-schleicher.de])
 AM_INIT_AUTOMAKE([foreign no-define dist-bzip2])
 
 AC_CONFIG_SRCDIR([rs-colors.asd])
@@ -35,10 +35,3 @@ AC_SUBST([PACKAGE_BUGREPORT])
 AC_SUBST([PACKAGE_TARNAME])
 
 AC_OUTPUT
-
-dnl local variables:
-dnl time-stamp-time-zone: "UTC"
-dnl time-stamp-format: "%:y%02m%02d.%02H%02M"
-dnl time-stamp-start: "^AC_INIT(\\[rs-colors\\], \\["
-dnl time-stamp-end: "\\]"
-dnl end:
