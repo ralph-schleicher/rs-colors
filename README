@@ -29,10 +29,10 @@ Color space conversion is resolved by CLOS:
           0.976911599934101d0
           0.9587075033783911d0
 
-     (change-class (make-rgb-color 1/2 1/2 1) 'hsv-color)
+     (change-class (make-generic-rgb-color 1/2 1/2 1) 'generic-hsv-color)
       ==> #<HSV-COLOR (240 1/2 1)>
 
-     (change-class (make-hsv-color 240 1/2 1) 'rgb-color)
+     (change-class (make-generic-hsv-color 240 1/2 1) 'generic-rgb-color)
       ==> #<RGB-COLOR (1/2 1/2 1)>
 
 
