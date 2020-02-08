@@ -365,6 +365,42 @@ Optional argument STREAM is an input stream.
 Value is a color object in the generic RGB color space."
   (%read-xcms stream "RGB" #'make-generic-rgb-color t))
 
+(define-color-reader xcms (stream :export t)
+  "Read a color in Xcms notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the color space
+indicated by the Xcms prefix."
+  (let ((prefix (iter (for char = (read-char stream))
+		      (cond ((char= char #\:)
+			     (unread-char char stream)
+			     (finish))
+			    ((and (standard-char-p char)
+				  (alpha-char-p char))
+			     (collect char :result-type 'string))
+			    (t
+			     (error "Invalid Xcms color syntax; expect an alphabetic character."))))))
+    (cond ((string-equal prefix "CIERGB")
+	   (%read-xcms stream "" #'make-ciergb-color))
+	  ((string-equal prefix "CIEXYZ")
+	   (%read-xcms stream "" #'make-ciexyz-color))
+	  ((string-equal prefix "CIExyY")
+	   (%read-xcms stream "" #'make-ciexyy-color))
+	  ((string-equal prefix "CIELuv")
+	   (%read-xcms stream "" #'make-cieluv-color))
+	  ((string-equal prefix "CIELab")
+	   (%read-xcms stream "" #'make-cielab-color))
+	  ((string-equal prefix "CIELCh")
+	   (%read-xcms stream "" #'make-cielch-color))
+	  ((string-equal prefix "RGBi")
+	   (%read-xcms stream "" #'make-generic-rgb-color))
+	  ((string-equal prefix "RGB")
+	   (%read-xcms stream "" #'make-generic-rgb-color t))
+	  (t
+	   (error "Unknown Xcms prefix ‘~A’." prefix)))))
+
 (define-color-printer html (color stream :export t)
   "Print a numerical HTML color value.
 
