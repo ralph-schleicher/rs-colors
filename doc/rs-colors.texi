@@ -4,8 +4,8 @@
 @setfilename rs-colors.info
 @settitle rs-colors
 
-@set EDITION 1 (draft)
-@set UPDATED 2019-03-14
+@set EDITION 1
+@set UPDATED 2020-02-08
 
 @include package.texi
 
@@ -35,6 +35,13 @@ interval@tie{}@w{@math{\RANGE\}}
 
 @macro range {FROM, TO}
 range from@tie{}@w{@math{\FROM\}} to@tie{}@w{@math{\TO\}}
+@end macro
+
+@macro srgbcolorcubeviews {TAG, NAME}
+@float Figure,figure:srgb-color-cube-\TAG\-views
+@image{rs-colors-images/srgb-color-cube-\TAG\-views,150mm,}
+@caption{\NAME\ Color Space with sRGB Colors}
+@end float
 @end macro
 @c %**end of header
 
@@ -123,121 +130,56 @@ Release 5
 @node Introduction, Installation, Top, Top
 @chapter Introduction
 
-A color is either associated with a color model or a color space.  Two
-color models are in widespread use with computers:
+By using the @sc{rs-colors} library you can create and manipulate
+colors, or better color objects, in Common Lisp.  A color is either
+associated with a color model or a color space.  The implemented color
+models and color spaces are:
 
 @itemize
-@item
-The additive RGB color model with the primary colors red, green, and
-blue.
-
-@item
-The subtractive CMY color model with the primary colors cyan, magenta,
-and yellow.
+@item generic RGB
+@item generic HSV/HSB
+@item generic HSL
+@item generic CMY
+@item generic CMYK
 @end itemize
 
-@cindex RGB color model
-@cindex color model, RGB
-The RGB color model is the usual color model for computer displays.  If
-the color intensity of all primary colors is zero, that means ``off'',
-the display appears ``black''.  Otherwise, if the color intensity of all
-primary colors is one, that means ``on'', the display appears ``white''.
-
-@cindex CMY color model
-@cindex color model, CMY
-The CMY color model is the usual color model for paper printers.  If the
-color intensity of all primary colors is zero, that means ``off'', the
-paper appears ``white''.  Otherwise, if the color intensity of all
-primary colors is one, that means ``on'', the paper appears ``black''.
-
-Theoretically, a RGB tuple @w{@math{(R, G, B)}} and a CMY tuple
-@w{@math{(C, M, Y)}} are related to each other via the simple equations
-
-@ifinfo
-@display
-C = 1 - R
-M = 1 - G
-Y = 1 - B
-@end display
-@end ifinfo
-@iftex
-@tex
-$$\eqalign{%
-C &= 1 - R\cr
-M &= 1 - G\cr
-Y &= 1 - B\cr
-}$$
-@end tex
-
 @noindent
 and
 
-@ifinfo
-@display
-R = 1 - C
-G = 1 - M
-B = 1 - Y
-@end display
-@end ifinfo
-@iftex
-@tex
-$$\eqalign{%
-R &= 1 - C\cr
-G &= 1 - M\cr
-B &= 1 - Y\cr
-}$$
-@end tex
-@end iftex
+@itemize
+@item CIE RGB
+@item CIE XYZ
+@item CIE xyY
+@item CIE L*u*v*
+@item CIE L*a*b*
+@item CIE L*C*h
+@item sRGB
+@item Adobe RGB
+@end itemize
 
-@cindex CMYK color model
-@cindex color model, CMYK
-The CMYK color model is an extension of the CMY color model to save ink.
-Theoretically, a CMY tuple @w{@math{(C, M, Y)}} and a CMYK quadruple
-@w{@math{(c, m, y, k)}} can be related to each other via the equations
-
-@ifinfo
-@display
-k = min(C, M, Y)
-c = (C - k) / (1 - k)
-m = (M - k) / (1 - k)
-y = (Y - k) / (1 - k)
-@end display
-@end ifinfo
-@iftex
-@tex
-$$\eqalign{%
-k &= \min(C, M, Y)\cr
-c &= {C - k\over 1 - k}\cr
-m &= {M - k\over 1 - k}\cr
-y &= {Y - k\over 1 - k}\cr
-}$$
-@end tex
-@end iftex
-
-@noindent
-and
-
-@ifinfo
-@display
-C = min(1, c (1 - k) + k)
-M = min(1, m (1 - k) + k)
-Y = min(1, y (1 - k) + k)
-@end display
-@end ifinfo
-@iftex
-@tex
-$$\eqalign{%
-C &= \min(1, c\cdot(1 - k) + k)\cr
-M &= \min(1, m\cdot(1 - k) + k)\cr
-Y &= \min(1, y\cdot(1 - k) + k)\cr
-}$$
-@end tex
-@end iftex
+In @ref{User's Guide} we demonstrate the most important concepts
+provided by the @sc{rs-colors} library.  The details are documented in
+@ref{Reference Manual}.
 
 
 @node Installation, User's Guide, Introduction, Top
 @chapter Installation
 
+The @sc{rs-colors} library is available in
+@uref{https://www.quicklisp.org, Quicklisp}.
+Thus,
+
+@lisp
+@group
+(ql:quickload :rs-colors)
+(use-package :rs-colors)
+@end group
+@end lisp
+
+@noindent
+should do it.
+
+@ignore
 These installation instructions assume that you have a working
 @uref{https://www.quicklisp.org, Quicklisp} installation.
 
@@ -260,16 +202,7 @@ You can do so by evaluating the following form.
 
 @noindent
 After that, you can load @sc{rs-colors} as usual.
-
-@lisp
-@group
-(ql:quickload :rs-colors)
-(use-package :rs-colors)
-@end group
-@end lisp
-
-@noindent
-That's it.
+@end ignore
 
 
 @node User's Guide, Reference Manual, Installation, Top
@@ -281,6 +214,7 @@ That's it.
 * Color Coordinates::
 * White Point::
 * Color Conversion::
+* External Representations::
 * Color Dictionaries::
 @end menu
 
@@ -295,7 +229,7 @@ color is an instance of a particular color class.  All color classes are
 sub-classes of the abstract @classref{rs-colors, color-object} class.
 The built-in color classes are listed in the following tables.
 
-@heading Color Classes for Color Models
+@subheading Color Classes for Color Models
 
 @cindex color model
 @table @asis
@@ -317,7 +251,7 @@ Mathematical description of the CMY color model.
 Mathematical description of the CMYK color model.
 @end table
 
-@heading Color Classes for Absolute Color Spaces
+@subheading Color Classes for Absolute Color Spaces
 
 @cindex absolute color space
 @cindex color space, absolute
@@ -341,7 +275,7 @@ The CIE L*a*b* color space.
 The CIE L*C*h color space.
 @end table
 
-@heading Color Classes for Device Dependent Color Spaces
+@subheading Color Classes for Device Dependent Color Spaces
 
 @cindex device dependent color space
 @cindex color space, device dependent
@@ -487,15 +421,17 @@ the @genericref{rs-colors, white-point} function returns a color object
 of this white point.
 
 
-@node Color Conversion, Color Dictionaries, White Point, User's Guide
+@node Color Conversion, External Representations, White Point, User's Guide
 @section Color Conversion
 
 @float Figure,figure:rs-colors-conversion
-@image{rs-colors-conversion,4in,}
+@image{rs-colors-images/rs-colors-conversion,4in,}
+@caption{Color Conversions}
 @end float
 
 @cindex color conversion
 @cindex converting colors
+@noindent
 @ref{figure:rs-colors-conversion} depicts the implemented color
 conversions.  The nice thing about @sc{rs-colors} is that all these
 color conversions can be performed with the @code{change-class}
@@ -522,53 +458,155 @@ If you wish to keep the original color object unchanged, use the
 @end group
 @end lisp
 
+@noindent
 The @funref{rs-colors, coerce-color} function only creates a copy of the
 color if the color object is not already of the correct type.
 
 @cindex color coordinates
 @cindex coordinates, color
-If you only need the color coordinates, you can call one of the
+If you only need the color coordinates, then you can call one of the
 following functions to get them.
 
 @table @asis
 @item @genericref{rs-colors, generic-rgb-color-coordinates}
+Return the generic RGB color space coordinates of a color.
+
 @item @genericref{rs-colors, generic-hsv-color-coordinates}
+Return the generic HSV color space coordinates of a color.
+
 @item @genericref{rs-colors, generic-hsl-color-coordinates}
+Return the generic HSL color space coordinates of a color.
+
 @item @genericref{rs-colors, generic-cmy-color-coordinates}
+Return the generic CMY color space coordinates of a color.
+
 @item @genericref{rs-colors, generic-cmyk-color-coordinates}
+Return the generic CMYK color space coordinates of a color.
 @end table
 
 @table @asis
 @item @genericref{rs-colors, ciergb-color-coordinates}
+Return the CIE RGB color space coordinates of a color.
+
 @item @genericref{rs-colors, ciexyz-color-coordinates}
+Return the CIE XYZ color space coordinates of a color.
+
 @item @genericref{rs-colors, ciexyy-color-coordinates}
+Return the CIE xyY color space coordinates of a color.
+
 @item @genericref{rs-colors, cieluv-color-coordinates}
+Return the CIE L*u*v* color space coordinates of a color.
+
 @item @genericref{rs-colors, cielab-color-coordinates}
+Return the CIE L*a*b* color space coordinates of a color.
+
 @item @genericref{rs-colors, cielch-color-coordinates}
+Return the CIE L*C*h color space coordinates of a color.
 @end table
 
 @table @asis
 @item @genericref{rs-colors, srgb-color-coordinates}
+Return the sRGB color space coordinates of a color.
+
 @item @genericref{rs-colors, adobe-rgb-color-coordinates}
+Return the Adobe RGB color space coordinates of a color.
 @end table
 
+@noindent
+Let's repeat our example:
 
-@node Color Dictionaries,  , Color Conversion, User's Guide
+@lisp
+@group
+(let ((color (make-srgb-color 252 175 62 :byte-size 8)))
+  (multiple-value-bind (c m y k)
+      (generic-cmyk-color-coordinates color)
+    (values (list c m y k) color)))
+ @result{} (0 11/36 95/126 1/85)
+ @result{} #<SRGB-COLOR (84/85 35/51 62/255)>
+@end group
+@end lisp
+
+All these color conversions only work if the color conversion path is
+unambiguous.  The crux is the conversion from the CIE XYZ color space to
+the generic RGB color space and vice versa.  If you want to go that way,
+then you have to specify the intermediate color space.
+
+@lisp
+@group
+(let ((color (make-generic-hsl-color 30 1 1/2)))
+  (multiple-value-bind (L* C* h)
+      (cielch-color-coordinates
+       (if (typep color 'generic-color-object)
+           (coerce-color color 'srgb-color)
+         color))
+    (values (list L* C* h) color)))
+ @result{} (66.95426618791458d0 85.58632577011882d0 59.7885844150978d0)
+ @result{} #<GENERIC-HSL-COLOR (30 1 1/2)>
+@end group
+@end lisp
+
+@noindent
+Or destructively:
+
+@lisp
+@group
+(let ((color (make-generic-hsl-color 30 1 1/2)))
+  (change-class (change-class color 'srgb-color) 'cielch-color))
+ @result{} #<CIELCH-COLOR (66.95426@r{@dots{}} 85.58632@r{@dots{}} 59.78858@r{@dots{}})>
+@end group
+@end lisp
+
+
+@node External Representations, Color Dictionaries, Color Conversion, User's Guide
+@section External Representations
+
+There are some functions for reading and printing colors in different
+formats.  The @sc{rs-colors} library supports Xcms notation, numerical
+HTML notation, and CSS3 functional notation.
+
+All functions adhere to the standards set forth by the @code{read},
+@code{print}, and @code{format} functions.  Thus, they interoperate
+well with the stream concepts of Common Lisp.
+
+@lisp
+@group
+(with-input-from-string (input "RGB:4e/9a/06")
+  (with-output-to-string (output)
+    (print-color-html (read-color-xcms-rgb input) output)))
+ @result{} "#4E9A06"
+@end group
+@end lisp
+
+@lisp
+@group
+(let ((color (make-srgb-color 78 154 6 :byte-size 8)))
+  (format nil "background: ~?;" color-formatter-css3-rgb (list color)))
+ @result{} "background: rgb(78, 154, 6);"
+@end group
+@end lisp
+
+@noindent
+@xref{Input and Output}, for more details about the supported formats.
+
+
+@node Color Dictionaries,  , External Representations, User's Guide
 @section Color Dictionaries
 
 @cindex color names
 @cindex named colors
-The @sc{rs-colors} software distribution provides several packages with
-predefined named colors.  The recommended way to use these packages is
-to load it, for example, with QuickLisp.  Then you should refer to the
-named colors via the package prefix to avoid name clashes.
+The @sc{rs-colors} library provides several packages with predefined
+named colors.  The recommended way to use these packages is to load it,
+for example, with QuickLisp.  Then you should refer to the named colors
+via the package prefix to avoid name clashes.
 
 @lisp
 @group
 ;; @r{Load a color dictionary.}
 (ql:quickload :rs-colors-html)
 @end group
+@end lisp
 
+@lisp
 @group
 ;; @r{Use a named color.}
 (format nil color-formatter-css3-rgb html-color:green)
@@ -628,7 +666,7 @@ See @uref{https://material.io/guidelines/style/color.html}.
 * RGB Color Spaces::
 * Color Properties::
 * Color Conversions::
-* Color Difference::
+* Color Differences::
 * Input and Output::
 * Miscellaneous::
 @end menu
@@ -758,9 +796,116 @@ Color class for the mathematical model of a color space.
 @section Generic Color Spaces (Color Models)
 
 @cindex color model
-A generic color space implements a color model.  There are two major
-color models: the additive RGB color model and the subtractive CMY color
-model.
+A generic color space implements a color model.  Two color models are in
+widespread use with computers:
+
+@itemize
+@item
+The additive RGB color model with the primary colors red, green, and
+blue.
+
+@item
+The subtractive CMY color model with the primary colors cyan, magenta,
+and yellow.
+@end itemize
+
+@cindex RGB color model
+@cindex color model, RGB
+The RGB color model is the usual color model for computer displays.  If
+the color intensity of all primary colors is zero, that means ``off'',
+the display appears ``black''.  Otherwise, if the color intensity of all
+primary colors is one, that means ``on'', the display appears ``white''.
+
+@cindex CMY color model
+@cindex color model, CMY
+The CMY color model is the usual color model for paper printers.  If the
+color intensity of all primary colors is zero, that means ``off'', the
+paper appears ``white''.  Otherwise, if the color intensity of all
+primary colors is one, that means ``on'', the paper appears ``black''.
+
+Theoretically, a RGB tuple @w{@math{(R, G, B)}} and a CMY tuple
+@w{@math{(C, M, Y)}} are related to each other via the simple equations
+
+@ifinfo
+@display
+C = 1 - R
+M = 1 - G
+Y = 1 - B
+@end display
+@end ifinfo
+@iftex
+@tex
+$$\eqalign{%
+C &= 1 - R\cr
+M &= 1 - G\cr
+Y &= 1 - B\cr
+}$$
+@end tex
+
+@noindent
+and
+
+@ifinfo
+@display
+R = 1 - C
+G = 1 - M
+B = 1 - Y
+@end display
+@end ifinfo
+@iftex
+@tex
+$$\eqalign{%
+R &= 1 - C\cr
+G &= 1 - M\cr
+B &= 1 - Y\cr
+}$$
+@end tex
+@end iftex
+
+@cindex CMYK color model
+@cindex color model, CMYK
+The CMYK color model is an extension of the CMY color model to save ink.
+Theoretically, a CMY tuple @w{@math{(C, M, Y)}} and a CMYK quadruple
+@w{@math{(c, m, y, k)}} can be related to each other via the equations
+
+@ifinfo
+@display
+k = min(C, M, Y)
+c = (C - k) / (1 - k)
+m = (M - k) / (1 - k)
+y = (Y - k) / (1 - k)
+@end display
+@end ifinfo
+@iftex
+@tex
+$$\eqalign{%
+k &= \min(C, M, Y)\cr
+c &= {C - k\over 1 - k}\cr
+m &= {M - k\over 1 - k}\cr
+y &= {Y - k\over 1 - k}\cr
+}$$
+@end tex
+@end iftex
+
+@noindent
+and
+
+@ifinfo
+@display
+C = min(1, c (1 - k) + k)
+M = min(1, m (1 - k) + k)
+Y = min(1, y (1 - k) + k)
+@end display
+@end ifinfo
+@iftex
+@tex
+$$\eqalign{%
+C &= \min(1, c\cdot(1 - k) + k)\cr
+M &= \min(1, m\cdot(1 - k) + k)\cr
+Y &= \min(1, y\cdot(1 - k) + k)\cr
+}$$
+@end tex
+@end iftex
 
 @menu
 * Generic RGB Color Space::
@@ -782,6 +927,8 @@ color model.  It is not associated with a particular device.
 Color coordinates are the normalized intensities of the red, green, and
 blue primary.  Values are real numbers in the closed @interval{[0, 1]}.
 There is no white point.
+
+@srgbcolorcubeviews{RGB, RGB}
 
 @c ---------------------------------------------------------------------
 @anchor{class;rs-colors;generic-rgb-color}
@@ -889,10 +1036,20 @@ The HSV color space is a different representation of the RGB color
 model.  The HSV color space is also called HSB color space.  The generic
 HSV color space is not associated with a particular device.
 
-Color coordinates are hue, saturation, and value (brightness).  Hue is a
-real number in the half-closed @interval{[0, 360)}.  Saturation and
-value are real numbers in the closed @interval{[0, 1]}.  There is no
-white point.
+Color coordinates are hue, saturation, and value (brightness).  Hue is
+measured in degree angle and it is a real number in the half-closed
+@interval{[0, 360)}.  Saturation and value are real numbers in the
+closed @interval{[0, 1]}.  There is no white point.
+
+The HSV color space is a cylindrical coordinate system but it is usually
+visualized as a cone as depicted in
+@ref{figure:srgb-color-cube-HSV-views}.  @math{H = 0^\circ} is red,
+@math{H = 120^\circ} is green, and @math{H = 240^\circ} is blue.
+@math{S = 0} is the centerline of the cone with the gray levels from
+black (@math{V = 0}) to white (@math{V = 1}).  @math{S = 1} defines the
+surface of the cone.
+
+@srgbcolorcubeviews{HSV, HSV}
 
 @c ---------------------------------------------------------------------
 @anchor{class;rs-colors;generic-hsv-color}
@@ -951,10 +1108,20 @@ The HSL color space is a different representation of the RGB color
 model.  The generic HSL color space is not associated with a particular
 device.
 
-Color coordinates are hue, saturation, and lightness.  Hue is a real
-number in the half-closed @interval{[0, 360)}.  Saturation and lightness
-are real numbers in the closed @interval{[0, 1]}.  There is no white
-point.
+Color coordinates are hue, saturation, and lightness.  Hue is measured
+in degree angle and it is a real number in the half-closed @interval{[0,
+360)}.  Saturation and lightness are real numbers in the closed
+@interval{[0, 1]}.  There is no white point.
+
+The HSL color space is a cylindrical coordinate system but it is usually
+visualized as a bicone as depicted in
+@ref{figure:srgb-color-cube-HSL-views}.  @math{H = 0^\circ} is red,
+@math{H = 120^\circ} is green, and @math{H = 240^\circ} is blue.
+@math{S = 0} is the centerline of the bicone with the gray levels from
+black (@math{L = 0}) to white (@math{L = 1}).  @math{S = 1} defines the
+surface of the bicone.
+
+@srgbcolorcubeviews{HSL, HSL}
 
 @c ---------------------------------------------------------------------
 @anchor{class;rs-colors;generic-hsl-color}
@@ -1269,6 +1436,8 @@ CIE RGB white into the CIE xyY color space:
 @end lisp
 }.
 
+@srgbcolorcubeviews{CIERGB, CIE RGB}
+
 @c ---------------------------------------------------------------------
 @anchor{class;rs-colors;ciergb-color}
 @deftp {Class} {ciergb-color}
@@ -1330,6 +1499,8 @@ color space.
 
 Color coordinates are the @math{X}, @math{Y}, and @math{Z} tristimulus
 values.  The CIE XYZ color space has no explicit white point.
+
+@srgbcolorcubeviews{CIEXYZ, CIE XYZ}
 
 @c ---------------------------------------------------------------------
 @anchor{class;rs-colors;ciexyz-color}
@@ -1449,6 +1620,8 @@ Z &= z\cdot{Y\over y} = (1 - x - y)\cdot{Y\over y}\cr
 @end tex
 @end iftex
 
+@srgbcolorcubeviews{CIExyY, CIE xyY}
+
 @c ---------------------------------------------------------------------
 @anchor{class;rs-colors;ciexyy-color}
 @deftp {Class} {ciexyy-color}
@@ -1508,6 +1681,8 @@ coordinates @var{u*} and @var{v*} are usually in the @range{-100, +100}.
 CIE L*u*v* color coordinates are always relative to a white point.  This
 is either the white point of the color space you are converting from or
 CIE standard illuminant D50.
+
+@srgbcolorcubeviews{CIELuv, CIE L*u*v*}
 
 @c ---------------------------------------------------------------------
 @anchor{variable;rs-colors;*cieluv-default-white-point*}
@@ -1580,6 +1755,8 @@ and from@tie{}@math{-100} to@tie{}@math{+100} respectively.
 CIE L*a*b* color coordinates are always relative to a white point.  This
 is either the white point of the color space you are converting from or
 CIE standard illuminant D50.
+
+@srgbcolorcubeviews{CIELab, CIE L*a*b*}
 
 @c ---------------------------------------------------------------------
 @anchor{variable;rs-colors;*cielab-default-white-point*}
@@ -2023,7 +2200,7 @@ primary.
 @c ---------------------------------------------------------------------
 @anchor{generic-function;rs-colors;color-coordinates}
 @deffn {Generic Function} {color-coordinates} @w{color}
-Return the color space coordinates of the color.
+Return the color space coordinates of the color as multiple values.
 
 @itemize
 @item
@@ -2046,7 +2223,7 @@ white point is not defined or if multiple white points exist.
 @end deffn
 
 
-@node Color Conversions, Color Difference, Color Properties, Reference Manual
+@node Color Conversions, Color Differences, Color Properties, Reference Manual
 @section Color Conversions
 
 @c ---------------------------------------------------------------------
@@ -2112,8 +2289,8 @@ Value is a color object with the same color coordinates as @var{color}.
 @end deffn
 
 
-@node Color Difference, Input and Output, Color Conversions, Reference Manual
-@section Color Difference
+@node Color Differences, Input and Output, Color Conversions, Reference Manual
+@section Color Differences
 
 @c ---------------------------------------------------------------------
 @anchor{function;rs-colors;cie76}
@@ -2155,7 +2332,7 @@ to CIE94(b,a).
 @end deffn
 
 
-@node Input and Output, Miscellaneous, Color Difference, Reference Manual
+@node Input and Output, Miscellaneous, Color Differences, Reference Manual
 @section Input and Output
 
 @cindex reading colors
@@ -2182,6 +2359,7 @@ The syntax of a Xcms (X Color Management System) color is
 
 The @var{prefix} part specifies the color space or format and
 @var{first}, @var{second}, and @var{third} are the color coordinates.
+Below is a table with all color spaces and corresponding Xcms prefix.
 
 @multitable {mmmmmmmmmm} {mmmmmm} {mm}
 @headitem Color Space @tab Prefix @tab R5
@@ -2191,13 +2369,12 @@ The @var{prefix} part specifies the color space or format and
 @item CIE L*u*v*    @tab @code{CIELuv} @tab @bullet{}
 @item CIE L*a*b*    @tab @code{CIELab} @tab @bullet{}
 @item CIE L*C*h     @tab @code{CIELCh} @tab
-@item Tektronix HVC @tab @code{TekHVC} @tab @bullet{}
 @item generic RGB   @tab @code{RGBi}   @tab @bullet{}
 @item generic RGB   @tab @code{RGB}    @tab @bullet{}
 @end multitable
 
 @noindent
-The @var{prefix} part is case insensitive.
+The Xcms prefix is case insensitive.
 
 @c ---------------------------------------------------------------------
 @anchor{function;rs-colors;print-color-xcms-ciergb}
@@ -2301,6 +2478,7 @@ Example:
 @anchor{function;rs-colors;read-color-xcms-cielch}
 @anchor{function;rs-colors;read-color-xcms-rgbi}
 @anchor{function;rs-colors;read-color-xcms-rgb}
+@anchor{function;rs-colors;read-color-xcms}
 @deffn  {Function} {read-color-xcms-ciergb} @k{&optional} @w{stream}
 @deffnx {Function} {read-color-xcms-ciexyz} @k{&optional} @w{stream}
 @deffnx {Function} {read-color-xcms-ciexyy} @k{&optional} @w{stream}
@@ -2309,7 +2487,8 @@ Example:
 @deffnx {Function} {read-color-xcms-cielch} @k{&optional} @w{stream}
 @deffnx {Function} {read-color-xcms-rgbi} @k{&optional} @w{stream}
 @deffnx {Function} {read-color-xcms-rgb} @k{&optional} @w{stream}
-Read a color in Xcms format.
+@deffnx {Function} {read-color-xcms} @k{&optional} @w{stream}
+Read a color in Xcms notation.
 
 @itemize
 @item
@@ -2318,10 +2497,15 @@ Default is to read from @code{*standard-input*}.
 @end itemize
 
 Value is a color object in the respective color space.
-The RGB format prints the color coordinates as hexadecimal numbers.
-If all RGB color intensities are multiples of @math{1/255}, it uses
-two digits.  Otherwise, it uses four digits with a precision of
-@math{1/65535}.
+
+The functions expect the respective Xcms prefix followed by a colon and
+the three color coordinates separated by a slash character.  Leading or
+trailing whitespace is not ignored.  Reading stops immediately after the
+last color coordinate.  An error is signaled if a parse error occurs or
+if the file ends prematurely.
+
+The @code{read-color-xcms} function is slightly different since it first
+reads the Xcms prefix and then dispatches on it.
 
 @noindent
 Example:
@@ -2329,7 +2513,7 @@ Example:
 @lisp
 @group
 (with-input-from-string (stream "RGB:4e/9a/06 junk")
-  (change-class (read-color-xcms-rgb stream) 'srgb-color))
+  (change-class (read-color-xcms stream) 'srgb-color))
  @result{} #<SRGB-COLOR (26/85 154/255 2/85)>
 @end group
 @end lisp
@@ -2354,8 +2538,8 @@ prefixed by a hash mark.
 First argument @var{color} is a color object.
 
 @item
-Optional second argument @var{stream} is an output stream.  Default is
-to print to @code{*standard-output*}.
+Optional second argument @var{stream} is an output stream.
+Default is to print to @code{*standard-output*}.
 @end itemize
 
 Value is the color object.
@@ -2399,9 +2583,6 @@ Example:
 Read a numerical HTML color value, that is a hexadecimal number prefixed
 by a hash mark.
 
-Reading stops at the first non-hexadecimal digit character.  The number
-of hexadecimal digits has to be a multiple of three.
-
 @itemize
 @item
 Optional argument @var{stream} is an input stream.  Default is to read
@@ -2409,6 +2590,12 @@ from @code{*standard-input*}.
 @end itemize
 
 Value is a color object in the sRGB color space.
+
+The function expects a hash mark followed by a sequence of hexadecimal
+digits.  The number of hexadecimal digits has to be a multiple of three.
+Leading or trailing whitespace is not ignored.  Reading stops at the
+first non-hexadecimal digit character.  An error is signaled if a parse
+error occurs or if the file ends prematurely.
 
 @noindent
 Example:
@@ -2461,8 +2648,8 @@ Print a color in CSS3 functional notation.
 First argument @var{color} is a color object.
 
 @item
-Optional second argument @var{stream} is an output stream.  Default is
-to print to @code{*standard-output*}.
+Optional second argument @var{stream} is an output stream.
+Default is to print to @code{*standard-output*}.
 @end itemize
 
 Value is the color object.
@@ -2526,9 +2713,15 @@ Optional argument @var{stream} is an input stream.  Default is to read
 from @code{*standard-input*}.
 @end itemize
 
-Reading stops after the closing parenthesis.
-
 Value is a color object in the sRGB color space.
+
+The functions expect a character sequence of the form
+@code{rgb(@var{red},@var{green},@var{blue})} or
+@code{hsl(@var{hue},@var{saturation},@var{lightness})}
+respectively.  Leading or trailing whitespace is not ignored
+but whitespace characters are allowed around the numerical values.
+Reading stops after the closing parenthesis.  An error is signaled
+if a parse error occurs or if the file ends prematurely.
 
 @noindent
 Example:
@@ -2552,15 +2745,20 @@ Example:
 @anchor{function;rs-colors;read-color-css3}
 @deffn {Function} {read-color-css3} @k{&optional} @w{stream}
 Read a CSS3 color value, i.e. either a numerical HTML color
-definition or a RGB value or HSL value in functional notation.
+value or a color in RGB or HSL functional notation.
 
 @itemize
 @item
-Optional argument @var{stream} is an input stream.  Default is to read
-from @code{*standard-input*}.
+Optional argument @var{stream} is an input stream.
+Default is to read from @code{*standard-input*}.
 @end itemize
 
 Value is a color object in the sRGB color space.
+
+See the @funref{rs-colors, read-color-html},
+@funref{rs-colors, read-color-css3-rgb}, and
+@funref{rs-colors, read-color-css3-hsl} function for
+more details.
 @end deffn
 
 
