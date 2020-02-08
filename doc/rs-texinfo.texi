@@ -5,7 +5,7 @@
 
 @ifnottex
 @macro aref {ARG1, ARG2, NAME}
-@code{\NAME\}
+\NAME\
 @end macro
 @end ifnottex
 
