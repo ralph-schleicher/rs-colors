@@ -65,13 +65,25 @@
        (defun ,reader (&optional (,stream *standard-input*))
 	 ,@body))))
 
-(defun %read-xcms (stream prefix make-color)
+(defun %read-xcms (stream prefix make-color &optional hex)
   "Read a color in Xcms notation."
   (labels ((read-number (stream)
-	     "Read a floating-point number."
-	     (read-float stream t nil nil
-			 :exponent-marker "Ee"
-			 :float-format 'double-float)))
+	     "Read a number."
+	     (if (not hex)
+		 ;; Read a floating-point number.
+		 (read-float stream t nil nil
+			     :exponent-marker "Ee"
+			     :float-format 'double-float)
+	       ;; Read a hexadecimal number.
+	       (multiple-value-bind (value length)
+		   (read-integer stream t nil nil
+				 :unsigned-number t
+				 :radix 16)
+		 (when (> length 4)
+		   (error "Too many hexadecimal digits"))
+		 ;; Scale value, see function ‘XcmsLRGB_RGB_ParseString’
+		 ;; in file ‘XcmsLRGB.c’.
+		 (/ value (1- (expt 2 (* 4 length))))))))
     (let (a b c)
       ;; Read the prefix.
       (iter (for char :in-vector prefix)
@@ -351,34 +363,7 @@ Optional argument STREAM is an input stream.
  Default is to read from ‘*standard-input*’.
 
 Value is a color object in the generic RGB color space."
-  (labels ((read-number (stream)
-	     "Read a hexadecimal number."
-	     (multiple-value-bind (value length)
-		 (read-integer stream t nil nil
-			       :unsigned-number t
-			       :radix 16)
-	       (when (> length 4)
-		 (error "Too many hexadecimal digits"))
-	       ;; Scale value, see function ‘XcmsLRGB_RGB_ParseString’
-	       ;; in file ‘XcmsLRGB.c’.
-	       (/ value (1- (expt 2 (* 4 length)))))))
-    (let (r g b)
-      ;; Read the prefix.
-      (iter (for char :in-vector "RGB")
-	    (unless (char-equal (read-char stream) char)
-	      (error "Invalid Xcms color syntax; expect a ‘~A’ character." char)))
-      (unless (char= (read-char stream) #\:)
-	(error "Invalid Xcms color syntax; expect a ‘:’ character."))
-      ;; Read the color coordinates.
-      (setf r (read-number stream))
-      (unless (char= (read-char stream) #\/)
-	(error "Invalid Xcms color syntax; expect a ‘/’ character."))
-      (setf g (read-number stream))
-      (unless (char= (read-char stream) #\/)
-	(error "Invalid Xcms color syntax; expect a ‘/’ character."))
-      (setf b (read-number stream))
-      ;; Return value.
-      (make-generic-rgb-color r g b))))
+  (%read-xcms stream "RGB" #'make-generic-rgb-color t))
 
 (define-color-printer html (color stream :export t)
   "Print a numerical HTML color value.
