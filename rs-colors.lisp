@@ -43,6 +43,7 @@
 		#:clamp)
   (:import-from :read-number
 		#:read-integer
-		#:read-float))
+		#:read-float)
+  (:documentation "A color data type for Common Lisp."))
 
 ;;; rs-colors.lisp ends here
