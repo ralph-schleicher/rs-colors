@@ -33,7 +33,11 @@
 ## Code:
 
 imagedir = $(infodir)/rs-colors-images
-image_DATA = rs-colors-conversion.png
+image_DATA = rs-colors-conversion.png srgb-color-cube-RGB-views.png \
+srgb-color-cube-HSV-views.png srgb-color-cube-HSL-views.png \
+srgb-color-cube-CIERGB-views.png srgb-color-cube-CIEXYZ-views.png \
+srgb-color-cube-CIExyY-views.png srgb-color-cube-CIELuv-views.png \
+srgb-color-cube-CIELab-views.png
 
 EXTRA_DIST = rs-colors-conversion.tex rs-colors-conversion.pdf
 
