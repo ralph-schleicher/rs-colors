@@ -135,7 +135,7 @@ function srgb_color_cube(varargin)
     head(k).column = head(k - 1).column + numel(head(k - 1).coord);
   end
 
-  data = csvread('srgb-color-cube.csv', 2, 0);
+  data = csvread('srgb-color-cube.csv', 1, 0);
 
   % Dispatch.
   not_any = ~ any(structfun(@(s) s, opt.tag));
