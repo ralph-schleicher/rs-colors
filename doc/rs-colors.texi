@@ -5,7 +5,7 @@
 @settitle rs-colors
 
 @set EDITION 1
-@set UPDATED 2020-02-08
+@set UPDATED 2020-02-09
 
 @include package.texi
 
@@ -24,6 +24,7 @@
 @afourlatex
 @end iftex
 
+@documentencoding UTF-8
 @setchapternewpage odd
 @allowcodebreaks false
 
@@ -43,6 +44,27 @@ range from@tie{}@w{@math{\FROM\}} to@tie{}@w{@math{\TO\}}
 @caption{\NAME\ Color Space with sRGB Colors}
 @end float
 @end macro
+
+@macro xbar {}
+@math{@=x(λ)}
+@end macro
+@macro ybar {}
+@math{@=y(λ)}
+@end macro
+@macro zbar {}
+@math{@=z(λ)}
+@end macro
+
+@iftex
+@macro degree {VAR, VAL}
+@math{\VAR\ = \VAL\^\\circ}
+@end macro
+@end iftex
+@ifnottex
+@macro degree {VAR, VAL}
+@math{\VAR\ = \VAL\°}
+@end macro
+@end ifnottex
 @c %**end of header
 
 @copying
@@ -1043,11 +1065,11 @@ closed @interval{[0, 1]}.  There is no white point.
 
 The HSV color space is a cylindrical coordinate system but it is usually
 visualized as a cone as depicted in
-@ref{figure:srgb-color-cube-HSV-views}.  @math{H = 0^\circ} is red,
-@math{H = 120^\circ} is green, and @math{H = 240^\circ} is blue.
-@math{S = 0} is the centerline of the cone with the gray levels from
-black (@math{V = 0}) to white (@math{V = 1}).  @math{S = 1} defines the
-surface of the cone.
+@ref{figure:srgb-color-cube-HSV-views}.  @degree{H, 0} is red,
+@degree{H, 120} is green, and @degree{H, 240} is blue.  @math{S = 0} is
+the centerline of the cone with the gray levels
+from black (@math{V = 0}) to white (@math{V = 1}).
+@math{S = 1} defines the surface of the cone.
 
 @srgbcolorcubeviews{HSV, HSV}
 
@@ -1115,11 +1137,11 @@ in degree angle and it is a real number in the half-closed @interval{[0,
 
 The HSL color space is a cylindrical coordinate system but it is usually
 visualized as a bicone as depicted in
-@ref{figure:srgb-color-cube-HSL-views}.  @math{H = 0^\circ} is red,
-@math{H = 120^\circ} is green, and @math{H = 240^\circ} is blue.
-@math{S = 0} is the centerline of the bicone with the gray levels from
-black (@math{L = 0}) to white (@math{L = 1}).  @math{S = 1} defines the
-surface of the bicone.
+@ref{figure:srgb-color-cube-HSL-views}.  @degree{H, 0} is red,
+@degree{H, 120} is green, and @degree{H, 240} is blue.  @math{S = 0} is
+the centerline of the bicone with the gray levels
+from black (@math{L = 0}) to white (@math{L = 1}).
+@math{S = 1} defines the surface of the bicone.
 
 @srgbcolorcubeviews{HSL, HSL}
 
@@ -1411,6 +1433,7 @@ device independent.
 * CIE L*u*v* Color Space::
 * CIE L*a*b* Color Space::
 * CIE L*C*h Color Space::
+* CIE Standard Observers::
 * CIE Standard Illuminants::
 @end menu
 
@@ -1811,7 +1834,7 @@ Values are the lightness and the two chromaticity coordinates.
 @end deffn
 
 
-@node CIE L*C*h Color Space, CIE Standard Illuminants, CIE L*a*b* Color Space, CIE Color Spaces
+@node CIE L*C*h Color Space, CIE Standard Observers, CIE L*a*b* Color Space, CIE Color Spaces
 @subsection CIE L*C*h Color Space
 
 @cindex CIE L*C*h color space
@@ -1825,10 +1848,10 @@ equal to the lightness of the CIE L*a*b* color space.  Chroma @var{C*}
 and hue @var{h} are the polar coordinates, i.e. radius and angle, of a
 color in the (@var{a*},@tie{}@var{b*}) plane.
 
-Hue is measured in degree angle; @math{h = 0^\circ} is the positive
-@var{a*}-axis (red), @math{h = 90^\circ} is the positive @var{b*}-axis
-(yellow), @math{h = 180^\circ} is the negative @var{a*}-axis (green),
-and @math{h = 270^\circ} is the negative @var{b*}-axis (blue).
+Hue is measured in degree angle; @degree{h, 0} is the positive
+@var{a*}-axis (red), @degree{h, 90} is the positive @var{b*}-axis
+(yellow), @degree{h, 180} is the negative @var{a*}-axis (green),
+and @degree{h, 270} is the negative @var{b*}-axis (blue).
 
 CIE L*C*h color coordinates are always relative to a white point.  This is
 either the white point of the color space you are converting from or CIE
@@ -1891,7 +1914,152 @@ Values are the lightness, chroma, and hue.
 @end deffn
 
 
-@node CIE Standard Illuminants,  , CIE L*C*h Color Space, CIE Color Spaces
+@node CIE Standard Observers, CIE Standard Illuminants, CIE L*C*h Color Space, CIE Color Spaces
+@subsection CIE Standard Observers
+
+@cindex CIE standard observer
+@cindex color matching functions
+@c ---------------------------------------------------------------------
+@anchor{constant;rs-colors;cie-1931-standard-observer}
+@defvr {Constant} {cie-1931-standard-observer}
+CIE standard observer for a 2@textdegree{} field of view.
+
+Value are the color matching functions @xbar{}, @ybar{}, and @zbar{}.
+The wavelength @math{λ} ranges from 380@dmn{nm} to 780@dmn{nm} in
+steps of 5@dmn{nm}.
+
+See the @varref{rs-colors, *color-matching-functions*} special variable
+for more details.
+@end defvr
+
+@c ---------------------------------------------------------------------
+@anchor{constant;rs-colors;cie-1964-standard-observer}
+@defvr {Constant} {cie-1964-standard-observer}
+CIE standard observer for a 10@textdegree{} field of view.
+
+Value are the color matching functions @xbar{}, @ybar{}, and @zbar{}.
+The wavelength @math{λ} ranges from 380@dmn{nm} to 780@dmn{nm} in
+steps of 5@dmn{nm}.
+
+See the @varref{rs-colors, *color-matching-functions*} special variable
+for more details.
+@end defvr
+
+@c ---------------------------------------------------------------------
+@anchor{function;rs-colors;color-matching-functions}
+@deffn {Function} {color-matching-functions} @w{wavelength}
+Evaluate the color matching functions.
+
+The binding of the
+@varref{rs-colors, *color-matching-functions*} special variable defines
+the color matching functions @xbar{}, @ybar{}, and @zbar{}.
+
+@itemize
+@item
+Argument @var{wavelength} is the wavelength @math{λ} in nanometer.
+@end itemize
+
+Return values are the values of the color matching functions @xbar{},
+@ybar{}, and @zbar{} for the wavelength @math{λ}.
+@end deffn
+
+@c ---------------------------------------------------------------------
+@anchor{variable;rs-colors;*color-matching-functions*}
+@defvr {Variable} {*color-matching-functions*}
+A list of three color matching functions.
+Default is the CIE 1931 standard observer.
+
+Value is an alist of cons cells of the form
+@samp{@w{(@var{l} . (@var{x} @var{y} @var{z}))}}.  Key @var{l} is the
+wavelength @math{λ} in nanometer and values @var{x}, @var{y}, and
+@var{z} are the discrete values of the color matching functions @xbar{},
+@ybar{}, and @zbar{} respectively.  The list elements have to be sorted
+in strictly increasing order of the wavelength.
+
+Value can also be a list of three functions, i.e.
+@samp{@w{(@var{x} @var{y} @var{z})}}.  where @var{x}, @var{y}, and
+@var{z} are the color matching functions @xbar{}, @ybar{}, and @zbar{}
+respectively.
+
+Use the @funref{rs-colors, color-matching-functions} function to
+evaluate the color matching functions.
+@end defvr
+
+@c ---------------------------------------------------------------------
+@anchor{function;rs-colors;cie-xy-chromaticity-of-light}
+@deffn {Function} {cie-xy-chromaticity-of-light} @w{wavelength}
+Calculate the chromaticity coordinates of a single color of light.
+These chromaticity coordinates define the border of the chromaticity
+space in a chromaticity diagram.
+
+@itemize
+@item
+Argument @var{wavelength} is the wavelength @math{λ} of the light in
+nanometer.
+@end itemize
+
+Return values are the CIE xyY color space chromaticity coordinates
+@math{x} and @math{y} as multiple values.
+
+The three color matching functions @xbar{}, @ybar{}, and @zbar{} are
+evaluated by calling the @funref{rs-colors, color-matching-functions}
+function.
+@end deffn
+
+@c ---------------------------------------------------------------------
+@anchor{function;rs-colors;cie-xy-chromaticity-of-black-body}
+@deffn {Function} {cie-xy-chromaticity-of-black-body} @w{temperature} @k{&key} @w{from} @w{to} @w{by}
+Calculate the chromaticity coordinates of a Planckian radiator.
+These chromaticity coordinates define the Planckian locus in a
+chromaticity diagram.
+
+@itemize
+@item
+Argument @var{temperature} is the temperature of the black body
+in kelvin.
+
+@item
+Keyword arguments @var{from}, @var{to}, and @var{by} define the
+boundaries and step size for the wavelength @math{λ} of the light
+in nanometer.  Default is 380@dmn{nm}, 780@dmn{nm}, and 5@dmn{nm}
+respectively.
+@end itemize
+
+Return values are the CIE xyY color space chromaticity coordinates
+@math{x} and @math{y} as multiple values.
+
+The three color matching functions @xbar{}, @ybar{}, and @zbar{} are
+evaluated by calling the @funref{rs-colors, color-matching-functions}
+function.  The second radiation constant for calculating the spectral
+radiant exitance of the black body is defined by the binding of the
+@varref{rs-colors, *second-radiation-constant*} special variable.
+@end deffn
+
+@c ---------------------------------------------------------------------
+@anchor{variable;rs-colors;*second-radiation-constant*}
+@defvr {Variable} {*second-radiation-constant*}
+Second radiation constant.
+Default is @constref{rs-colors, codata-2018-second-radiation-constant}.
+@end defvr
+
+@c ---------------------------------------------------------------------
+@anchor{constant;rs-colors;cie-1931-second-radiation-constant}
+@defvr {Constant} {cie-1931-second-radiation-constant}
+Second radiation constant.
+
+Value used by the CIE when defining the CIE 1931 color space.
+@end defvr
+
+@c ---------------------------------------------------------------------
+@anchor{constant;rs-colors;codata-2018-second-radiation-constant}
+@defvr {Constant} {codata-2018-second-radiation-constant}
+Second radiation constant.
+
+2018 CODATA recommended value.
+@end defvr
+
+
+@node CIE Standard Illuminants,  , CIE Standard Observers, CIE Color Spaces
 @subsection CIE Standard Illuminants
 
 @cindex white point, CIE standard illuminant
@@ -2361,7 +2529,7 @@ The @var{prefix} part specifies the color space or format and
 @var{first}, @var{second}, and @var{third} are the color coordinates.
 Below is a table with all color spaces and corresponding Xcms prefix.
 
-@multitable {mmmmmmmmmm} {mmmmmm} {mm}
+@multitable {mmmmmmmmmmm} {mmmmmm} {mm}
 @headitem Color Space @tab Prefix @tab R5
 @item CIE RGB       @tab @code{CIERGB} @tab
 @item CIE XYZ       @tab @code{CIEXYZ} @tab @bullet{}
