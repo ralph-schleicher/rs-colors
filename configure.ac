@@ -6,7 +6,11 @@ AC_INIT([rs-colors], [1.0], [rs@ralph-schleicher.de])
 AM_INIT_AUTOMAKE([foreign no-define dist-bzip2])
 
 AC_CONFIG_SRCDIR([rs-colors.asd])
-AC_CONFIG_FILES([Makefile doc/Makefile doc/rs-colors-images/Makefile])
+AC_CONFIG_FILES([Makefile \
+		 dictionaries/Makefile \
+		 doc/Makefile \
+		 doc/api/Makefile \
+		 doc/rs-colors-images/Makefile])
 
 dnl Optional features.
 AM_MAINTAINER_MODE

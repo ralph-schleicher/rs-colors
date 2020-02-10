@@ -32,7 +32,7 @@
 
 ## Code:
 
-SUBDIRS = doc
+SUBDIRS = dictionaries doc
 
 rs_colors_internal_sources = \
 rs-colors-internal.asd \
@@ -67,6 +67,7 @@ $(rs_colors_internal_sources) \
 $(rs_colors_sources) \
 $(nil)
 
+EXTRA_DIST = asd-components.sh generate-doc.lisp
 BUILT_SOURCES = rs-colors-internal.asd rs-colors.asd
 
 rs-colors-internal.asd: $(srcdir)/rs-colors-internal.asd.in $(srcdir)/Makefile.in

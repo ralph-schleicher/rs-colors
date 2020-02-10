@@ -32,7 +32,7 @@
 
 ## Code:
 
-SUBDIRS = rs-colors-images
+SUBDIRS = rs-colors-images api
 
 info_TEXINFOS = rs-colors.texi
 rs_colors_TEXINFOS = package.texi rs-texinfo.texi
