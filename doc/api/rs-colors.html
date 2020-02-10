@@ -1,0 +1,4652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>RS-COLORS</title>
+  <style type="text/css">
+   *{margin:0;border:0;padding:0}
+   body{color:#000;background-color:#fff;font-family:sans-serif;padding:1em;min-width:46em}
+   a{color:inherit;background-color:transparent;text-decoration:none}
+   table{border-collapse:collapse}
+   div.title{padding:1em}
+   div.subtitle{padding:1em}
+   div.prologue{padding:1em}
+   div.epilogue{padding:1em}
+   span.category{color:#212121;font-style:italic}
+   span.package,span.symbol{color:#212121;font-weight:700;white-space:nowrap}
+   span.lambda-list{color:#616161}
+   span.lambda-list-keyword{color:#388E3C;white-space:nowrap}
+   span.keyword{color:#212121;white-space:nowrap}
+   span.variable{color:#212121;font-style:italic;white-space:nowrap}
+   span.init-form{white-space:nowrap}
+   span.method-specializers{color:#616161}
+   span.method-specializer{color:#212121;white-space:nowrap}
+   span.method-qualifier{color:#212121;white-space:nowrap}
+   div.contents{padding:1em}
+   div.contents-listing{padding:1em}
+   div.contents-listing ul{list-style-type:none}
+   @media all and (min-width:68em){div.contents-listing{column-count:2;column-gap:2em}}
+   div.definition{padding:1em}
+   div.signature{background-color:#F5F5F5;padding:1ex 1em}
+   table.signature td.symbol{text-align:left;vertical-align:baseline;white-space:nowrap;padding-right:.5em}
+   table.signature td.lambda-list{text-align:left;vertical-align:baseline;width:100%}
+   table.signature td.category{text-align:right;vertical-align:baseline;white-space:nowrap;padding-left:1.5em}
+   div.documentation{padding:1em}
+  </style>
+ </head>
+ <body>
+  <div class="title">
+   <h1>RS-COLORS</h1>
+  </div>
+  <div class="prologue">
+   <pre>A color data type for Common Lisp.</pre>
+  </div>
+  <div class="contents" id="contents">
+   <h2>Contents</h2>
+   <div class="contents-listing">
+    <ul>
+     <li>
+      <a href="#_a4a77b51-ecd6-5d80-a91b-17ff78f19544">
+       <span class="category">Class</span>
+       <span class="symbol">adobe-rgb-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_a927a271-0e04-573e-9c21-d63e66746349">
+       <span class="category">Class</span>
+       <span class="symbol">cielab-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_62cc461e-d6af-50d8-bd0a-dd1954f5defd">
+       <span class="category">Class</span>
+       <span class="symbol">cielch-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_d7f6f841-0e8f-5332-9960-1d9f3dfe048e">
+       <span class="category">Class</span>
+       <span class="symbol">cieluv-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_faaa0df8-f470-5ea7-a146-8a3dc77ed089">
+       <span class="category">Class</span>
+       <span class="symbol">ciergb-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_5d9e99f0-1170-5389-ad4a-9d1e82aba710">
+       <span class="category">Class</span>
+       <span class="symbol">ciexyy-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_1d1dd5c2-e6a4-54cd-a933-fb57f5ace515">
+       <span class="category">Class</span>
+       <span class="symbol">ciexyz-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_bc79401f-b845-5e71-b781-ba103c526ae9">
+       <span class="category">Class</span>
+       <span class="symbol">cmy-color-object</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_654d2ab5-713e-5b59-9ff3-284074212be0">
+       <span class="category">Class</span>
+       <span class="symbol">cmyk-color-object</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_77748def-f174-5278-8551-9687358e83f7">
+       <span class="category">Class</span>
+       <span class="symbol">color-object</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_14521e9f-cec4-5f81-a4bc-8be02ab81d03">
+       <span class="category">Class</span>
+       <span class="symbol">generic-cmy-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_f4abf965-0d02-5fff-86b7-a08bb4f15cbb">
+       <span class="category">Class</span>
+       <span class="symbol">generic-cmyk-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_43757565-901b-5dbc-8fb9-caafccab8912">
+       <span class="category">Class</span>
+       <span class="symbol">generic-color-object</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_b5cde103-d148-5031-a998-1f246d43a98c">
+       <span class="category">Class</span>
+       <span class="symbol">generic-hsl-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_471f5aac-5d44-58b2-ba09-39e61da9d52e">
+       <span class="category">Class</span>
+       <span class="symbol">generic-hsv-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_c5b6648f-df3e-5cbb-b533-dd87dd3f718b">
+       <span class="category">Class</span>
+       <span class="symbol">generic-rgb-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_9ed1a10b-e06d-59bf-a425-e1b079d2b75e">
+       <span class="category">Class</span>
+       <span class="symbol">hsl-color-object</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_29db3f92-a72b-5862-8dd9-4421252601b3">
+       <span class="category">Class</span>
+       <span class="symbol">hsv-color-object</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_bd8b2ab6-b53b-51bd-acc4-56ed297ba434">
+       <span class="category">Class</span>
+       <span class="symbol">rgb-color-object</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_45fbb54c-8cbc-5343-a927-0802d2f0fa78">
+       <span class="category">Class</span>
+       <span class="symbol">srgb-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_6cbd7e29-229e-5c0e-99a7-43e0e4613343">
+       <span class="category">Special Variable</span>
+       <span class="symbol">*cielab-default-white-point*</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_a4132fa7-4083-562a-857a-a3254e769b0a">
+       <span class="category">Special Variable</span>
+       <span class="symbol">*cielch-default-white-point*</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_4e68b23d-082b-540a-91a6-ff417211f6ea">
+       <span class="category">Special Variable</span>
+       <span class="symbol">*cieluv-default-white-point*</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_4f4e05ef-706c-5a6f-813b-262f9d63fed4">
+       <span class="category">Special Variable</span>
+       <span class="symbol">*color-matching-functions*</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_bfea94ec-8386-51c9-bc7e-d7c14495790c">
+       <span class="category">Special Variable</span>
+       <span class="symbol">*second-radiation-constant*</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_28863f52-eeac-57da-852f-0d779c0798f9">
+       <span class="category">Generic Function</span>
+       <span class="symbol">absolute-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_69e8cf81-17eb-52bd-ac4b-9b7dd4fa06c4">
+       <span class="category">Generic Function</span>
+       <span class="symbol">adobe-rgb-color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_5b93c0e7-6ce9-546e-bbf7-093d93f46209">
+       <span class="category">Function</span>
+       <span class="symbol">black-body-spectral-radiance</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_23eb22ee-f930-5dc0-9a5b-0d8b821bce30">
+       <span class="category">Function</span>
+       <span class="symbol">black-body-spectral-radiant-exitance</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_0ab7bab7-3d75-5ce7-b950-483145473bd1">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-second-radiation-constant</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_d07f5e16-b3e0-5c01-b1d6-1c7b7bba78b2">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-standard-observer</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_7f61bc9e-1257-5e7a-a4ce-1fe817bdc629">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-a</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_21e9bc85-2694-5af8-916b-0b56e21e02e8">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-b</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_22415c80-0a0d-52f6-b112-907bbddc114e">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-c</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_089155d5-19fc-57a1-861f-6a0c6cfc3e39">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-d50</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_3ceec22c-d6b2-5141-8bbd-493c40d1cf33">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-d55</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_210b5945-5dad-5d21-85d2-29849d37018a">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-d65</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_180e8fa2-6e99-530f-8902-972185c71fd4">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-d75</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_86f40741-8fea-5504-bc36-78de587f7265">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-e</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_8ce3cf60-c325-572c-8ab5-79a7f262467d">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-f1</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_224da9d4-3aef-58f7-89d3-3fe0b64b3668">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-f10</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_0f997d52-4564-5e4b-9cfc-f59c8cfc3309">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-f11</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_3cfdf4b0-10d2-5432-b57e-266105ac57d5">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-f12</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_634d1aa7-5a3c-5f74-b587-fcf4c8d15916">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-f2</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_671f30f0-4ee8-511f-9839-ff5f3c1d9bcd">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-f3</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_c492b407-b96b-52f9-9464-13014dfbcdfa">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-f4</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_a4ff924d-ee46-5c30-b28a-334215d4e347">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-f5</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_6c9db0b7-5745-53bc-a8cf-525566eeec6b">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-f6</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_ff77b42c-c9c2-5c53-b13c-654552e68aca">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-f7</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_619a3da1-461c-569b-a916-e287c148988a">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-f8</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_33725e3e-145d-5975-9224-754b59cf4680">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1931-white-point-f9</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_f0b25363-7efa-58ab-a17b-cb19a53d23e3">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-standard-observer</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_92b8980c-4b2a-5b25-a48f-0af9b647e307">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-a</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_e067945f-1b83-5e0b-a4a7-727a8468b62e">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-b</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_dafdd98b-8461-58d4-8915-9e5ccfa81d5d">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-c</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_0891a15f-30ec-5f18-b223-5c1b42329c69">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-d50</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_75643ac0-aa60-5d97-a0b0-1e6eadce0445">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-d55</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_ec8b59bb-612b-5dc6-9f60-91cef7503831">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-d65</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_5faca127-5e91-5f89-b18b-1640f7d44d73">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-d75</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_77d5e5ab-436c-52eb-a9e5-4ecda22b05e2">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-e</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_3e9cce6b-cdb3-58fc-92ba-12fe39093e08">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-f1</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_5599fc6d-3ad3-517a-9528-d95cff7e9e66">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-f10</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_2aaa81e9-aa7c-51b2-883c-808f17c49ad2">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-f11</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_18e33778-7a46-5347-ae95-0e5b5e528458">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-f12</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_317adeb1-4a3a-5d61-b333-10eb95cee30f">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-f2</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_e15aa6a6-81d6-554f-b45c-4c6bb4be02ef">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-f3</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_e95dff36-efd9-5b60-8039-50df8bc550ea">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-f4</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_a20b2186-86aa-538f-bbe0-03525e6cc166">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-f5</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_25246b1c-85d3-5159-ae47-4fe80bddfe9f">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-f6</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_e6e994ee-fa6f-5436-906a-05df871a8edc">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-f7</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_c8491e7e-82b1-561d-ac3b-8cf698eba2b0">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-f8</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_22fa5abe-62d7-5b72-9b79-238e33fdd033">
+       <span class="category">Constant</span>
+       <span class="symbol">cie-1964-white-point-f9</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_0d140d84-4701-54be-b59c-98cf8ea188f1">
+       <span class="category">Function</span>
+       <span class="symbol">cie-xy-chromaticity-of-black-body</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_264f24f7-7e3a-535d-aa18-2429dbf2fe93">
+       <span class="category">Function</span>
+       <span class="symbol">cie-xy-chromaticity-of-light</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_3bfbda15-cfd1-597e-a308-a22d31002b9c">
+       <span class="category">Function</span>
+       <span class="symbol">cie76</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_542aee3f-dde6-504b-a85a-71907dc1801f">
+       <span class="category">Function</span>
+       <span class="symbol">cie94</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_8cf147cf-eb0e-51bd-a6a6-3528dee8fd43">
+       <span class="category">Generic Function</span>
+       <span class="symbol">cielab-color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_1042c88b-da72-501c-87a5-74e57b31d9b5">
+       <span class="category">Generic Function</span>
+       <span class="symbol">cielch-color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_5c6f6491-3868-52c1-8c87-a72f58c26636">
+       <span class="category">Generic Function</span>
+       <span class="symbol">cieluv-color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_0457a684-7392-5f85-ad0b-062f6c1d9be0">
+       <span class="category">Generic Function</span>
+       <span class="symbol">ciergb-color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_d9d28724-671e-53bc-8ad8-bcb39ec4ea09">
+       <span class="category">Generic Function</span>
+       <span class="symbol">ciexyy-color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_f3f8e1e6-ce5d-5b8f-8a57-e9c7de6b3431">
+       <span class="category">Generic Function</span>
+       <span class="symbol">ciexyz-color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_2bb55fb3-2c8e-5a9a-bd36-04e56705f9ee">
+       <span class="category">Constant</span>
+       <span class="symbol">codata-2018-first-radiation-constant</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_d0a838bc-65b0-5881-ad16-8fa6824802ac">
+       <span class="category">Constant</span>
+       <span class="symbol">codata-2018-first-radiation-constant-for-spectral-radiance</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_6bfa380c-69be-5008-b496-fdc8c8274062">
+       <span class="category">Constant</span>
+       <span class="symbol">codata-2018-second-radiation-constant</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_257b63c5-4cc3-529d-a551-c9d99440dd2e">
+       <span class="category">Function</span>
+       <span class="symbol">coerce-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_ce92ecfb-af6d-55d4-88f7-3e008750e6fb">
+       <span class="category">Generic Function</span>
+       <span class="symbol">color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_1dde2599-d68a-540e-b435-28b51b57456d">
+       <span class="category">Constant</span>
+       <span class="symbol">color-formatter-css3-hsl</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_0a396086-7453-5ddb-9fa4-5e2235f6d59e">
+       <span class="category">Constant</span>
+       <span class="symbol">color-formatter-css3-rgb</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_ee88d305-ddf5-588c-9f5e-0b68ef4c2e99">
+       <span class="category">Constant</span>
+       <span class="symbol">color-formatter-html</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_afa277f5-ca25-5206-9422-e413b184dfe8">
+       <span class="category">Constant</span>
+       <span class="symbol">color-formatter-xcms-cielab</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_3e861c64-eb39-5e93-91ff-9ed8cf63b2c2">
+       <span class="category">Constant</span>
+       <span class="symbol">color-formatter-xcms-cielch</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_4d7cece3-e4e7-5252-992b-fb10de54abcc">
+       <span class="category">Constant</span>
+       <span class="symbol">color-formatter-xcms-cieluv</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_8be444e5-b952-5ddc-b370-b0ccb8924d92">
+       <span class="category">Constant</span>
+       <span class="symbol">color-formatter-xcms-ciergb</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_eb2b4cff-e771-5269-b06b-9864fab26a6c">
+       <span class="category">Constant</span>
+       <span class="symbol">color-formatter-xcms-ciexyy</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_cb5bb13b-30be-5b95-aa18-00983791275b">
+       <span class="category">Constant</span>
+       <span class="symbol">color-formatter-xcms-ciexyz</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_5bd9ef50-21ef-5db6-812e-099c922d4e38">
+       <span class="category">Constant</span>
+       <span class="symbol">color-formatter-xcms-rgb</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_7353bf82-b897-5ae5-bb17-14c9f85d1b4a">
+       <span class="category">Constant</span>
+       <span class="symbol">color-formatter-xcms-rgbi</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_456fd075-28ee-54fe-a8a1-193175427933">
+       <span class="category">Function</span>
+       <span class="symbol">colorp</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_daf7693f-c275-59b3-98f6-b06cc8a3da34">
+       <span class="category">Generic Function</span>
+       <span class="symbol">copy-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_fd2746d9-93d2-575c-9c60-fac2d8311a96">
+       <span class="category">Macro</span>
+       <span class="symbol">define-color-printer</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_3f2f3f46-41f7-5759-a985-bca4e2435b3d">
+       <span class="category">Macro</span>
+       <span class="symbol">define-color-reader</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_74fd2d0e-cc68-5acc-a9cb-79b816a4627f">
+       <span class="category">Generic Function</span>
+       <span class="symbol">generic-cmy-color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_a6e067fb-3432-58f8-9097-d3037de1b642">
+       <span class="category">Generic Function</span>
+       <span class="symbol">generic-cmyk-color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_baff1103-782c-5832-a28d-84729d89aaff">
+       <span class="category">Generic Function</span>
+       <span class="symbol">generic-hsl-color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_58250b29-f151-5a0d-a1d7-0ded60d510ae">
+       <span class="category">Generic Function</span>
+       <span class="symbol">generic-hsv-color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_5f59b02a-8830-55f3-89ae-5759093c8d26">
+       <span class="category">Generic Function</span>
+       <span class="symbol">generic-rgb-color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_2d2be728-e6c8-5de9-a51b-17ee75996369">
+       <span class="category">Function</span>
+       <span class="symbol">make-adobe-rgb-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_df435e02-eef3-5967-99d1-835495b8ac49">
+       <span class="category">Function</span>
+       <span class="symbol">make-adobe-rgb-color-from-number</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_40061769-3f0a-587b-8588-8e9caae381cb">
+       <span class="category">Function</span>
+       <span class="symbol">make-cielab-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_84b8a062-cd69-5ce2-8093-9f7aebada20e">
+       <span class="category">Function</span>
+       <span class="symbol">make-cielch-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_a71328e2-10b9-5f0e-971a-fcc129311fcf">
+       <span class="category">Function</span>
+       <span class="symbol">make-cieluv-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_22224cf9-cf11-5090-b78d-91a75525b833">
+       <span class="category">Function</span>
+       <span class="symbol">make-ciergb-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_e28883ba-bb88-566f-b207-3052d65fec94">
+       <span class="category">Function</span>
+       <span class="symbol">make-ciexyy-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_b0508e80-5f73-58ce-b6b4-138c5f9a3496">
+       <span class="category">Function</span>
+       <span class="symbol">make-ciexyz-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_85a2014c-098c-5894-8426-945ea9f86d6f">
+       <span class="category">Function</span>
+       <span class="symbol">make-generic-cmy-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_50c87ecd-fdfc-5e02-abd6-8d099e08cf6c">
+       <span class="category">Function</span>
+       <span class="symbol">make-generic-cmy-color-from-number</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_984390d1-fa21-5739-bd77-7426d7c82d58">
+       <span class="category">Function</span>
+       <span class="symbol">make-generic-cmyk-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_b42a41e4-a2da-569b-88ce-e84869d7a368">
+       <span class="category">Function</span>
+       <span class="symbol">make-generic-cmyk-color-from-number</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_d94785c4-f8dc-50e8-8673-169b045ede53">
+       <span class="category">Function</span>
+       <span class="symbol">make-generic-hsl-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_4373a842-3613-5eed-acf3-6262e47880c6">
+       <span class="category">Function</span>
+       <span class="symbol">make-generic-hsv-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_565be316-8bfb-5f3f-8999-55d59e5f6f14">
+       <span class="category">Function</span>
+       <span class="symbol">make-generic-rgb-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_6fc030ee-c9a8-54d4-8b14-f0520f076602">
+       <span class="category">Function</span>
+       <span class="symbol">make-generic-rgb-color-from-number</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_6a2d1d5f-4140-5a3b-9ed1-f50a951cdc19">
+       <span class="category">Function</span>
+       <span class="symbol">make-srgb-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_7fdb732f-7396-56b6-bb20-4c7f53bacc3f">
+       <span class="category">Function</span>
+       <span class="symbol">make-srgb-color-from-number</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_81667360-1ee5-5b4f-aa1a-61de7e3e82b4">
+       <span class="category">Generic Function</span>
+       <span class="symbol">normalize-color</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_4ded98af-6efe-551c-9c47-df85ad32ed04">
+       <span class="category">Function</span>
+       <span class="symbol">print-color-css3-hsl</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_16811459-b351-5b96-843b-01c46a98a5a4">
+       <span class="category">Function</span>
+       <span class="symbol">print-color-css3-rgb</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_1f94f579-9a6e-52ba-9724-f4f49726fa58">
+       <span class="category">Function</span>
+       <span class="symbol">print-color-html</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_ec499317-fbbd-5565-a296-8cda52977a4b">
+       <span class="category">Function</span>
+       <span class="symbol">print-color-xcms-cielab</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_e9450970-4a49-55f9-b623-314d7e63a008">
+       <span class="category">Function</span>
+       <span class="symbol">print-color-xcms-cielch</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_be86e07d-7649-5046-a207-524cdf1c15d4">
+       <span class="category">Function</span>
+       <span class="symbol">print-color-xcms-cieluv</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_0de7b783-086b-5723-987f-b890f2186b9b">
+       <span class="category">Function</span>
+       <span class="symbol">print-color-xcms-ciergb</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_33b841c1-e81a-5a6a-a520-b9026258a49a">
+       <span class="category">Function</span>
+       <span class="symbol">print-color-xcms-ciexyy</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_2fa0f49d-7f7f-52dc-b5a4-b25c5d2f4e49">
+       <span class="category">Function</span>
+       <span class="symbol">print-color-xcms-ciexyz</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_2d75d96b-2a22-58e5-b77d-ebd3aa5f47a2">
+       <span class="category">Function</span>
+       <span class="symbol">print-color-xcms-rgb</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_7f74c070-3251-5d43-aa7c-ebaa1eaf55bf">
+       <span class="category">Function</span>
+       <span class="symbol">print-color-xcms-rgbi</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_b997f3b2-9868-5861-ab0f-e519e542874b">
+       <span class="category">Function</span>
+       <span class="symbol">read-color-css3</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_701962d4-3cd8-5d72-8d19-171ab7e2f194">
+       <span class="category">Function</span>
+       <span class="symbol">read-color-css3-hsl</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_df27eef9-a7fe-5b87-a306-b158333a1a51">
+       <span class="category">Function</span>
+       <span class="symbol">read-color-css3-rgb</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_2311558b-c8b5-5ab1-a629-11de8d3bf7a8">
+       <span class="category">Function</span>
+       <span class="symbol">read-color-html</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_f9cd8ea8-d684-5d86-b48b-9d6dc7c85834">
+       <span class="category">Function</span>
+       <span class="symbol">read-color-xcms</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_0f49b2c5-67f9-5c68-b88c-82619cdeb410">
+       <span class="category">Function</span>
+       <span class="symbol">read-color-xcms-cielab</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_65d8682b-8d45-5ce5-ae4d-09a100b4656d">
+       <span class="category">Function</span>
+       <span class="symbol">read-color-xcms-cielch</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_01efadf4-3fae-5a4c-bc8b-23ab73f5632e">
+       <span class="category">Function</span>
+       <span class="symbol">read-color-xcms-cieluv</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_2e079f0a-0d1f-5336-a71a-db8fa7b17f72">
+       <span class="category">Function</span>
+       <span class="symbol">read-color-xcms-ciergb</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_943fbabc-15b8-501b-abb9-b977dda1e885">
+       <span class="category">Function</span>
+       <span class="symbol">read-color-xcms-ciexyy</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_262a6ff7-82da-5eb8-874b-559d5f289a4a">
+       <span class="category">Function</span>
+       <span class="symbol">read-color-xcms-ciexyz</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_5cb2fa4b-6619-5eaf-a92e-7d66494fef65">
+       <span class="category">Function</span>
+       <span class="symbol">read-color-xcms-rgb</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_2133ffe5-0957-5a3b-89fa-266e1b6972c7">
+       <span class="category">Function</span>
+       <span class="symbol">read-color-xcms-rgbi</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_b14bbdb5-4414-5e44-ada3-600a3ba2a27a">
+       <span class="category">Generic Function</span>
+       <span class="symbol">srgb-color-coordinates</span>
+      </a>
+     </li>
+     <li>
+      <a href="#_df138a1a-c4f1-5539-a3f9-f57f952f1c20">
+       <span class="category">Generic Function</span>
+       <span class="symbol">white-point</span>
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="dictionary">
+   <div class="definition" id="_a4a77b51-ecd6-5d80-a91b-17ff78f19544">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">adobe-rgb-color</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the Adobe RGB color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_a927a271-0e04-573e-9c21-d63e66746349">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cielab-color</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the CIE L*a*b* color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_62cc461e-d6af-50d8-bd0a-dd1954f5defd">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cielch-color</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the CIE L*C*h color space.
+Hue is measured in degree angle.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_d7f6f841-0e8f-5332-9960-1d9f3dfe048e">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cieluv-color</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the CIE L*u*v* color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_faaa0df8-f470-5ea7-a146-8a3dc77ed089">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">ciergb-color</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the CIE RGB color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_5d9e99f0-1170-5389-ad4a-9d1e82aba710">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">ciexyy-color</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the CIE xyY color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_1d1dd5c2-e6a4-54cd-a933-fb57f5ace515">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">ciexyz-color</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the CIE XYZ color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_bc79401f-b845-5e71-b781-ba103c526ae9">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cmy-color-object</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for a CMY color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_654d2ab5-713e-5b59-9ff3-284074212be0">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cmyk-color-object</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for a CMYK color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_77748def-f174-5278-8551-9687358e83f7">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">color-object</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Base class for a color.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_14521e9f-cec4-5f81-a4bc-8be02ab81d03">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">generic-cmy-color</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the generic CMY color space.
+
+The generic CMY color space is a mathematical description of the
+CMY color model.  It is not associated with a particular device.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_f4abf965-0d02-5fff-86b7-a08bb4f15cbb">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">generic-cmyk-color</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the generic CMYK color space.
+
+The generic CMYK color space is a mathematical description of the
+CMYK color model.  It is not associated with a particular device.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_43757565-901b-5dbc-8fb9-caafccab8912">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">generic-color-object</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the mathematical model of a color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_b5cde103-d148-5031-a998-1f246d43a98c">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">generic-hsl-color</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the generic HSL color space.
+
+The generic HSL color space is a different representation of the
+RGB color model.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_471f5aac-5d44-58b2-ba09-39e61da9d52e">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">generic-hsv-color</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the generic HSV/HSB color space.
+
+The generic HSV/HSB color space is a different representation of the
+RGB color model.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_c5b6648f-df3e-5cbb-b533-dd87dd3f718b">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">generic-rgb-color</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the generic RGB color space.
+
+The generic RGB color space is a mathematical description of the
+RGB color model.  It is not associated with a particular device.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_9ed1a10b-e06d-59bf-a425-e1b079d2b75e">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">hsl-color-object</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for a HSL color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_29db3f92-a72b-5862-8dd9-4421252601b3">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">hsv-color-object</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for a HSV/HSB color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_bd8b2ab6-b53b-51bd-acc4-56ed297ba434">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">rgb-color-object</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for a RGB color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_45fbb54c-8cbc-5343-a927-0802d2f0fa78">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">srgb-color</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Class</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Color class for the sRGB color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_6cbd7e29-229e-5c0e-99a7-43e0e4613343">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">*cielab-default-white-point*</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Special Variable</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>The default white point for colors in the CIE L*a*b* color space.
+Default value is the CIE 1931 D50 standard illuminant.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_a4132fa7-4083-562a-857a-a3254e769b0a">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">*cielch-default-white-point*</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Special Variable</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>The default white point for colors in the CIE L*C*h color space.
+Default value is the CIE 1931 D50 standard illuminant.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_4e68b23d-082b-540a-91a6-ff417211f6ea">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">*cieluv-default-white-point*</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Special Variable</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>The default white point for colors in the CIE L*u*v* color space.
+Default value is the CIE 1931 D50 standard illuminant.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_4f4e05ef-706c-5a6f-813b-262f9d63fed4">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">*color-matching-functions*</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Special Variable</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>A list of three color matching functions.
+Default is the CIE 1931 standard observer.
+
+Value is an alist of cons cells of the form ‘(L . (X Y Z))’.
+Key L is the wavelength λ in nanometer and values X, Y, and Z
+are the discrete values of the color matching functions x(λ),
+y(λ), and z(λ) respectively.  The list elements have to be
+sorted in strictly increasing order of the wavelength.
+
+Value can also be a list of three functions, i.e. ‘(X Y Z)’,
+where X, Y, and Z are the color matching functions x(λ), y(λ),
+and z(λ) respectively.
+
+Use the ‘color-matching-functions’ function to evaluate the color
+matching functions.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_bfea94ec-8386-51c9-bc7e-d7c14495790c">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">*second-radiation-constant*</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Special Variable</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Second radiation constant.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_28863f52-eeac-57da-852f-0d779c0798f9">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">absolute-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="lambda-list-keyword">&amp;key</span> <span class="variable">white</span> <span class="variable">black</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Convert from normalized color coordinates to absolute color coordinates.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_69e8cf81-17eb-52bd-ac4b-9b7dd4fa06c4">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">adobe-rgb-color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the Adobe RGB color space coordinates of the color.
+
+Argument COLOR is a color object.
+
+Values are the intensities of the red, green, and blue primary.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_5b93c0e7-6ce9-546e-bbf7-093d93f46209">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">black-body-spectral-radiance</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">wavelength</span> <span class="variable">temperature</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Calculate the spectral radiance of a black body.
+
+First argument WAVELENGTH is the wavelength of the light in meter.
+Second argument TEMPERATURE is the temperature of the black body
+ in kelvin.
+
+Return value is the spectral radiance of a black body around the
+given wavelength.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_23eb22ee-f930-5dc0-9a5b-0d8b821bce30">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">black-body-spectral-radiant-exitance</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">wavelength</span> <span class="variable">temperature</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Calculate the spectral radiant exitance of a black body.
+
+First argument WAVELENGTH is the wavelength of the light in meter.
+Second argument TEMPERATURE is the temperature of the black body
+ in kelvin.
+
+Return value is the spectral radiant exitance of a black body
+around the given wavelength.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_0ab7bab7-3d75-5ce7-b950-483145473bd1">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-second-radiation-constant</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Second radiation constant.
+
+Value used by the CIE when defining the CIE 1931 color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_d07f5e16-b3e0-5c01-b1d6-1c7b7bba78b2">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-standard-observer</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>CIE 1931 standard observer.
+
+Value are the color matching functions x(λ), y(λ), and z(λ).
+The wavelength λ ranges from 380 nm to 780 nm in steps of 5 nm.
+
+See the ‘*color-matching-functions*’ parameter for more details.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_7f61bc9e-1257-5e7a-a4ce-1fe817bdc629">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-a</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant A given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_21e9bc85-2694-5af8-916b-0b56e21e02e8">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-b</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant B given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_22415c80-0a0d-52f6-b112-907bbddc114e">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-c</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant C given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_089155d5-19fc-57a1-861f-6a0c6cfc3e39">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-d50</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant D50 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_3ceec22c-d6b2-5141-8bbd-493c40d1cf33">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-d55</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant D55 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_210b5945-5dad-5d21-85d2-29849d37018a">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-d65</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant D65 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_180e8fa2-6e99-530f-8902-972185c71fd4">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-d75</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant D75 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_86f40741-8fea-5504-bc36-78de587f7265">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-e</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant E given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_8ce3cf60-c325-572c-8ab5-79a7f262467d">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-f1</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F1 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_224da9d4-3aef-58f7-89d3-3fe0b64b3668">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-f10</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F10 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_0f997d52-4564-5e4b-9cfc-f59c8cfc3309">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-f11</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F11 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_3cfdf4b0-10d2-5432-b57e-266105ac57d5">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-f12</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F12 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_634d1aa7-5a3c-5f74-b587-fcf4c8d15916">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-f2</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F2 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_671f30f0-4ee8-511f-9839-ff5f3c1d9bcd">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-f3</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F3 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_c492b407-b96b-52f9-9464-13014dfbcdfa">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-f4</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F4 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_a4ff924d-ee46-5c30-b28a-334215d4e347">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-f5</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F5 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_6c9db0b7-5745-53bc-a8cf-525566eeec6b">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-f6</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F6 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_ff77b42c-c9c2-5c53-b13c-654552e68aca">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-f7</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F7 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_619a3da1-461c-569b-a916-e287c148988a">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-f8</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F8 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_33725e3e-145d-5975-9224-754b59cf4680">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1931-white-point-f9</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F9 given for the CIE 1931 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_f0b25363-7efa-58ab-a17b-cb19a53d23e3">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-standard-observer</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>CIE 1964 standard observer.
+
+Value are the color matching functions x(λ), y(λ), and z(λ).
+The wavelength λ ranges from 380 nm to 780 nm in steps of 5 nm.
+
+See the ‘*color-matching-functions*’ parameter for more details.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_92b8980c-4b2a-5b25-a48f-0af9b647e307">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-a</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant A given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_e067945f-1b83-5e0b-a4a7-727a8468b62e">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-b</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant B given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_dafdd98b-8461-58d4-8915-9e5ccfa81d5d">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-c</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant C given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_0891a15f-30ec-5f18-b223-5c1b42329c69">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-d50</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant D50 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_75643ac0-aa60-5d97-a0b0-1e6eadce0445">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-d55</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant D55 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_ec8b59bb-612b-5dc6-9f60-91cef7503831">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-d65</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant D65 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_5faca127-5e91-5f89-b18b-1640f7d44d73">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-d75</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant D75 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_77d5e5ab-436c-52eb-a9e5-4ecda22b05e2">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-e</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant E given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_3e9cce6b-cdb3-58fc-92ba-12fe39093e08">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-f1</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F1 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_5599fc6d-3ad3-517a-9528-d95cff7e9e66">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-f10</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F10 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_2aaa81e9-aa7c-51b2-883c-808f17c49ad2">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-f11</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F11 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_18e33778-7a46-5347-ae95-0e5b5e528458">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-f12</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F12 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_317adeb1-4a3a-5d61-b333-10eb95cee30f">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-f2</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F2 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_e15aa6a6-81d6-554f-b45c-4c6bb4be02ef">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-f3</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F3 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_e95dff36-efd9-5b60-8039-50df8bc550ea">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-f4</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F4 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_a20b2186-86aa-538f-bbe0-03525e6cc166">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-f5</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F5 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_25246b1c-85d3-5159-ae47-4fe80bddfe9f">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-f6</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F6 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_e6e994ee-fa6f-5436-906a-05df871a8edc">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-f7</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F7 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_c8491e7e-82b1-561d-ac3b-8cf698eba2b0">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-f8</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F8 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_22fa5abe-62d7-5b72-9b79-238e33fdd033">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-1964-white-point-f9</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>White point of CIE standard illuminant F9 given for the CIE 1964 standard observer.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_0d140d84-4701-54be-b59c-98cf8ea188f1">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-xy-chromaticity-of-black-body</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">temperature</span> <span class="lambda-list-keyword">&amp;key</span> (<span class="variable">from</span>&nbsp;<span class="init-form">380</span>) (<span class="variable">to</span>&nbsp;<span class="init-form">780</span>) (<span class="variable">by</span>&nbsp;<span class="init-form">5</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Calculate the chromaticity coordinates of a Planckian radiator.
+These chromaticity coordinates define the Planckian locus in a
+chromaticity diagram.
+
+Argument TEMPERATURE is the temperature of the black body in kelvin.
+Keyword arguments FROM, TO, and BY define the boundaries and step size
+ for the wavelength λ of the light in nanometer.
+
+Return values are the CIE xyY color space chromaticity coordinates x
+and y as multiple values.
+
+The three color matching functions x(λ), y(λ), and z(λ) are defined
+by the ‘*color-matching-functions*’ special variable.  The second
+radiation constant is defined by the ‘*second-radiation-constant*’
+special variable.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_264f24f7-7e3a-535d-aa18-2429dbf2fe93">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie-xy-chromaticity-of-light</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">wavelength</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Calculate the chromaticity coordinates of a single color of light.
+These chromaticity coordinates define the border of the chromaticity
+space in a chromaticity diagram.
+
+Argument WAVELENGTH is the wavelength λ of the light in nanometer.
+
+Return values are the CIE xyY color space chromaticity coordinates x
+and y as multiple values.
+
+The three color matching functions x(λ), y(λ), and z(λ) are defined
+by the ‘*color-matching-functions*’ special variable.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_3bfbda15-cfd1-597e-a308-a22d31002b9c">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie76</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">first-color</span> <span class="variable">second-color</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Calculate the CIE76 color difference between two colors.
+
+Value is the Euclidean distance between the two colors in the
+CIE L*a*b* color space.  The CIE76 color difference is symmetric,
+i.e. CIE76(a,b) = CIE76(b,a).</pre>
+    </div>
+   </div>
+   <div class="definition" id="_542aee3f-dde6-504b-a85a-71907dc1801f">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cie94</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">reference</span> <span class="variable">other</span> <span class="lambda-list-keyword">&amp;optional</span> <span class="variable">textile</span> (<span class="variable">lightness</span>&nbsp;<span class="init-form">(if textile 2 1)</span>) (<span class="variable">chroma</span>&nbsp;<span class="init-form">1</span>) (<span class="variable">hue</span>&nbsp;<span class="init-form">1</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Calculate the CIE94 color difference between two colors.
+
+First argument REFERENCE is the reference color.
+Second argument OTHER is the other color.
+If optional third argument TEXTILE is non-null, use parameters
+ for calculating the color difference for textiles.  Default is
+ to calculate the color difference for graphic arts.
+Optional fourth to sixth argument LIGHTNESS, CHROMA, and HUE are
+ the weighting factors for differences in lightness, chroma, and
+ hue respectively.  Higher value means less weight.  Default is
+ one for all weighting factors (if TEXTILE is true, the default
+ for LIGHTNESS is two).
+
+The CIE94 color difference is asymmetric, i.e. CIE94(a,b) ≠ CIE94(b,a).</pre>
+    </div>
+   </div>
+   <div class="definition" id="_8cf147cf-eb0e-51bd-a6a6-3528dee8fd43">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cielab-color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the CIE L*a*b* color space coordinates of the color.
+
+Argument COLOR is a color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_1042c88b-da72-501c-87a5-74e57b31d9b5">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cielch-color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the CIE L*C*h color space coordinates of the color.
+
+Argument COLOR is a color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_5c6f6491-3868-52c1-8c87-a72f58c26636">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">cieluv-color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the CIE L*u*v* color space coordinates of the color.
+
+Argument COLOR is a color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_0457a684-7392-5f85-ad0b-062f6c1d9be0">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">ciergb-color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the CIE RGB color space coordinates of the color.
+
+Argument COLOR is a color object.
+
+Values are the intensities of the red, green, and blue primary.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_d9d28724-671e-53bc-8ad8-bcb39ec4ea09">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">ciexyy-color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the CIE xyY color space coordinates of the color.
+
+Argument COLOR is a color object.
+
+Values are the X and Y chromaticity coordinates and the Y tristimulus
+value (luminance).</pre>
+    </div>
+   </div>
+   <div class="definition" id="_f3f8e1e6-ce5d-5b8f-8a57-e9c7de6b3431">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">ciexyz-color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the CIE XYZ color space coordinates of the color.
+
+Argument COLOR is a color object.
+
+Values are the X, Y, and Z tristimulus values.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_2bb55fb3-2c8e-5a9a-bd36-04e56705f9ee">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">codata-2018-first-radiation-constant</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>First radiation constant.
+
+2018 CODATA recommended value.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_d0a838bc-65b0-5881-ad16-8fa6824802ac">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">codata-2018-first-radiation-constant-for-spectral-radiance</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>First radiation constant for spectral radiance.
+
+2018 CODATA recommended value.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_6bfa380c-69be-5008-b496-fdc8c8274062">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">codata-2018-second-radiation-constant</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Second radiation constant.
+
+2018 CODATA recommended value.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_257b63c5-4cc3-529d-a551-c9d99440dd2e">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">coerce-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="variable">color-type</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Coerce the color object into the specified color type.
+
+First argument COLOR is a color object.
+Second argument COLOR-TYPE is a color data type.
+
+If argument COLOR is already a color of the requested color data
+type, return COLOR as is (no conversion).  Otherwise, return a new
+color with the color coordinates of COLOR converted into the color
+space denoted by COLOR-TYPE.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_ce92ecfb-af6d-55d4-88f7-3e008750e6fb">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the color space coordinates of the color.
+
+Argument COLOR is a color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_1dde2599-d68a-540e-b435-28b51b57456d">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">color-formatter-css3-hsl</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>A format function for printing a color in CSS3 HSL functional notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_0a396086-7453-5ddb-9fa4-5e2235f6d59e">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">color-formatter-css3-rgb</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>A format function for printing a color in CSS3 RGB functional notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_ee88d305-ddf5-588c-9f5e-0b68ef4c2e99">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">color-formatter-html</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>A format function for printing a numerical HTML color value.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_afa277f5-ca25-5206-9422-e413b184dfe8">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">color-formatter-xcms-cielab</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>A format function for printing a color in Xcms CIE L*a*b* notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_3e861c64-eb39-5e93-91ff-9ed8cf63b2c2">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">color-formatter-xcms-cielch</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>A format function for printing a color in Xcms CIE L*C*h notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_4d7cece3-e4e7-5252-992b-fb10de54abcc">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">color-formatter-xcms-cieluv</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>A format function for printing a color in Xcms CIE L*u*v* notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_8be444e5-b952-5ddc-b370-b0ccb8924d92">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">color-formatter-xcms-ciergb</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>A format function for printing a color in Xcms CIE RGB notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_eb2b4cff-e771-5269-b06b-9864fab26a6c">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">color-formatter-xcms-ciexyy</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>A format function for printing a color in Xcms CIE xyY notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_cb5bb13b-30be-5b95-aa18-00983791275b">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">color-formatter-xcms-ciexyz</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>A format function for printing a color in Xcms CIE XYZ notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_5bd9ef50-21ef-5db6-812e-099c922d4e38">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">color-formatter-xcms-rgb</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>A format function for printing a color in Xcms RGB notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_7353bf82-b897-5ae5-bb17-14c9f85d1b4a">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">color-formatter-xcms-rgbi</span></a></td>
+	<td class="lambda-list"></td>
+	<td class="category"><span class="category">Constant</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>A format function for printing a color in Xcms RGBi notation.
+
+Value is a function which has a behavior equivalent to a function
+returned by the ‘formatter’ macro.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_456fd075-28ee-54fe-a8a1-193175427933">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">colorp</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">object</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return true if OBJECT is a color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_daf7693f-c275-59b3-98f6-b06cc8a3da34">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">copy-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return a shallow copy of the color.
+
+Argument COLOR is a color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_fd2746d9-93d2-575c-9c60-fac2d8311a96">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">define-color-printer</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;rest</span> <span class="variable">args</span>)</span></td>
+	<td class="category"><span class="category">Macro</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Argument STYLE is a string designator.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_3f2f3f46-41f7-5759-a985-bca4e2435b3d">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">define-color-reader</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;rest</span> <span class="variable">args</span>)</span></td>
+	<td class="category"><span class="category">Macro</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Argument STYLE is a string designator.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_74fd2d0e-cc68-5acc-a9cb-79b816a4627f">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">generic-cmy-color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the CMY color space coordinates of the color.
+
+Argument COLOR is a color object.
+
+Values are the intensities of the cyan, magenta, and yellow ink.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_a6e067fb-3432-58f8-9097-d3037de1b642">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">generic-cmyk-color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the CMYK color space coordinates of the color.
+
+Argument COLOR is a color object.
+
+Values are the intensities of the cyan, magenta, yellow, and black ink.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_baff1103-782c-5832-a28d-84729d89aaff">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">generic-hsl-color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the HSL color space coordinates of the color.
+
+Argument COLOR is a color object.
+
+Values are the hue, saturation, and lightness.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_58250b29-f151-5a0d-a1d7-0ded60d510ae">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">generic-hsv-color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the HSV color space coordinates of the color.
+
+Argument COLOR is a color object.
+
+Values are the hue, saturation, and value (brightness).</pre>
+    </div>
+   </div>
+   <div class="definition" id="_5f59b02a-8830-55f3-89ae-5759093c8d26">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">generic-rgb-color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the RGB color space coordinates of the color.
+
+Argument COLOR is a color object.
+
+Values are the intensities of the red, green, and blue primary.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_2d2be728-e6c8-5de9-a51b-17ee75996369">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-adobe-rgb-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">red</span> <span class="variable">green</span> <span class="variable">blue</span> <span class="lambda-list-keyword">&amp;key</span> <span class="variable">byte-size</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the Adobe RGB color space.
+
+First argument RED is the intensity of the red primary.
+Second argument GREEN is the intensity of the green primary.
+Third argument BLUE is the intensity of the blue primary.
+
+Arguments RED, GREEN, and BLUE have to be normalized intensity values
+in the closed interval [0, 1].
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  If specified, arguments RED, GREEN, and BLUE are scaled
+accordingly.
+
+Example:
+
+     (make-adobe-rgb-color 252/255 175/255 62/255)
+     (make-adobe-rgb-color 252 175 62 :byte-size 8)</pre>
+    </div>
+   </div>
+   <div class="definition" id="_df435e02-eef3-5967-99d1-835495b8ac49">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-adobe-rgb-color-from-number</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">value</span> <span class="lambda-list-keyword">&amp;key</span> (<span class="variable">byte-size</span>&nbsp;<span class="init-form">8</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the Adobe RGB color space.
+
+Argument VALUE is a non-negative integral number.
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  Default is eight bit (one byte).  The most significant bits
+denote the intensity of the red primary.
+
+Example:
+
+     (make-adobe-rgb-color-from-number #XFCAF3E)</pre>
+    </div>
+   </div>
+   <div class="definition" id="_40061769-3f0a-587b-8588-8e9caae381cb">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-cielab-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">l*</span> <span class="variable">a*</span> <span class="variable">b*</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">white-point</span>&nbsp;<span class="init-form">*cielab-default-white-point*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the CIE L*a*b* color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_84b8a062-cd69-5ce2-8093-9f7aebada20e">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-cielch-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">l*</span> <span class="variable">c*</span> <span class="variable">h</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">white-point</span>&nbsp;<span class="init-form">*cielch-default-white-point*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the CIE L*C*h color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_a71328e2-10b9-5f0e-971a-fcc129311fcf">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-cieluv-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">l*</span> <span class="variable">u*</span> <span class="variable">v*</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">white-point</span>&nbsp;<span class="init-form">*cieluv-default-white-point*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the CIE L*u*v* color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_22224cf9-cf11-5090-b78d-91a75525b833">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-ciergb-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">red</span> <span class="variable">green</span> <span class="variable">blue</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the CIE RGB color space.
+
+First argument RED is the intensity of the red primary.
+Second argument GREEN is the intensity green primary.
+Third argument BLUE is the intensity of the blue primary.
+
+Arguments RED, GREEN, and BLUE have to be normalized intensity values
+in the closed interval [0, 1].</pre>
+    </div>
+   </div>
+   <div class="definition" id="_e28883ba-bb88-566f-b207-3052d65fec94">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-ciexyy-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">x*</span> <span class="variable">y*</span> <span class="variable">y</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the CIE xyY color space.
+
+Arguments X* and Y* are the chromaticity coordinates.
+Argument Y is the second tristimulus value (luminance).</pre>
+    </div>
+   </div>
+   <div class="definition" id="_b0508e80-5f73-58ce-b6b4-138c5f9a3496">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-ciexyz-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">x</span> <span class="variable">y</span> <span class="variable">z</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the CIE XYZ color space.
+
+Arguments X, Y, and Z are the tristimulus values.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_85a2014c-098c-5894-8426-945ea9f86d6f">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-generic-cmy-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">cyan</span> <span class="variable">magenta</span> <span class="variable">yellow</span> <span class="lambda-list-keyword">&amp;key</span> <span class="variable">byte-size</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the generic CMY color space.
+
+First argument CYAN is the intensity of the cyan ink.
+Second argument MAGENTA is the intensity of the magenta ink.
+Third argument YELLOW is the intensity of the yellow ink.
+
+Arguments CYAN, MAGENTA, and YELLOW have to be normalized color values
+in the closed interval [0, 1].
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+color value.  If specified, arguments CYAN, MAGENTA, and YELLOW are
+scaled accordingly.
+
+Example:
+
+     (make-generic-cmy-color 3/255 80/255 193/255)
+     (make-generic-cmy-color 3 80 193 :byte-size 8)</pre>
+    </div>
+   </div>
+   <div class="definition" id="_50c87ecd-fdfc-5e02-abd6-8d099e08cf6c">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-generic-cmy-color-from-number</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">value</span> <span class="lambda-list-keyword">&amp;key</span> (<span class="variable">byte-size</span>&nbsp;<span class="init-form">8</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the generic CMY color space.
+
+Argument VALUE is a non-negative integral number.
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  Default is eight bit (one byte).  The most significant bits
+denote the intensity of the cyan primary.
+
+Example:
+
+     (make-generic-cmy-color-from-number #X0350C1)</pre>
+    </div>
+   </div>
+   <div class="definition" id="_984390d1-fa21-5739-bd77-7426d7c82d58">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-generic-cmyk-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">cyan</span> <span class="variable">magenta</span> <span class="variable">yellow</span> <span class="variable">black</span> <span class="lambda-list-keyword">&amp;key</span> <span class="variable">byte-size</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the generic CMYK color space.
+
+First argument CYAN is the intensity of the cyan ink.
+Second argument MAGENTA is the intensity of the magenta ink.
+Third argument YELLOW is the intensity of the yellow ink.
+Fourth argument BLACK is the intensity of the black ink.
+
+Arguments CYAN, MAGENTA, YELLOW, and BLACK have to be normalized
+intensity values in the closed interval [0, 1].
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+color value.  If specified, arguments CYAN, MAGENTA, YELLOW, and BLACK
+are scaled accordingly.
+
+Example:
+
+     (make-generic-cmyk-color 3/255 80/255 193/255 0)
+     (make-generic-cmyk-color 3 80 193 0 :byte-size 8)</pre>
+    </div>
+   </div>
+   <div class="definition" id="_b42a41e4-a2da-569b-88ce-e84869d7a368">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-generic-cmyk-color-from-number</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">value</span> <span class="lambda-list-keyword">&amp;key</span> (<span class="variable">byte-size</span>&nbsp;<span class="init-form">8</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the generic CMYK color space.
+
+Argument VALUE is a non-negative integral number.
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  Default is eight bit (one byte).  The most significant bits
+denote the intensity of the cyan primary.
+
+Example:
+
+     (make-generic-cmyk-color-from-number #X0350C100)</pre>
+    </div>
+   </div>
+   <div class="definition" id="_d94785c4-f8dc-50e8-8673-169b045ede53">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-generic-hsl-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">hue</span> <span class="variable">saturation</span> <span class="variable">lightness</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the generic HSL color space.
+
+First argument HUE is the angle of the RGB color wheel.
+Second argument SATURATION is the saturation.
+Third argument LIGHTNESS is the lightness.
+
+Arguments SATURATION and LIGHTNESS have to be real numbers
+in the closed interval [0, 1].</pre>
+    </div>
+   </div>
+   <div class="definition" id="_4373a842-3613-5eed-acf3-6262e47880c6">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-generic-hsv-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">hue</span> <span class="variable">saturation</span> <span class="variable">value</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the generic HSV color space.
+
+First argument HUE is the angle of the RGB color wheel.
+Second argument SATURATION is the saturation.
+Third argument VALUE is the brightness.
+
+Arguments SATURATION and VALUE have to be real numbers
+in the closed interval [0, 1].</pre>
+    </div>
+   </div>
+   <div class="definition" id="_565be316-8bfb-5f3f-8999-55d59e5f6f14">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-generic-rgb-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">red</span> <span class="variable">green</span> <span class="variable">blue</span> <span class="lambda-list-keyword">&amp;key</span> <span class="variable">byte-size</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the generic RGB color space.
+
+First argument RED is the intensity of the red primary.
+Second argument GREEN is the intensity of the green primary.
+Third argument BLUE is the intensity of the blue primary.
+
+Arguments RED, GREEN, and BLUE have to be normalized intensity values
+in the closed interval [0, 1].
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  If specified, arguments RED, GREEN, and BLUE are scaled
+accordingly.
+
+Example:
+
+     (make-generic-rgb-color 252/255 175/255 62/255)
+     (make-generic-rgb-color 252 175 62 :byte-size 8)</pre>
+    </div>
+   </div>
+   <div class="definition" id="_6fc030ee-c9a8-54d4-8b14-f0520f076602">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-generic-rgb-color-from-number</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">value</span> <span class="lambda-list-keyword">&amp;key</span> (<span class="variable">byte-size</span>&nbsp;<span class="init-form">8</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the generic RGB color space.
+
+Argument VALUE is a non-negative integral number.
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  Default is eight bit (one byte).  The most significant bits
+denote the intensity of the red primary.
+
+Example:
+
+     (make-generic-rgb-color-from-number #XFCAF3E)</pre>
+    </div>
+   </div>
+   <div class="definition" id="_6a2d1d5f-4140-5a3b-9ed1-f50a951cdc19">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-srgb-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">red</span> <span class="variable">green</span> <span class="variable">blue</span> <span class="lambda-list-keyword">&amp;key</span> <span class="variable">byte-size</span>)</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the sRGB color space.
+
+First argument RED is the intensity of the red primary.
+Second argument GREEN is the intensity of the green primary.
+Third argument BLUE is the intensity of the blue primary.
+
+Arguments RED, GREEN, and BLUE have to be normalized intensity values
+in the closed interval [0, 1].
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  If specified, arguments RED, GREEN, and BLUE are scaled
+accordingly.
+
+Example:
+
+     (make-srgb-color 252/255 175/255 62/255)
+     (make-srgb-color 252 175 62 :byte-size 8)</pre>
+    </div>
+   </div>
+   <div class="definition" id="_7fdb732f-7396-56b6-bb20-4c7f53bacc3f">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">make-srgb-color-from-number</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">value</span> <span class="lambda-list-keyword">&amp;key</span> (<span class="variable">byte-size</span>&nbsp;<span class="init-form">8</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Create a new color in the sRGB color space.
+
+Argument VALUE is a non-negative integral number.
+
+Keyword argument BYTE-SIZE is the number of bits used to represent a
+primary.  Default is eight bit (one byte).  The most significant bits
+denote the intensity of the red primary.
+
+Example:
+
+     (make-srgb-color-from-number #XFCAF3E)</pre>
+    </div>
+   </div>
+   <div class="definition" id="_81667360-1ee5-5b4f-aa1a-61de7e3e82b4">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">normalize-color</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="lambda-list-keyword">&amp;key</span> <span class="variable">white</span> <span class="variable">black</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Convert from absolute color coordinates to normalized color coordinates.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_4ded98af-6efe-551c-9c47-df85ad32ed04">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">print-color-css3-hsl</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-output*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Print a color in CSS3 HSL functional notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_16811459-b351-5b96-843b-01c46a98a5a4">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">print-color-css3-rgb</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-output*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Print a color in CSS3 RGB functional notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_1f94f579-9a6e-52ba-9724-f4f49726fa58">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">print-color-html</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-output*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Print a numerical HTML color value.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_ec499317-fbbd-5565-a296-8cda52977a4b">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">print-color-xcms-cielab</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-output*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Print a color in Xcms CIE L*a*b* notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_e9450970-4a49-55f9-b623-314d7e63a008">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">print-color-xcms-cielch</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-output*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Print a color in Xcms CIE L*C*h notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_be86e07d-7649-5046-a207-524cdf1c15d4">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">print-color-xcms-cieluv</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-output*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Print a color in Xcms CIE L*u*v* notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_0de7b783-086b-5723-987f-b890f2186b9b">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">print-color-xcms-ciergb</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-output*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Print a color in Xcms CIE RGB notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_33b841c1-e81a-5a6a-a520-b9026258a49a">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">print-color-xcms-ciexyy</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-output*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Print a color in Xcms CIE xyY notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_2fa0f49d-7f7f-52dc-b5a4-b25c5d2f4e49">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">print-color-xcms-ciexyz</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-output*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Print a color in Xcms CIE XYZ notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_2d75d96b-2a22-58e5-b77d-ebd3aa5f47a2">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">print-color-xcms-rgb</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-output*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Print a color in Xcms RGB notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_7f74c070-3251-5d43-aa7c-ebaa1eaf55bf">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">print-color-xcms-rgbi</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span> <span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-output*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Print a color in Xcms RGBi notation.
+
+First argument COLOR is a color object.
+Optional second argument STREAM is an output stream.
+ Default is to print to ‘*standard-output*’.
+
+Value is the color object.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_b997f3b2-9868-5861-ab0f-e519e542874b">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">read-color-css3</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-input*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Read a CSS3 color value, i.e. either a numerical HTML color
+definition or a RGB value or HSL value in functional notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the sRGB color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_701962d4-3cd8-5d72-8d19-171ab7e2f194">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">read-color-css3-hsl</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-input*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Read a color in CSS3 HSL functional notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the sRGB color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_df27eef9-a7fe-5b87-a306-b158333a1a51">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">read-color-css3-rgb</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-input*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Read a color in CSS3 RGB functional notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the sRGB color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_2311558b-c8b5-5ab1-a629-11de8d3bf7a8">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">read-color-html</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-input*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Read a numerical HTML color value.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the sRGB color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_f9cd8ea8-d684-5d86-b48b-9d6dc7c85834">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">read-color-xcms</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-input*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Read a color in Xcms notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the color space
+indicated by the Xcms prefix.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_0f49b2c5-67f9-5c68-b88c-82619cdeb410">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">read-color-xcms-cielab</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-input*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Read a color in Xcms CIE L*a*b* notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the CIE L*a*b* color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_65d8682b-8d45-5ce5-ae4d-09a100b4656d">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">read-color-xcms-cielch</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-input*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Read a color in Xcms CIE L*C*h notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the CIE L*C*h color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_01efadf4-3fae-5a4c-bc8b-23ab73f5632e">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">read-color-xcms-cieluv</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-input*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Read a color in Xcms CIE L*u*v* notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the CIE L*u*v* color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_2e079f0a-0d1f-5336-a71a-db8fa7b17f72">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">read-color-xcms-ciergb</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-input*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Read a color in Xcms CIE RGB notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the CIE RGB color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_943fbabc-15b8-501b-abb9-b977dda1e885">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">read-color-xcms-ciexyy</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-input*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Read a color in Xcms CIE xyY notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the CIE xyY color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_262a6ff7-82da-5eb8-874b-559d5f289a4a">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">read-color-xcms-ciexyz</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-input*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Read a color in Xcms CIE XYZ notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the CIE XYZ color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_5cb2fa4b-6619-5eaf-a92e-7d66494fef65">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">read-color-xcms-rgb</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-input*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Read a color in Xcms RGB notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the generic RGB color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_2133ffe5-0957-5a3b-89fa-266e1b6972c7">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">read-color-xcms-rgbi</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="lambda-list-keyword">&amp;optional</span> (<span class="variable">stream</span>&nbsp;<span class="init-form">*standard-input*</span>))</span></td>
+	<td class="category"><span class="category">Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Read a color in Xcms RGBi notation.
+
+Optional argument STREAM is an input stream.
+ Default is to read from ‘*standard-input*’.
+
+Value is a color object in the generic RGB color space.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_b14bbdb5-4414-5e44-ada3-600a3ba2a27a">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">srgb-color-coordinates</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the sRGB color space coordinates of the color.
+
+Argument COLOR is a color object.
+
+Values are the intensities of the red, green, and blue primary.</pre>
+    </div>
+   </div>
+   <div class="definition" id="_df138a1a-c4f1-5539-a3f9-f57f952f1c20">
+    <div class="signature">
+     <table class="signature">
+      <colgroup>
+       <col />
+       <col />
+       <col />
+      </colgroup>
+      <tbody>
+       <tr>
+	<td class="symbol"><a href="#contents"><span class="symbol">white-point</span></a></td>
+	<td class="lambda-list"><span class="lambda-list">(<span class="variable">color</span>)</span></td>
+	<td class="category"><span class="category">Generic Function</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="documentation">
+     <pre>Return the white point of the color.
+
+Argument COLOR is a color object.
+
+Value is the color object of the color's white point, or nil if the
+white point is not defined or if multiple white points exist.</pre>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

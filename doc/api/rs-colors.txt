@@ -1,0 +1,1111 @@
+RS-COLORS
+
+A color data type for Common Lisp.
+
+                                                                         [Class]
+adobe-rgb-color
+   Color class for the Adobe RGB color space.
+
+                                                                         [Class]
+cielab-color
+   Color class for the CIE L*a*b* color space.
+
+                                                                         [Class]
+cielch-color
+   Color class for the CIE L*C*h color space.
+   Hue is measured in degree angle.
+
+                                                                         [Class]
+cieluv-color
+   Color class for the CIE L*u*v* color space.
+
+                                                                         [Class]
+ciergb-color
+   Color class for the CIE RGB color space.
+
+                                                                         [Class]
+ciexyy-color
+   Color class for the CIE xyY color space.
+
+                                                                         [Class]
+ciexyz-color
+   Color class for the CIE XYZ color space.
+
+                                                                         [Class]
+cmy-color-object
+   Color class for a CMY color space.
+
+                                                                         [Class]
+cmyk-color-object
+   Color class for a CMYK color space.
+
+                                                                         [Class]
+color-object
+   Base class for a color.
+
+                                                                         [Class]
+generic-cmy-color
+   Color class for the generic CMY color space.
+   
+   The generic CMY color space is a mathematical description of the
+   CMY color model.  It is not associated with a particular device.
+
+                                                                         [Class]
+generic-cmyk-color
+   Color class for the generic CMYK color space.
+   
+   The generic CMYK color space is a mathematical description of the
+   CMYK color model.  It is not associated with a particular device.
+
+                                                                         [Class]
+generic-color-object
+   Color class for the mathematical model of a color space.
+
+                                                                         [Class]
+generic-hsl-color
+   Color class for the generic HSL color space.
+   
+   The generic HSL color space is a different representation of the
+   RGB color model.
+
+                                                                         [Class]
+generic-hsv-color
+   Color class for the generic HSV/HSB color space.
+   
+   The generic HSV/HSB color space is a different representation of the
+   RGB color model.
+
+                                                                         [Class]
+generic-rgb-color
+   Color class for the generic RGB color space.
+   
+   The generic RGB color space is a mathematical description of the
+   RGB color model.  It is not associated with a particular device.
+
+                                                                         [Class]
+hsl-color-object
+   Color class for a HSL color space.
+
+                                                                         [Class]
+hsv-color-object
+   Color class for a HSV/HSB color space.
+
+                                                                         [Class]
+rgb-color-object
+   Color class for a RGB color space.
+
+                                                                         [Class]
+srgb-color
+   Color class for the sRGB color space.
+
+                                                              [Special Variable]
+*cielab-default-white-point*
+   The default white point for colors in the CIE L*a*b* color space.
+   Default value is the CIE 1931 D50 standard illuminant.
+
+                                                              [Special Variable]
+*cielch-default-white-point*
+   The default white point for colors in the CIE L*C*h color space.
+   Default value is the CIE 1931 D50 standard illuminant.
+
+                                                              [Special Variable]
+*cieluv-default-white-point*
+   The default white point for colors in the CIE L*u*v* color space.
+   Default value is the CIE 1931 D50 standard illuminant.
+
+                                                              [Special Variable]
+*color-matching-functions*
+   A list of three color matching functions.
+   Default is the CIE 1931 standard observer.
+   
+   Value is an alist of cons cells of the form ‘(L . (X Y Z))’.
+   Key L is the wavelength λ in nanometer and values X, Y, and Z
+   are the discrete values of the color matching functions x(λ),
+   y(λ), and z(λ) respectively.  The list elements have to be
+   sorted in strictly increasing order of the wavelength.
+   
+   Value can also be a list of three functions, i.e. ‘(X Y Z)’,
+   where X, Y, and Z are the color matching functions x(λ), y(λ),
+   and z(λ) respectively.
+   
+   Use the ‘color-matching-functions’ function to evaluate the color
+   matching functions.
+
+                                                              [Special Variable]
+*second-radiation-constant*
+   Second radiation constant.
+
+                                                              [Generic Function]
+absolute-color (color &key white black)
+   Convert from normalized color coordinates to absolute color coordinates.
+
+                                                              [Generic Function]
+adobe-rgb-color-coordinates (color)
+   Return the Adobe RGB color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+   
+   Values are the intensities of the red, green, and blue primary.
+
+                                                                      [Function]
+black-body-spectral-radiance (wavelength temperature)
+   Calculate the spectral radiance of a black body.
+   
+   First argument WAVELENGTH is the wavelength of the light in meter.
+   Second argument TEMPERATURE is the temperature of the black body
+    in kelvin.
+   
+   Return value is the spectral radiance of a black body around the
+   given wavelength.
+
+                                                                      [Function]
+black-body-spectral-radiant-exitance (wavelength temperature)
+   Calculate the spectral radiant exitance of a black body.
+   
+   First argument WAVELENGTH is the wavelength of the light in meter.
+   Second argument TEMPERATURE is the temperature of the black body
+    in kelvin.
+   
+   Return value is the spectral radiant exitance of a black body
+   around the given wavelength.
+
+                                                                      [Constant]
+cie-1931-second-radiation-constant
+   Second radiation constant.
+   
+   Value used by the CIE when defining the CIE 1931 color space.
+
+                                                                      [Constant]
+cie-1931-standard-observer
+   CIE 1931 standard observer.
+   
+   Value are the color matching functions x(λ), y(λ), and z(λ).
+   The wavelength λ ranges from 380 nm to 780 nm in steps of 5 nm.
+   
+   See the ‘*color-matching-functions*’ parameter for more details.
+
+                                                                      [Constant]
+cie-1931-white-point-a
+   White point of CIE standard illuminant A given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-b
+   White point of CIE standard illuminant B given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-c
+   White point of CIE standard illuminant C given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-d50
+   White point of CIE standard illuminant D50 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-d55
+   White point of CIE standard illuminant D55 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-d65
+   White point of CIE standard illuminant D65 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-d75
+   White point of CIE standard illuminant D75 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-e
+   White point of CIE standard illuminant E given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-f1
+   White point of CIE standard illuminant F1 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-f10
+   White point of CIE standard illuminant F10 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-f11
+   White point of CIE standard illuminant F11 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-f12
+   White point of CIE standard illuminant F12 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-f2
+   White point of CIE standard illuminant F2 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-f3
+   White point of CIE standard illuminant F3 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-f4
+   White point of CIE standard illuminant F4 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-f5
+   White point of CIE standard illuminant F5 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-f6
+   White point of CIE standard illuminant F6 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-f7
+   White point of CIE standard illuminant F7 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-f8
+   White point of CIE standard illuminant F8 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1931-white-point-f9
+   White point of CIE standard illuminant F9 given for the CIE 1931 standard observer.
+
+                                                                      [Constant]
+cie-1964-standard-observer
+   CIE 1964 standard observer.
+   
+   Value are the color matching functions x(λ), y(λ), and z(λ).
+   The wavelength λ ranges from 380 nm to 780 nm in steps of 5 nm.
+   
+   See the ‘*color-matching-functions*’ parameter for more details.
+
+                                                                      [Constant]
+cie-1964-white-point-a
+   White point of CIE standard illuminant A given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-b
+   White point of CIE standard illuminant B given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-c
+   White point of CIE standard illuminant C given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-d50
+   White point of CIE standard illuminant D50 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-d55
+   White point of CIE standard illuminant D55 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-d65
+   White point of CIE standard illuminant D65 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-d75
+   White point of CIE standard illuminant D75 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-e
+   White point of CIE standard illuminant E given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-f1
+   White point of CIE standard illuminant F1 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-f10
+   White point of CIE standard illuminant F10 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-f11
+   White point of CIE standard illuminant F11 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-f12
+   White point of CIE standard illuminant F12 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-f2
+   White point of CIE standard illuminant F2 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-f3
+   White point of CIE standard illuminant F3 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-f4
+   White point of CIE standard illuminant F4 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-f5
+   White point of CIE standard illuminant F5 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-f6
+   White point of CIE standard illuminant F6 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-f7
+   White point of CIE standard illuminant F7 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-f8
+   White point of CIE standard illuminant F8 given for the CIE 1964 standard observer.
+
+                                                                      [Constant]
+cie-1964-white-point-f9
+   White point of CIE standard illuminant F9 given for the CIE 1964 standard observer.
+
+                                                                      [Function]
+cie-xy-chromaticity-of-black-body (temperature &key (from 380) (to 780) (by 5))
+   Calculate the chromaticity coordinates of a Planckian radiator.
+   These chromaticity coordinates define the Planckian locus in a
+   chromaticity diagram.
+   
+   Argument TEMPERATURE is the temperature of the black body in kelvin.
+   Keyword arguments FROM, TO, and BY define the boundaries and step size
+    for the wavelength λ of the light in nanometer.
+   
+   Return values are the CIE xyY color space chromaticity coordinates x
+   and y as multiple values.
+   
+   The three color matching functions x(λ), y(λ), and z(λ) are defined
+   by the ‘*color-matching-functions*’ special variable.  The second
+   radiation constant is defined by the ‘*second-radiation-constant*’
+   special variable.
+
+                                                                      [Function]
+cie-xy-chromaticity-of-light (wavelength)
+   Calculate the chromaticity coordinates of a single color of light.
+   These chromaticity coordinates define the border of the chromaticity
+   space in a chromaticity diagram.
+   
+   Argument WAVELENGTH is the wavelength λ of the light in nanometer.
+   
+   Return values are the CIE xyY color space chromaticity coordinates x
+   and y as multiple values.
+   
+   The three color matching functions x(λ), y(λ), and z(λ) are defined
+   by the ‘*color-matching-functions*’ special variable.
+
+                                                                      [Function]
+cie76 (first-color second-color)
+   Calculate the CIE76 color difference between two colors.
+   
+   Value is the Euclidean distance between the two colors in the
+   CIE L*a*b* color space.  The CIE76 color difference is symmetric,
+   i.e. CIE76(a,b) = CIE76(b,a).
+
+                                                                      [Function]
+cie94 (reference other &optional textile
+       (lightness
+        (if textile
+            2
+            1))
+       (chroma 1) (hue 1))
+   Calculate the CIE94 color difference between two colors.
+   
+   First argument REFERENCE is the reference color.
+   Second argument OTHER is the other color.
+   If optional third argument TEXTILE is non-null, use parameters
+    for calculating the color difference for textiles.  Default is
+    to calculate the color difference for graphic arts.
+   Optional fourth to sixth argument LIGHTNESS, CHROMA, and HUE are
+    the weighting factors for differences in lightness, chroma, and
+    hue respectively.  Higher value means less weight.  Default is
+    one for all weighting factors (if TEXTILE is true, the default
+    for LIGHTNESS is two).
+   
+   The CIE94 color difference is asymmetric, i.e. CIE94(a,b) ≠ CIE94(b,a).
+
+                                                              [Generic Function]
+cielab-color-coordinates (color)
+   Return the CIE L*a*b* color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+
+                                                              [Generic Function]
+cielch-color-coordinates (color)
+   Return the CIE L*C*h color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+
+                                                              [Generic Function]
+cieluv-color-coordinates (color)
+   Return the CIE L*u*v* color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+
+                                                              [Generic Function]
+ciergb-color-coordinates (color)
+   Return the CIE RGB color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+   
+   Values are the intensities of the red, green, and blue primary.
+
+                                                              [Generic Function]
+ciexyy-color-coordinates (color)
+   Return the CIE xyY color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+   
+   Values are the X and Y chromaticity coordinates and the Y tristimulus
+   value (luminance).
+
+                                                              [Generic Function]
+ciexyz-color-coordinates (color)
+   Return the CIE XYZ color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+   
+   Values are the X, Y, and Z tristimulus values.
+
+                                                                      [Constant]
+codata-2018-first-radiation-constant
+   First radiation constant.
+   
+   2018 CODATA recommended value.
+
+                                                                      [Constant]
+codata-2018-first-radiation-constant-for-spectral-radiance
+   First radiation constant for spectral radiance.
+   
+   2018 CODATA recommended value.
+
+                                                                      [Constant]
+codata-2018-second-radiation-constant
+   Second radiation constant.
+   
+   2018 CODATA recommended value.
+
+                                                                      [Function]
+coerce-color (color color-type)
+   Coerce the color object into the specified color type.
+   
+   First argument COLOR is a color object.
+   Second argument COLOR-TYPE is a color data type.
+   
+   If argument COLOR is already a color of the requested color data
+   type, return COLOR as is (no conversion).  Otherwise, return a new
+   color with the color coordinates of COLOR converted into the color
+   space denoted by COLOR-TYPE.
+
+                                                              [Generic Function]
+color-coordinates (color)
+   Return the color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+
+                                                                      [Constant]
+color-formatter-css3-hsl
+   A format function for printing a color in CSS3 HSL functional notation.
+   
+   Value is a function which has a behavior equivalent to a function
+   returned by the ‘formatter’ macro.
+
+                                                                      [Constant]
+color-formatter-css3-rgb
+   A format function for printing a color in CSS3 RGB functional notation.
+   
+   Value is a function which has a behavior equivalent to a function
+   returned by the ‘formatter’ macro.
+
+                                                                      [Constant]
+color-formatter-html
+   A format function for printing a numerical HTML color value.
+   
+   Value is a function which has a behavior equivalent to a function
+   returned by the ‘formatter’ macro.
+
+                                                                      [Constant]
+color-formatter-xcms-cielab
+   A format function for printing a color in Xcms CIE L*a*b* notation.
+   
+   Value is a function which has a behavior equivalent to a function
+   returned by the ‘formatter’ macro.
+
+                                                                      [Constant]
+color-formatter-xcms-cielch
+   A format function for printing a color in Xcms CIE L*C*h notation.
+   
+   Value is a function which has a behavior equivalent to a function
+   returned by the ‘formatter’ macro.
+
+                                                                      [Constant]
+color-formatter-xcms-cieluv
+   A format function for printing a color in Xcms CIE L*u*v* notation.
+   
+   Value is a function which has a behavior equivalent to a function
+   returned by the ‘formatter’ macro.
+
+                                                                      [Constant]
+color-formatter-xcms-ciergb
+   A format function for printing a color in Xcms CIE RGB notation.
+   
+   Value is a function which has a behavior equivalent to a function
+   returned by the ‘formatter’ macro.
+
+                                                                      [Constant]
+color-formatter-xcms-ciexyy
+   A format function for printing a color in Xcms CIE xyY notation.
+   
+   Value is a function which has a behavior equivalent to a function
+   returned by the ‘formatter’ macro.
+
+                                                                      [Constant]
+color-formatter-xcms-ciexyz
+   A format function for printing a color in Xcms CIE XYZ notation.
+   
+   Value is a function which has a behavior equivalent to a function
+   returned by the ‘formatter’ macro.
+
+                                                                      [Constant]
+color-formatter-xcms-rgb
+   A format function for printing a color in Xcms RGB notation.
+   
+   Value is a function which has a behavior equivalent to a function
+   returned by the ‘formatter’ macro.
+
+                                                                      [Constant]
+color-formatter-xcms-rgbi
+   A format function for printing a color in Xcms RGBi notation.
+   
+   Value is a function which has a behavior equivalent to a function
+   returned by the ‘formatter’ macro.
+
+                                                                      [Function]
+colorp (object)
+   Return true if OBJECT is a color object.
+
+                                                              [Generic Function]
+copy-color (color)
+   Return a shallow copy of the color.
+   
+   Argument COLOR is a color object.
+
+                                                                         [Macro]
+define-color-printer (&rest args)
+   Argument STYLE is a string designator.
+
+                                                                         [Macro]
+define-color-reader (&rest args)
+   Argument STYLE is a string designator.
+
+                                                              [Generic Function]
+generic-cmy-color-coordinates (color)
+   Return the CMY color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+   
+   Values are the intensities of the cyan, magenta, and yellow ink.
+
+                                                              [Generic Function]
+generic-cmyk-color-coordinates (color)
+   Return the CMYK color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+   
+   Values are the intensities of the cyan, magenta, yellow, and black ink.
+
+                                                              [Generic Function]
+generic-hsl-color-coordinates (color)
+   Return the HSL color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+   
+   Values are the hue, saturation, and lightness.
+
+                                                              [Generic Function]
+generic-hsv-color-coordinates (color)
+   Return the HSV color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+   
+   Values are the hue, saturation, and value (brightness).
+
+                                                              [Generic Function]
+generic-rgb-color-coordinates (color)
+   Return the RGB color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+   
+   Values are the intensities of the red, green, and blue primary.
+
+                                                                      [Function]
+make-adobe-rgb-color (red green blue &key byte-size)
+   Create a new color in the Adobe RGB color space.
+   
+   First argument RED is the intensity of the red primary.
+   Second argument GREEN is the intensity of the green primary.
+   Third argument BLUE is the intensity of the blue primary.
+   
+   Arguments RED, GREEN, and BLUE have to be normalized intensity values
+   in the closed interval [0, 1].
+   
+   Keyword argument BYTE-SIZE is the number of bits used to represent a
+   primary.  If specified, arguments RED, GREEN, and BLUE are scaled
+   accordingly.
+   
+   Example:
+   
+        (make-adobe-rgb-color 252/255 175/255 62/255)
+        (make-adobe-rgb-color 252 175 62 :byte-size 8)
+
+                                                                      [Function]
+make-adobe-rgb-color-from-number (value &key (byte-size 8))
+   Create a new color in the Adobe RGB color space.
+   
+   Argument VALUE is a non-negative integral number.
+   
+   Keyword argument BYTE-SIZE is the number of bits used to represent a
+   primary.  Default is eight bit (one byte).  The most significant bits
+   denote the intensity of the red primary.
+   
+   Example:
+   
+        (make-adobe-rgb-color-from-number #XFCAF3E)
+
+                                                                      [Function]
+make-cielab-color (l* a* b* &optional
+                   (white-point *cielab-default-white-point*))
+   Create a new color in the CIE L*a*b* color space.
+
+                                                                      [Function]
+make-cielch-color (l* c* h &optional (white-point *cielch-default-white-point*))
+   Create a new color in the CIE L*C*h color space.
+
+                                                                      [Function]
+make-cieluv-color (l* u* v* &optional
+                   (white-point *cieluv-default-white-point*))
+   Create a new color in the CIE L*u*v* color space.
+
+                                                                      [Function]
+make-ciergb-color (red green blue)
+   Create a new color in the CIE RGB color space.
+   
+   First argument RED is the intensity of the red primary.
+   Second argument GREEN is the intensity green primary.
+   Third argument BLUE is the intensity of the blue primary.
+   
+   Arguments RED, GREEN, and BLUE have to be normalized intensity values
+   in the closed interval [0, 1].
+
+                                                                      [Function]
+make-ciexyy-color (x* y* y)
+   Create a new color in the CIE xyY color space.
+   
+   Arguments X* and Y* are the chromaticity coordinates.
+   Argument Y is the second tristimulus value (luminance).
+
+                                                                      [Function]
+make-ciexyz-color (x y z)
+   Create a new color in the CIE XYZ color space.
+   
+   Arguments X, Y, and Z are the tristimulus values.
+
+                                                                      [Function]
+make-generic-cmy-color (cyan magenta yellow &key byte-size)
+   Create a new color in the generic CMY color space.
+   
+   First argument CYAN is the intensity of the cyan ink.
+   Second argument MAGENTA is the intensity of the magenta ink.
+   Third argument YELLOW is the intensity of the yellow ink.
+   
+   Arguments CYAN, MAGENTA, and YELLOW have to be normalized color values
+   in the closed interval [0, 1].
+   
+   Keyword argument BYTE-SIZE is the number of bits used to represent a
+   color value.  If specified, arguments CYAN, MAGENTA, and YELLOW are
+   scaled accordingly.
+   
+   Example:
+   
+        (make-generic-cmy-color 3/255 80/255 193/255)
+        (make-generic-cmy-color 3 80 193 :byte-size 8)
+
+                                                                      [Function]
+make-generic-cmy-color-from-number (value &key (byte-size 8))
+   Create a new color in the generic CMY color space.
+   
+   Argument VALUE is a non-negative integral number.
+   
+   Keyword argument BYTE-SIZE is the number of bits used to represent a
+   primary.  Default is eight bit (one byte).  The most significant bits
+   denote the intensity of the cyan primary.
+   
+   Example:
+   
+        (make-generic-cmy-color-from-number #X0350C1)
+
+                                                                      [Function]
+make-generic-cmyk-color (cyan magenta yellow black &key byte-size)
+   Create a new color in the generic CMYK color space.
+   
+   First argument CYAN is the intensity of the cyan ink.
+   Second argument MAGENTA is the intensity of the magenta ink.
+   Third argument YELLOW is the intensity of the yellow ink.
+   Fourth argument BLACK is the intensity of the black ink.
+   
+   Arguments CYAN, MAGENTA, YELLOW, and BLACK have to be normalized
+   intensity values in the closed interval [0, 1].
+   
+   Keyword argument BYTE-SIZE is the number of bits used to represent a
+   color value.  If specified, arguments CYAN, MAGENTA, YELLOW, and BLACK
+   are scaled accordingly.
+   
+   Example:
+   
+        (make-generic-cmyk-color 3/255 80/255 193/255 0)
+        (make-generic-cmyk-color 3 80 193 0 :byte-size 8)
+
+                                                                      [Function]
+make-generic-cmyk-color-from-number (value &key (byte-size 8))
+   Create a new color in the generic CMYK color space.
+   
+   Argument VALUE is a non-negative integral number.
+   
+   Keyword argument BYTE-SIZE is the number of bits used to represent a
+   primary.  Default is eight bit (one byte).  The most significant bits
+   denote the intensity of the cyan primary.
+   
+   Example:
+   
+        (make-generic-cmyk-color-from-number #X0350C100)
+
+                                                                      [Function]
+make-generic-hsl-color (hue saturation lightness)
+   Create a new color in the generic HSL color space.
+   
+   First argument HUE is the angle of the RGB color wheel.
+   Second argument SATURATION is the saturation.
+   Third argument LIGHTNESS is the lightness.
+   
+   Arguments SATURATION and LIGHTNESS have to be real numbers
+   in the closed interval [0, 1].
+
+                                                                      [Function]
+make-generic-hsv-color (hue saturation value)
+   Create a new color in the generic HSV color space.
+   
+   First argument HUE is the angle of the RGB color wheel.
+   Second argument SATURATION is the saturation.
+   Third argument VALUE is the brightness.
+   
+   Arguments SATURATION and VALUE have to be real numbers
+   in the closed interval [0, 1].
+
+                                                                      [Function]
+make-generic-rgb-color (red green blue &key byte-size)
+   Create a new color in the generic RGB color space.
+   
+   First argument RED is the intensity of the red primary.
+   Second argument GREEN is the intensity of the green primary.
+   Third argument BLUE is the intensity of the blue primary.
+   
+   Arguments RED, GREEN, and BLUE have to be normalized intensity values
+   in the closed interval [0, 1].
+   
+   Keyword argument BYTE-SIZE is the number of bits used to represent a
+   primary.  If specified, arguments RED, GREEN, and BLUE are scaled
+   accordingly.
+   
+   Example:
+   
+        (make-generic-rgb-color 252/255 175/255 62/255)
+        (make-generic-rgb-color 252 175 62 :byte-size 8)
+
+                                                                      [Function]
+make-generic-rgb-color-from-number (value &key (byte-size 8))
+   Create a new color in the generic RGB color space.
+   
+   Argument VALUE is a non-negative integral number.
+   
+   Keyword argument BYTE-SIZE is the number of bits used to represent a
+   primary.  Default is eight bit (one byte).  The most significant bits
+   denote the intensity of the red primary.
+   
+   Example:
+   
+        (make-generic-rgb-color-from-number #XFCAF3E)
+
+                                                                      [Function]
+make-srgb-color (red green blue &key byte-size)
+   Create a new color in the sRGB color space.
+   
+   First argument RED is the intensity of the red primary.
+   Second argument GREEN is the intensity of the green primary.
+   Third argument BLUE is the intensity of the blue primary.
+   
+   Arguments RED, GREEN, and BLUE have to be normalized intensity values
+   in the closed interval [0, 1].
+   
+   Keyword argument BYTE-SIZE is the number of bits used to represent a
+   primary.  If specified, arguments RED, GREEN, and BLUE are scaled
+   accordingly.
+   
+   Example:
+   
+        (make-srgb-color 252/255 175/255 62/255)
+        (make-srgb-color 252 175 62 :byte-size 8)
+
+                                                                      [Function]
+make-srgb-color-from-number (value &key (byte-size 8))
+   Create a new color in the sRGB color space.
+   
+   Argument VALUE is a non-negative integral number.
+   
+   Keyword argument BYTE-SIZE is the number of bits used to represent a
+   primary.  Default is eight bit (one byte).  The most significant bits
+   denote the intensity of the red primary.
+   
+   Example:
+   
+        (make-srgb-color-from-number #XFCAF3E)
+
+                                                              [Generic Function]
+normalize-color (color &key white black)
+   Convert from absolute color coordinates to normalized color coordinates.
+
+                                                                      [Function]
+print-color-css3-hsl (color &optional (stream *standard-output*))
+   Print a color in CSS3 HSL functional notation.
+   
+   First argument COLOR is a color object.
+   Optional second argument STREAM is an output stream.
+    Default is to print to ‘*standard-output*’.
+   
+   Value is the color object.
+
+                                                                      [Function]
+print-color-css3-rgb (color &optional (stream *standard-output*))
+   Print a color in CSS3 RGB functional notation.
+   
+   First argument COLOR is a color object.
+   Optional second argument STREAM is an output stream.
+    Default is to print to ‘*standard-output*’.
+   
+   Value is the color object.
+
+                                                                      [Function]
+print-color-html (color &optional (stream *standard-output*))
+   Print a numerical HTML color value.
+   
+   First argument COLOR is a color object.
+   Optional second argument STREAM is an output stream.
+    Default is to print to ‘*standard-output*’.
+   
+   Value is the color object.
+
+                                                                      [Function]
+print-color-xcms-cielab (color &optional (stream *standard-output*))
+   Print a color in Xcms CIE L*a*b* notation.
+   
+   First argument COLOR is a color object.
+   Optional second argument STREAM is an output stream.
+    Default is to print to ‘*standard-output*’.
+   
+   Value is the color object.
+
+                                                                      [Function]
+print-color-xcms-cielch (color &optional (stream *standard-output*))
+   Print a color in Xcms CIE L*C*h notation.
+   
+   First argument COLOR is a color object.
+   Optional second argument STREAM is an output stream.
+    Default is to print to ‘*standard-output*’.
+   
+   Value is the color object.
+
+                                                                      [Function]
+print-color-xcms-cieluv (color &optional (stream *standard-output*))
+   Print a color in Xcms CIE L*u*v* notation.
+   
+   First argument COLOR is a color object.
+   Optional second argument STREAM is an output stream.
+    Default is to print to ‘*standard-output*’.
+   
+   Value is the color object.
+
+                                                                      [Function]
+print-color-xcms-ciergb (color &optional (stream *standard-output*))
+   Print a color in Xcms CIE RGB notation.
+   
+   First argument COLOR is a color object.
+   Optional second argument STREAM is an output stream.
+    Default is to print to ‘*standard-output*’.
+   
+   Value is the color object.
+
+                                                                      [Function]
+print-color-xcms-ciexyy (color &optional (stream *standard-output*))
+   Print a color in Xcms CIE xyY notation.
+   
+   First argument COLOR is a color object.
+   Optional second argument STREAM is an output stream.
+    Default is to print to ‘*standard-output*’.
+   
+   Value is the color object.
+
+                                                                      [Function]
+print-color-xcms-ciexyz (color &optional (stream *standard-output*))
+   Print a color in Xcms CIE XYZ notation.
+   
+   First argument COLOR is a color object.
+   Optional second argument STREAM is an output stream.
+    Default is to print to ‘*standard-output*’.
+   
+   Value is the color object.
+
+                                                                      [Function]
+print-color-xcms-rgb (color &optional (stream *standard-output*))
+   Print a color in Xcms RGB notation.
+   
+   First argument COLOR is a color object.
+   Optional second argument STREAM is an output stream.
+    Default is to print to ‘*standard-output*’.
+   
+   Value is the color object.
+
+                                                                      [Function]
+print-color-xcms-rgbi (color &optional (stream *standard-output*))
+   Print a color in Xcms RGBi notation.
+   
+   First argument COLOR is a color object.
+   Optional second argument STREAM is an output stream.
+    Default is to print to ‘*standard-output*’.
+   
+   Value is the color object.
+
+                                                                      [Function]
+read-color-css3 (&optional (stream *standard-input*))
+   Read a CSS3 color value, i.e. either a numerical HTML color
+   definition or a RGB value or HSL value in functional notation.
+   
+   Optional argument STREAM is an input stream.
+    Default is to read from ‘*standard-input*’.
+   
+   Value is a color object in the sRGB color space.
+
+                                                                      [Function]
+read-color-css3-hsl (&optional (stream *standard-input*))
+   Read a color in CSS3 HSL functional notation.
+   
+   Optional argument STREAM is an input stream.
+    Default is to read from ‘*standard-input*’.
+   
+   Value is a color object in the sRGB color space.
+
+                                                                      [Function]
+read-color-css3-rgb (&optional (stream *standard-input*))
+   Read a color in CSS3 RGB functional notation.
+   
+   Optional argument STREAM is an input stream.
+    Default is to read from ‘*standard-input*’.
+   
+   Value is a color object in the sRGB color space.
+
+                                                                      [Function]
+read-color-html (&optional (stream *standard-input*))
+   Read a numerical HTML color value.
+   
+   Optional argument STREAM is an input stream.
+    Default is to read from ‘*standard-input*’.
+   
+   Value is a color object in the sRGB color space.
+
+                                                                      [Function]
+read-color-xcms (&optional (stream *standard-input*))
+   Read a color in Xcms notation.
+   
+   Optional argument STREAM is an input stream.
+    Default is to read from ‘*standard-input*’.
+   
+   Value is a color object in the color space
+   indicated by the Xcms prefix.
+
+                                                                      [Function]
+read-color-xcms-cielab (&optional (stream *standard-input*))
+   Read a color in Xcms CIE L*a*b* notation.
+   
+   Optional argument STREAM is an input stream.
+    Default is to read from ‘*standard-input*’.
+   
+   Value is a color object in the CIE L*a*b* color space.
+
+                                                                      [Function]
+read-color-xcms-cielch (&optional (stream *standard-input*))
+   Read a color in Xcms CIE L*C*h notation.
+   
+   Optional argument STREAM is an input stream.
+    Default is to read from ‘*standard-input*’.
+   
+   Value is a color object in the CIE L*C*h color space.
+
+                                                                      [Function]
+read-color-xcms-cieluv (&optional (stream *standard-input*))
+   Read a color in Xcms CIE L*u*v* notation.
+   
+   Optional argument STREAM is an input stream.
+    Default is to read from ‘*standard-input*’.
+   
+   Value is a color object in the CIE L*u*v* color space.
+
+                                                                      [Function]
+read-color-xcms-ciergb (&optional (stream *standard-input*))
+   Read a color in Xcms CIE RGB notation.
+   
+   Optional argument STREAM is an input stream.
+    Default is to read from ‘*standard-input*’.
+   
+   Value is a color object in the CIE RGB color space.
+
+                                                                      [Function]
+read-color-xcms-ciexyy (&optional (stream *standard-input*))
+   Read a color in Xcms CIE xyY notation.
+   
+   Optional argument STREAM is an input stream.
+    Default is to read from ‘*standard-input*’.
+   
+   Value is a color object in the CIE xyY color space.
+
+                                                                      [Function]
+read-color-xcms-ciexyz (&optional (stream *standard-input*))
+   Read a color in Xcms CIE XYZ notation.
+   
+   Optional argument STREAM is an input stream.
+    Default is to read from ‘*standard-input*’.
+   
+   Value is a color object in the CIE XYZ color space.
+
+                                                                      [Function]
+read-color-xcms-rgb (&optional (stream *standard-input*))
+   Read a color in Xcms RGB notation.
+   
+   Optional argument STREAM is an input stream.
+    Default is to read from ‘*standard-input*’.
+   
+   Value is a color object in the generic RGB color space.
+
+                                                                      [Function]
+read-color-xcms-rgbi (&optional (stream *standard-input*))
+   Read a color in Xcms RGBi notation.
+   
+   Optional argument STREAM is an input stream.
+    Default is to read from ‘*standard-input*’.
+   
+   Value is a color object in the generic RGB color space.
+
+                                                              [Generic Function]
+srgb-color-coordinates (color)
+   Return the sRGB color space coordinates of the color.
+   
+   Argument COLOR is a color object.
+   
+   Values are the intensities of the red, green, and blue primary.
+
+                                                              [Generic Function]
+white-point (color)
+   Return the white point of the color.
+   
+   Argument COLOR is a color object.
+   
+   Value is the color object of the color's white point, or nil if the
+   white point is not defined or if multiple white points exist.

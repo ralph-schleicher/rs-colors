@@ -1,0 +1,594 @@
+RS-COLORS-SVG
+
+SVG color names.
+
+See <http://www.w3.org/TR/css3-color/#svg-color>
+and <http://www.w3.org/TR/SVG11/types.html>.
+
+                                                                      [Constant]
+aliceblue
+   SVG color rgb(240, 248, 255).
+
+                                                                      [Constant]
+antiquewhite
+   SVG color rgb(250, 235, 215).
+
+                                                                      [Constant]
+aqua
+   SVG color rgb(0, 255, 255).
+
+                                                                      [Constant]
+aquamarine
+   SVG color rgb(127, 255, 212).
+
+                                                                      [Constant]
+azure
+   SVG color rgb(240, 255, 255).
+
+                                                                      [Constant]
+beige
+   SVG color rgb(245, 245, 220).
+
+                                                                      [Constant]
+bisque
+   SVG color rgb(255, 228, 196).
+
+                                                                      [Constant]
+black
+   SVG color rgb(0, 0, 0).
+
+                                                                      [Constant]
+blanchedalmond
+   SVG color rgb(255, 235, 205).
+
+                                                                      [Constant]
+blue
+   SVG color rgb(0, 0, 255).
+
+                                                                      [Constant]
+blueviolet
+   SVG color rgb(138, 43, 226).
+
+                                                                      [Constant]
+brown
+   SVG color rgb(165, 42, 42).
+
+                                                                      [Constant]
+burlywood
+   SVG color rgb(222, 184, 135).
+
+                                                                      [Constant]
+cadetblue
+   SVG color rgb(95, 158, 160).
+
+                                                                      [Constant]
+chartreuse
+   SVG color rgb(127, 255, 0).
+
+                                                                      [Constant]
+chocolate
+   SVG color rgb(210, 105, 30).
+
+                                                                      [Constant]
+coral
+   SVG color rgb(255, 127, 80).
+
+                                                                      [Constant]
+cornflowerblue
+   SVG color rgb(100, 149, 237).
+
+                                                                      [Constant]
+cornsilk
+   SVG color rgb(255, 248, 220).
+
+                                                                      [Constant]
+crimson
+   SVG color rgb(220, 20, 60).
+
+                                                                      [Constant]
+cyan
+   SVG color rgb(0, 255, 255).
+
+                                                                      [Constant]
+darkblue
+   SVG color rgb(0, 0, 139).
+
+                                                                      [Constant]
+darkcyan
+   SVG color rgb(0, 139, 139).
+
+                                                                      [Constant]
+darkgoldenrod
+   SVG color rgb(184, 134, 11).
+
+                                                                      [Constant]
+darkgray
+   SVG color rgb(169, 169, 169).
+
+                                                                      [Constant]
+darkgreen
+   SVG color rgb(0, 100, 0).
+
+                                                                      [Constant]
+darkgrey
+   SVG color rgb(169, 169, 169).
+
+                                                                      [Constant]
+darkkhaki
+   SVG color rgb(189, 183, 107).
+
+                                                                      [Constant]
+darkmagenta
+   SVG color rgb(139, 0, 139).
+
+                                                                      [Constant]
+darkolivegreen
+   SVG color rgb(85, 107, 47).
+
+                                                                      [Constant]
+darkorange
+   SVG color rgb(255, 140, 0).
+
+                                                                      [Constant]
+darkorchid
+   SVG color rgb(153, 50, 204).
+
+                                                                      [Constant]
+darkred
+   SVG color rgb(139, 0, 0).
+
+                                                                      [Constant]
+darksalmon
+   SVG color rgb(233, 150, 122).
+
+                                                                      [Constant]
+darkseagreen
+   SVG color rgb(143, 188, 143).
+
+                                                                      [Constant]
+darkslateblue
+   SVG color rgb(72, 61, 139).
+
+                                                                      [Constant]
+darkslategray
+   SVG color rgb(47, 79, 79).
+
+                                                                      [Constant]
+darkslategrey
+   SVG color rgb(47, 79, 79).
+
+                                                                      [Constant]
+darkturquoise
+   SVG color rgb(0, 206, 209).
+
+                                                                      [Constant]
+darkviolet
+   SVG color rgb(148, 0, 211).
+
+                                                                      [Constant]
+deeppink
+   SVG color rgb(255, 20, 147).
+
+                                                                      [Constant]
+deepskyblue
+   SVG color rgb(0, 191, 255).
+
+                                                                      [Constant]
+dimgray
+   SVG color rgb(105, 105, 105).
+
+                                                                      [Constant]
+dimgrey
+   SVG color rgb(105, 105, 105).
+
+                                                                      [Constant]
+dodgerblue
+   SVG color rgb(30, 144, 255).
+
+                                                                      [Constant]
+firebrick
+   SVG color rgb(178, 34, 34).
+
+                                                                      [Constant]
+floralwhite
+   SVG color rgb(255, 250, 240).
+
+                                                                      [Constant]
+forestgreen
+   SVG color rgb(34, 139, 34).
+
+                                                                      [Constant]
+fuchsia
+   SVG color rgb(255, 0, 255).
+
+                                                                      [Constant]
+gainsboro
+   SVG color rgb(220, 220, 220).
+
+                                                                      [Constant]
+ghostwhite
+   SVG color rgb(248, 248, 255).
+
+                                                                      [Constant]
+gold
+   SVG color rgb(255, 215, 0).
+
+                                                                      [Constant]
+goldenrod
+   SVG color rgb(218, 165, 32).
+
+                                                                      [Constant]
+gray
+   SVG color rgb(128, 128, 128).
+
+                                                                      [Constant]
+green
+   SVG color rgb(0, 128, 0).
+
+                                                                      [Constant]
+greenyellow
+   SVG color rgb(173, 255, 47).
+
+                                                                      [Constant]
+grey
+   SVG color rgb(128, 128, 128).
+
+                                                                      [Constant]
+honeydew
+   SVG color rgb(240, 255, 240).
+
+                                                                      [Constant]
+hotpink
+   SVG color rgb(255, 105, 180).
+
+                                                                      [Constant]
+indianred
+   SVG color rgb(205, 92, 92).
+
+                                                                      [Constant]
+indigo
+   SVG color rgb(75, 0, 130).
+
+                                                                      [Constant]
+ivory
+   SVG color rgb(255, 255, 240).
+
+                                                                      [Constant]
+khaki
+   SVG color rgb(240, 230, 140).
+
+                                                                      [Constant]
+lavender
+   SVG color rgb(230, 230, 250).
+
+                                                                      [Constant]
+lavenderblush
+   SVG color rgb(255, 240, 245).
+
+                                                                      [Constant]
+lawngreen
+   SVG color rgb(124, 252, 0).
+
+                                                                      [Constant]
+lemonchiffon
+   SVG color rgb(255, 250, 205).
+
+                                                                      [Constant]
+lightblue
+   SVG color rgb(173, 216, 230).
+
+                                                                      [Constant]
+lightcoral
+   SVG color rgb(240, 128, 128).
+
+                                                                      [Constant]
+lightcyan
+   SVG color rgb(224, 255, 255).
+
+                                                                      [Constant]
+lightgoldenrodyellow
+   SVG color rgb(250, 250, 210).
+
+                                                                      [Constant]
+lightgray
+   SVG color rgb(211, 211, 211).
+
+                                                                      [Constant]
+lightgreen
+   SVG color rgb(144, 238, 144).
+
+                                                                      [Constant]
+lightgrey
+   SVG color rgb(211, 211, 211).
+
+                                                                      [Constant]
+lightpink
+   SVG color rgb(255, 182, 193).
+
+                                                                      [Constant]
+lightsalmon
+   SVG color rgb(255, 160, 122).
+
+                                                                      [Constant]
+lightseagreen
+   SVG color rgb(32, 178, 170).
+
+                                                                      [Constant]
+lightskyblue
+   SVG color rgb(135, 206, 250).
+
+                                                                      [Constant]
+lightslategray
+   SVG color rgb(119, 136, 153).
+
+                                                                      [Constant]
+lightslategrey
+   SVG color rgb(119, 136, 153).
+
+                                                                      [Constant]
+lightsteelblue
+   SVG color rgb(176, 196, 222).
+
+                                                                      [Constant]
+lightyellow
+   SVG color rgb(255, 255, 224).
+
+                                                                      [Constant]
+lime
+   SVG color rgb(0, 255, 0).
+
+                                                                      [Constant]
+limegreen
+   SVG color rgb(50, 205, 50).
+
+                                                                      [Constant]
+linen
+   SVG color rgb(250, 240, 230).
+
+                                                                      [Constant]
+magenta
+   SVG color rgb(255, 0, 255).
+
+                                                                      [Constant]
+maroon
+   SVG color rgb(128, 0, 0).
+
+                                                                      [Constant]
+mediumaquamarine
+   SVG color rgb(102, 205, 170).
+
+                                                                      [Constant]
+mediumblue
+   SVG color rgb(0, 0, 205).
+
+                                                                      [Constant]
+mediumorchid
+   SVG color rgb(186, 85, 211).
+
+                                                                      [Constant]
+mediumpurple
+   SVG color rgb(147, 112, 219).
+
+                                                                      [Constant]
+mediumseagreen
+   SVG color rgb(60, 179, 113).
+
+                                                                      [Constant]
+mediumslateblue
+   SVG color rgb(123, 104, 238).
+
+                                                                      [Constant]
+mediumspringgreen
+   SVG color rgb(0, 250, 154).
+
+                                                                      [Constant]
+mediumturquoise
+   SVG color rgb(72, 209, 204).
+
+                                                                      [Constant]
+mediumvioletred
+   SVG color rgb(199, 21, 133).
+
+                                                                      [Constant]
+midnightblue
+   SVG color rgb(25, 25, 112).
+
+                                                                      [Constant]
+mintcream
+   SVG color rgb(245, 255, 250).
+
+                                                                      [Constant]
+mistyrose
+   SVG color rgb(255, 228, 225).
+
+                                                                      [Constant]
+moccasin
+   SVG color rgb(255, 228, 181).
+
+                                                                      [Constant]
+navajowhite
+   SVG color rgb(255, 222, 173).
+
+                                                                      [Constant]
+navy
+   SVG color rgb(0, 0, 128).
+
+                                                                      [Constant]
+oldlace
+   SVG color rgb(253, 245, 230).
+
+                                                                      [Constant]
+olive
+   SVG color rgb(128, 128, 0).
+
+                                                                      [Constant]
+olivedrab
+   SVG color rgb(107, 142, 35).
+
+                                                                      [Constant]
+orange
+   SVG color rgb(255, 165, 0).
+
+                                                                      [Constant]
+orangered
+   SVG color rgb(255, 69, 0).
+
+                                                                      [Constant]
+orchid
+   SVG color rgb(218, 112, 214).
+
+                                                                      [Constant]
+palegoldenrod
+   SVG color rgb(238, 232, 170).
+
+                                                                      [Constant]
+palegreen
+   SVG color rgb(152, 251, 152).
+
+                                                                      [Constant]
+paleturquoise
+   SVG color rgb(175, 238, 238).
+
+                                                                      [Constant]
+palevioletred
+   SVG color rgb(219, 112, 147).
+
+                                                                      [Constant]
+papayawhip
+   SVG color rgb(255, 239, 213).
+
+                                                                      [Constant]
+peachpuff
+   SVG color rgb(255, 218, 185).
+
+                                                                      [Constant]
+peru
+   SVG color rgb(205, 133, 63).
+
+                                                                      [Constant]
+pink
+   SVG color rgb(255, 192, 203).
+
+                                                                      [Constant]
+plum
+   SVG color rgb(221, 160, 221).
+
+                                                                      [Constant]
+powderblue
+   SVG color rgb(176, 224, 230).
+
+                                                                      [Constant]
+purple
+   SVG color rgb(128, 0, 128).
+
+                                                                      [Constant]
+red
+   SVG color rgb(255, 0, 0).
+
+                                                                      [Constant]
+rosybrown
+   SVG color rgb(188, 143, 143).
+
+                                                                      [Constant]
+royalblue
+   SVG color rgb(65, 105, 225).
+
+                                                                      [Constant]
+saddlebrown
+   SVG color rgb(139, 69, 19).
+
+                                                                      [Constant]
+salmon
+   SVG color rgb(250, 128, 114).
+
+                                                                      [Constant]
+sandybrown
+   SVG color rgb(244, 164, 96).
+
+                                                                      [Constant]
+seagreen
+   SVG color rgb(46, 139, 87).
+
+                                                                      [Constant]
+seashell
+   SVG color rgb(255, 245, 238).
+
+                                                                      [Constant]
+sienna
+   SVG color rgb(160, 82, 45).
+
+                                                                      [Constant]
+silver
+   SVG color rgb(192, 192, 192).
+
+                                                                      [Constant]
+skyblue
+   SVG color rgb(135, 206, 235).
+
+                                                                      [Constant]
+slateblue
+   SVG color rgb(106, 90, 205).
+
+                                                                      [Constant]
+slategray
+   SVG color rgb(112, 128, 144).
+
+                                                                      [Constant]
+slategrey
+   SVG color rgb(112, 128, 144).
+
+                                                                      [Constant]
+snow
+   SVG color rgb(255, 250, 250).
+
+                                                                      [Constant]
+springgreen
+   SVG color rgb(0, 255, 127).
+
+                                                                      [Constant]
+steelblue
+   SVG color rgb(70, 130, 180).
+
+                                                                      [Constant]
+tan
+   SVG color rgb(210, 180, 140).
+
+                                                                      [Constant]
+teal
+   SVG color rgb(0, 128, 128).
+
+                                                                      [Constant]
+thistle
+   SVG color rgb(216, 191, 216).
+
+                                                                      [Constant]
+tomato
+   SVG color rgb(255, 99, 71).
+
+                                                                      [Constant]
+turquoise
+   SVG color rgb(64, 224, 208).
+
+                                                                      [Constant]
+violet
+   SVG color rgb(238, 130, 238).
+
+                                                                      [Constant]
+wheat
+   SVG color rgb(245, 222, 179).
+
+                                                                      [Constant]
+white
+   SVG color rgb(255, 255, 255).
+
+                                                                      [Constant]
+whitesmoke
+   SVG color rgb(245, 245, 245).
+
+                                                                      [Constant]
+yellow
+   SVG color rgb(255, 255, 0).
+
+                                                                      [Constant]
+yellowgreen
+   SVG color rgb(154, 205, 50).

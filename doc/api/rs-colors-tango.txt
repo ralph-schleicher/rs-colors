@@ -1,0 +1,320 @@
+RS-COLORS-TANGO
+
+Tango desktop project colors.
+
+                                                                      [Constant]
+aluminium1
+   Tango desktop project color #EEEEEC.
+
+                                                                      [Constant]
+aluminium2
+   Tango desktop project color #D3D7CF.
+
+                                                                      [Constant]
+aluminium3
+   Tango desktop project color #BABDB6.
+
+                                                                      [Constant]
+aluminium4
+   Tango desktop project color #888A85.
+
+                                                                      [Constant]
+aluminium5
+   Tango desktop project color #555753.
+
+                                                                      [Constant]
+aluminium6
+   Tango desktop project color #2E3436.
+
+                                                                      [Constant]
+black
+   Tango desktop project color #000000.
+
+                                                                      [Function]
+blue (&optional (brightness normal))
+   Return shades of blue.
+   
+   Optional argument BRIGHTNESS is either :light, :normal, or :dark.
+    Default is to return the normal color.
+   
+   Value is an RGB color object.
+
+                                                                      [Constant]
+blue1
+   Tango desktop project color #729FCF.
+
+                                                                      [Constant]
+blue2
+   Tango desktop project color #3465A4.
+
+                                                                      [Constant]
+blue3
+   Tango desktop project color #204A87.
+
+                                                                      [Function]
+brown (&optional (brightness normal))
+   Return shades of brown.
+   
+   Optional argument BRIGHTNESS is either :light, :normal, or :dark.
+    Default is to return the normal color.
+   
+   Value is an RGB color object.
+
+                                                                      [Constant]
+brown1
+   Tango desktop project color #E9B96E.
+
+                                                                      [Constant]
+brown2
+   Tango desktop project color #C17D11.
+
+                                                                      [Constant]
+brown3
+   Tango desktop project color #8F5902.
+
+                                                                      [Constant]
+butter1
+   Tango desktop project color #FCE94F.
+
+                                                                      [Constant]
+butter2
+   Tango desktop project color #EDD400.
+
+                                                                      [Constant]
+butter3
+   Tango desktop project color #C4A000.
+
+                                                                      [Constant]
+chameleon1
+   Tango desktop project color #8AE234.
+
+                                                                      [Constant]
+chameleon2
+   Tango desktop project color #73D216.
+
+                                                                      [Constant]
+chameleon3
+   Tango desktop project color #4E9A06.
+
+                                                                      [Constant]
+chocolate1
+   Tango desktop project color #E9B96E.
+
+                                                                      [Constant]
+chocolate2
+   Tango desktop project color #C17D11.
+
+                                                                      [Constant]
+chocolate3
+   Tango desktop project color #8F5902.
+
+                                                                      [Function]
+dark-gray (&optional (brightness normal))
+   Return shades of dark gray.
+   
+   Optional argument BRIGHTNESS is either :light, :normal, or :dark.
+    Default is to return the normal color.
+   
+   Value is an RGB color object.
+
+                                                                      [Constant]
+gray1
+   Tango desktop project color #EEEEEC.
+
+                                                                      [Constant]
+gray2
+   Tango desktop project color #D3D7CF.
+
+                                                                      [Constant]
+gray3
+   Tango desktop project color #BABDB6.
+
+                                                                      [Constant]
+gray4
+   Tango desktop project color #888A85.
+
+                                                                      [Constant]
+gray5
+   Tango desktop project color #555753.
+
+                                                                      [Constant]
+gray6
+   Tango desktop project color #2E3436.
+
+                                                                      [Function]
+green (&optional (brightness normal))
+   Return shades of green.
+   
+   Optional argument BRIGHTNESS is either :light, :normal, or :dark.
+    Default is to return the normal color.
+   
+   Value is an RGB color object.
+
+                                                                      [Constant]
+green1
+   Tango desktop project color #8AE234.
+
+                                                                      [Constant]
+green2
+   Tango desktop project color #73D216.
+
+                                                                      [Constant]
+green3
+   Tango desktop project color #4E9A06.
+
+                                                                      [Constant]
+grey1
+   Tango desktop project color #EEEEEC.
+
+                                                                      [Constant]
+grey2
+   Tango desktop project color #D3D7CF.
+
+                                                                      [Constant]
+grey3
+   Tango desktop project color #BABDB6.
+
+                                                                      [Constant]
+grey4
+   Tango desktop project color #888A85.
+
+                                                                      [Constant]
+grey5
+   Tango desktop project color #555753.
+
+                                                                      [Constant]
+grey6
+   Tango desktop project color #2E3436.
+
+                                                                      [Function]
+light-gray (&optional (brightness normal))
+   Return shades of light gray.
+   
+   Optional argument BRIGHTNESS is either :light, :normal, or :dark.
+    Default is to return the normal color.
+   
+   Value is an RGB color object.
+
+                                                                      [Function]
+orange (&optional (brightness normal))
+   Return shades of orange.
+   
+   Optional argument BRIGHTNESS is either :light, :normal, or :dark.
+    Default is to return the normal color.
+   
+   Value is an RGB color object.
+
+                                                                      [Constant]
+orange1
+   Tango desktop project color #FCAF3E.
+
+                                                                      [Constant]
+orange2
+   Tango desktop project color #F57900.
+
+                                                                      [Constant]
+orange3
+   Tango desktop project color #CE5C00.
+
+                                                                      [Constant]
+plum1
+   Tango desktop project color #AD7FA8.
+
+                                                                      [Constant]
+plum2
+   Tango desktop project color #75507B.
+
+                                                                      [Constant]
+plum3
+   Tango desktop project color #5C3566.
+
+                                                                      [Function]
+purple (&optional (brightness normal))
+   Return shades of purple.
+   
+   Optional argument BRIGHTNESS is either :light, :normal, or :dark.
+    Default is to return the normal color.
+   
+   Value is an RGB color object.
+
+                                                                      [Constant]
+purple1
+   Tango desktop project color #AD7FA8.
+
+                                                                      [Constant]
+purple2
+   Tango desktop project color #75507B.
+
+                                                                      [Constant]
+purple3
+   Tango desktop project color #5C3566.
+
+                                                                      [Function]
+red (&optional (brightness normal))
+   Return shades of red.
+   
+   Optional argument BRIGHTNESS is either :light, :normal, or :dark.
+    Default is to return the normal color.
+   
+   Value is an RGB color object.
+
+                                                                      [Constant]
+red1
+   Tango desktop project color #EF2929.
+
+                                                                      [Constant]
+red2
+   Tango desktop project color #CC0000.
+
+                                                                      [Constant]
+red3
+   Tango desktop project color #A40000.
+
+                                                                      [Constant]
+scarletred1
+   Tango desktop project color #EF2929.
+
+                                                                      [Constant]
+scarletred2
+   Tango desktop project color #CC0000.
+
+                                                                      [Constant]
+scarletred3
+   Tango desktop project color #A40000.
+
+                                                                      [Constant]
+skyblue1
+   Tango desktop project color #729FCF.
+
+                                                                      [Constant]
+skyblue2
+   Tango desktop project color #3465A4.
+
+                                                                      [Constant]
+skyblue3
+   Tango desktop project color #204A87.
+
+                                                                      [Constant]
+white
+   Tango desktop project color #FFFFFF.
+
+                                                                      [Function]
+yellow (&optional (brightness normal))
+   Return shades of yellow.
+   
+   Optional argument BRIGHTNESS is either :light, :normal, or :dark.
+    Default is to return the normal color.
+   
+   Value is an RGB color object.
+
+                                                                      [Constant]
+yellow1
+   Tango desktop project color #FCE94F.
+
+                                                                      [Constant]
+yellow2
+   Tango desktop project color #EDD400.
+
+                                                                      [Constant]
+yellow3
+   Tango desktop project color #C4A000.

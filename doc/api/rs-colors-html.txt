@@ -1,0 +1,73 @@
+RS-COLORS-HTML
+
+HTML basic colors.
+
+The list of basic color keywords is: aqua, black, blue, fuchsia, gray,
+green, lime, maroon, navy, olive, purple, red, silver, teal, white,
+and yellow.  The color names are case-insensitive.
+
+See <http://www.w3.org/TR/css3-color/#html4>.
+
+                                                                      [Constant]
+aqua
+   HTML basic color ‘#00FFFF’.
+
+                                                                      [Constant]
+black
+   HTML basic color ‘#000000’.
+
+                                                                      [Constant]
+blue
+   HTML basic color ‘#0000FF’.
+
+                                                                      [Constant]
+fuchsia
+   HTML basic color ‘#FF00FF’.
+
+                                                                      [Constant]
+gray
+   HTML basic color ‘#808080’.
+
+                                                                      [Constant]
+green
+   HTML basic color ‘#008000’.
+
+                                                                      [Constant]
+lime
+   HTML basic color ‘#00FF00’.
+
+                                                                      [Constant]
+maroon
+   HTML basic color ‘#800000’.
+
+                                                                      [Constant]
+navy
+   HTML basic color ‘#000080’.
+
+                                                                      [Constant]
+olive
+   HTML basic color ‘#808000’.
+
+                                                                      [Constant]
+purple
+   HTML basic color ‘#800080’.
+
+                                                                      [Constant]
+red
+   HTML basic color ‘#FF0000’.
+
+                                                                      [Constant]
+silver
+   HTML basic color ‘#C0C0C0’.
+
+                                                                      [Constant]
+teal
+   HTML basic color ‘#008080’.
+
+                                                                      [Constant]
+white
+   HTML basic color ‘#FFFFFF’.
+
+                                                                      [Constant]
+yellow
+   HTML basic color ‘#FFFF00’.

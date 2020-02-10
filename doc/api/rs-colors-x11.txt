@@ -1,0 +1,3015 @@
+RS-COLORS-X11
+
+X11 color names.
+
+                                                                      [Constant]
+alice-blue
+   X11 color ‘RGB:f0/f8/ff’.
+
+                                                                      [Constant]
+aliceblue
+   X11 color ‘RGB:f0/f8/ff’.
+
+                                                                      [Constant]
+antique-white
+   X11 color ‘RGB:fa/eb/d7’.
+
+                                                                      [Constant]
+antiquewhite
+   X11 color ‘RGB:fa/eb/d7’.
+
+                                                                      [Constant]
+antiquewhite1
+   X11 color ‘RGB:ff/ef/db’.
+
+                                                                      [Constant]
+antiquewhite2
+   X11 color ‘RGB:ee/df/cc’.
+
+                                                                      [Constant]
+antiquewhite3
+   X11 color ‘RGB:cd/c0/b0’.
+
+                                                                      [Constant]
+antiquewhite4
+   X11 color ‘RGB:8b/83/78’.
+
+                                                                      [Constant]
+aquamarine
+   X11 color ‘RGB:7f/ff/d4’.
+
+                                                                      [Constant]
+aquamarine1
+   X11 color ‘RGB:7f/ff/d4’.
+
+                                                                      [Constant]
+aquamarine2
+   X11 color ‘RGB:76/ee/c6’.
+
+                                                                      [Constant]
+aquamarine3
+   X11 color ‘RGB:66/cd/aa’.
+
+                                                                      [Constant]
+aquamarine4
+   X11 color ‘RGB:45/8b/74’.
+
+                                                                      [Constant]
+azure
+   X11 color ‘RGB:f0/ff/ff’.
+
+                                                                      [Constant]
+azure1
+   X11 color ‘RGB:f0/ff/ff’.
+
+                                                                      [Constant]
+azure2
+   X11 color ‘RGB:e0/ee/ee’.
+
+                                                                      [Constant]
+azure3
+   X11 color ‘RGB:c1/cd/cd’.
+
+                                                                      [Constant]
+azure4
+   X11 color ‘RGB:83/8b/8b’.
+
+                                                                      [Constant]
+beige
+   X11 color ‘RGB:f5/f5/dc’.
+
+                                                                      [Constant]
+bisque
+   X11 color ‘RGB:ff/e4/c4’.
+
+                                                                      [Constant]
+bisque1
+   X11 color ‘RGB:ff/e4/c4’.
+
+                                                                      [Constant]
+bisque2
+   X11 color ‘RGB:ee/d5/b7’.
+
+                                                                      [Constant]
+bisque3
+   X11 color ‘RGB:cd/b7/9e’.
+
+                                                                      [Constant]
+bisque4
+   X11 color ‘RGB:8b/7d/6b’.
+
+                                                                      [Constant]
+black
+   X11 color ‘RGB:00/00/00’.
+
+                                                                      [Constant]
+blanched-almond
+   X11 color ‘RGB:ff/eb/cd’.
+
+                                                                      [Constant]
+blanchedalmond
+   X11 color ‘RGB:ff/eb/cd’.
+
+                                                                      [Constant]
+blue
+   X11 color ‘RGB:00/00/ff’.
+
+                                                                      [Constant]
+blue-violet
+   X11 color ‘RGB:8a/2b/e2’.
+
+                                                                      [Constant]
+blue1
+   X11 color ‘RGB:00/00/ff’.
+
+                                                                      [Constant]
+blue2
+   X11 color ‘RGB:00/00/ee’.
+
+                                                                      [Constant]
+blue3
+   X11 color ‘RGB:00/00/cd’.
+
+                                                                      [Constant]
+blue4
+   X11 color ‘RGB:00/00/8b’.
+
+                                                                      [Constant]
+blueviolet
+   X11 color ‘RGB:8a/2b/e2’.
+
+                                                                      [Constant]
+brown
+   X11 color ‘RGB:a5/2a/2a’.
+
+                                                                      [Constant]
+brown1
+   X11 color ‘RGB:ff/40/40’.
+
+                                                                      [Constant]
+brown2
+   X11 color ‘RGB:ee/3b/3b’.
+
+                                                                      [Constant]
+brown3
+   X11 color ‘RGB:cd/33/33’.
+
+                                                                      [Constant]
+brown4
+   X11 color ‘RGB:8b/23/23’.
+
+                                                                      [Constant]
+burlywood
+   X11 color ‘RGB:de/b8/87’.
+
+                                                                      [Constant]
+burlywood1
+   X11 color ‘RGB:ff/d3/9b’.
+
+                                                                      [Constant]
+burlywood2
+   X11 color ‘RGB:ee/c5/91’.
+
+                                                                      [Constant]
+burlywood3
+   X11 color ‘RGB:cd/aa/7d’.
+
+                                                                      [Constant]
+burlywood4
+   X11 color ‘RGB:8b/73/55’.
+
+                                                                      [Constant]
+cadet-blue
+   X11 color ‘RGB:5f/9e/a0’.
+
+                                                                      [Constant]
+cadetblue
+   X11 color ‘RGB:5f/9e/a0’.
+
+                                                                      [Constant]
+cadetblue1
+   X11 color ‘RGB:98/f5/ff’.
+
+                                                                      [Constant]
+cadetblue2
+   X11 color ‘RGB:8e/e5/ee’.
+
+                                                                      [Constant]
+cadetblue3
+   X11 color ‘RGB:7a/c5/cd’.
+
+                                                                      [Constant]
+cadetblue4
+   X11 color ‘RGB:53/86/8b’.
+
+                                                                      [Constant]
+chartreuse
+   X11 color ‘RGB:7f/ff/00’.
+
+                                                                      [Constant]
+chartreuse1
+   X11 color ‘RGB:7f/ff/00’.
+
+                                                                      [Constant]
+chartreuse2
+   X11 color ‘RGB:76/ee/00’.
+
+                                                                      [Constant]
+chartreuse3
+   X11 color ‘RGB:66/cd/00’.
+
+                                                                      [Constant]
+chartreuse4
+   X11 color ‘RGB:45/8b/00’.
+
+                                                                      [Constant]
+chocolate
+   X11 color ‘RGB:d2/69/1e’.
+
+                                                                      [Constant]
+chocolate1
+   X11 color ‘RGB:ff/7f/24’.
+
+                                                                      [Constant]
+chocolate2
+   X11 color ‘RGB:ee/76/21’.
+
+                                                                      [Constant]
+chocolate3
+   X11 color ‘RGB:cd/66/1d’.
+
+                                                                      [Constant]
+chocolate4
+   X11 color ‘RGB:8b/45/13’.
+
+                                                                      [Constant]
+coral
+   X11 color ‘RGB:ff/7f/50’.
+
+                                                                      [Constant]
+coral1
+   X11 color ‘RGB:ff/72/56’.
+
+                                                                      [Constant]
+coral2
+   X11 color ‘RGB:ee/6a/50’.
+
+                                                                      [Constant]
+coral3
+   X11 color ‘RGB:cd/5b/45’.
+
+                                                                      [Constant]
+coral4
+   X11 color ‘RGB:8b/3e/2f’.
+
+                                                                      [Constant]
+cornflower-blue
+   X11 color ‘RGB:64/95/ed’.
+
+                                                                      [Constant]
+cornflowerblue
+   X11 color ‘RGB:64/95/ed’.
+
+                                                                      [Constant]
+cornsilk
+   X11 color ‘RGB:ff/f8/dc’.
+
+                                                                      [Constant]
+cornsilk1
+   X11 color ‘RGB:ff/f8/dc’.
+
+                                                                      [Constant]
+cornsilk2
+   X11 color ‘RGB:ee/e8/cd’.
+
+                                                                      [Constant]
+cornsilk3
+   X11 color ‘RGB:cd/c8/b1’.
+
+                                                                      [Constant]
+cornsilk4
+   X11 color ‘RGB:8b/88/78’.
+
+                                                                      [Constant]
+cyan
+   X11 color ‘RGB:00/ff/ff’.
+
+                                                                      [Constant]
+cyan1
+   X11 color ‘RGB:00/ff/ff’.
+
+                                                                      [Constant]
+cyan2
+   X11 color ‘RGB:00/ee/ee’.
+
+                                                                      [Constant]
+cyan3
+   X11 color ‘RGB:00/cd/cd’.
+
+                                                                      [Constant]
+cyan4
+   X11 color ‘RGB:00/8b/8b’.
+
+                                                                      [Constant]
+dark-blue
+   X11 color ‘RGB:00/00/8b’.
+
+                                                                      [Constant]
+dark-cyan
+   X11 color ‘RGB:00/8b/8b’.
+
+                                                                      [Constant]
+dark-goldenrod
+   X11 color ‘RGB:b8/86/0b’.
+
+                                                                      [Constant]
+dark-gray
+   X11 color ‘RGB:a9/a9/a9’.
+
+                                                                      [Constant]
+dark-green
+   X11 color ‘RGB:00/64/00’.
+
+                                                                      [Constant]
+dark-grey
+   X11 color ‘RGB:a9/a9/a9’.
+
+                                                                      [Constant]
+dark-khaki
+   X11 color ‘RGB:bd/b7/6b’.
+
+                                                                      [Constant]
+dark-magenta
+   X11 color ‘RGB:8b/00/8b’.
+
+                                                                      [Constant]
+dark-olive-green
+   X11 color ‘RGB:55/6b/2f’.
+
+                                                                      [Constant]
+dark-orange
+   X11 color ‘RGB:ff/8c/00’.
+
+                                                                      [Constant]
+dark-orchid
+   X11 color ‘RGB:99/32/cc’.
+
+                                                                      [Constant]
+dark-red
+   X11 color ‘RGB:8b/00/00’.
+
+                                                                      [Constant]
+dark-salmon
+   X11 color ‘RGB:e9/96/7a’.
+
+                                                                      [Constant]
+dark-sea-green
+   X11 color ‘RGB:8f/bc/8f’.
+
+                                                                      [Constant]
+dark-slate-blue
+   X11 color ‘RGB:48/3d/8b’.
+
+                                                                      [Constant]
+dark-slate-gray
+   X11 color ‘RGB:2f/4f/4f’.
+
+                                                                      [Constant]
+dark-slate-grey
+   X11 color ‘RGB:2f/4f/4f’.
+
+                                                                      [Constant]
+dark-turquoise
+   X11 color ‘RGB:00/ce/d1’.
+
+                                                                      [Constant]
+dark-violet
+   X11 color ‘RGB:94/00/d3’.
+
+                                                                      [Constant]
+darkblue
+   X11 color ‘RGB:00/00/8b’.
+
+                                                                      [Constant]
+darkcyan
+   X11 color ‘RGB:00/8b/8b’.
+
+                                                                      [Constant]
+darkgoldenrod
+   X11 color ‘RGB:b8/86/0b’.
+
+                                                                      [Constant]
+darkgoldenrod1
+   X11 color ‘RGB:ff/b9/0f’.
+
+                                                                      [Constant]
+darkgoldenrod2
+   X11 color ‘RGB:ee/ad/0e’.
+
+                                                                      [Constant]
+darkgoldenrod3
+   X11 color ‘RGB:cd/95/0c’.
+
+                                                                      [Constant]
+darkgoldenrod4
+   X11 color ‘RGB:8b/65/08’.
+
+                                                                      [Constant]
+darkgray
+   X11 color ‘RGB:a9/a9/a9’.
+
+                                                                      [Constant]
+darkgreen
+   X11 color ‘RGB:00/64/00’.
+
+                                                                      [Constant]
+darkgrey
+   X11 color ‘RGB:a9/a9/a9’.
+
+                                                                      [Constant]
+darkkhaki
+   X11 color ‘RGB:bd/b7/6b’.
+
+                                                                      [Constant]
+darkmagenta
+   X11 color ‘RGB:8b/00/8b’.
+
+                                                                      [Constant]
+darkolivegreen
+   X11 color ‘RGB:55/6b/2f’.
+
+                                                                      [Constant]
+darkolivegreen1
+   X11 color ‘RGB:ca/ff/70’.
+
+                                                                      [Constant]
+darkolivegreen2
+   X11 color ‘RGB:bc/ee/68’.
+
+                                                                      [Constant]
+darkolivegreen3
+   X11 color ‘RGB:a2/cd/5a’.
+
+                                                                      [Constant]
+darkolivegreen4
+   X11 color ‘RGB:6e/8b/3d’.
+
+                                                                      [Constant]
+darkorange
+   X11 color ‘RGB:ff/8c/00’.
+
+                                                                      [Constant]
+darkorange1
+   X11 color ‘RGB:ff/7f/00’.
+
+                                                                      [Constant]
+darkorange2
+   X11 color ‘RGB:ee/76/00’.
+
+                                                                      [Constant]
+darkorange3
+   X11 color ‘RGB:cd/66/00’.
+
+                                                                      [Constant]
+darkorange4
+   X11 color ‘RGB:8b/45/00’.
+
+                                                                      [Constant]
+darkorchid
+   X11 color ‘RGB:99/32/cc’.
+
+                                                                      [Constant]
+darkorchid1
+   X11 color ‘RGB:bf/3e/ff’.
+
+                                                                      [Constant]
+darkorchid2
+   X11 color ‘RGB:b2/3a/ee’.
+
+                                                                      [Constant]
+darkorchid3
+   X11 color ‘RGB:9a/32/cd’.
+
+                                                                      [Constant]
+darkorchid4
+   X11 color ‘RGB:68/22/8b’.
+
+                                                                      [Constant]
+darkred
+   X11 color ‘RGB:8b/00/00’.
+
+                                                                      [Constant]
+darksalmon
+   X11 color ‘RGB:e9/96/7a’.
+
+                                                                      [Constant]
+darkseagreen
+   X11 color ‘RGB:8f/bc/8f’.
+
+                                                                      [Constant]
+darkseagreen1
+   X11 color ‘RGB:c1/ff/c1’.
+
+                                                                      [Constant]
+darkseagreen2
+   X11 color ‘RGB:b4/ee/b4’.
+
+                                                                      [Constant]
+darkseagreen3
+   X11 color ‘RGB:9b/cd/9b’.
+
+                                                                      [Constant]
+darkseagreen4
+   X11 color ‘RGB:69/8b/69’.
+
+                                                                      [Constant]
+darkslateblue
+   X11 color ‘RGB:48/3d/8b’.
+
+                                                                      [Constant]
+darkslategray
+   X11 color ‘RGB:2f/4f/4f’.
+
+                                                                      [Constant]
+darkslategray1
+   X11 color ‘RGB:97/ff/ff’.
+
+                                                                      [Constant]
+darkslategray2
+   X11 color ‘RGB:8d/ee/ee’.
+
+                                                                      [Constant]
+darkslategray3
+   X11 color ‘RGB:79/cd/cd’.
+
+                                                                      [Constant]
+darkslategray4
+   X11 color ‘RGB:52/8b/8b’.
+
+                                                                      [Constant]
+darkslategrey
+   X11 color ‘RGB:2f/4f/4f’.
+
+                                                                      [Constant]
+darkturquoise
+   X11 color ‘RGB:00/ce/d1’.
+
+                                                                      [Constant]
+darkviolet
+   X11 color ‘RGB:94/00/d3’.
+
+                                                                      [Constant]
+debianred
+   X11 color ‘RGB:d7/07/51’.
+
+                                                                      [Constant]
+deep-pink
+   X11 color ‘RGB:ff/14/93’.
+
+                                                                      [Constant]
+deep-sky-blue
+   X11 color ‘RGB:00/bf/ff’.
+
+                                                                      [Constant]
+deeppink
+   X11 color ‘RGB:ff/14/93’.
+
+                                                                      [Constant]
+deeppink1
+   X11 color ‘RGB:ff/14/93’.
+
+                                                                      [Constant]
+deeppink2
+   X11 color ‘RGB:ee/12/89’.
+
+                                                                      [Constant]
+deeppink3
+   X11 color ‘RGB:cd/10/76’.
+
+                                                                      [Constant]
+deeppink4
+   X11 color ‘RGB:8b/0a/50’.
+
+                                                                      [Constant]
+deepskyblue
+   X11 color ‘RGB:00/bf/ff’.
+
+                                                                      [Constant]
+deepskyblue1
+   X11 color ‘RGB:00/bf/ff’.
+
+                                                                      [Constant]
+deepskyblue2
+   X11 color ‘RGB:00/b2/ee’.
+
+                                                                      [Constant]
+deepskyblue3
+   X11 color ‘RGB:00/9a/cd’.
+
+                                                                      [Constant]
+deepskyblue4
+   X11 color ‘RGB:00/68/8b’.
+
+                                                                      [Constant]
+dim-gray
+   X11 color ‘RGB:69/69/69’.
+
+                                                                      [Constant]
+dim-grey
+   X11 color ‘RGB:69/69/69’.
+
+                                                                      [Constant]
+dimgray
+   X11 color ‘RGB:69/69/69’.
+
+                                                                      [Constant]
+dimgrey
+   X11 color ‘RGB:69/69/69’.
+
+                                                                      [Constant]
+dodger-blue
+   X11 color ‘RGB:1e/90/ff’.
+
+                                                                      [Constant]
+dodgerblue
+   X11 color ‘RGB:1e/90/ff’.
+
+                                                                      [Constant]
+dodgerblue1
+   X11 color ‘RGB:1e/90/ff’.
+
+                                                                      [Constant]
+dodgerblue2
+   X11 color ‘RGB:1c/86/ee’.
+
+                                                                      [Constant]
+dodgerblue3
+   X11 color ‘RGB:18/74/cd’.
+
+                                                                      [Constant]
+dodgerblue4
+   X11 color ‘RGB:10/4e/8b’.
+
+                                                                      [Constant]
+firebrick
+   X11 color ‘RGB:b2/22/22’.
+
+                                                                      [Constant]
+firebrick1
+   X11 color ‘RGB:ff/30/30’.
+
+                                                                      [Constant]
+firebrick2
+   X11 color ‘RGB:ee/2c/2c’.
+
+                                                                      [Constant]
+firebrick3
+   X11 color ‘RGB:cd/26/26’.
+
+                                                                      [Constant]
+firebrick4
+   X11 color ‘RGB:8b/1a/1a’.
+
+                                                                      [Constant]
+floral-white
+   X11 color ‘RGB:ff/fa/f0’.
+
+                                                                      [Constant]
+floralwhite
+   X11 color ‘RGB:ff/fa/f0’.
+
+                                                                      [Constant]
+forest-green
+   X11 color ‘RGB:22/8b/22’.
+
+                                                                      [Constant]
+forestgreen
+   X11 color ‘RGB:22/8b/22’.
+
+                                                                      [Constant]
+gainsboro
+   X11 color ‘RGB:dc/dc/dc’.
+
+                                                                      [Constant]
+ghost-white
+   X11 color ‘RGB:f8/f8/ff’.
+
+                                                                      [Constant]
+ghostwhite
+   X11 color ‘RGB:f8/f8/ff’.
+
+                                                                      [Constant]
+gold
+   X11 color ‘RGB:ff/d7/00’.
+
+                                                                      [Constant]
+gold1
+   X11 color ‘RGB:ff/d7/00’.
+
+                                                                      [Constant]
+gold2
+   X11 color ‘RGB:ee/c9/00’.
+
+                                                                      [Constant]
+gold3
+   X11 color ‘RGB:cd/ad/00’.
+
+                                                                      [Constant]
+gold4
+   X11 color ‘RGB:8b/75/00’.
+
+                                                                      [Constant]
+goldenrod
+   X11 color ‘RGB:da/a5/20’.
+
+                                                                      [Constant]
+goldenrod1
+   X11 color ‘RGB:ff/c1/25’.
+
+                                                                      [Constant]
+goldenrod2
+   X11 color ‘RGB:ee/b4/22’.
+
+                                                                      [Constant]
+goldenrod3
+   X11 color ‘RGB:cd/9b/1d’.
+
+                                                                      [Constant]
+goldenrod4
+   X11 color ‘RGB:8b/69/14’.
+
+                                                                      [Constant]
+gray
+   X11 color ‘RGB:be/be/be’.
+
+                                                                      [Constant]
+gray0
+   X11 color ‘RGB:00/00/00’.
+
+                                                                      [Constant]
+gray1
+   X11 color ‘RGB:03/03/03’.
+
+                                                                      [Constant]
+gray10
+   X11 color ‘RGB:1a/1a/1a’.
+
+                                                                      [Constant]
+gray100
+   X11 color ‘RGB:ff/ff/ff’.
+
+                                                                      [Constant]
+gray11
+   X11 color ‘RGB:1c/1c/1c’.
+
+                                                                      [Constant]
+gray12
+   X11 color ‘RGB:1f/1f/1f’.
+
+                                                                      [Constant]
+gray13
+   X11 color ‘RGB:21/21/21’.
+
+                                                                      [Constant]
+gray14
+   X11 color ‘RGB:24/24/24’.
+
+                                                                      [Constant]
+gray15
+   X11 color ‘RGB:26/26/26’.
+
+                                                                      [Constant]
+gray16
+   X11 color ‘RGB:29/29/29’.
+
+                                                                      [Constant]
+gray17
+   X11 color ‘RGB:2b/2b/2b’.
+
+                                                                      [Constant]
+gray18
+   X11 color ‘RGB:2e/2e/2e’.
+
+                                                                      [Constant]
+gray19
+   X11 color ‘RGB:30/30/30’.
+
+                                                                      [Constant]
+gray2
+   X11 color ‘RGB:05/05/05’.
+
+                                                                      [Constant]
+gray20
+   X11 color ‘RGB:33/33/33’.
+
+                                                                      [Constant]
+gray21
+   X11 color ‘RGB:36/36/36’.
+
+                                                                      [Constant]
+gray22
+   X11 color ‘RGB:38/38/38’.
+
+                                                                      [Constant]
+gray23
+   X11 color ‘RGB:3b/3b/3b’.
+
+                                                                      [Constant]
+gray24
+   X11 color ‘RGB:3d/3d/3d’.
+
+                                                                      [Constant]
+gray25
+   X11 color ‘RGB:40/40/40’.
+
+                                                                      [Constant]
+gray26
+   X11 color ‘RGB:42/42/42’.
+
+                                                                      [Constant]
+gray27
+   X11 color ‘RGB:45/45/45’.
+
+                                                                      [Constant]
+gray28
+   X11 color ‘RGB:47/47/47’.
+
+                                                                      [Constant]
+gray29
+   X11 color ‘RGB:4a/4a/4a’.
+
+                                                                      [Constant]
+gray3
+   X11 color ‘RGB:08/08/08’.
+
+                                                                      [Constant]
+gray30
+   X11 color ‘RGB:4d/4d/4d’.
+
+                                                                      [Constant]
+gray31
+   X11 color ‘RGB:4f/4f/4f’.
+
+                                                                      [Constant]
+gray32
+   X11 color ‘RGB:52/52/52’.
+
+                                                                      [Constant]
+gray33
+   X11 color ‘RGB:54/54/54’.
+
+                                                                      [Constant]
+gray34
+   X11 color ‘RGB:57/57/57’.
+
+                                                                      [Constant]
+gray35
+   X11 color ‘RGB:59/59/59’.
+
+                                                                      [Constant]
+gray36
+   X11 color ‘RGB:5c/5c/5c’.
+
+                                                                      [Constant]
+gray37
+   X11 color ‘RGB:5e/5e/5e’.
+
+                                                                      [Constant]
+gray38
+   X11 color ‘RGB:61/61/61’.
+
+                                                                      [Constant]
+gray39
+   X11 color ‘RGB:63/63/63’.
+
+                                                                      [Constant]
+gray4
+   X11 color ‘RGB:0a/0a/0a’.
+
+                                                                      [Constant]
+gray40
+   X11 color ‘RGB:66/66/66’.
+
+                                                                      [Constant]
+gray41
+   X11 color ‘RGB:69/69/69’.
+
+                                                                      [Constant]
+gray42
+   X11 color ‘RGB:6b/6b/6b’.
+
+                                                                      [Constant]
+gray43
+   X11 color ‘RGB:6e/6e/6e’.
+
+                                                                      [Constant]
+gray44
+   X11 color ‘RGB:70/70/70’.
+
+                                                                      [Constant]
+gray45
+   X11 color ‘RGB:73/73/73’.
+
+                                                                      [Constant]
+gray46
+   X11 color ‘RGB:75/75/75’.
+
+                                                                      [Constant]
+gray47
+   X11 color ‘RGB:78/78/78’.
+
+                                                                      [Constant]
+gray48
+   X11 color ‘RGB:7a/7a/7a’.
+
+                                                                      [Constant]
+gray49
+   X11 color ‘RGB:7d/7d/7d’.
+
+                                                                      [Constant]
+gray5
+   X11 color ‘RGB:0d/0d/0d’.
+
+                                                                      [Constant]
+gray50
+   X11 color ‘RGB:7f/7f/7f’.
+
+                                                                      [Constant]
+gray51
+   X11 color ‘RGB:82/82/82’.
+
+                                                                      [Constant]
+gray52
+   X11 color ‘RGB:85/85/85’.
+
+                                                                      [Constant]
+gray53
+   X11 color ‘RGB:87/87/87’.
+
+                                                                      [Constant]
+gray54
+   X11 color ‘RGB:8a/8a/8a’.
+
+                                                                      [Constant]
+gray55
+   X11 color ‘RGB:8c/8c/8c’.
+
+                                                                      [Constant]
+gray56
+   X11 color ‘RGB:8f/8f/8f’.
+
+                                                                      [Constant]
+gray57
+   X11 color ‘RGB:91/91/91’.
+
+                                                                      [Constant]
+gray58
+   X11 color ‘RGB:94/94/94’.
+
+                                                                      [Constant]
+gray59
+   X11 color ‘RGB:96/96/96’.
+
+                                                                      [Constant]
+gray6
+   X11 color ‘RGB:0f/0f/0f’.
+
+                                                                      [Constant]
+gray60
+   X11 color ‘RGB:99/99/99’.
+
+                                                                      [Constant]
+gray61
+   X11 color ‘RGB:9c/9c/9c’.
+
+                                                                      [Constant]
+gray62
+   X11 color ‘RGB:9e/9e/9e’.
+
+                                                                      [Constant]
+gray63
+   X11 color ‘RGB:a1/a1/a1’.
+
+                                                                      [Constant]
+gray64
+   X11 color ‘RGB:a3/a3/a3’.
+
+                                                                      [Constant]
+gray65
+   X11 color ‘RGB:a6/a6/a6’.
+
+                                                                      [Constant]
+gray66
+   X11 color ‘RGB:a8/a8/a8’.
+
+                                                                      [Constant]
+gray67
+   X11 color ‘RGB:ab/ab/ab’.
+
+                                                                      [Constant]
+gray68
+   X11 color ‘RGB:ad/ad/ad’.
+
+                                                                      [Constant]
+gray69
+   X11 color ‘RGB:b0/b0/b0’.
+
+                                                                      [Constant]
+gray7
+   X11 color ‘RGB:12/12/12’.
+
+                                                                      [Constant]
+gray70
+   X11 color ‘RGB:b3/b3/b3’.
+
+                                                                      [Constant]
+gray71
+   X11 color ‘RGB:b5/b5/b5’.
+
+                                                                      [Constant]
+gray72
+   X11 color ‘RGB:b8/b8/b8’.
+
+                                                                      [Constant]
+gray73
+   X11 color ‘RGB:ba/ba/ba’.
+
+                                                                      [Constant]
+gray74
+   X11 color ‘RGB:bd/bd/bd’.
+
+                                                                      [Constant]
+gray75
+   X11 color ‘RGB:bf/bf/bf’.
+
+                                                                      [Constant]
+gray76
+   X11 color ‘RGB:c2/c2/c2’.
+
+                                                                      [Constant]
+gray77
+   X11 color ‘RGB:c4/c4/c4’.
+
+                                                                      [Constant]
+gray78
+   X11 color ‘RGB:c7/c7/c7’.
+
+                                                                      [Constant]
+gray79
+   X11 color ‘RGB:c9/c9/c9’.
+
+                                                                      [Constant]
+gray8
+   X11 color ‘RGB:14/14/14’.
+
+                                                                      [Constant]
+gray80
+   X11 color ‘RGB:cc/cc/cc’.
+
+                                                                      [Constant]
+gray81
+   X11 color ‘RGB:cf/cf/cf’.
+
+                                                                      [Constant]
+gray82
+   X11 color ‘RGB:d1/d1/d1’.
+
+                                                                      [Constant]
+gray83
+   X11 color ‘RGB:d4/d4/d4’.
+
+                                                                      [Constant]
+gray84
+   X11 color ‘RGB:d6/d6/d6’.
+
+                                                                      [Constant]
+gray85
+   X11 color ‘RGB:d9/d9/d9’.
+
+                                                                      [Constant]
+gray86
+   X11 color ‘RGB:db/db/db’.
+
+                                                                      [Constant]
+gray87
+   X11 color ‘RGB:de/de/de’.
+
+                                                                      [Constant]
+gray88
+   X11 color ‘RGB:e0/e0/e0’.
+
+                                                                      [Constant]
+gray89
+   X11 color ‘RGB:e3/e3/e3’.
+
+                                                                      [Constant]
+gray9
+   X11 color ‘RGB:17/17/17’.
+
+                                                                      [Constant]
+gray90
+   X11 color ‘RGB:e5/e5/e5’.
+
+                                                                      [Constant]
+gray91
+   X11 color ‘RGB:e8/e8/e8’.
+
+                                                                      [Constant]
+gray92
+   X11 color ‘RGB:eb/eb/eb’.
+
+                                                                      [Constant]
+gray93
+   X11 color ‘RGB:ed/ed/ed’.
+
+                                                                      [Constant]
+gray94
+   X11 color ‘RGB:f0/f0/f0’.
+
+                                                                      [Constant]
+gray95
+   X11 color ‘RGB:f2/f2/f2’.
+
+                                                                      [Constant]
+gray96
+   X11 color ‘RGB:f5/f5/f5’.
+
+                                                                      [Constant]
+gray97
+   X11 color ‘RGB:f7/f7/f7’.
+
+                                                                      [Constant]
+gray98
+   X11 color ‘RGB:fa/fa/fa’.
+
+                                                                      [Constant]
+gray99
+   X11 color ‘RGB:fc/fc/fc’.
+
+                                                                      [Constant]
+green
+   X11 color ‘RGB:00/ff/00’.
+
+                                                                      [Constant]
+green-yellow
+   X11 color ‘RGB:ad/ff/2f’.
+
+                                                                      [Constant]
+green1
+   X11 color ‘RGB:00/ff/00’.
+
+                                                                      [Constant]
+green2
+   X11 color ‘RGB:00/ee/00’.
+
+                                                                      [Constant]
+green3
+   X11 color ‘RGB:00/cd/00’.
+
+                                                                      [Constant]
+green4
+   X11 color ‘RGB:00/8b/00’.
+
+                                                                      [Constant]
+greenyellow
+   X11 color ‘RGB:ad/ff/2f’.
+
+                                                                      [Constant]
+grey
+   X11 color ‘RGB:be/be/be’.
+
+                                                                      [Constant]
+grey0
+   X11 color ‘RGB:00/00/00’.
+
+                                                                      [Constant]
+grey1
+   X11 color ‘RGB:03/03/03’.
+
+                                                                      [Constant]
+grey10
+   X11 color ‘RGB:1a/1a/1a’.
+
+                                                                      [Constant]
+grey100
+   X11 color ‘RGB:ff/ff/ff’.
+
+                                                                      [Constant]
+grey11
+   X11 color ‘RGB:1c/1c/1c’.
+
+                                                                      [Constant]
+grey12
+   X11 color ‘RGB:1f/1f/1f’.
+
+                                                                      [Constant]
+grey13
+   X11 color ‘RGB:21/21/21’.
+
+                                                                      [Constant]
+grey14
+   X11 color ‘RGB:24/24/24’.
+
+                                                                      [Constant]
+grey15
+   X11 color ‘RGB:26/26/26’.
+
+                                                                      [Constant]
+grey16
+   X11 color ‘RGB:29/29/29’.
+
+                                                                      [Constant]
+grey17
+   X11 color ‘RGB:2b/2b/2b’.
+
+                                                                      [Constant]
+grey18
+   X11 color ‘RGB:2e/2e/2e’.
+
+                                                                      [Constant]
+grey19
+   X11 color ‘RGB:30/30/30’.
+
+                                                                      [Constant]
+grey2
+   X11 color ‘RGB:05/05/05’.
+
+                                                                      [Constant]
+grey20
+   X11 color ‘RGB:33/33/33’.
+
+                                                                      [Constant]
+grey21
+   X11 color ‘RGB:36/36/36’.
+
+                                                                      [Constant]
+grey22
+   X11 color ‘RGB:38/38/38’.
+
+                                                                      [Constant]
+grey23
+   X11 color ‘RGB:3b/3b/3b’.
+
+                                                                      [Constant]
+grey24
+   X11 color ‘RGB:3d/3d/3d’.
+
+                                                                      [Constant]
+grey25
+   X11 color ‘RGB:40/40/40’.
+
+                                                                      [Constant]
+grey26
+   X11 color ‘RGB:42/42/42’.
+
+                                                                      [Constant]
+grey27
+   X11 color ‘RGB:45/45/45’.
+
+                                                                      [Constant]
+grey28
+   X11 color ‘RGB:47/47/47’.
+
+                                                                      [Constant]
+grey29
+   X11 color ‘RGB:4a/4a/4a’.
+
+                                                                      [Constant]
+grey3
+   X11 color ‘RGB:08/08/08’.
+
+                                                                      [Constant]
+grey30
+   X11 color ‘RGB:4d/4d/4d’.
+
+                                                                      [Constant]
+grey31
+   X11 color ‘RGB:4f/4f/4f’.
+
+                                                                      [Constant]
+grey32
+   X11 color ‘RGB:52/52/52’.
+
+                                                                      [Constant]
+grey33
+   X11 color ‘RGB:54/54/54’.
+
+                                                                      [Constant]
+grey34
+   X11 color ‘RGB:57/57/57’.
+
+                                                                      [Constant]
+grey35
+   X11 color ‘RGB:59/59/59’.
+
+                                                                      [Constant]
+grey36
+   X11 color ‘RGB:5c/5c/5c’.
+
+                                                                      [Constant]
+grey37
+   X11 color ‘RGB:5e/5e/5e’.
+
+                                                                      [Constant]
+grey38
+   X11 color ‘RGB:61/61/61’.
+
+                                                                      [Constant]
+grey39
+   X11 color ‘RGB:63/63/63’.
+
+                                                                      [Constant]
+grey4
+   X11 color ‘RGB:0a/0a/0a’.
+
+                                                                      [Constant]
+grey40
+   X11 color ‘RGB:66/66/66’.
+
+                                                                      [Constant]
+grey41
+   X11 color ‘RGB:69/69/69’.
+
+                                                                      [Constant]
+grey42
+   X11 color ‘RGB:6b/6b/6b’.
+
+                                                                      [Constant]
+grey43
+   X11 color ‘RGB:6e/6e/6e’.
+
+                                                                      [Constant]
+grey44
+   X11 color ‘RGB:70/70/70’.
+
+                                                                      [Constant]
+grey45
+   X11 color ‘RGB:73/73/73’.
+
+                                                                      [Constant]
+grey46
+   X11 color ‘RGB:75/75/75’.
+
+                                                                      [Constant]
+grey47
+   X11 color ‘RGB:78/78/78’.
+
+                                                                      [Constant]
+grey48
+   X11 color ‘RGB:7a/7a/7a’.
+
+                                                                      [Constant]
+grey49
+   X11 color ‘RGB:7d/7d/7d’.
+
+                                                                      [Constant]
+grey5
+   X11 color ‘RGB:0d/0d/0d’.
+
+                                                                      [Constant]
+grey50
+   X11 color ‘RGB:7f/7f/7f’.
+
+                                                                      [Constant]
+grey51
+   X11 color ‘RGB:82/82/82’.
+
+                                                                      [Constant]
+grey52
+   X11 color ‘RGB:85/85/85’.
+
+                                                                      [Constant]
+grey53
+   X11 color ‘RGB:87/87/87’.
+
+                                                                      [Constant]
+grey54
+   X11 color ‘RGB:8a/8a/8a’.
+
+                                                                      [Constant]
+grey55
+   X11 color ‘RGB:8c/8c/8c’.
+
+                                                                      [Constant]
+grey56
+   X11 color ‘RGB:8f/8f/8f’.
+
+                                                                      [Constant]
+grey57
+   X11 color ‘RGB:91/91/91’.
+
+                                                                      [Constant]
+grey58
+   X11 color ‘RGB:94/94/94’.
+
+                                                                      [Constant]
+grey59
+   X11 color ‘RGB:96/96/96’.
+
+                                                                      [Constant]
+grey6
+   X11 color ‘RGB:0f/0f/0f’.
+
+                                                                      [Constant]
+grey60
+   X11 color ‘RGB:99/99/99’.
+
+                                                                      [Constant]
+grey61
+   X11 color ‘RGB:9c/9c/9c’.
+
+                                                                      [Constant]
+grey62
+   X11 color ‘RGB:9e/9e/9e’.
+
+                                                                      [Constant]
+grey63
+   X11 color ‘RGB:a1/a1/a1’.
+
+                                                                      [Constant]
+grey64
+   X11 color ‘RGB:a3/a3/a3’.
+
+                                                                      [Constant]
+grey65
+   X11 color ‘RGB:a6/a6/a6’.
+
+                                                                      [Constant]
+grey66
+   X11 color ‘RGB:a8/a8/a8’.
+
+                                                                      [Constant]
+grey67
+   X11 color ‘RGB:ab/ab/ab’.
+
+                                                                      [Constant]
+grey68
+   X11 color ‘RGB:ad/ad/ad’.
+
+                                                                      [Constant]
+grey69
+   X11 color ‘RGB:b0/b0/b0’.
+
+                                                                      [Constant]
+grey7
+   X11 color ‘RGB:12/12/12’.
+
+                                                                      [Constant]
+grey70
+   X11 color ‘RGB:b3/b3/b3’.
+
+                                                                      [Constant]
+grey71
+   X11 color ‘RGB:b5/b5/b5’.
+
+                                                                      [Constant]
+grey72
+   X11 color ‘RGB:b8/b8/b8’.
+
+                                                                      [Constant]
+grey73
+   X11 color ‘RGB:ba/ba/ba’.
+
+                                                                      [Constant]
+grey74
+   X11 color ‘RGB:bd/bd/bd’.
+
+                                                                      [Constant]
+grey75
+   X11 color ‘RGB:bf/bf/bf’.
+
+                                                                      [Constant]
+grey76
+   X11 color ‘RGB:c2/c2/c2’.
+
+                                                                      [Constant]
+grey77
+   X11 color ‘RGB:c4/c4/c4’.
+
+                                                                      [Constant]
+grey78
+   X11 color ‘RGB:c7/c7/c7’.
+
+                                                                      [Constant]
+grey79
+   X11 color ‘RGB:c9/c9/c9’.
+
+                                                                      [Constant]
+grey8
+   X11 color ‘RGB:14/14/14’.
+
+                                                                      [Constant]
+grey80
+   X11 color ‘RGB:cc/cc/cc’.
+
+                                                                      [Constant]
+grey81
+   X11 color ‘RGB:cf/cf/cf’.
+
+                                                                      [Constant]
+grey82
+   X11 color ‘RGB:d1/d1/d1’.
+
+                                                                      [Constant]
+grey83
+   X11 color ‘RGB:d4/d4/d4’.
+
+                                                                      [Constant]
+grey84
+   X11 color ‘RGB:d6/d6/d6’.
+
+                                                                      [Constant]
+grey85
+   X11 color ‘RGB:d9/d9/d9’.
+
+                                                                      [Constant]
+grey86
+   X11 color ‘RGB:db/db/db’.
+
+                                                                      [Constant]
+grey87
+   X11 color ‘RGB:de/de/de’.
+
+                                                                      [Constant]
+grey88
+   X11 color ‘RGB:e0/e0/e0’.
+
+                                                                      [Constant]
+grey89
+   X11 color ‘RGB:e3/e3/e3’.
+
+                                                                      [Constant]
+grey9
+   X11 color ‘RGB:17/17/17’.
+
+                                                                      [Constant]
+grey90
+   X11 color ‘RGB:e5/e5/e5’.
+
+                                                                      [Constant]
+grey91
+   X11 color ‘RGB:e8/e8/e8’.
+
+                                                                      [Constant]
+grey92
+   X11 color ‘RGB:eb/eb/eb’.
+
+                                                                      [Constant]
+grey93
+   X11 color ‘RGB:ed/ed/ed’.
+
+                                                                      [Constant]
+grey94
+   X11 color ‘RGB:f0/f0/f0’.
+
+                                                                      [Constant]
+grey95
+   X11 color ‘RGB:f2/f2/f2’.
+
+                                                                      [Constant]
+grey96
+   X11 color ‘RGB:f5/f5/f5’.
+
+                                                                      [Constant]
+grey97
+   X11 color ‘RGB:f7/f7/f7’.
+
+                                                                      [Constant]
+grey98
+   X11 color ‘RGB:fa/fa/fa’.
+
+                                                                      [Constant]
+grey99
+   X11 color ‘RGB:fc/fc/fc’.
+
+                                                                      [Constant]
+honeydew
+   X11 color ‘RGB:f0/ff/f0’.
+
+                                                                      [Constant]
+honeydew1
+   X11 color ‘RGB:f0/ff/f0’.
+
+                                                                      [Constant]
+honeydew2
+   X11 color ‘RGB:e0/ee/e0’.
+
+                                                                      [Constant]
+honeydew3
+   X11 color ‘RGB:c1/cd/c1’.
+
+                                                                      [Constant]
+honeydew4
+   X11 color ‘RGB:83/8b/83’.
+
+                                                                      [Constant]
+hot-pink
+   X11 color ‘RGB:ff/69/b4’.
+
+                                                                      [Constant]
+hotpink
+   X11 color ‘RGB:ff/69/b4’.
+
+                                                                      [Constant]
+hotpink1
+   X11 color ‘RGB:ff/6e/b4’.
+
+                                                                      [Constant]
+hotpink2
+   X11 color ‘RGB:ee/6a/a7’.
+
+                                                                      [Constant]
+hotpink3
+   X11 color ‘RGB:cd/60/90’.
+
+                                                                      [Constant]
+hotpink4
+   X11 color ‘RGB:8b/3a/62’.
+
+                                                                      [Constant]
+indian-red
+   X11 color ‘RGB:cd/5c/5c’.
+
+                                                                      [Constant]
+indianred
+   X11 color ‘RGB:cd/5c/5c’.
+
+                                                                      [Constant]
+indianred1
+   X11 color ‘RGB:ff/6a/6a’.
+
+                                                                      [Constant]
+indianred2
+   X11 color ‘RGB:ee/63/63’.
+
+                                                                      [Constant]
+indianred3
+   X11 color ‘RGB:cd/55/55’.
+
+                                                                      [Constant]
+indianred4
+   X11 color ‘RGB:8b/3a/3a’.
+
+                                                                      [Constant]
+ivory
+   X11 color ‘RGB:ff/ff/f0’.
+
+                                                                      [Constant]
+ivory1
+   X11 color ‘RGB:ff/ff/f0’.
+
+                                                                      [Constant]
+ivory2
+   X11 color ‘RGB:ee/ee/e0’.
+
+                                                                      [Constant]
+ivory3
+   X11 color ‘RGB:cd/cd/c1’.
+
+                                                                      [Constant]
+ivory4
+   X11 color ‘RGB:8b/8b/83’.
+
+                                                                      [Constant]
+khaki
+   X11 color ‘RGB:f0/e6/8c’.
+
+                                                                      [Constant]
+khaki1
+   X11 color ‘RGB:ff/f6/8f’.
+
+                                                                      [Constant]
+khaki2
+   X11 color ‘RGB:ee/e6/85’.
+
+                                                                      [Constant]
+khaki3
+   X11 color ‘RGB:cd/c6/73’.
+
+                                                                      [Constant]
+khaki4
+   X11 color ‘RGB:8b/86/4e’.
+
+                                                                      [Constant]
+lavender
+   X11 color ‘RGB:e6/e6/fa’.
+
+                                                                      [Constant]
+lavender-blush
+   X11 color ‘RGB:ff/f0/f5’.
+
+                                                                      [Constant]
+lavenderblush
+   X11 color ‘RGB:ff/f0/f5’.
+
+                                                                      [Constant]
+lavenderblush1
+   X11 color ‘RGB:ff/f0/f5’.
+
+                                                                      [Constant]
+lavenderblush2
+   X11 color ‘RGB:ee/e0/e5’.
+
+                                                                      [Constant]
+lavenderblush3
+   X11 color ‘RGB:cd/c1/c5’.
+
+                                                                      [Constant]
+lavenderblush4
+   X11 color ‘RGB:8b/83/86’.
+
+                                                                      [Constant]
+lawn-green
+   X11 color ‘RGB:7c/fc/00’.
+
+                                                                      [Constant]
+lawngreen
+   X11 color ‘RGB:7c/fc/00’.
+
+                                                                      [Constant]
+lemon-chiffon
+   X11 color ‘RGB:ff/fa/cd’.
+
+                                                                      [Constant]
+lemonchiffon
+   X11 color ‘RGB:ff/fa/cd’.
+
+                                                                      [Constant]
+lemonchiffon1
+   X11 color ‘RGB:ff/fa/cd’.
+
+                                                                      [Constant]
+lemonchiffon2
+   X11 color ‘RGB:ee/e9/bf’.
+
+                                                                      [Constant]
+lemonchiffon3
+   X11 color ‘RGB:cd/c9/a5’.
+
+                                                                      [Constant]
+lemonchiffon4
+   X11 color ‘RGB:8b/89/70’.
+
+                                                                      [Constant]
+light-blue
+   X11 color ‘RGB:ad/d8/e6’.
+
+                                                                      [Constant]
+light-coral
+   X11 color ‘RGB:f0/80/80’.
+
+                                                                      [Constant]
+light-cyan
+   X11 color ‘RGB:e0/ff/ff’.
+
+                                                                      [Constant]
+light-goldenrod
+   X11 color ‘RGB:ee/dd/82’.
+
+                                                                      [Constant]
+light-goldenrod-yellow
+   X11 color ‘RGB:fa/fa/d2’.
+
+                                                                      [Constant]
+light-gray
+   X11 color ‘RGB:d3/d3/d3’.
+
+                                                                      [Constant]
+light-green
+   X11 color ‘RGB:90/ee/90’.
+
+                                                                      [Constant]
+light-grey
+   X11 color ‘RGB:d3/d3/d3’.
+
+                                                                      [Constant]
+light-pink
+   X11 color ‘RGB:ff/b6/c1’.
+
+                                                                      [Constant]
+light-salmon
+   X11 color ‘RGB:ff/a0/7a’.
+
+                                                                      [Constant]
+light-sea-green
+   X11 color ‘RGB:20/b2/aa’.
+
+                                                                      [Constant]
+light-sky-blue
+   X11 color ‘RGB:87/ce/fa’.
+
+                                                                      [Constant]
+light-slate-blue
+   X11 color ‘RGB:84/70/ff’.
+
+                                                                      [Constant]
+light-slate-gray
+   X11 color ‘RGB:77/88/99’.
+
+                                                                      [Constant]
+light-slate-grey
+   X11 color ‘RGB:77/88/99’.
+
+                                                                      [Constant]
+light-steel-blue
+   X11 color ‘RGB:b0/c4/de’.
+
+                                                                      [Constant]
+light-yellow
+   X11 color ‘RGB:ff/ff/e0’.
+
+                                                                      [Constant]
+lightblue
+   X11 color ‘RGB:ad/d8/e6’.
+
+                                                                      [Constant]
+lightblue1
+   X11 color ‘RGB:bf/ef/ff’.
+
+                                                                      [Constant]
+lightblue2
+   X11 color ‘RGB:b2/df/ee’.
+
+                                                                      [Constant]
+lightblue3
+   X11 color ‘RGB:9a/c0/cd’.
+
+                                                                      [Constant]
+lightblue4
+   X11 color ‘RGB:68/83/8b’.
+
+                                                                      [Constant]
+lightcoral
+   X11 color ‘RGB:f0/80/80’.
+
+                                                                      [Constant]
+lightcyan
+   X11 color ‘RGB:e0/ff/ff’.
+
+                                                                      [Constant]
+lightcyan1
+   X11 color ‘RGB:e0/ff/ff’.
+
+                                                                      [Constant]
+lightcyan2
+   X11 color ‘RGB:d1/ee/ee’.
+
+                                                                      [Constant]
+lightcyan3
+   X11 color ‘RGB:b4/cd/cd’.
+
+                                                                      [Constant]
+lightcyan4
+   X11 color ‘RGB:7a/8b/8b’.
+
+                                                                      [Constant]
+lightgoldenrod
+   X11 color ‘RGB:ee/dd/82’.
+
+                                                                      [Constant]
+lightgoldenrod1
+   X11 color ‘RGB:ff/ec/8b’.
+
+                                                                      [Constant]
+lightgoldenrod2
+   X11 color ‘RGB:ee/dc/82’.
+
+                                                                      [Constant]
+lightgoldenrod3
+   X11 color ‘RGB:cd/be/70’.
+
+                                                                      [Constant]
+lightgoldenrod4
+   X11 color ‘RGB:8b/81/4c’.
+
+                                                                      [Constant]
+lightgoldenrodyellow
+   X11 color ‘RGB:fa/fa/d2’.
+
+                                                                      [Constant]
+lightgray
+   X11 color ‘RGB:d3/d3/d3’.
+
+                                                                      [Constant]
+lightgreen
+   X11 color ‘RGB:90/ee/90’.
+
+                                                                      [Constant]
+lightgrey
+   X11 color ‘RGB:d3/d3/d3’.
+
+                                                                      [Constant]
+lightpink
+   X11 color ‘RGB:ff/b6/c1’.
+
+                                                                      [Constant]
+lightpink1
+   X11 color ‘RGB:ff/ae/b9’.
+
+                                                                      [Constant]
+lightpink2
+   X11 color ‘RGB:ee/a2/ad’.
+
+                                                                      [Constant]
+lightpink3
+   X11 color ‘RGB:cd/8c/95’.
+
+                                                                      [Constant]
+lightpink4
+   X11 color ‘RGB:8b/5f/65’.
+
+                                                                      [Constant]
+lightsalmon
+   X11 color ‘RGB:ff/a0/7a’.
+
+                                                                      [Constant]
+lightsalmon1
+   X11 color ‘RGB:ff/a0/7a’.
+
+                                                                      [Constant]
+lightsalmon2
+   X11 color ‘RGB:ee/95/72’.
+
+                                                                      [Constant]
+lightsalmon3
+   X11 color ‘RGB:cd/81/62’.
+
+                                                                      [Constant]
+lightsalmon4
+   X11 color ‘RGB:8b/57/42’.
+
+                                                                      [Constant]
+lightseagreen
+   X11 color ‘RGB:20/b2/aa’.
+
+                                                                      [Constant]
+lightskyblue
+   X11 color ‘RGB:87/ce/fa’.
+
+                                                                      [Constant]
+lightskyblue1
+   X11 color ‘RGB:b0/e2/ff’.
+
+                                                                      [Constant]
+lightskyblue2
+   X11 color ‘RGB:a4/d3/ee’.
+
+                                                                      [Constant]
+lightskyblue3
+   X11 color ‘RGB:8d/b6/cd’.
+
+                                                                      [Constant]
+lightskyblue4
+   X11 color ‘RGB:60/7b/8b’.
+
+                                                                      [Constant]
+lightslateblue
+   X11 color ‘RGB:84/70/ff’.
+
+                                                                      [Constant]
+lightslategray
+   X11 color ‘RGB:77/88/99’.
+
+                                                                      [Constant]
+lightslategrey
+   X11 color ‘RGB:77/88/99’.
+
+                                                                      [Constant]
+lightsteelblue
+   X11 color ‘RGB:b0/c4/de’.
+
+                                                                      [Constant]
+lightsteelblue1
+   X11 color ‘RGB:ca/e1/ff’.
+
+                                                                      [Constant]
+lightsteelblue2
+   X11 color ‘RGB:bc/d2/ee’.
+
+                                                                      [Constant]
+lightsteelblue3
+   X11 color ‘RGB:a2/b5/cd’.
+
+                                                                      [Constant]
+lightsteelblue4
+   X11 color ‘RGB:6e/7b/8b’.
+
+                                                                      [Constant]
+lightyellow
+   X11 color ‘RGB:ff/ff/e0’.
+
+                                                                      [Constant]
+lightyellow1
+   X11 color ‘RGB:ff/ff/e0’.
+
+                                                                      [Constant]
+lightyellow2
+   X11 color ‘RGB:ee/ee/d1’.
+
+                                                                      [Constant]
+lightyellow3
+   X11 color ‘RGB:cd/cd/b4’.
+
+                                                                      [Constant]
+lightyellow4
+   X11 color ‘RGB:8b/8b/7a’.
+
+                                                                      [Constant]
+lime-green
+   X11 color ‘RGB:32/cd/32’.
+
+                                                                      [Constant]
+limegreen
+   X11 color ‘RGB:32/cd/32’.
+
+                                                                      [Constant]
+linen
+   X11 color ‘RGB:fa/f0/e6’.
+
+                                                                      [Constant]
+magenta
+   X11 color ‘RGB:ff/00/ff’.
+
+                                                                      [Constant]
+magenta1
+   X11 color ‘RGB:ff/00/ff’.
+
+                                                                      [Constant]
+magenta2
+   X11 color ‘RGB:ee/00/ee’.
+
+                                                                      [Constant]
+magenta3
+   X11 color ‘RGB:cd/00/cd’.
+
+                                                                      [Constant]
+magenta4
+   X11 color ‘RGB:8b/00/8b’.
+
+                                                                      [Constant]
+maroon
+   X11 color ‘RGB:b0/30/60’.
+
+                                                                      [Constant]
+maroon1
+   X11 color ‘RGB:ff/34/b3’.
+
+                                                                      [Constant]
+maroon2
+   X11 color ‘RGB:ee/30/a7’.
+
+                                                                      [Constant]
+maroon3
+   X11 color ‘RGB:cd/29/90’.
+
+                                                                      [Constant]
+maroon4
+   X11 color ‘RGB:8b/1c/62’.
+
+                                                                      [Constant]
+medium-aquamarine
+   X11 color ‘RGB:66/cd/aa’.
+
+                                                                      [Constant]
+medium-blue
+   X11 color ‘RGB:00/00/cd’.
+
+                                                                      [Constant]
+medium-orchid
+   X11 color ‘RGB:ba/55/d3’.
+
+                                                                      [Constant]
+medium-purple
+   X11 color ‘RGB:93/70/db’.
+
+                                                                      [Constant]
+medium-sea-green
+   X11 color ‘RGB:3c/b3/71’.
+
+                                                                      [Constant]
+medium-slate-blue
+   X11 color ‘RGB:7b/68/ee’.
+
+                                                                      [Constant]
+medium-spring-green
+   X11 color ‘RGB:00/fa/9a’.
+
+                                                                      [Constant]
+medium-turquoise
+   X11 color ‘RGB:48/d1/cc’.
+
+                                                                      [Constant]
+medium-violet-red
+   X11 color ‘RGB:c7/15/85’.
+
+                                                                      [Constant]
+mediumaquamarine
+   X11 color ‘RGB:66/cd/aa’.
+
+                                                                      [Constant]
+mediumblue
+   X11 color ‘RGB:00/00/cd’.
+
+                                                                      [Constant]
+mediumorchid
+   X11 color ‘RGB:ba/55/d3’.
+
+                                                                      [Constant]
+mediumorchid1
+   X11 color ‘RGB:e0/66/ff’.
+
+                                                                      [Constant]
+mediumorchid2
+   X11 color ‘RGB:d1/5f/ee’.
+
+                                                                      [Constant]
+mediumorchid3
+   X11 color ‘RGB:b4/52/cd’.
+
+                                                                      [Constant]
+mediumorchid4
+   X11 color ‘RGB:7a/37/8b’.
+
+                                                                      [Constant]
+mediumpurple
+   X11 color ‘RGB:93/70/db’.
+
+                                                                      [Constant]
+mediumpurple1
+   X11 color ‘RGB:ab/82/ff’.
+
+                                                                      [Constant]
+mediumpurple2
+   X11 color ‘RGB:9f/79/ee’.
+
+                                                                      [Constant]
+mediumpurple3
+   X11 color ‘RGB:89/68/cd’.
+
+                                                                      [Constant]
+mediumpurple4
+   X11 color ‘RGB:5d/47/8b’.
+
+                                                                      [Constant]
+mediumseagreen
+   X11 color ‘RGB:3c/b3/71’.
+
+                                                                      [Constant]
+mediumslateblue
+   X11 color ‘RGB:7b/68/ee’.
+
+                                                                      [Constant]
+mediumspringgreen
+   X11 color ‘RGB:00/fa/9a’.
+
+                                                                      [Constant]
+mediumturquoise
+   X11 color ‘RGB:48/d1/cc’.
+
+                                                                      [Constant]
+mediumvioletred
+   X11 color ‘RGB:c7/15/85’.
+
+                                                                      [Constant]
+midnight-blue
+   X11 color ‘RGB:19/19/70’.
+
+                                                                      [Constant]
+midnightblue
+   X11 color ‘RGB:19/19/70’.
+
+                                                                      [Constant]
+mint-cream
+   X11 color ‘RGB:f5/ff/fa’.
+
+                                                                      [Constant]
+mintcream
+   X11 color ‘RGB:f5/ff/fa’.
+
+                                                                      [Constant]
+misty-rose
+   X11 color ‘RGB:ff/e4/e1’.
+
+                                                                      [Constant]
+mistyrose
+   X11 color ‘RGB:ff/e4/e1’.
+
+                                                                      [Constant]
+mistyrose1
+   X11 color ‘RGB:ff/e4/e1’.
+
+                                                                      [Constant]
+mistyrose2
+   X11 color ‘RGB:ee/d5/d2’.
+
+                                                                      [Constant]
+mistyrose3
+   X11 color ‘RGB:cd/b7/b5’.
+
+                                                                      [Constant]
+mistyrose4
+   X11 color ‘RGB:8b/7d/7b’.
+
+                                                                      [Constant]
+moccasin
+   X11 color ‘RGB:ff/e4/b5’.
+
+                                                                      [Constant]
+navajo-white
+   X11 color ‘RGB:ff/de/ad’.
+
+                                                                      [Constant]
+navajowhite
+   X11 color ‘RGB:ff/de/ad’.
+
+                                                                      [Constant]
+navajowhite1
+   X11 color ‘RGB:ff/de/ad’.
+
+                                                                      [Constant]
+navajowhite2
+   X11 color ‘RGB:ee/cf/a1’.
+
+                                                                      [Constant]
+navajowhite3
+   X11 color ‘RGB:cd/b3/8b’.
+
+                                                                      [Constant]
+navajowhite4
+   X11 color ‘RGB:8b/79/5e’.
+
+                                                                      [Constant]
+navy
+   X11 color ‘RGB:00/00/80’.
+
+                                                                      [Constant]
+navy-blue
+   X11 color ‘RGB:00/00/80’.
+
+                                                                      [Constant]
+navyblue
+   X11 color ‘RGB:00/00/80’.
+
+                                                                      [Constant]
+old-lace
+   X11 color ‘RGB:fd/f5/e6’.
+
+                                                                      [Constant]
+oldlace
+   X11 color ‘RGB:fd/f5/e6’.
+
+                                                                      [Constant]
+olive-drab
+   X11 color ‘RGB:6b/8e/23’.
+
+                                                                      [Constant]
+olivedrab
+   X11 color ‘RGB:6b/8e/23’.
+
+                                                                      [Constant]
+olivedrab1
+   X11 color ‘RGB:c0/ff/3e’.
+
+                                                                      [Constant]
+olivedrab2
+   X11 color ‘RGB:b3/ee/3a’.
+
+                                                                      [Constant]
+olivedrab3
+   X11 color ‘RGB:9a/cd/32’.
+
+                                                                      [Constant]
+olivedrab4
+   X11 color ‘RGB:69/8b/22’.
+
+                                                                      [Constant]
+orange
+   X11 color ‘RGB:ff/a5/00’.
+
+                                                                      [Constant]
+orange-red
+   X11 color ‘RGB:ff/45/00’.
+
+                                                                      [Constant]
+orange1
+   X11 color ‘RGB:ff/a5/00’.
+
+                                                                      [Constant]
+orange2
+   X11 color ‘RGB:ee/9a/00’.
+
+                                                                      [Constant]
+orange3
+   X11 color ‘RGB:cd/85/00’.
+
+                                                                      [Constant]
+orange4
+   X11 color ‘RGB:8b/5a/00’.
+
+                                                                      [Constant]
+orangered
+   X11 color ‘RGB:ff/45/00’.
+
+                                                                      [Constant]
+orangered1
+   X11 color ‘RGB:ff/45/00’.
+
+                                                                      [Constant]
+orangered2
+   X11 color ‘RGB:ee/40/00’.
+
+                                                                      [Constant]
+orangered3
+   X11 color ‘RGB:cd/37/00’.
+
+                                                                      [Constant]
+orangered4
+   X11 color ‘RGB:8b/25/00’.
+
+                                                                      [Constant]
+orchid
+   X11 color ‘RGB:da/70/d6’.
+
+                                                                      [Constant]
+orchid1
+   X11 color ‘RGB:ff/83/fa’.
+
+                                                                      [Constant]
+orchid2
+   X11 color ‘RGB:ee/7a/e9’.
+
+                                                                      [Constant]
+orchid3
+   X11 color ‘RGB:cd/69/c9’.
+
+                                                                      [Constant]
+orchid4
+   X11 color ‘RGB:8b/47/89’.
+
+                                                                      [Constant]
+pale-goldenrod
+   X11 color ‘RGB:ee/e8/aa’.
+
+                                                                      [Constant]
+pale-green
+   X11 color ‘RGB:98/fb/98’.
+
+                                                                      [Constant]
+pale-turquoise
+   X11 color ‘RGB:af/ee/ee’.
+
+                                                                      [Constant]
+pale-violet-red
+   X11 color ‘RGB:db/70/93’.
+
+                                                                      [Constant]
+palegoldenrod
+   X11 color ‘RGB:ee/e8/aa’.
+
+                                                                      [Constant]
+palegreen
+   X11 color ‘RGB:98/fb/98’.
+
+                                                                      [Constant]
+palegreen1
+   X11 color ‘RGB:9a/ff/9a’.
+
+                                                                      [Constant]
+palegreen2
+   X11 color ‘RGB:90/ee/90’.
+
+                                                                      [Constant]
+palegreen3
+   X11 color ‘RGB:7c/cd/7c’.
+
+                                                                      [Constant]
+palegreen4
+   X11 color ‘RGB:54/8b/54’.
+
+                                                                      [Constant]
+paleturquoise
+   X11 color ‘RGB:af/ee/ee’.
+
+                                                                      [Constant]
+paleturquoise1
+   X11 color ‘RGB:bb/ff/ff’.
+
+                                                                      [Constant]
+paleturquoise2
+   X11 color ‘RGB:ae/ee/ee’.
+
+                                                                      [Constant]
+paleturquoise3
+   X11 color ‘RGB:96/cd/cd’.
+
+                                                                      [Constant]
+paleturquoise4
+   X11 color ‘RGB:66/8b/8b’.
+
+                                                                      [Constant]
+palevioletred
+   X11 color ‘RGB:db/70/93’.
+
+                                                                      [Constant]
+palevioletred1
+   X11 color ‘RGB:ff/82/ab’.
+
+                                                                      [Constant]
+palevioletred2
+   X11 color ‘RGB:ee/79/9f’.
+
+                                                                      [Constant]
+palevioletred3
+   X11 color ‘RGB:cd/68/89’.
+
+                                                                      [Constant]
+palevioletred4
+   X11 color ‘RGB:8b/47/5d’.
+
+                                                                      [Constant]
+papaya-whip
+   X11 color ‘RGB:ff/ef/d5’.
+
+                                                                      [Constant]
+papayawhip
+   X11 color ‘RGB:ff/ef/d5’.
+
+                                                                      [Constant]
+peach-puff
+   X11 color ‘RGB:ff/da/b9’.
+
+                                                                      [Constant]
+peachpuff
+   X11 color ‘RGB:ff/da/b9’.
+
+                                                                      [Constant]
+peachpuff1
+   X11 color ‘RGB:ff/da/b9’.
+
+                                                                      [Constant]
+peachpuff2
+   X11 color ‘RGB:ee/cb/ad’.
+
+                                                                      [Constant]
+peachpuff3
+   X11 color ‘RGB:cd/af/95’.
+
+                                                                      [Constant]
+peachpuff4
+   X11 color ‘RGB:8b/77/65’.
+
+                                                                      [Constant]
+peru
+   X11 color ‘RGB:cd/85/3f’.
+
+                                                                      [Constant]
+pink
+   X11 color ‘RGB:ff/c0/cb’.
+
+                                                                      [Constant]
+pink1
+   X11 color ‘RGB:ff/b5/c5’.
+
+                                                                      [Constant]
+pink2
+   X11 color ‘RGB:ee/a9/b8’.
+
+                                                                      [Constant]
+pink3
+   X11 color ‘RGB:cd/91/9e’.
+
+                                                                      [Constant]
+pink4
+   X11 color ‘RGB:8b/63/6c’.
+
+                                                                      [Constant]
+plum
+   X11 color ‘RGB:dd/a0/dd’.
+
+                                                                      [Constant]
+plum1
+   X11 color ‘RGB:ff/bb/ff’.
+
+                                                                      [Constant]
+plum2
+   X11 color ‘RGB:ee/ae/ee’.
+
+                                                                      [Constant]
+plum3
+   X11 color ‘RGB:cd/96/cd’.
+
+                                                                      [Constant]
+plum4
+   X11 color ‘RGB:8b/66/8b’.
+
+                                                                      [Constant]
+powder-blue
+   X11 color ‘RGB:b0/e0/e6’.
+
+                                                                      [Constant]
+powderblue
+   X11 color ‘RGB:b0/e0/e6’.
+
+                                                                      [Constant]
+purple
+   X11 color ‘RGB:a0/20/f0’.
+
+                                                                      [Constant]
+purple1
+   X11 color ‘RGB:9b/30/ff’.
+
+                                                                      [Constant]
+purple2
+   X11 color ‘RGB:91/2c/ee’.
+
+                                                                      [Constant]
+purple3
+   X11 color ‘RGB:7d/26/cd’.
+
+                                                                      [Constant]
+purple4
+   X11 color ‘RGB:55/1a/8b’.
+
+                                                                      [Constant]
+red
+   X11 color ‘RGB:ff/00/00’.
+
+                                                                      [Constant]
+red1
+   X11 color ‘RGB:ff/00/00’.
+
+                                                                      [Constant]
+red2
+   X11 color ‘RGB:ee/00/00’.
+
+                                                                      [Constant]
+red3
+   X11 color ‘RGB:cd/00/00’.
+
+                                                                      [Constant]
+red4
+   X11 color ‘RGB:8b/00/00’.
+
+                                                                      [Constant]
+rosy-brown
+   X11 color ‘RGB:bc/8f/8f’.
+
+                                                                      [Constant]
+rosybrown
+   X11 color ‘RGB:bc/8f/8f’.
+
+                                                                      [Constant]
+rosybrown1
+   X11 color ‘RGB:ff/c1/c1’.
+
+                                                                      [Constant]
+rosybrown2
+   X11 color ‘RGB:ee/b4/b4’.
+
+                                                                      [Constant]
+rosybrown3
+   X11 color ‘RGB:cd/9b/9b’.
+
+                                                                      [Constant]
+rosybrown4
+   X11 color ‘RGB:8b/69/69’.
+
+                                                                      [Constant]
+royal-blue
+   X11 color ‘RGB:41/69/e1’.
+
+                                                                      [Constant]
+royalblue
+   X11 color ‘RGB:41/69/e1’.
+
+                                                                      [Constant]
+royalblue1
+   X11 color ‘RGB:48/76/ff’.
+
+                                                                      [Constant]
+royalblue2
+   X11 color ‘RGB:43/6e/ee’.
+
+                                                                      [Constant]
+royalblue3
+   X11 color ‘RGB:3a/5f/cd’.
+
+                                                                      [Constant]
+royalblue4
+   X11 color ‘RGB:27/40/8b’.
+
+                                                                      [Constant]
+saddle-brown
+   X11 color ‘RGB:8b/45/13’.
+
+                                                                      [Constant]
+saddlebrown
+   X11 color ‘RGB:8b/45/13’.
+
+                                                                      [Constant]
+salmon
+   X11 color ‘RGB:fa/80/72’.
+
+                                                                      [Constant]
+salmon1
+   X11 color ‘RGB:ff/8c/69’.
+
+                                                                      [Constant]
+salmon2
+   X11 color ‘RGB:ee/82/62’.
+
+                                                                      [Constant]
+salmon3
+   X11 color ‘RGB:cd/70/54’.
+
+                                                                      [Constant]
+salmon4
+   X11 color ‘RGB:8b/4c/39’.
+
+                                                                      [Constant]
+sandy-brown
+   X11 color ‘RGB:f4/a4/60’.
+
+                                                                      [Constant]
+sandybrown
+   X11 color ‘RGB:f4/a4/60’.
+
+                                                                      [Constant]
+sea-green
+   X11 color ‘RGB:2e/8b/57’.
+
+                                                                      [Constant]
+seagreen
+   X11 color ‘RGB:2e/8b/57’.
+
+                                                                      [Constant]
+seagreen1
+   X11 color ‘RGB:54/ff/9f’.
+
+                                                                      [Constant]
+seagreen2
+   X11 color ‘RGB:4e/ee/94’.
+
+                                                                      [Constant]
+seagreen3
+   X11 color ‘RGB:43/cd/80’.
+
+                                                                      [Constant]
+seagreen4
+   X11 color ‘RGB:2e/8b/57’.
+
+                                                                      [Constant]
+seashell
+   X11 color ‘RGB:ff/f5/ee’.
+
+                                                                      [Constant]
+seashell1
+   X11 color ‘RGB:ff/f5/ee’.
+
+                                                                      [Constant]
+seashell2
+   X11 color ‘RGB:ee/e5/de’.
+
+                                                                      [Constant]
+seashell3
+   X11 color ‘RGB:cd/c5/bf’.
+
+                                                                      [Constant]
+seashell4
+   X11 color ‘RGB:8b/86/82’.
+
+                                                                      [Constant]
+sienna
+   X11 color ‘RGB:a0/52/2d’.
+
+                                                                      [Constant]
+sienna1
+   X11 color ‘RGB:ff/82/47’.
+
+                                                                      [Constant]
+sienna2
+   X11 color ‘RGB:ee/79/42’.
+
+                                                                      [Constant]
+sienna3
+   X11 color ‘RGB:cd/68/39’.
+
+                                                                      [Constant]
+sienna4
+   X11 color ‘RGB:8b/47/26’.
+
+                                                                      [Constant]
+sky-blue
+   X11 color ‘RGB:87/ce/eb’.
+
+                                                                      [Constant]
+skyblue
+   X11 color ‘RGB:87/ce/eb’.
+
+                                                                      [Constant]
+skyblue1
+   X11 color ‘RGB:87/ce/ff’.
+
+                                                                      [Constant]
+skyblue2
+   X11 color ‘RGB:7e/c0/ee’.
+
+                                                                      [Constant]
+skyblue3
+   X11 color ‘RGB:6c/a6/cd’.
+
+                                                                      [Constant]
+skyblue4
+   X11 color ‘RGB:4a/70/8b’.
+
+                                                                      [Constant]
+slate-blue
+   X11 color ‘RGB:6a/5a/cd’.
+
+                                                                      [Constant]
+slate-gray
+   X11 color ‘RGB:70/80/90’.
+
+                                                                      [Constant]
+slate-grey
+   X11 color ‘RGB:70/80/90’.
+
+                                                                      [Constant]
+slateblue
+   X11 color ‘RGB:6a/5a/cd’.
+
+                                                                      [Constant]
+slateblue1
+   X11 color ‘RGB:83/6f/ff’.
+
+                                                                      [Constant]
+slateblue2
+   X11 color ‘RGB:7a/67/ee’.
+
+                                                                      [Constant]
+slateblue3
+   X11 color ‘RGB:69/59/cd’.
+
+                                                                      [Constant]
+slateblue4
+   X11 color ‘RGB:47/3c/8b’.
+
+                                                                      [Constant]
+slategray
+   X11 color ‘RGB:70/80/90’.
+
+                                                                      [Constant]
+slategray1
+   X11 color ‘RGB:c6/e2/ff’.
+
+                                                                      [Constant]
+slategray2
+   X11 color ‘RGB:b9/d3/ee’.
+
+                                                                      [Constant]
+slategray3
+   X11 color ‘RGB:9f/b6/cd’.
+
+                                                                      [Constant]
+slategray4
+   X11 color ‘RGB:6c/7b/8b’.
+
+                                                                      [Constant]
+slategrey
+   X11 color ‘RGB:70/80/90’.
+
+                                                                      [Constant]
+snow
+   X11 color ‘RGB:ff/fa/fa’.
+
+                                                                      [Constant]
+snow1
+   X11 color ‘RGB:ff/fa/fa’.
+
+                                                                      [Constant]
+snow2
+   X11 color ‘RGB:ee/e9/e9’.
+
+                                                                      [Constant]
+snow3
+   X11 color ‘RGB:cd/c9/c9’.
+
+                                                                      [Constant]
+snow4
+   X11 color ‘RGB:8b/89/89’.
+
+                                                                      [Constant]
+spring-green
+   X11 color ‘RGB:00/ff/7f’.
+
+                                                                      [Constant]
+springgreen
+   X11 color ‘RGB:00/ff/7f’.
+
+                                                                      [Constant]
+springgreen1
+   X11 color ‘RGB:00/ff/7f’.
+
+                                                                      [Constant]
+springgreen2
+   X11 color ‘RGB:00/ee/76’.
+
+                                                                      [Constant]
+springgreen3
+   X11 color ‘RGB:00/cd/66’.
+
+                                                                      [Constant]
+springgreen4
+   X11 color ‘RGB:00/8b/45’.
+
+                                                                      [Constant]
+steel-blue
+   X11 color ‘RGB:46/82/b4’.
+
+                                                                      [Constant]
+steelblue
+   X11 color ‘RGB:46/82/b4’.
+
+                                                                      [Constant]
+steelblue1
+   X11 color ‘RGB:63/b8/ff’.
+
+                                                                      [Constant]
+steelblue2
+   X11 color ‘RGB:5c/ac/ee’.
+
+                                                                      [Constant]
+steelblue3
+   X11 color ‘RGB:4f/94/cd’.
+
+                                                                      [Constant]
+steelblue4
+   X11 color ‘RGB:36/64/8b’.
+
+                                                                      [Constant]
+tan
+   X11 color ‘RGB:d2/b4/8c’.
+
+                                                                      [Constant]
+tan1
+   X11 color ‘RGB:ff/a5/4f’.
+
+                                                                      [Constant]
+tan2
+   X11 color ‘RGB:ee/9a/49’.
+
+                                                                      [Constant]
+tan3
+   X11 color ‘RGB:cd/85/3f’.
+
+                                                                      [Constant]
+tan4
+   X11 color ‘RGB:8b/5a/2b’.
+
+                                                                      [Constant]
+thistle
+   X11 color ‘RGB:d8/bf/d8’.
+
+                                                                      [Constant]
+thistle1
+   X11 color ‘RGB:ff/e1/ff’.
+
+                                                                      [Constant]
+thistle2
+   X11 color ‘RGB:ee/d2/ee’.
+
+                                                                      [Constant]
+thistle3
+   X11 color ‘RGB:cd/b5/cd’.
+
+                                                                      [Constant]
+thistle4
+   X11 color ‘RGB:8b/7b/8b’.
+
+                                                                      [Constant]
+tomato
+   X11 color ‘RGB:ff/63/47’.
+
+                                                                      [Constant]
+tomato1
+   X11 color ‘RGB:ff/63/47’.
+
+                                                                      [Constant]
+tomato2
+   X11 color ‘RGB:ee/5c/42’.
+
+                                                                      [Constant]
+tomato3
+   X11 color ‘RGB:cd/4f/39’.
+
+                                                                      [Constant]
+tomato4
+   X11 color ‘RGB:8b/36/26’.
+
+                                                                      [Constant]
+turquoise
+   X11 color ‘RGB:40/e0/d0’.
+
+                                                                      [Constant]
+turquoise1
+   X11 color ‘RGB:00/f5/ff’.
+
+                                                                      [Constant]
+turquoise2
+   X11 color ‘RGB:00/e5/ee’.
+
+                                                                      [Constant]
+turquoise3
+   X11 color ‘RGB:00/c5/cd’.
+
+                                                                      [Constant]
+turquoise4
+   X11 color ‘RGB:00/86/8b’.
+
+                                                                      [Constant]
+violet
+   X11 color ‘RGB:ee/82/ee’.
+
+                                                                      [Constant]
+violet-red
+   X11 color ‘RGB:d0/20/90’.
+
+                                                                      [Constant]
+violetred
+   X11 color ‘RGB:d0/20/90’.
+
+                                                                      [Constant]
+violetred1
+   X11 color ‘RGB:ff/3e/96’.
+
+                                                                      [Constant]
+violetred2
+   X11 color ‘RGB:ee/3a/8c’.
+
+                                                                      [Constant]
+violetred3
+   X11 color ‘RGB:cd/32/78’.
+
+                                                                      [Constant]
+violetred4
+   X11 color ‘RGB:8b/22/52’.
+
+                                                                      [Constant]
+wheat
+   X11 color ‘RGB:f5/de/b3’.
+
+                                                                      [Constant]
+wheat1
+   X11 color ‘RGB:ff/e7/ba’.
+
+                                                                      [Constant]
+wheat2
+   X11 color ‘RGB:ee/d8/ae’.
+
+                                                                      [Constant]
+wheat3
+   X11 color ‘RGB:cd/ba/96’.
+
+                                                                      [Constant]
+wheat4
+   X11 color ‘RGB:8b/7e/66’.
+
+                                                                      [Constant]
+white
+   X11 color ‘RGB:ff/ff/ff’.
+
+                                                                      [Constant]
+white-smoke
+   X11 color ‘RGB:f5/f5/f5’.
+
+                                                                      [Constant]
+whitesmoke
+   X11 color ‘RGB:f5/f5/f5’.
+
+                                                                      [Constant]
+yellow
+   X11 color ‘RGB:ff/ff/00’.
+
+                                                                      [Constant]
+yellow-green
+   X11 color ‘RGB:9a/cd/32’.
+
+                                                                      [Constant]
+yellow1
+   X11 color ‘RGB:ff/ff/00’.
+
+                                                                      [Constant]
+yellow2
+   X11 color ‘RGB:ee/ee/00’.
+
+                                                                      [Constant]
+yellow3
+   X11 color ‘RGB:cd/cd/00’.
+
+                                                                      [Constant]
+yellow4
+   X11 color ‘RGB:8b/8b/00’.
+
+                                                                      [Constant]
+yellowgreen
+   X11 color ‘RGB:9a/cd/32’.

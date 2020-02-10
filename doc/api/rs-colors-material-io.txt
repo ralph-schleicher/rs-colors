@@ -1,0 +1,1114 @@
+RS-COLORS-MATERIAL-IO
+
+Material design color palette.
+
+See <https://material.io/guidelines/style/color.html>.
+
+Color names are of the form ‘COLOR-VARIANT’.  First part COLOR is
+either ‘red’, ‘pink’, ‘purple’, ‘deep-purple’, ‘indigo’, ‘blue’,
+‘light-blue’, ‘cyan’, ‘teal’, ‘green’, ‘light-green’, ‘lime’,
+‘yellow’, ‘amber’, ‘orange’, ‘deep-orange’, ‘brown’, ‘grey’, or
+‘blue-grey’.  Second part VARIANT is either 50, 100, 200, 300, 400,
+500, 600, 700, 800, or 900.  Color names for accented variants have
+a trailing asterisk character.  The color name ‘COLOR’ is an alias
+for ‘COLOR-500’.  Finally, there is a ‘white’ and ‘black’ color.
+
+                                                                      [Constant]
+amber
+   Material design color ‘#FFC107’.
+
+                                                                      [Constant]
+amber-100
+   Material design color ‘#FFECB3’.
+
+                                                                      [Constant]
+amber-100*
+   Material design color ‘#FFE57F’.
+
+                                                                      [Constant]
+amber-200
+   Material design color ‘#FFE082’.
+
+                                                                      [Constant]
+amber-200*
+   Material design color ‘#FFD740’.
+
+                                                                      [Constant]
+amber-300
+   Material design color ‘#FFD54F’.
+
+                                                                      [Constant]
+amber-400
+   Material design color ‘#FFCA28’.
+
+                                                                      [Constant]
+amber-400*
+   Material design color ‘#FFC400’.
+
+                                                                      [Constant]
+amber-50
+   Material design color ‘#FFF8E1’.
+
+                                                                      [Constant]
+amber-500
+   Material design color ‘#FFC107’.
+
+                                                                      [Constant]
+amber-600
+   Material design color ‘#FFB300’.
+
+                                                                      [Constant]
+amber-700
+   Material design color ‘#FFA000’.
+
+                                                                      [Constant]
+amber-700*
+   Material design color ‘#FFAB00’.
+
+                                                                      [Constant]
+amber-800
+   Material design color ‘#FF8F00’.
+
+                                                                      [Constant]
+amber-900
+   Material design color ‘#FF6F00’.
+
+                                                                      [Constant]
+black
+   Material design color ‘#000000’.
+
+                                                                      [Constant]
+blue
+   Material design color ‘#2196F3’.
+
+                                                                      [Constant]
+blue-100
+   Material design color ‘#BBDEFB’.
+
+                                                                      [Constant]
+blue-100*
+   Material design color ‘#82B1FF’.
+
+                                                                      [Constant]
+blue-200
+   Material design color ‘#90CAF9’.
+
+                                                                      [Constant]
+blue-200*
+   Material design color ‘#448AFF’.
+
+                                                                      [Constant]
+blue-300
+   Material design color ‘#64B5F6’.
+
+                                                                      [Constant]
+blue-400
+   Material design color ‘#42A5F5’.
+
+                                                                      [Constant]
+blue-400*
+   Material design color ‘#2979FF’.
+
+                                                                      [Constant]
+blue-50
+   Material design color ‘#E3F2FD’.
+
+                                                                      [Constant]
+blue-500
+   Material design color ‘#2196F3’.
+
+                                                                      [Constant]
+blue-600
+   Material design color ‘#1E88E5’.
+
+                                                                      [Constant]
+blue-700
+   Material design color ‘#1976D2’.
+
+                                                                      [Constant]
+blue-700*
+   Material design color ‘#2962FF’.
+
+                                                                      [Constant]
+blue-800
+   Material design color ‘#1565C0’.
+
+                                                                      [Constant]
+blue-900
+   Material design color ‘#0D47A1’.
+
+                                                                      [Constant]
+blue-grey
+   Material design color ‘#607D8B’.
+
+                                                                      [Constant]
+blue-grey-100
+   Material design color ‘#CFD8DC’.
+
+                                                                      [Constant]
+blue-grey-200
+   Material design color ‘#B0BEC5’.
+
+                                                                      [Constant]
+blue-grey-300
+   Material design color ‘#90A4AE’.
+
+                                                                      [Constant]
+blue-grey-400
+   Material design color ‘#78909C’.
+
+                                                                      [Constant]
+blue-grey-50
+   Material design color ‘#ECEFF1’.
+
+                                                                      [Constant]
+blue-grey-500
+   Material design color ‘#607D8B’.
+
+                                                                      [Constant]
+blue-grey-600
+   Material design color ‘#546E7A’.
+
+                                                                      [Constant]
+blue-grey-700
+   Material design color ‘#455A64’.
+
+                                                                      [Constant]
+blue-grey-800
+   Material design color ‘#37474F’.
+
+                                                                      [Constant]
+blue-grey-900
+   Material design color ‘#263238’.
+
+                                                                      [Constant]
+brown
+   Material design color ‘#795548’.
+
+                                                                      [Constant]
+brown-100
+   Material design color ‘#D7CCC8’.
+
+                                                                      [Constant]
+brown-200
+   Material design color ‘#BCAAA4’.
+
+                                                                      [Constant]
+brown-300
+   Material design color ‘#A1887F’.
+
+                                                                      [Constant]
+brown-400
+   Material design color ‘#8D6E63’.
+
+                                                                      [Constant]
+brown-50
+   Material design color ‘#EFEBE9’.
+
+                                                                      [Constant]
+brown-500
+   Material design color ‘#795548’.
+
+                                                                      [Constant]
+brown-600
+   Material design color ‘#6D4C41’.
+
+                                                                      [Constant]
+brown-700
+   Material design color ‘#5D4037’.
+
+                                                                      [Constant]
+brown-800
+   Material design color ‘#4E342E’.
+
+                                                                      [Constant]
+brown-900
+   Material design color ‘#3E2723’.
+
+                                                                      [Constant]
+cyan
+   Material design color ‘#00BCD4’.
+
+                                                                      [Constant]
+cyan-100
+   Material design color ‘#B2EBF2’.
+
+                                                                      [Constant]
+cyan-100*
+   Material design color ‘#84FFFF’.
+
+                                                                      [Constant]
+cyan-200
+   Material design color ‘#80DEEA’.
+
+                                                                      [Constant]
+cyan-200*
+   Material design color ‘#18FFFF’.
+
+                                                                      [Constant]
+cyan-300
+   Material design color ‘#4DD0E1’.
+
+                                                                      [Constant]
+cyan-400
+   Material design color ‘#26C6DA’.
+
+                                                                      [Constant]
+cyan-400*
+   Material design color ‘#00E5FF’.
+
+                                                                      [Constant]
+cyan-50
+   Material design color ‘#E0F7FA’.
+
+                                                                      [Constant]
+cyan-500
+   Material design color ‘#00BCD4’.
+
+                                                                      [Constant]
+cyan-600
+   Material design color ‘#00ACC1’.
+
+                                                                      [Constant]
+cyan-700
+   Material design color ‘#0097A7’.
+
+                                                                      [Constant]
+cyan-700*
+   Material design color ‘#00B8D4’.
+
+                                                                      [Constant]
+cyan-800
+   Material design color ‘#00838F’.
+
+                                                                      [Constant]
+cyan-900
+   Material design color ‘#006064’.
+
+                                                                      [Constant]
+deep-orange
+   Material design color ‘#FF5722’.
+
+                                                                      [Constant]
+deep-orange-100
+   Material design color ‘#FFCCBC’.
+
+                                                                      [Constant]
+deep-orange-100*
+   Material design color ‘#FF9E80’.
+
+                                                                      [Constant]
+deep-orange-200
+   Material design color ‘#FFAB91’.
+
+                                                                      [Constant]
+deep-orange-200*
+   Material design color ‘#FF6E40’.
+
+                                                                      [Constant]
+deep-orange-300
+   Material design color ‘#FF8A65’.
+
+                                                                      [Constant]
+deep-orange-400
+   Material design color ‘#FF7043’.
+
+                                                                      [Constant]
+deep-orange-400*
+   Material design color ‘#FF3D00’.
+
+                                                                      [Constant]
+deep-orange-50
+   Material design color ‘#FBE9E7’.
+
+                                                                      [Constant]
+deep-orange-500
+   Material design color ‘#FF5722’.
+
+                                                                      [Constant]
+deep-orange-600
+   Material design color ‘#F4511E’.
+
+                                                                      [Constant]
+deep-orange-700
+   Material design color ‘#E64A19’.
+
+                                                                      [Constant]
+deep-orange-700*
+   Material design color ‘#DD2C00’.
+
+                                                                      [Constant]
+deep-orange-800
+   Material design color ‘#D84315’.
+
+                                                                      [Constant]
+deep-orange-900
+   Material design color ‘#BF360C’.
+
+                                                                      [Constant]
+deep-purple
+   Material design color ‘#673AB7’.
+
+                                                                      [Constant]
+deep-purple-100
+   Material design color ‘#D1C4E9’.
+
+                                                                      [Constant]
+deep-purple-100*
+   Material design color ‘#B388FF’.
+
+                                                                      [Constant]
+deep-purple-200
+   Material design color ‘#B39DDB’.
+
+                                                                      [Constant]
+deep-purple-200*
+   Material design color ‘#7C4DFF’.
+
+                                                                      [Constant]
+deep-purple-300
+   Material design color ‘#9575CD’.
+
+                                                                      [Constant]
+deep-purple-400
+   Material design color ‘#7E57C2’.
+
+                                                                      [Constant]
+deep-purple-400*
+   Material design color ‘#651FFF’.
+
+                                                                      [Constant]
+deep-purple-50
+   Material design color ‘#EDE7F6’.
+
+                                                                      [Constant]
+deep-purple-500
+   Material design color ‘#673AB7’.
+
+                                                                      [Constant]
+deep-purple-600
+   Material design color ‘#5E35B1’.
+
+                                                                      [Constant]
+deep-purple-700
+   Material design color ‘#512DA8’.
+
+                                                                      [Constant]
+deep-purple-700*
+   Material design color ‘#6200EA’.
+
+                                                                      [Constant]
+deep-purple-800
+   Material design color ‘#4527A0’.
+
+                                                                      [Constant]
+deep-purple-900
+   Material design color ‘#311B92’.
+
+                                                                      [Constant]
+green
+   Material design color ‘#4CAF50’.
+
+                                                                      [Constant]
+green-100
+   Material design color ‘#C8E6C9’.
+
+                                                                      [Constant]
+green-100*
+   Material design color ‘#B9F6CA’.
+
+                                                                      [Constant]
+green-200
+   Material design color ‘#A5D6A7’.
+
+                                                                      [Constant]
+green-200*
+   Material design color ‘#69F0AE’.
+
+                                                                      [Constant]
+green-300
+   Material design color ‘#81C784’.
+
+                                                                      [Constant]
+green-400
+   Material design color ‘#66BB6A’.
+
+                                                                      [Constant]
+green-400*
+   Material design color ‘#00E676’.
+
+                                                                      [Constant]
+green-50
+   Material design color ‘#E8F5E9’.
+
+                                                                      [Constant]
+green-500
+   Material design color ‘#4CAF50’.
+
+                                                                      [Constant]
+green-600
+   Material design color ‘#43A047’.
+
+                                                                      [Constant]
+green-700
+   Material design color ‘#388E3C’.
+
+                                                                      [Constant]
+green-700*
+   Material design color ‘#00C853’.
+
+                                                                      [Constant]
+green-800
+   Material design color ‘#2E7D32’.
+
+                                                                      [Constant]
+green-900
+   Material design color ‘#1B5E20’.
+
+                                                                      [Constant]
+grey
+   Material design color ‘#9E9E9E’.
+
+                                                                      [Constant]
+grey-100
+   Material design color ‘#F5F5F5’.
+
+                                                                      [Constant]
+grey-200
+   Material design color ‘#EEEEEE’.
+
+                                                                      [Constant]
+grey-300
+   Material design color ‘#E0E0E0’.
+
+                                                                      [Constant]
+grey-400
+   Material design color ‘#BDBDBD’.
+
+                                                                      [Constant]
+grey-50
+   Material design color ‘#FAFAFA’.
+
+                                                                      [Constant]
+grey-500
+   Material design color ‘#9E9E9E’.
+
+                                                                      [Constant]
+grey-600
+   Material design color ‘#757575’.
+
+                                                                      [Constant]
+grey-700
+   Material design color ‘#616161’.
+
+                                                                      [Constant]
+grey-800
+   Material design color ‘#424242’.
+
+                                                                      [Constant]
+grey-900
+   Material design color ‘#212121’.
+
+                                                                      [Constant]
+indigo
+   Material design color ‘#3F51B5’.
+
+                                                                      [Constant]
+indigo-100
+   Material design color ‘#C5CAE9’.
+
+                                                                      [Constant]
+indigo-100*
+   Material design color ‘#8C9EFF’.
+
+                                                                      [Constant]
+indigo-200
+   Material design color ‘#9FA8DA’.
+
+                                                                      [Constant]
+indigo-200*
+   Material design color ‘#536DFE’.
+
+                                                                      [Constant]
+indigo-300
+   Material design color ‘#7986CB’.
+
+                                                                      [Constant]
+indigo-400
+   Material design color ‘#5C6BC0’.
+
+                                                                      [Constant]
+indigo-400*
+   Material design color ‘#3D5AFE’.
+
+                                                                      [Constant]
+indigo-50
+   Material design color ‘#E8EAF6’.
+
+                                                                      [Constant]
+indigo-500
+   Material design color ‘#3F51B5’.
+
+                                                                      [Constant]
+indigo-600
+   Material design color ‘#3949AB’.
+
+                                                                      [Constant]
+indigo-700
+   Material design color ‘#303F9F’.
+
+                                                                      [Constant]
+indigo-700*
+   Material design color ‘#304FFE’.
+
+                                                                      [Constant]
+indigo-800
+   Material design color ‘#283593’.
+
+                                                                      [Constant]
+indigo-900
+   Material design color ‘#1A237E’.
+
+                                                                      [Constant]
+light-blue
+   Material design color ‘#03A9F4’.
+
+                                                                      [Constant]
+light-blue-100
+   Material design color ‘#B3E5FC’.
+
+                                                                      [Constant]
+light-blue-100*
+   Material design color ‘#80D8FF’.
+
+                                                                      [Constant]
+light-blue-200
+   Material design color ‘#81D4FA’.
+
+                                                                      [Constant]
+light-blue-200*
+   Material design color ‘#40C4FF’.
+
+                                                                      [Constant]
+light-blue-300
+   Material design color ‘#4FC3F7’.
+
+                                                                      [Constant]
+light-blue-400
+   Material design color ‘#29B6F6’.
+
+                                                                      [Constant]
+light-blue-400*
+   Material design color ‘#00B0FF’.
+
+                                                                      [Constant]
+light-blue-50
+   Material design color ‘#E1F5FE’.
+
+                                                                      [Constant]
+light-blue-500
+   Material design color ‘#03A9F4’.
+
+                                                                      [Constant]
+light-blue-600
+   Material design color ‘#039BE5’.
+
+                                                                      [Constant]
+light-blue-700
+   Material design color ‘#0288D1’.
+
+                                                                      [Constant]
+light-blue-700*
+   Material design color ‘#0091EA’.
+
+                                                                      [Constant]
+light-blue-800
+   Material design color ‘#0277BD’.
+
+                                                                      [Constant]
+light-blue-900
+   Material design color ‘#01579B’.
+
+                                                                      [Constant]
+light-green
+   Material design color ‘#8BC34A’.
+
+                                                                      [Constant]
+light-green-100
+   Material design color ‘#DCEDC8’.
+
+                                                                      [Constant]
+light-green-100*
+   Material design color ‘#CCFF90’.
+
+                                                                      [Constant]
+light-green-200
+   Material design color ‘#C5E1A5’.
+
+                                                                      [Constant]
+light-green-200*
+   Material design color ‘#B2FF59’.
+
+                                                                      [Constant]
+light-green-300
+   Material design color ‘#AED581’.
+
+                                                                      [Constant]
+light-green-400
+   Material design color ‘#9CCC65’.
+
+                                                                      [Constant]
+light-green-400*
+   Material design color ‘#76FF03’.
+
+                                                                      [Constant]
+light-green-50
+   Material design color ‘#F1F8E9’.
+
+                                                                      [Constant]
+light-green-500
+   Material design color ‘#8BC34A’.
+
+                                                                      [Constant]
+light-green-600
+   Material design color ‘#7CB342’.
+
+                                                                      [Constant]
+light-green-700
+   Material design color ‘#689F38’.
+
+                                                                      [Constant]
+light-green-700*
+   Material design color ‘#64DD17’.
+
+                                                                      [Constant]
+light-green-800
+   Material design color ‘#558B2F’.
+
+                                                                      [Constant]
+light-green-900
+   Material design color ‘#33691E’.
+
+                                                                      [Constant]
+lime
+   Material design color ‘#CDDC39’.
+
+                                                                      [Constant]
+lime-100
+   Material design color ‘#F0F4C3’.
+
+                                                                      [Constant]
+lime-100*
+   Material design color ‘#F4FF81’.
+
+                                                                      [Constant]
+lime-200
+   Material design color ‘#E6EE9C’.
+
+                                                                      [Constant]
+lime-200*
+   Material design color ‘#EEFF41’.
+
+                                                                      [Constant]
+lime-300
+   Material design color ‘#DCE775’.
+
+                                                                      [Constant]
+lime-400
+   Material design color ‘#D4E157’.
+
+                                                                      [Constant]
+lime-400*
+   Material design color ‘#C6FF00’.
+
+                                                                      [Constant]
+lime-50
+   Material design color ‘#F9FBE7’.
+
+                                                                      [Constant]
+lime-500
+   Material design color ‘#CDDC39’.
+
+                                                                      [Constant]
+lime-600
+   Material design color ‘#C0CA33’.
+
+                                                                      [Constant]
+lime-700
+   Material design color ‘#AFB42B’.
+
+                                                                      [Constant]
+lime-700*
+   Material design color ‘#AEEA00’.
+
+                                                                      [Constant]
+lime-800
+   Material design color ‘#9E9D24’.
+
+                                                                      [Constant]
+lime-900
+   Material design color ‘#827717’.
+
+                                                                      [Constant]
+orange
+   Material design color ‘#FF9800’.
+
+                                                                      [Constant]
+orange-100
+   Material design color ‘#FFE0B2’.
+
+                                                                      [Constant]
+orange-100*
+   Material design color ‘#FFD180’.
+
+                                                                      [Constant]
+orange-200
+   Material design color ‘#FFCC80’.
+
+                                                                      [Constant]
+orange-200*
+   Material design color ‘#FFAB40’.
+
+                                                                      [Constant]
+orange-300
+   Material design color ‘#FFB74D’.
+
+                                                                      [Constant]
+orange-400
+   Material design color ‘#FFA726’.
+
+                                                                      [Constant]
+orange-400*
+   Material design color ‘#FF9100’.
+
+                                                                      [Constant]
+orange-50
+   Material design color ‘#FFF3E0’.
+
+                                                                      [Constant]
+orange-500
+   Material design color ‘#FF9800’.
+
+                                                                      [Constant]
+orange-600
+   Material design color ‘#FB8C00’.
+
+                                                                      [Constant]
+orange-700
+   Material design color ‘#F57C00’.
+
+                                                                      [Constant]
+orange-700*
+   Material design color ‘#FF6D00’.
+
+                                                                      [Constant]
+orange-800
+   Material design color ‘#EF6C00’.
+
+                                                                      [Constant]
+orange-900
+   Material design color ‘#E65100’.
+
+                                                                      [Constant]
+pink
+   Material design color ‘#E91E63’.
+
+                                                                      [Constant]
+pink-100
+   Material design color ‘#F8BBD0’.
+
+                                                                      [Constant]
+pink-100*
+   Material design color ‘#FF80AB’.
+
+                                                                      [Constant]
+pink-200
+   Material design color ‘#F48FB1’.
+
+                                                                      [Constant]
+pink-200*
+   Material design color ‘#FF4081’.
+
+                                                                      [Constant]
+pink-300
+   Material design color ‘#F06292’.
+
+                                                                      [Constant]
+pink-400
+   Material design color ‘#EC407A’.
+
+                                                                      [Constant]
+pink-400*
+   Material design color ‘#F50057’.
+
+                                                                      [Constant]
+pink-50
+   Material design color ‘#FCE4EC’.
+
+                                                                      [Constant]
+pink-500
+   Material design color ‘#E91E63’.
+
+                                                                      [Constant]
+pink-600
+   Material design color ‘#D81B60’.
+
+                                                                      [Constant]
+pink-700
+   Material design color ‘#C2185B’.
+
+                                                                      [Constant]
+pink-700*
+   Material design color ‘#C51162’.
+
+                                                                      [Constant]
+pink-800
+   Material design color ‘#AD1457’.
+
+                                                                      [Constant]
+pink-900
+   Material design color ‘#880E4F’.
+
+                                                                      [Constant]
+purple
+   Material design color ‘#9C27B0’.
+
+                                                                      [Constant]
+purple-100
+   Material design color ‘#E1BEE7’.
+
+                                                                      [Constant]
+purple-100*
+   Material design color ‘#EA80FC’.
+
+                                                                      [Constant]
+purple-200
+   Material design color ‘#CE93D8’.
+
+                                                                      [Constant]
+purple-200*
+   Material design color ‘#E040FB’.
+
+                                                                      [Constant]
+purple-300
+   Material design color ‘#BA68C8’.
+
+                                                                      [Constant]
+purple-400
+   Material design color ‘#AB47BC’.
+
+                                                                      [Constant]
+purple-400*
+   Material design color ‘#D500F9’.
+
+                                                                      [Constant]
+purple-50
+   Material design color ‘#F3E5F5’.
+
+                                                                      [Constant]
+purple-500
+   Material design color ‘#9C27B0’.
+
+                                                                      [Constant]
+purple-600
+   Material design color ‘#8E24AA’.
+
+                                                                      [Constant]
+purple-700
+   Material design color ‘#7B1FA2’.
+
+                                                                      [Constant]
+purple-700*
+   Material design color ‘#AA00FF’.
+
+                                                                      [Constant]
+purple-800
+   Material design color ‘#6A1B9A’.
+
+                                                                      [Constant]
+purple-900
+   Material design color ‘#4A148C’.
+
+                                                                      [Constant]
+red
+   Material design color ‘#F44336’.
+
+                                                                      [Constant]
+red-100
+   Material design color ‘#FFCDD2’.
+
+                                                                      [Constant]
+red-100*
+   Material design color ‘#FF8A80’.
+
+                                                                      [Constant]
+red-200
+   Material design color ‘#EF9A9A’.
+
+                                                                      [Constant]
+red-200*
+   Material design color ‘#FF5252’.
+
+                                                                      [Constant]
+red-300
+   Material design color ‘#E57373’.
+
+                                                                      [Constant]
+red-400
+   Material design color ‘#EF5350’.
+
+                                                                      [Constant]
+red-400*
+   Material design color ‘#FF1744’.
+
+                                                                      [Constant]
+red-50
+   Material design color ‘#FFEBEE’.
+
+                                                                      [Constant]
+red-500
+   Material design color ‘#F44336’.
+
+                                                                      [Constant]
+red-600
+   Material design color ‘#E53935’.
+
+                                                                      [Constant]
+red-700
+   Material design color ‘#D32F2F’.
+
+                                                                      [Constant]
+red-700*
+   Material design color ‘#D50000’.
+
+                                                                      [Constant]
+red-800
+   Material design color ‘#C62828’.
+
+                                                                      [Constant]
+red-900
+   Material design color ‘#B71C1C’.
+
+                                                                      [Constant]
+teal
+   Material design color ‘#009688’.
+
+                                                                      [Constant]
+teal-100
+   Material design color ‘#B2DFDB’.
+
+                                                                      [Constant]
+teal-100*
+   Material design color ‘#A7FFEB’.
+
+                                                                      [Constant]
+teal-200
+   Material design color ‘#80CBC4’.
+
+                                                                      [Constant]
+teal-200*
+   Material design color ‘#64FFDA’.
+
+                                                                      [Constant]
+teal-300
+   Material design color ‘#4DB6AC’.
+
+                                                                      [Constant]
+teal-400
+   Material design color ‘#26A69A’.
+
+                                                                      [Constant]
+teal-400*
+   Material design color ‘#1DE9B6’.
+
+                                                                      [Constant]
+teal-50
+   Material design color ‘#E0F2F1’.
+
+                                                                      [Constant]
+teal-500
+   Material design color ‘#009688’.
+
+                                                                      [Constant]
+teal-600
+   Material design color ‘#00897B’.
+
+                                                                      [Constant]
+teal-700
+   Material design color ‘#00796B’.
+
+                                                                      [Constant]
+teal-700*
+   Material design color ‘#00BFA5’.
+
+                                                                      [Constant]
+teal-800
+   Material design color ‘#00695C’.
+
+                                                                      [Constant]
+teal-900
+   Material design color ‘#004D40’.
+
+                                                                      [Constant]
+white
+   Material design color ‘#FFFFFF’.
+
+                                                                      [Constant]
+yellow
+   Material design color ‘#FFEB3B’.
+
+                                                                      [Constant]
+yellow-100
+   Material design color ‘#FFF9C4’.
+
+                                                                      [Constant]
+yellow-100*
+   Material design color ‘#FFFF8D’.
+
+                                                                      [Constant]
+yellow-200
+   Material design color ‘#FFF59D’.
+
+                                                                      [Constant]
+yellow-200*
+   Material design color ‘#FFFF00’.
+
+                                                                      [Constant]
+yellow-300
+   Material design color ‘#FFF176’.
+
+                                                                      [Constant]
+yellow-400
+   Material design color ‘#FFEE58’.
+
+                                                                      [Constant]
+yellow-400*
+   Material design color ‘#FFEA00’.
+
+                                                                      [Constant]
+yellow-50
+   Material design color ‘#FFFDE7’.
+
+                                                                      [Constant]
+yellow-500
+   Material design color ‘#FFEB3B’.
+
+                                                                      [Constant]
+yellow-600
+   Material design color ‘#FDD835’.
+
+                                                                      [Constant]
+yellow-700
+   Material design color ‘#FBC02D’.
+
+                                                                      [Constant]
+yellow-700*
+   Material design color ‘#FFD600’.
+
+                                                                      [Constant]
+yellow-800
+   Material design color ‘#F9A825’.
+
+                                                                      [Constant]
+yellow-900
+   Material design color ‘#F57F17’.

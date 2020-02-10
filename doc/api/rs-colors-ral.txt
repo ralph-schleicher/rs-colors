@@ -1,0 +1,5871 @@
+RS-COLORS-RAL
+
+RAL Classic color names.
+
+                                                                      [Constant]
+aardbeirood
+   RAL Classic color ‘#C73F4A’.
+
+                                                                      [Constant]
+achatgrau
+   RAL Classic color ‘#B0B0A9’.
+
+                                                                      [Constant]
+agaatgrijs
+   RAL Classic color ‘#B0B0A9’.
+
+                                                                      [Constant]
+agategrey
+   RAL Classic color ‘#B0B0A9’.
+
+                                                                      [Constant]
+alluminiobrillante
+   RAL Classic color ‘#A1A1A0’.
+
+                                                                      [Constant]
+alluminiogrigiastro
+   RAL Classic color ‘#878581’.
+
+                                                                      [Constant]
+altrosa
+   RAL Classic color ‘#CB7375’.
+
+                                                                      [Constant]
+aluminioblanco
+   RAL Classic color ‘#A1A1A0’.
+
+                                                                      [Constant]
+aluminiogris
+   RAL Classic color ‘#878581’.
+
+                                                                      [Constant]
+aluminiumblanc
+   RAL Classic color ‘#A1A1A0’.
+
+                                                                      [Constant]
+aluminiumgris
+   RAL Classic color ‘#878581’.
+
+                                                                      [Constant]
+amarilloarena
+   RAL Classic color ‘#D2AA6D’.
+
+                                                                      [Constant]
+amarilloazafran
+   RAL Classic color ‘#F6A950’.
+
+                                                                      [Constant]
+amarilloazufre
+   RAL Classic color ‘#F1DD38’.
+
+                                                                      [Constant]
+amarillobrillante
+   RAL Classic color ‘#FFFF00’.
+
+                                                                      [Constant]
+amarillocolza
+   RAL Classic color ‘#F6B600’.
+
+                                                                      [Constant]
+amarillocurry
+   RAL Classic color ‘#A77F0E’.
+
+                                                                      [Constant]
+amarillodalia
+   RAL Classic color ‘#F99A1C’.
+
+                                                                      [Constant]
+amarillodezinc
+   RAL Classic color ‘#FACA30’.
+
+                                                                      [Constant]
+amarillolimon
+   RAL Classic color ‘#DDAF27’.
+
+                                                                      [Constant]
+amarillomaiz
+   RAL Classic color ‘#E29000’.
+
+                                                                      [Constant]
+amarillomelon
+   RAL Classic color ‘#FF9B00’.
+
+                                                                      [Constant]
+amarillomiel
+   RAL Classic color ‘#CB8E00’.
+
+                                                                      [Constant]
+amarillonaranja
+   RAL Classic color ‘#DA6E00’.
+
+                                                                      [Constant]
+amarillonarciso
+   RAL Classic color ‘#E88C00’.
+
+                                                                      [Constant]
+amarilloocre
+   RAL Classic color ‘#BA8F4C’.
+
+                                                                      [Constant]
+amarillooliva
+   RAL Classic color ‘#A08F65’.
+
+                                                                      [Constant]
+amarillooro
+   RAL Classic color ‘#E49E00’.
+
+                                                                      [Constant]
+amarillopastel
+   RAL Classic color ‘#EB9C52’.
+
+                                                                      [Constant]
+amarilloretama
+   RAL Classic color ‘#E2A300’.
+
+                                                                      [Constant]
+amarillosenales
+   RAL Classic color ‘#F9A800’.
+
+                                                                      [Constant]
+amarillosol
+   RAL Classic color ‘#F09200’.
+
+                                                                      [Constant]
+amarillotrafico
+   RAL Classic color ‘#F7B500’.
+
+                                                                      [Constant]
+anthracitegrey
+   RAL Classic color ‘#383E42’.
+
+                                                                      [Constant]
+anthrazitgrau
+   RAL Classic color ‘#383E42’.
+
+                                                                      [Constant]
+antiquepink
+   RAL Classic color ‘#CB7375’.
+
+                                                                      [Constant]
+antracietgrijs
+   RAL Classic color ‘#383E42’.
+
+                                                                      [Constant]
+aranciobrillante
+   RAL Classic color ‘#FF4D06’.
+
+                                                                      [Constant]
+aranciochiarobrillante
+   RAL Classic color ‘#FFB200’.
+
+                                                                      [Constant]
+aranciogiallastro
+   RAL Classic color ‘#DA6E00’.
+
+                                                                      [Constant]
+aranciopastello
+   RAL Classic color ‘#F67828’.
+
+                                                                      [Constant]
+arancioperlato
+   RAL Classic color ‘#923E25’.
+
+                                                                      [Constant]
+arancioprofondo
+   RAL Classic color ‘#E26E0E’.
+
+                                                                      [Constant]
+aranciopuro
+   RAL Classic color ‘#E25303’.
+
+                                                                      [Constant]
+aranciorossastro
+   RAL Classic color ‘#BA481B’.
+
+                                                                      [Constant]
+aranciosalmone
+   RAL Classic color ‘#D5654D’.
+
+                                                                      [Constant]
+aranciosanguigno
+   RAL Classic color ‘#BF3922’.
+
+                                                                      [Constant]
+aranciosegnale
+   RAL Classic color ‘#D05D28’.
+
+                                                                      [Constant]
+aranciotraffico
+   RAL Classic color ‘#DE5307’.
+
+                                                                      [Constant]
+avorio
+   RAL Classic color ‘#DDC49A’.
+
+                                                                      [Constant]
+avoriochiaro
+   RAL Classic color ‘#E6D2B5’.
+
+                                                                      [Constant]
+azulacero
+   RAL Classic color ‘#1A2B3C’.
+
+                                                                      [Constant]
+azulagua
+   RAL Classic color ‘#007577’.
+
+                                                                      [Constant]
+azulazur
+   RAL Classic color ‘#225F78’.
+
+                                                                      [Constant]
+azulbrillante
+   RAL Classic color ‘#376B8C’.
+
+                                                                      [Constant]
+azulcapri
+   RAL Classic color ‘#005E83’.
+
+                                                                      [Constant]
+azulceleste
+   RAL Classic color ‘#007CB0’.
+
+                                                                      [Constant]
+azulcobalto
+   RAL Classic color ‘#193153’.
+
+                                                                      [Constant]
+azulcolombino
+   RAL Classic color ‘#637D96’.
+
+                                                                      [Constant]
+azulgenciana
+   RAL Classic color ‘#004F7C’.
+
+                                                                      [Constant]
+azulgrisaceo
+   RAL Classic color ‘#2B3A44’.
+
+                                                                      [Constant]
+azullejania
+   RAL Classic color ‘#42698C’.
+
+                                                                      [Constant]
+azulluminoso
+   RAL Classic color ‘#0089B6’.
+
+                                                                      [Constant]
+azulnegruzco
+   RAL Classic color ‘#191E28’.
+
+                                                                      [Constant]
+azulnoche
+   RAL Classic color ‘#222D5A’.
+
+                                                                      [Constant]
+azulnocheperlado
+   RAL Classic color ‘#0F3052’.
+
+                                                                      [Constant]
+azuloceano
+   RAL Classic color ‘#00414B’.
+
+                                                                      [Constant]
+azulpastel
+   RAL Classic color ‘#6093AC’.
+
+                                                                      [Constant]
+azulsenales
+   RAL Classic color ‘#005387’.
+
+                                                                      [Constant]
+azultrafico
+   RAL Classic color ‘#005B8C’.
+
+                                                                      [Constant]
+azulturquesa
+   RAL Classic color ‘#058B8C’.
+
+                                                                      [Constant]
+azulultramar
+   RAL Classic color ‘#00387B’.
+
+                                                                      [Constant]
+azulverdoso
+   RAL Classic color ‘#0F4C64’.
+
+                                                                      [Constant]
+azulvioleta
+   RAL Classic color ‘#314F6F’.
+
+                                                                      [Constant]
+azulzafiro
+   RAL Classic color ‘#1F3855’.
+
+                                                                      [Constant]
+azurblau
+   RAL Classic color ‘#225F78’.
+
+                                                                      [Constant]
+azureblue
+   RAL Classic color ‘#225F78’.
+
+                                                                      [Constant]
+azuurblauw
+   RAL Classic color ‘#225F78’.
+
+                                                                      [Constant]
+basaltgrau
+   RAL Classic color ‘#575D5E’.
+
+                                                                      [Constant]
+basaltgrey
+   RAL Classic color ‘#575D5E’.
+
+                                                                      [Constant]
+bazaltgrijs
+   RAL Classic color ‘#575D5E’.
+
+                                                                      [Constant]
+beige
+   RAL Classic color ‘#D0B084’.
+
+                                                                      [Constant]
+beigeagrisado
+   RAL Classic color ‘#A48F7A’.
+
+                                                                      [Constant]
+beigebraun
+   RAL Classic color ‘#795038’.
+
+                                                                      [Constant]
+beigebrown
+   RAL Classic color ‘#795038’.
+
+                                                                      [Constant]
+beigebruin
+   RAL Classic color ‘#795038’.
+
+                                                                      [Constant]
+beigebrun
+   RAL Classic color ‘#AF804F’.
+
+                                                                      [Constant]
+beigegrau
+   RAL Classic color ‘#766A5E’.
+
+                                                                      [Constant]
+beigegrey
+   RAL Classic color ‘#766A5E’.
+
+                                                                      [Constant]
+beigegrigiastro
+   RAL Classic color ‘#A48F7A’.
+
+                                                                      [Constant]
+beigegrijs
+   RAL Classic color ‘#766A5E’.
+
+                                                                      [Constant]
+beigegris
+   RAL Classic color ‘#A48F7A’.
+
+                                                                      [Constant]
+beigemarrone
+   RAL Classic color ‘#AF804F’.
+
+                                                                      [Constant]
+beigenacre
+   RAL Classic color ‘#908370’.
+
+                                                                      [Constant]
+beigepardo
+   RAL Classic color ‘#AF804F’.
+
+                                                                      [Constant]
+beigeperlado
+   RAL Classic color ‘#908370’.
+
+                                                                      [Constant]
+beigeperlato
+   RAL Classic color ‘#908370’.
+
+                                                                      [Constant]
+beigered
+   RAL Classic color ‘#C6846D’.
+
+                                                                      [Constant]
+beigerood
+   RAL Classic color ‘#C6846D’.
+
+                                                                      [Constant]
+beigerot
+   RAL Classic color ‘#C6846D’.
+
+                                                                      [Constant]
+beigeverdastro
+   RAL Classic color ‘#CDBA88’.
+
+                                                                      [Constant]
+beigeverdoso
+   RAL Classic color ‘#CDBA88’.
+
+                                                                      [Constant]
+beigevert
+   RAL Classic color ‘#CDBA88’.
+
+                                                                      [Constant]
+betongrau
+   RAL Classic color ‘#808076’.
+
+                                                                      [Constant]
+betongrijs
+   RAL Classic color ‘#808076’.
+
+                                                                      [Constant]
+biancocrema
+   RAL Classic color ‘#E9E0D2’.
+
+                                                                      [Constant]
+biancogrigiastro
+   RAL Classic color ‘#D7D5CB’.
+
+                                                                      [Constant]
+biancopapiro
+   RAL Classic color ‘#C8CBC4’.
+
+                                                                      [Constant]
+biancoperla
+   RAL Classic color ‘#E3D9C6’.
+
+                                                                      [Constant]
+biancopuro
+   RAL Classic color ‘#F1ECE1’.
+
+                                                                      [Constant]
+biancosegnale
+   RAL Classic color ‘#ECECE7’.
+
+                                                                      [Constant]
+biancotraffico
+   RAL Classic color ‘#F1F0EA’.
+
+                                                                      [Constant]
+blackblue
+   RAL Classic color ‘#191E28’.
+
+                                                                      [Constant]
+blackbrown
+   RAL Classic color ‘#1A1718’.
+
+                                                                      [Constant]
+blackgreen
+   RAL Classic color ‘#303D3A’.
+
+                                                                      [Constant]
+blackgrey
+   RAL Classic color ‘#2F3234’.
+
+                                                                      [Constant]
+blackolive
+   RAL Classic color ‘#3D3D36’.
+
+                                                                      [Constant]
+blackred
+   RAL Classic color ‘#3E2022’.
+
+                                                                      [Constant]
+blanccreme
+   RAL Classic color ‘#E9E0D2’.
+
+                                                                      [Constant]
+blancdesecurite
+   RAL Classic color ‘#ECECE7’.
+
+                                                                      [Constant]
+blancgris
+   RAL Classic color ‘#D7D5CB’.
+
+                                                                      [Constant]
+blancocrema
+   RAL Classic color ‘#E9E0D2’.
+
+                                                                      [Constant]
+blancogrisaceo
+   RAL Classic color ‘#D7D5CB’.
+
+                                                                      [Constant]
+blancopapiro
+   RAL Classic color ‘#C8CBC4’.
+
+                                                                      [Constant]
+blancoperla
+   RAL Classic color ‘#E3D9C6’.
+
+                                                                      [Constant]
+blancopuro
+   RAL Classic color ‘#F1ECE1’.
+
+                                                                      [Constant]
+blancosenales
+   RAL Classic color ‘#ECECE7’.
+
+                                                                      [Constant]
+blancotrafico
+   RAL Classic color ‘#F1F0EA’.
+
+                                                                      [Constant]
+blancpapyrus
+   RAL Classic color ‘#C8CBC4’.
+
+                                                                      [Constant]
+blancperle
+   RAL Classic color ‘#E3D9C6’.
+
+                                                                      [Constant]
+blancpur
+   RAL Classic color ‘#F1ECE1’.
+
+                                                                      [Constant]
+blancsignalisation
+   RAL Classic color ‘#F1F0EA’.
+
+                                                                      [Constant]
+blankaluminiumkleurig
+   RAL Classic color ‘#A1A1A0’.
+
+                                                                      [Constant]
+blassbraun
+   RAL Classic color ‘#755847’.
+
+                                                                      [Constant]
+blassgruen
+   RAL Classic color ‘#8A9977’.
+
+                                                                      [Constant]
+blaugrau
+   RAL Classic color ‘#5B686D’.
+
+                                                                      [Constant]
+blaugruen
+   RAL Classic color ‘#024442’.
+
+                                                                      [Constant]
+blaulila
+   RAL Classic color ‘#76689A’.
+
+                                                                      [Constant]
+blauwgrijs
+   RAL Classic color ‘#5B686D’.
+
+                                                                      [Constant]
+blauwgroen
+   RAL Classic color ‘#024442’.
+
+                                                                      [Constant]
+blauwlila
+   RAL Classic color ‘#76689A’.
+
+                                                                      [Constant]
+bleekbruin
+   RAL Classic color ‘#755847’.
+
+                                                                      [Constant]
+bleekgroen
+   RAL Classic color ‘#8A9977’.
+
+                                                                      [Constant]
+bleekrood
+   RAL Classic color ‘#CB555D’.
+
+                                                                      [Constant]
+bleuacier
+   RAL Classic color ‘#1A2B3C’.
+
+                                                                      [Constant]
+bleuazur
+   RAL Classic color ‘#225F78’.
+
+                                                                      [Constant]
+bleubrillant
+   RAL Classic color ‘#376B8C’.
+
+                                                                      [Constant]
+bleucapri
+   RAL Classic color ‘#005E83’.
+
+                                                                      [Constant]
+bleuciel
+   RAL Classic color ‘#007CB0’.
+
+                                                                      [Constant]
+bleuclair
+   RAL Classic color ‘#0089B6’.
+
+                                                                      [Constant]
+bleucobalt
+   RAL Classic color ‘#193153’.
+
+                                                                      [Constant]
+bleudeau
+   RAL Classic color ‘#007577’.
+
+                                                                      [Constant]
+bleudesecurite
+   RAL Classic color ‘#005387’.
+
+                                                                      [Constant]
+bleudistant
+   RAL Classic color ‘#42698C’.
+
+                                                                      [Constant]
+bleugentiane
+   RAL Classic color ‘#004F7C’.
+
+                                                                      [Constant]
+bleugris
+   RAL Classic color ‘#2B3A44’.
+
+                                                                      [Constant]
+bleunocturne
+   RAL Classic color ‘#222D5A’.
+
+                                                                      [Constant]
+bleunoir
+   RAL Classic color ‘#191E28’.
+
+                                                                      [Constant]
+bleunuitnacre
+   RAL Classic color ‘#0F3052’.
+
+                                                                      [Constant]
+bleuocean
+   RAL Classic color ‘#00414B’.
+
+                                                                      [Constant]
+bleuoutremer
+   RAL Classic color ‘#00387B’.
+
+                                                                      [Constant]
+bleupastel
+   RAL Classic color ‘#6093AC’.
+
+                                                                      [Constant]
+bleupigeon
+   RAL Classic color ‘#637D96’.
+
+                                                                      [Constant]
+bleusaphir
+   RAL Classic color ‘#1F3855’.
+
+                                                                      [Constant]
+bleusignalisation
+   RAL Classic color ‘#005B8C’.
+
+                                                                      [Constant]
+bleuturquoise
+   RAL Classic color ‘#058B8C’.
+
+                                                                      [Constant]
+bleuvert
+   RAL Classic color ‘#0F4C64’.
+
+                                                                      [Constant]
+bleuviolet
+   RAL Classic color ‘#314F6F’.
+
+                                                                      [Constant]
+bluacciaio
+   RAL Classic color ‘#1A2B3C’.
+
+                                                                      [Constant]
+bluacqua
+   RAL Classic color ‘#007577’.
+
+                                                                      [Constant]
+bluazzurro
+   RAL Classic color ‘#225F78’.
+
+                                                                      [Constant]
+blubrillante
+   RAL Classic color ‘#376B8C’.
+
+                                                                      [Constant]
+blucapri
+   RAL Classic color ‘#005E83’.
+
+                                                                      [Constant]
+blucielo
+   RAL Classic color ‘#007CB0’.
+
+                                                                      [Constant]
+blucobalto
+   RAL Classic color ‘#193153’.
+
+                                                                      [Constant]
+blucolomba
+   RAL Classic color ‘#637D96’.
+
+                                                                      [Constant]
+bludistante
+   RAL Classic color ‘#42698C’.
+
+                                                                      [Constant]
+bluegreen
+   RAL Classic color ‘#024442’.
+
+                                                                      [Constant]
+bluegrey
+   RAL Classic color ‘#5B686D’.
+
+                                                                      [Constant]
+bluelilac
+   RAL Classic color ‘#76689A’.
+
+                                                                      [Constant]
+blugenziana
+   RAL Classic color ‘#004F7C’.
+
+                                                                      [Constant]
+blugenzianaperlato
+   RAL Classic color ‘#21697C’.
+
+                                                                      [Constant]
+blugrigiastro
+   RAL Classic color ‘#2B3A44’.
+
+                                                                      [Constant]
+bluluce
+   RAL Classic color ‘#0089B6’.
+
+                                                                      [Constant]
+blunerastro
+   RAL Classic color ‘#191E28’.
+
+                                                                      [Constant]
+blunotte
+   RAL Classic color ‘#222D5A’.
+
+                                                                      [Constant]
+blunotteperlato
+   RAL Classic color ‘#0F3052’.
+
+                                                                      [Constant]
+bluoceano
+   RAL Classic color ‘#00414B’.
+
+                                                                      [Constant]
+bluoltremare
+   RAL Classic color ‘#00387B’.
+
+                                                                      [Constant]
+blupastello
+   RAL Classic color ‘#6093AC’.
+
+                                                                      [Constant]
+blusegnale
+   RAL Classic color ‘#005387’.
+
+                                                                      [Constant]
+blutorange
+   RAL Classic color ‘#BF3922’.
+
+                                                                      [Constant]
+blutraffico
+   RAL Classic color ‘#005B8C’.
+
+                                                                      [Constant]
+bluturchese
+   RAL Classic color ‘#058B8C’.
+
+                                                                      [Constant]
+bluverdastro
+   RAL Classic color ‘#0F4C64’.
+
+                                                                      [Constant]
+bluviolaceo
+   RAL Classic color ‘#314F6F’.
+
+                                                                      [Constant]
+bluzaffiro
+   RAL Classic color ‘#1F3855’.
+
+                                                                      [Constant]
+bordeauxviolett
+   RAL Classic color ‘#651E38’.
+
+                                                                      [Constant]
+bordeuaxpaars
+   RAL Classic color ‘#651E38’.
+
+                                                                      [Constant]
+bottlegreen
+   RAL Classic color ‘#2C3222’.
+
+                                                                      [Constant]
+braunbeige
+   RAL Classic color ‘#AF804F’.
+
+                                                                      [Constant]
+braungrau
+   RAL Classic color ‘#575044’.
+
+                                                                      [Constant]
+braungruen
+   RAL Classic color ‘#37342A’.
+
+                                                                      [Constant]
+braunoliv
+   RAL Classic color ‘#3A3327’.
+
+                                                                      [Constant]
+braunrot
+   RAL Classic color ‘#792423’.
+
+                                                                      [Constant]
+bremgeel
+   RAL Classic color ‘#E2A300’.
+
+                                                                      [Constant]
+brightredorange
+   RAL Classic color ‘#ED6B21’.
+
+                                                                      [Constant]
+briljantblauw
+   RAL Classic color ‘#376B8C’.
+
+                                                                      [Constant]
+briljantgeel
+   RAL Classic color ‘#FFFF00’.
+
+                                                                      [Constant]
+briljantgroen
+   RAL Classic color ‘#00B51A’.
+
+                                                                      [Constant]
+briljantlichtoranje
+   RAL Classic color ‘#FFB200’.
+
+                                                                      [Constant]
+briljantlichtrood
+   RAL Classic color ‘#FF2A1B’.
+
+                                                                      [Constant]
+briljantoranje
+   RAL Classic color ‘#FF4D06’.
+
+                                                                      [Constant]
+briljantrood
+   RAL Classic color ‘#FF2D21’.
+
+                                                                      [Constant]
+brillantblau
+   RAL Classic color ‘#376B8C’.
+
+                                                                      [Constant]
+brilliantblue
+   RAL Classic color ‘#376B8C’.
+
+                                                                      [Constant]
+broomyellow
+   RAL Classic color ‘#E2A300’.
+
+                                                                      [Constant]
+brownbeige
+   RAL Classic color ‘#AF804F’.
+
+                                                                      [Constant]
+browngreen
+   RAL Classic color ‘#37342A’.
+
+                                                                      [Constant]
+browngrey
+   RAL Classic color ‘#575044’.
+
+                                                                      [Constant]
+brownred
+   RAL Classic color ‘#792423’.
+
+                                                                      [Constant]
+bruinbeige
+   RAL Classic color ‘#AF804F’.
+
+                                                                      [Constant]
+bruingrijs
+   RAL Classic color ‘#575044’.
+
+                                                                      [Constant]
+bruingroen
+   RAL Classic color ‘#37342A’.
+
+                                                                      [Constant]
+bruinolijfgroen
+   RAL Classic color ‘#3A3327’.
+
+                                                                      [Constant]
+bruinrood
+   RAL Classic color ‘#792423’.
+
+                                                                      [Constant]
+brunacajou
+   RAL Classic color ‘#4C2B20’.
+
+                                                                      [Constant]
+brunargile
+   RAL Classic color ‘#7E4B26’.
+
+                                                                      [Constant]
+brunbeige
+   RAL Classic color ‘#795038’.
+
+                                                                      [Constant]
+brunchocolat
+   RAL Classic color ‘#442F29’.
+
+                                                                      [Constant]
+bruncuivre
+   RAL Classic color ‘#8D4931’.
+
+                                                                      [Constant]
+brundesecurite
+   RAL Classic color ‘#794D3E’.
+
+                                                                      [Constant]
+brunfauve
+   RAL Classic color ‘#70452A’.
+
+                                                                      [Constant]
+brungris
+   RAL Classic color ‘#3D3635’.
+
+                                                                      [Constant]
+brunnoir
+   RAL Classic color ‘#1A1718’.
+
+                                                                      [Constant]
+brunnoisette
+   RAL Classic color ‘#5A3826’.
+
+                                                                      [Constant]
+brunolive
+   RAL Classic color ‘#724A25’.
+
+                                                                      [Constant]
+brunorange
+   RAL Classic color ‘#A45729’.
+
+                                                                      [Constant]
+brunpale
+   RAL Classic color ‘#755847’.
+
+                                                                      [Constant]
+brunrouge
+   RAL Classic color ‘#66332B’.
+
+                                                                      [Constant]
+brunsepia
+   RAL Classic color ‘#4A3526’.
+
+                                                                      [Constant]
+brunterre
+   RAL Classic color ‘#513A2A’.
+
+                                                                      [Constant]
+brunterredesienne
+   RAL Classic color ‘#9D622B’.
+
+                                                                      [Constant]
+brunvert
+   RAL Classic color ‘#89693E’.
+
+                                                                      [Constant]
+burdeos
+   RAL Classic color ‘#651E38’.
+
+                                                                      [Constant]
+caoba
+   RAL Classic color ‘#4C2B20’.
+
+                                                                      [Constant]
+capriblau
+   RAL Classic color ‘#005E83’.
+
+                                                                      [Constant]
+capriblauw
+   RAL Classic color ‘#005E83’.
+
+                                                                      [Constant]
+capriblue
+   RAL Classic color ‘#005E83’.
+
+                                                                      [Constant]
+carminered
+   RAL Classic color ‘#9B2321’.
+
+                                                                      [Constant]
+castano
+   RAL Classic color ‘#5E2F26’.
+
+                                                                      [Constant]
+cementgrey
+   RAL Classic color ‘#7F8274’.
+
+                                                                      [Constant]
+cementgrijs
+   RAL Classic color ‘#7F8274’.
+
+                                                                      [Constant]
+chestnutbrown
+   RAL Classic color ‘#5E2F26’.
+
+                                                                      [Constant]
+chocoladebruin
+   RAL Classic color ‘#442F29’.
+
+                                                                      [Constant]
+chocolate
+   RAL Classic color ‘#442F29’.
+
+                                                                      [Constant]
+chocolatebrown
+   RAL Classic color ‘#442F29’.
+
+                                                                      [Constant]
+chromegreen
+   RAL Classic color ‘#37422F’.
+
+                                                                      [Constant]
+chromoxidgruen
+   RAL Classic color ‘#37422F’.
+
+                                                                      [Constant]
+chroomoxydegroen
+   RAL Classic color ‘#37422F’.
+
+                                                                      [Constant]
+citroengeel
+   RAL Classic color ‘#DDAF27’.
+
+                                                                      [Constant]
+claretviolet
+   RAL Classic color ‘#651E38’.
+
+                                                                      [Constant]
+claybrown
+   RAL Classic color ‘#7E4B26’.
+
+                                                                      [Constant]
+cobaltblue
+   RAL Classic color ‘#193153’.
+
+                                                                      [Constant]
+cobreperlado
+   RAL Classic color ‘#7F4031’.
+
+                                                                      [Constant]
+colzayellow
+   RAL Classic color ‘#F6B600’.
+
+                                                                      [Constant]
+concretegrey
+   RAL Classic color ‘#808076’.
+
+                                                                      [Constant]
+copperbrown
+   RAL Classic color ‘#8D4931’.
+
+                                                                      [Constant]
+coralred
+   RAL Classic color ‘#A63D2F’.
+
+                                                                      [Constant]
+cream
+   RAL Classic color ‘#E9E0D2’.
+
+                                                                      [Constant]
+cremeweiss
+   RAL Classic color ‘#E9E0D2’.
+
+                                                                      [Constant]
+cremewit
+   RAL Classic color ‘#E9E0D2’.
+
+                                                                      [Constant]
+cuivrenacre
+   RAL Classic color ‘#7F4031’.
+
+                                                                      [Constant]
+curry
+   RAL Classic color ‘#A77F0E’.
+
+                                                                      [Constant]
+currygelb
+   RAL Classic color ‘#A77F0E’.
+
+                                                                      [Constant]
+daffodilyellow
+   RAL Classic color ‘#E88C00’.
+
+                                                                      [Constant]
+dahliageel
+   RAL Classic color ‘#F99A1C’.
+
+                                                                      [Constant]
+dahliayellow
+   RAL Classic color ‘#F99A1C’.
+
+                                                                      [Constant]
+dahliengelb
+   RAL Classic color ‘#F99A1C’.
+
+                                                                      [Constant]
+deeporange
+   RAL Classic color ‘#E26E0E’.
+
+                                                                      [Constant]
+dennengroen
+   RAL Classic color ‘#27352A’.
+
+                                                                      [Constant]
+dieporanje
+   RAL Classic color ‘#E26E0E’.
+
+                                                                      [Constant]
+distantblue
+   RAL Classic color ‘#42698C’.
+
+                                                                      [Constant]
+duifblauw
+   RAL Classic color ‘#637D96’.
+
+                                                                      [Constant]
+dustygrey
+   RAL Classic color ‘#7A7B7A’.
+
+                                                                      [Constant]
+eisengrau
+   RAL Classic color ‘#52595D’.
+
+                                                                      [Constant]
+elfenbein
+   RAL Classic color ‘#DDC49A’.
+
+                                                                      [Constant]
+emeraldgreen
+   RAL Classic color ‘#366735’.
+
+                                                                      [Constant]
+enzianblau
+   RAL Classic color ‘#004F7C’.
+
+                                                                      [Constant]
+erdbeerrot
+   RAL Classic color ‘#C73F4A’.
+
+                                                                      [Constant]
+erikaviolett
+   RAL Classic color ‘#C4618C’.
+
+                                                                      [Constant]
+farngruen
+   RAL Classic color ‘#5E6E3B’.
+
+                                                                      [Constant]
+fawnbrown
+   RAL Classic color ‘#70452A’.
+
+                                                                      [Constant]
+fehgrau
+   RAL Classic color ‘#7A888E’.
+
+                                                                      [Constant]
+fenstergrau
+   RAL Classic color ‘#989EA1’.
+
+                                                                      [Constant]
+fernblau
+   RAL Classic color ‘#42698C’.
+
+                                                                      [Constant]
+ferngreen
+   RAL Classic color ‘#5E6E3B’.
+
+                                                                      [Constant]
+feuerrot
+   RAL Classic color ‘#A72920’.
+
+                                                                      [Constant]
+firgreen
+   RAL Classic color ‘#27352A’.
+
+                                                                      [Constant]
+flamered
+   RAL Classic color ‘#A72920’.
+
+                                                                      [Constant]
+flaschengruen
+   RAL Classic color ‘#2C3222’.
+
+                                                                      [Constant]
+flessengroen
+   RAL Classic color ‘#2C3222’.
+
+                                                                      [Constant]
+framboosrood
+   RAL Classic color ‘#AB273C’.
+
+                                                                      [Constant]
+geelgrijs
+   RAL Classic color ‘#92886F’.
+
+                                                                      [Constant]
+geelgroen
+   RAL Classic color ‘#61993B’.
+
+                                                                      [Constant]
+geelolijfgroen
+   RAL Classic color ‘#474135’.
+
+                                                                      [Constant]
+geeloranje
+   RAL Classic color ‘#DA6E00’.
+
+                                                                      [Constant]
+gelbgrau
+   RAL Classic color ‘#92886F’.
+
+                                                                      [Constant]
+gelbgruen
+   RAL Classic color ‘#61993B’.
+
+                                                                      [Constant]
+gelboliv
+   RAL Classic color ‘#474135’.
+
+                                                                      [Constant]
+gelborange
+   RAL Classic color ‘#DA6E00’.
+
+                                                                      [Constant]
+gencianperlado
+   RAL Classic color ‘#21697C’.
+
+                                                                      [Constant]
+gentiaanblauw
+   RAL Classic color ‘#004F7C’.
+
+                                                                      [Constant]
+gentianblue
+   RAL Classic color ‘#004F7C’.
+
+                                                                      [Constant]
+gentianenacre
+   RAL Classic color ‘#21697C’.
+
+                                                                      [Constant]
+giallobrillante
+   RAL Classic color ‘#FFFF00’.
+
+                                                                      [Constant]
+giallocurry
+   RAL Classic color ‘#A77F0E’.
+
+                                                                      [Constant]
+giallodahlien
+   RAL Classic color ‘#F99A1C’.
+
+                                                                      [Constant]
+giallolimone
+   RAL Classic color ‘#DDAF27’.
+
+                                                                      [Constant]
+giallomelone
+   RAL Classic color ‘#FF9B00’.
+
+                                                                      [Constant]
+giallomiele
+   RAL Classic color ‘#CB8E00’.
+
+                                                                      [Constant]
+giallonarciso
+   RAL Classic color ‘#E88C00’.
+
+                                                                      [Constant]
+giallonavone
+   RAL Classic color ‘#F6B600’.
+
+                                                                      [Constant]
+gialloocra
+   RAL Classic color ‘#BA8F4C’.
+
+                                                                      [Constant]
+gialloolivastro
+   RAL Classic color ‘#A08F65’.
+
+                                                                      [Constant]
+giallooro
+   RAL Classic color ‘#E49E00’.
+
+                                                                      [Constant]
+giallopastello
+   RAL Classic color ‘#EB9C52’.
+
+                                                                      [Constant]
+giallopolenta
+   RAL Classic color ‘#E29000’.
+
+                                                                      [Constant]
+giallosabbia
+   RAL Classic color ‘#D2AA6D’.
+
+                                                                      [Constant]
+gialloscopa
+   RAL Classic color ‘#E2A300’.
+
+                                                                      [Constant]
+giallosegnale
+   RAL Classic color ‘#F9A800’.
+
+                                                                      [Constant]
+giallosole
+   RAL Classic color ‘#F09200’.
+
+                                                                      [Constant]
+giallotraffico
+   RAL Classic color ‘#F7B500’.
+
+                                                                      [Constant]
+giallozafferano
+   RAL Classic color ‘#F6A950’.
+
+                                                                      [Constant]
+giallozinco
+   RAL Classic color ‘#FACA30’.
+
+                                                                      [Constant]
+giallozolfo
+   RAL Classic color ‘#F1DD38’.
+
+                                                                      [Constant]
+ginstergelb
+   RAL Classic color ‘#E2A300’.
+
+                                                                      [Constant]
+gitzwart
+   RAL Classic color ‘#0E0E10’.
+
+                                                                      [Constant]
+goldenyellow
+   RAL Classic color ‘#E49E00’.
+
+                                                                      [Constant]
+goldgelb
+   RAL Classic color ‘#E49E00’.
+
+                                                                      [Constant]
+goudgeel
+   RAL Classic color ‘#E49E00’.
+
+                                                                      [Constant]
+grafietgrijs
+   RAL Classic color ‘#45494E’.
+
+                                                                      [Constant]
+grafietzwart
+   RAL Classic color ‘#27292B’.
+
+                                                                      [Constant]
+granietgrijs
+   RAL Classic color ‘#374345’.
+
+                                                                      [Constant]
+granitegrey
+   RAL Classic color ‘#374345’.
+
+                                                                      [Constant]
+granitgrau
+   RAL Classic color ‘#374345’.
+
+                                                                      [Constant]
+graphiteblack
+   RAL Classic color ‘#27292B’.
+
+                                                                      [Constant]
+graphitegrey
+   RAL Classic color ‘#45494E’.
+
+                                                                      [Constant]
+graphitgrau
+   RAL Classic color ‘#45494E’.
+
+                                                                      [Constant]
+graphitschwarz
+   RAL Classic color ‘#27292B’.
+
+                                                                      [Constant]
+grasgroen
+   RAL Classic color ‘#4D6F39’.
+
+                                                                      [Constant]
+grasgruen
+   RAL Classic color ‘#4D6F39’.
+
+                                                                      [Constant]
+grassgreen
+   RAL Classic color ‘#4D6F39’.
+
+                                                                      [Constant]
+graualuminium
+   RAL Classic color ‘#878581’.
+
+                                                                      [Constant]
+graubeige
+   RAL Classic color ‘#A48F7A’.
+
+                                                                      [Constant]
+graublau
+   RAL Classic color ‘#2B3A44’.
+
+                                                                      [Constant]
+graubraun
+   RAL Classic color ‘#3D3635’.
+
+                                                                      [Constant]
+grauoliv
+   RAL Classic color ‘#3C392E’.
+
+                                                                      [Constant]
+grauweiss
+   RAL Classic color ‘#D7D5CB’.
+
+                                                                      [Constant]
+greenbeige
+   RAL Classic color ‘#CDBA88’.
+
+                                                                      [Constant]
+greenblue
+   RAL Classic color ‘#0F4C64’.
+
+                                                                      [Constant]
+greenbrown
+   RAL Classic color ‘#89693E’.
+
+                                                                      [Constant]
+greengrey
+   RAL Classic color ‘#5D6058’.
+
+                                                                      [Constant]
+greyaluminium
+   RAL Classic color ‘#878581’.
+
+                                                                      [Constant]
+greybeige
+   RAL Classic color ‘#A48F7A’.
+
+                                                                      [Constant]
+greyblue
+   RAL Classic color ‘#2B3A44’.
+
+                                                                      [Constant]
+greybrown
+   RAL Classic color ‘#3D3635’.
+
+                                                                      [Constant]
+greyolive
+   RAL Classic color ‘#3C392E’.
+
+                                                                      [Constant]
+greywhite
+   RAL Classic color ‘#D7D5CB’.
+
+                                                                      [Constant]
+grigioagata
+   RAL Classic color ‘#B0B0A9’.
+
+                                                                      [Constant]
+grigioantracite
+   RAL Classic color ‘#383E42’.
+
+                                                                      [Constant]
+grigioardesia
+   RAL Classic color ‘#4F5358’.
+
+                                                                      [Constant]
+grigioargento
+   RAL Classic color ‘#8C969D’.
+
+                                                                      [Constant]
+grigiobasalto
+   RAL Classic color ‘#575D5E’.
+
+                                                                      [Constant]
+grigiobeige
+   RAL Classic color ‘#766A5E’.
+
+                                                                      [Constant]
+grigiobluastro
+   RAL Classic color ‘#5B686D’.
+
+                                                                      [Constant]
+grigiobrunastro
+   RAL Classic color ‘#575044’.
+
+                                                                      [Constant]
+grigiocalcestruzzo
+   RAL Classic color ‘#808076’.
+
+                                                                      [Constant]
+grigiocemento
+   RAL Classic color ‘#7F8274’.
+
+                                                                      [Constant]
+grigiochiaroperlato
+   RAL Classic color ‘#858583’.
+
+                                                                      [Constant]
+grigioferro
+   RAL Classic color ‘#52595D’.
+
+                                                                      [Constant]
+grigiofinestra
+   RAL Classic color ‘#989EA1’.
+
+                                                                      [Constant]
+grigioghiaia
+   RAL Classic color ‘#B5B0A1’.
+
+                                                                      [Constant]
+grigiogiallastro
+   RAL Classic color ‘#92886F’.
+
+                                                                      [Constant]
+grigiografite
+   RAL Classic color ‘#45494E’.
+
+                                                                      [Constant]
+grigiogranito
+   RAL Classic color ‘#374345’.
+
+                                                                      [Constant]
+grigiokaki
+   RAL Classic color ‘#745E3D’.
+
+                                                                      [Constant]
+grigioluce
+   RAL Classic color ‘#C5C7C4’.
+
+                                                                      [Constant]
+grigiomuschio
+   RAL Classic color ‘#7A7669’.
+
+                                                                      [Constant]
+grigionerastro
+   RAL Classic color ‘#2F3234’.
+
+                                                                      [Constant]
+grigioolivastro
+   RAL Classic color ‘#817863’.
+
+                                                                      [Constant]
+grigioombra
+   RAL Classic color ‘#4C4A44’.
+
+                                                                      [Constant]
+grigiopietra
+   RAL Classic color ‘#928E85’.
+
+                                                                      [Constant]
+grigioplatino
+   RAL Classic color ‘#979392’.
+
+                                                                      [Constant]
+grigiopolvere
+   RAL Classic color ‘#7A7B7A’.
+
+                                                                      [Constant]
+grigioquarzo
+   RAL Classic color ‘#6B665E’.
+
+                                                                      [Constant]
+grigioscuroperlato
+   RAL Classic color ‘#797B7A’.
+
+                                                                      [Constant]
+grigiosegnale
+   RAL Classic color ‘#9B9B9B’.
+
+                                                                      [Constant]
+grigioseta
+   RAL Classic color ‘#B7B3A8’.
+
+                                                                      [Constant]
+grigiotele-1
+   RAL Classic color ‘#8D9295’.
+
+                                                                      [Constant]
+grigiotele-2
+   RAL Classic color ‘#7F868A’.
+
+                                                                      [Constant]
+grigiotele-4
+   RAL Classic color ‘#C8C8C7’.
+
+                                                                      [Constant]
+grigiotenda
+   RAL Classic color ‘#585C56’.
+
+                                                                      [Constant]
+grigiotopo
+   RAL Classic color ‘#6C6E6B’.
+
+                                                                      [Constant]
+grigiotopoperlato
+   RAL Classic color ‘#817B73’.
+
+                                                                      [Constant]
+grigiotraffico-a
+   RAL Classic color ‘#8E9291’.
+
+                                                                      [Constant]
+grigiotraffico-b
+   RAL Classic color ‘#4F5250’.
+
+                                                                      [Constant]
+grigiovaio
+   RAL Classic color ‘#7A888E’.
+
+                                                                      [Constant]
+grigioverdastro
+   RAL Classic color ‘#5D6058’.
+
+                                                                      [Constant]
+grijsaluminiumkleurig
+   RAL Classic color ‘#878581’.
+
+                                                                      [Constant]
+grijsbeige
+   RAL Classic color ‘#A48F7A’.
+
+                                                                      [Constant]
+grijsblauw
+   RAL Classic color ‘#2B3A44’.
+
+                                                                      [Constant]
+grijsbruin
+   RAL Classic color ‘#3D3635’.
+
+                                                                      [Constant]
+grijsolijfgroen
+   RAL Classic color ‘#3C392E’.
+
+                                                                      [Constant]
+grijswit
+   RAL Classic color ‘#D7D5CB’.
+
+                                                                      [Constant]
+grisagata
+   RAL Classic color ‘#B0B0A9’.
+
+                                                                      [Constant]
+grisagate
+   RAL Classic color ‘#B0B0A9’.
+
+                                                                      [Constant]
+grisamarillento
+   RAL Classic color ‘#92886F’.
+
+                                                                      [Constant]
+grisanthracite
+   RAL Classic color ‘#383E42’.
+
+                                                                      [Constant]
+grisantracita
+   RAL Classic color ‘#383E42’.
+
+                                                                      [Constant]
+grisardilla
+   RAL Classic color ‘#7A888E’.
+
+                                                                      [Constant]
+grisardoise
+   RAL Classic color ‘#4F5358’.
+
+                                                                      [Constant]
+grisargent
+   RAL Classic color ‘#8C969D’.
+
+                                                                      [Constant]
+grisazulado
+   RAL Classic color ‘#5B686D’.
+
+                                                                      [Constant]
+grisbasalte
+   RAL Classic color ‘#575D5E’.
+
+                                                                      [Constant]
+grisbasalto
+   RAL Classic color ‘#575D5E’.
+
+                                                                      [Constant]
+grisbeige
+   RAL Classic color ‘#766A5E’.
+
+                                                                      [Constant]
+grisbeton
+   RAL Classic color ‘#808076’.
+
+                                                                      [Constant]
+grisbleu
+   RAL Classic color ‘#5B686D’.
+
+                                                                      [Constant]
+grisbrun
+   RAL Classic color ‘#575044’.
+
+                                                                      [Constant]
+griscaqui
+   RAL Classic color ‘#745E3D’.
+
+                                                                      [Constant]
+griscemento
+   RAL Classic color ‘#7F8274’.
+
+                                                                      [Constant]
+grisciment
+   RAL Classic color ‘#7F8274’.
+
+                                                                      [Constant]
+grisclair
+   RAL Classic color ‘#C5C7C4’.
+
+                                                                      [Constant]
+grisclairnacre
+   RAL Classic color ‘#858583’.
+
+                                                                      [Constant]
+grisclaroperlado
+   RAL Classic color ‘#858583’.
+
+                                                                      [Constant]
+griscuarzo
+   RAL Classic color ‘#6B665E’.
+
+                                                                      [Constant]
+grisdesecurite
+   RAL Classic color ‘#9B9B9B’.
+
+                                                                      [Constant]
+grisfenetre
+   RAL Classic color ‘#989EA1’.
+
+                                                                      [Constant]
+grisfer
+   RAL Classic color ‘#52595D’.
+
+                                                                      [Constant]
+grisfoncenacre
+   RAL Classic color ‘#797B7A’.
+
+                                                                      [Constant]
+grisgrafita
+   RAL Classic color ‘#45494E’.
+
+                                                                      [Constant]
+grisgranit
+   RAL Classic color ‘#374345’.
+
+                                                                      [Constant]
+grisgranito
+   RAL Classic color ‘#374345’.
+
+                                                                      [Constant]
+grisgraphite
+   RAL Classic color ‘#45494E’.
+
+                                                                      [Constant]
+grisguijarro
+   RAL Classic color ‘#B5B0A1’.
+
+                                                                      [Constant]
+grishierro
+   RAL Classic color ‘#52595D’.
+
+                                                                      [Constant]
+grishormigon
+   RAL Classic color ‘#808076’.
+
+                                                                      [Constant]
+grisjaune
+   RAL Classic color ‘#92886F’.
+
+                                                                      [Constant]
+griskaki
+   RAL Classic color ‘#745E3D’.
+
+                                                                      [Constant]
+grislona
+   RAL Classic color ‘#585C56’.
+
+                                                                      [Constant]
+grisluminoso
+   RAL Classic color ‘#C5C7C4’.
+
+                                                                      [Constant]
+grismousse
+   RAL Classic color ‘#7A7669’.
+
+                                                                      [Constant]
+grismusgo
+   RAL Classic color ‘#7A7669’.
+
+                                                                      [Constant]
+grismusgoperlado
+   RAL Classic color ‘#817B73’.
+
+                                                                      [Constant]
+grisnegruzco
+   RAL Classic color ‘#2F3234’.
+
+                                                                      [Constant]
+grisnoir
+   RAL Classic color ‘#2F3234’.
+
+                                                                      [Constant]
+grisoliva
+   RAL Classic color ‘#817863’.
+
+                                                                      [Constant]
+grisolive
+   RAL Classic color ‘#817863’.
+
+                                                                      [Constant]
+grisoscuroperlado
+   RAL Classic color ‘#797B7A’.
+
+                                                                      [Constant]
+grisparduzco
+   RAL Classic color ‘#575044’.
+
+                                                                      [Constant]
+grispetitgris
+   RAL Classic color ‘#7A888E’.
+
+                                                                      [Constant]
+grispiedra
+   RAL Classic color ‘#928E85’.
+
+                                                                      [Constant]
+grispierre
+   RAL Classic color ‘#928E85’.
+
+                                                                      [Constant]
+grispizarra
+   RAL Classic color ‘#4F5358’.
+
+                                                                      [Constant]
+grisplata
+   RAL Classic color ‘#8C969D’.
+
+                                                                      [Constant]
+grisplatine
+   RAL Classic color ‘#979392’.
+
+                                                                      [Constant]
+grisplatino
+   RAL Classic color ‘#979392’.
+
+                                                                      [Constant]
+grispolvo
+   RAL Classic color ‘#7A7B7A’.
+
+                                                                      [Constant]
+grispoussiere
+   RAL Classic color ‘#7A7B7A’.
+
+                                                                      [Constant]
+grisquartz
+   RAL Classic color ‘#6B665E’.
+
+                                                                      [Constant]
+grisraton
+   RAL Classic color ‘#6C6E6B’.
+
+                                                                      [Constant]
+grisseda
+   RAL Classic color ‘#B7B3A8’.
+
+                                                                      [Constant]
+grissenales
+   RAL Classic color ‘#9B9B9B’.
+
+                                                                      [Constant]
+grissignalisation-a
+   RAL Classic color ‘#8E9291’.
+
+                                                                      [Constant]
+grissignalisation-b
+   RAL Classic color ‘#4F5250’.
+
+                                                                      [Constant]
+grissilex
+   RAL Classic color ‘#B5B0A1’.
+
+                                                                      [Constant]
+grissoie
+   RAL Classic color ‘#B7B3A8’.
+
+                                                                      [Constant]
+grissombra
+   RAL Classic color ‘#4C4A44’.
+
+                                                                      [Constant]
+grissouris
+   RAL Classic color ‘#6C6E6B’.
+
+                                                                      [Constant]
+grissourisnacre
+   RAL Classic color ‘#817B73’.
+
+                                                                      [Constant]
+gristele-1
+   RAL Classic color ‘#8D9295’.
+
+                                                                      [Constant]
+gristele-2
+   RAL Classic color ‘#7F868A’.
+
+                                                                      [Constant]
+gristele-4
+   RAL Classic color ‘#C8C8C7’.
+
+                                                                      [Constant]
+gristente
+   RAL Classic color ‘#585C56’.
+
+                                                                      [Constant]
+gristerredombre
+   RAL Classic color ‘#4C4A44’.
+
+                                                                      [Constant]
+gristrafico-a
+   RAL Classic color ‘#8E9291’.
+
+                                                                      [Constant]
+gristrafico-b
+   RAL Classic color ‘#4F5250’.
+
+                                                                      [Constant]
+grisventana
+   RAL Classic color ‘#989EA1’.
+
+                                                                      [Constant]
+grisverdoso
+   RAL Classic color ‘#5D6058’.
+
+                                                                      [Constant]
+grisvert
+   RAL Classic color ‘#5D6058’.
+
+                                                                      [Constant]
+groenbeige
+   RAL Classic color ‘#CDBA88’.
+
+                                                                      [Constant]
+groenblauw
+   RAL Classic color ‘#0F4C64’.
+
+                                                                      [Constant]
+groenbruin
+   RAL Classic color ‘#89693E’.
+
+                                                                      [Constant]
+groengrijs
+   RAL Classic color ‘#5D6058’.
+
+                                                                      [Constant]
+gruenbeige
+   RAL Classic color ‘#CDBA88’.
+
+                                                                      [Constant]
+gruenblau
+   RAL Classic color ‘#0F4C64’.
+
+                                                                      [Constant]
+gruenbraun
+   RAL Classic color ‘#89693E’.
+
+                                                                      [Constant]
+gruengrau
+   RAL Classic color ‘#5D6058’.
+
+                                                                      [Constant]
+heatherviolet
+   RAL Classic color ‘#C4618C’.
+
+                                                                      [Constant]
+heidepaars
+   RAL Classic color ‘#C4618C’.
+
+                                                                      [Constant]
+hellelfenbein
+   RAL Classic color ‘#E6D2B5’.
+
+                                                                      [Constant]
+hellrosa
+   RAL Classic color ‘#D8A0A6’.
+
+                                                                      [Constant]
+hellrotorange
+   RAL Classic color ‘#ED6B21’.
+
+                                                                      [Constant]
+hemelsblauw
+   RAL Classic color ‘#007CB0’.
+
+                                                                      [Constant]
+himbeerrot
+   RAL Classic color ‘#AB273C’.
+
+                                                                      [Constant]
+himmelblau
+   RAL Classic color ‘#007CB0’.
+
+                                                                      [Constant]
+honeyyellow
+   RAL Classic color ‘#CB8E00’.
+
+                                                                      [Constant]
+honiggelb
+   RAL Classic color ‘#CB8E00’.
+
+                                                                      [Constant]
+honinggeel
+   RAL Classic color ‘#CB8E00’.
+
+                                                                      [Constant]
+ijzergrijs
+   RAL Classic color ‘#52595D’.
+
+                                                                      [Constant]
+irongrey
+   RAL Classic color ‘#52595D’.
+
+                                                                      [Constant]
+ivoire
+   RAL Classic color ‘#DDC49A’.
+
+                                                                      [Constant]
+ivoireclair
+   RAL Classic color ‘#E6D2B5’.
+
+                                                                      [Constant]
+ivoorkleurig
+   RAL Classic color ‘#DDC49A’.
+
+                                                                      [Constant]
+ivory
+   RAL Classic color ‘#DDC49A’.
+
+                                                                      [Constant]
+jaunebrillant
+   RAL Classic color ‘#FFFF00’.
+
+                                                                      [Constant]
+jaunecitron
+   RAL Classic color ‘#DDAF27’.
+
+                                                                      [Constant]
+jaunecolza
+   RAL Classic color ‘#F6B600’.
+
+                                                                      [Constant]
+jaunecurry
+   RAL Classic color ‘#A77F0E’.
+
+                                                                      [Constant]
+jaunedahlia
+   RAL Classic color ‘#F99A1C’.
+
+                                                                      [Constant]
+jaunedesecurite
+   RAL Classic color ‘#F9A800’.
+
+                                                                      [Constant]
+jaunegenet
+   RAL Classic color ‘#E2A300’.
+
+                                                                      [Constant]
+jaunemais
+   RAL Classic color ‘#E29000’.
+
+                                                                      [Constant]
+jaunemelon
+   RAL Classic color ‘#FF9B00’.
+
+                                                                      [Constant]
+jaunemiel
+   RAL Classic color ‘#CB8E00’.
+
+                                                                      [Constant]
+jaunenarcisse
+   RAL Classic color ‘#E88C00’.
+
+                                                                      [Constant]
+jauneocre
+   RAL Classic color ‘#BA8F4C’.
+
+                                                                      [Constant]
+jauneolive
+   RAL Classic color ‘#A08F65’.
+
+                                                                      [Constant]
+jauneor
+   RAL Classic color ‘#E49E00’.
+
+                                                                      [Constant]
+jaunepastel
+   RAL Classic color ‘#EB9C52’.
+
+                                                                      [Constant]
+jaunesable
+   RAL Classic color ‘#D2AA6D’.
+
+                                                                      [Constant]
+jaunesafran
+   RAL Classic color ‘#F6A950’.
+
+                                                                      [Constant]
+jaunesignalisation
+   RAL Classic color ‘#F7B500’.
+
+                                                                      [Constant]
+jaunesoleil
+   RAL Classic color ‘#F09200’.
+
+                                                                      [Constant]
+jaunesoufre
+   RAL Classic color ‘#F1DD38’.
+
+                                                                      [Constant]
+jaunezinc
+   RAL Classic color ‘#FACA30’.
+
+                                                                      [Constant]
+jetblack
+   RAL Classic color ‘#0E0E10’.
+
+                                                                      [Constant]
+kakigrijs
+   RAL Classic color ‘#745E3D’.
+
+                                                                      [Constant]
+karmijnrood
+   RAL Classic color ‘#9B2321’.
+
+                                                                      [Constant]
+karminrot
+   RAL Classic color ‘#9B2321’.
+
+                                                                      [Constant]
+kastanienbraun
+   RAL Classic color ‘#5E2F26’.
+
+                                                                      [Constant]
+kastanjebruin
+   RAL Classic color ‘#5E2F26’.
+
+                                                                      [Constant]
+kerriegeel
+   RAL Classic color ‘#A77F0E’.
+
+                                                                      [Constant]
+khakigrau
+   RAL Classic color ‘#745E3D’.
+
+                                                                      [Constant]
+khakigrey
+   RAL Classic color ‘#745E3D’.
+
+                                                                      [Constant]
+kieferngruen
+   RAL Classic color ‘#315442’.
+
+                                                                      [Constant]
+kieselgrau
+   RAL Classic color ‘#B5B0A1’.
+
+                                                                      [Constant]
+kiezelgrijs
+   RAL Classic color ‘#B5B0A1’.
+
+                                                                      [Constant]
+kobaltblau
+   RAL Classic color ‘#193153’.
+
+                                                                      [Constant]
+kobaltblauw
+   RAL Classic color ‘#193153’.
+
+                                                                      [Constant]
+koolzaadgeel
+   RAL Classic color ‘#F6B600’.
+
+                                                                      [Constant]
+koperbruin
+   RAL Classic color ‘#8D4931’.
+
+                                                                      [Constant]
+koraalrood
+   RAL Classic color ‘#A63D2F’.
+
+                                                                      [Constant]
+korallenrot
+   RAL Classic color ‘#A63D2F’.
+
+                                                                      [Constant]
+kupferbraun
+   RAL Classic color ‘#8D4931’.
+
+                                                                      [Constant]
+kwartsgrijs
+   RAL Classic color ‘#6B665E’.
+
+                                                                      [Constant]
+lachsorange
+   RAL Classic color ‘#D5654D’.
+
+                                                                      [Constant]
+lachsrot
+   RAL Classic color ‘#CF6955’.
+
+                                                                      [Constant]
+laubgruen
+   RAL Classic color ‘#325928’.
+
+                                                                      [Constant]
+leafgreen
+   RAL Classic color ‘#325928’.
+
+                                                                      [Constant]
+leembruin
+   RAL Classic color ‘#7E4B26’.
+
+                                                                      [Constant]
+lehmbraun
+   RAL Classic color ‘#7E4B26’.
+
+                                                                      [Constant]
+leigrijs
+   RAL Classic color ‘#4F5358’.
+
+                                                                      [Constant]
+lemonyellow
+   RAL Classic color ‘#DDAF27’.
+
+                                                                      [Constant]
+leuchtgelb
+   RAL Classic color ‘#FFFF00’.
+
+                                                                      [Constant]
+leuchtgruen
+   RAL Classic color ‘#00B51A’.
+
+                                                                      [Constant]
+leuchthell-orange
+   RAL Classic color ‘#FFB200’.
+
+                                                                      [Constant]
+leuchthellrot
+   RAL Classic color ‘#FF2A1B’.
+
+                                                                      [Constant]
+leuchtorange
+   RAL Classic color ‘#FF4D06’.
+
+                                                                      [Constant]
+leuchtrot
+   RAL Classic color ‘#FF2D21’.
+
+                                                                      [Constant]
+lichtblau
+   RAL Classic color ‘#0089B6’.
+
+                                                                      [Constant]
+lichtblauw
+   RAL Classic color ‘#0089B6’.
+
+                                                                      [Constant]
+lichtgrau
+   RAL Classic color ‘#C5C7C4’.
+
+                                                                      [Constant]
+lichtgrijs
+   RAL Classic color ‘#C5C7C4’.
+
+                                                                      [Constant]
+lichtgroen
+   RAL Classic color ‘#7EBAB5’.
+
+                                                                      [Constant]
+lichtgruen
+   RAL Classic color ‘#7EBAB5’.
+
+                                                                      [Constant]
+lichtivoorkleurig
+   RAL Classic color ‘#E6D2B5’.
+
+                                                                      [Constant]
+lichtroodoranje
+   RAL Classic color ‘#ED6B21’.
+
+                                                                      [Constant]
+lichtroze
+   RAL Classic color ‘#D8A0A6’.
+
+                                                                      [Constant]
+lightblue
+   RAL Classic color ‘#0089B6’.
+
+                                                                      [Constant]
+lightgreen
+   RAL Classic color ‘#7EBAB5’.
+
+                                                                      [Constant]
+lightgrey
+   RAL Classic color ‘#C5C7C4’.
+
+                                                                      [Constant]
+lightivory
+   RAL Classic color ‘#E6D2B5’.
+
+                                                                      [Constant]
+lightpink
+   RAL Classic color ‘#D8A0A6’.
+
+                                                                      [Constant]
+lilaazulado
+   RAL Classic color ‘#76689A’.
+
+                                                                      [Constant]
+lilasbleu
+   RAL Classic color ‘#76689A’.
+
+                                                                      [Constant]
+lilasrouge
+   RAL Classic color ‘#816183’.
+
+                                                                      [Constant]
+lillabluastro
+   RAL Classic color ‘#76689A’.
+
+                                                                      [Constant]
+lillarossastro
+   RAL Classic color ‘#816183’.
+
+                                                                      [Constant]
+loofgroen
+   RAL Classic color ‘#325928’.
+
+                                                                      [Constant]
+luminousbrightorange
+   RAL Classic color ‘#FFB200’.
+
+                                                                      [Constant]
+luminousbrightred
+   RAL Classic color ‘#FF2A1B’.
+
+                                                                      [Constant]
+luminousgreen
+   RAL Classic color ‘#00B51A’.
+
+                                                                      [Constant]
+luminousorange
+   RAL Classic color ‘#FF4D06’.
+
+                                                                      [Constant]
+luminousred
+   RAL Classic color ‘#FF2D21’.
+
+                                                                      [Constant]
+luminousyellow
+   RAL Classic color ‘#FFFF00’.
+
+                                                                      [Constant]
+magentatele
+   RAL Classic color ‘#BC4077’.
+
+                                                                      [Constant]
+mahagonibraun
+   RAL Classic color ‘#4C2B20’.
+
+                                                                      [Constant]
+mahoganybrown
+   RAL Classic color ‘#4C2B20’.
+
+                                                                      [Constant]
+mahoniebruin
+   RAL Classic color ‘#4C2B20’.
+
+                                                                      [Constant]
+maigruen
+   RAL Classic color ‘#587F40’.
+
+                                                                      [Constant]
+maisgeel
+   RAL Classic color ‘#E29000’.
+
+                                                                      [Constant]
+maisgelb
+   RAL Classic color ‘#E29000’.
+
+                                                                      [Constant]
+maizeyellow
+   RAL Classic color ‘#E29000’.
+
+                                                                      [Constant]
+marfil
+   RAL Classic color ‘#DDC49A’.
+
+                                                                      [Constant]
+marfilclaro
+   RAL Classic color ‘#E6D2B5’.
+
+                                                                      [Constant]
+marron
+   RAL Classic color ‘#5E2F26’.
+
+                                                                      [Constant]
+marronearancio
+   RAL Classic color ‘#A45729’.
+
+                                                                      [Constant]
+marronebeige
+   RAL Classic color ‘#795038’.
+
+                                                                      [Constant]
+marronecapriolo
+   RAL Classic color ‘#70452A’.
+
+                                                                      [Constant]
+marronecastagna
+   RAL Classic color ‘#5E2F26’.
+
+                                                                      [Constant]
+marronecioccolata
+   RAL Classic color ‘#442F29’.
+
+                                                                      [Constant]
+marronefango
+   RAL Classic color ‘#7E4B26’.
+
+                                                                      [Constant]
+marronegrigiastro
+   RAL Classic color ‘#3D3635’.
+
+                                                                      [Constant]
+marronemogano
+   RAL Classic color ‘#4C2B20’.
+
+                                                                      [Constant]
+marronenerastro
+   RAL Classic color ‘#1A1718’.
+
+                                                                      [Constant]
+marronenoce
+   RAL Classic color ‘#5A3826’.
+
+                                                                      [Constant]
+marroneocra
+   RAL Classic color ‘#9D622B’.
+
+                                                                      [Constant]
+marroneoliva
+   RAL Classic color ‘#724A25’.
+
+                                                                      [Constant]
+marronepallido
+   RAL Classic color ‘#755847’.
+
+                                                                      [Constant]
+marronerame
+   RAL Classic color ‘#8D4931’.
+
+                                                                      [Constant]
+marronerossiccio
+   RAL Classic color ‘#66332B’.
+
+                                                                      [Constant]
+marronesegnale
+   RAL Classic color ‘#794D3E’.
+
+                                                                      [Constant]
+marroneseppia
+   RAL Classic color ‘#4A3526’.
+
+                                                                      [Constant]
+marroneterra
+   RAL Classic color ‘#513A2A’.
+
+                                                                      [Constant]
+marroneverdastro
+   RAL Classic color ‘#89693E’.
+
+                                                                      [Constant]
+marronsenales
+   RAL Classic color ‘#794D3E’.
+
+                                                                      [Constant]
+marrontierra
+   RAL Classic color ‘#513A2A’.
+
+                                                                      [Constant]
+mausgrau
+   RAL Classic color ‘#6C6E6B’.
+
+                                                                      [Constant]
+maygreen
+   RAL Classic color ‘#587F40’.
+
+                                                                      [Constant]
+meigroen
+   RAL Classic color ‘#587F40’.
+
+                                                                      [Constant]
+meloengeel
+   RAL Classic color ‘#FF9B00’.
+
+                                                                      [Constant]
+melonengelb
+   RAL Classic color ‘#FF9B00’.
+
+                                                                      [Constant]
+melonyellow
+   RAL Classic color ‘#FF9B00’.
+
+                                                                      [Constant]
+mintgreen
+   RAL Classic color ‘#006F3D’.
+
+                                                                      [Constant]
+mintgroen
+   RAL Classic color ‘#006F3D’.
+
+                                                                      [Constant]
+minttuerkis
+   RAL Classic color ‘#46877F’.
+
+                                                                      [Constant]
+mintturquoise
+   RAL Classic color ‘#46877F’.
+
+                                                                      [Constant]
+minzgruen
+   RAL Classic color ‘#006F3D’.
+
+                                                                      [Constant]
+moosgrau
+   RAL Classic color ‘#7A7669’.
+
+                                                                      [Constant]
+moosgruen
+   RAL Classic color ‘#114232’.
+
+                                                                      [Constant]
+moradoperlado
+   RAL Classic color ‘#6B6B7F’.
+
+                                                                      [Constant]
+moraperlato
+   RAL Classic color ‘#6B6B7F’.
+
+                                                                      [Constant]
+mosgrijs
+   RAL Classic color ‘#7A7669’.
+
+                                                                      [Constant]
+mosgroen
+   RAL Classic color ‘#114232’.
+
+                                                                      [Constant]
+mossgreen
+   RAL Classic color ‘#114232’.
+
+                                                                      [Constant]
+mossgrey
+   RAL Classic color ‘#7A7669’.
+
+                                                                      [Constant]
+mousegrey
+   RAL Classic color ‘#6C6E6B’.
+
+                                                                      [Constant]
+muisgrijs
+   RAL Classic color ‘#6C6E6B’.
+
+                                                                      [Constant]
+murenacre
+   RAL Classic color ‘#6B6B7F’.
+
+                                                                      [Constant]
+nachtblau
+   RAL Classic color ‘#222D5A’.
+
+                                                                      [Constant]
+nachtblauw
+   RAL Classic color ‘#222D5A’.
+
+                                                                      [Constant]
+naranjabrillante
+   RAL Classic color ‘#FF4D06’.
+
+                                                                      [Constant]
+naranjaclarobrillante
+   RAL Classic color ‘#FFB200’.
+
+                                                                      [Constant]
+naranjaintenso
+   RAL Classic color ‘#E26E0E’.
+
+                                                                      [Constant]
+naranjapalido
+   RAL Classic color ‘#F67828’.
+
+                                                                      [Constant]
+naranjaperlado
+   RAL Classic color ‘#923E25’.
+
+                                                                      [Constant]
+naranjapuro
+   RAL Classic color ‘#E25303’.
+
+                                                                      [Constant]
+naranjasalmon
+   RAL Classic color ‘#D5654D’.
+
+                                                                      [Constant]
+naranjasanguineo
+   RAL Classic color ‘#BF3922’.
+
+                                                                      [Constant]
+naranjasenales
+   RAL Classic color ‘#D05D28’.
+
+                                                                      [Constant]
+naranjatrafico
+   RAL Classic color ‘#DE5307’.
+
+                                                                      [Constant]
+narcissengeel
+   RAL Classic color ‘#E88C00’.
+
+                                                                      [Constant]
+narzissengelb
+   RAL Classic color ‘#E88C00’.
+
+                                                                      [Constant]
+negrografito
+   RAL Classic color ‘#27292B’.
+
+                                                                      [Constant]
+negrointenso
+   RAL Classic color ‘#0E0E10’.
+
+                                                                      [Constant]
+negrosenales
+   RAL Classic color ‘#2B2B2C’.
+
+                                                                      [Constant]
+negrotrafico
+   RAL Classic color ‘#2A292A’.
+
+                                                                      [Constant]
+nerografite
+   RAL Classic color ‘#27292B’.
+
+                                                                      [Constant]
+nerointenso
+   RAL Classic color ‘#0E0E10’.
+
+                                                                      [Constant]
+nerosegnale
+   RAL Classic color ‘#2B2B2C’.
+
+                                                                      [Constant]
+nerotraffico
+   RAL Classic color ‘#2A292A’.
+
+                                                                      [Constant]
+nightblue
+   RAL Classic color ‘#222D5A’.
+
+                                                                      [Constant]
+noirdesecurite
+   RAL Classic color ‘#2B2B2C’.
+
+                                                                      [Constant]
+noirfonce
+   RAL Classic color ‘#0E0E10’.
+
+                                                                      [Constant]
+noirgraphite
+   RAL Classic color ‘#27292B’.
+
+                                                                      [Constant]
+noirsignalisation
+   RAL Classic color ‘#2A292A’.
+
+                                                                      [Constant]
+notenbruin
+   RAL Classic color ‘#5A3826’.
+
+                                                                      [Constant]
+nussbraun
+   RAL Classic color ‘#5A3826’.
+
+                                                                      [Constant]
+nutbrown
+   RAL Classic color ‘#5A3826’.
+
+                                                                      [Constant]
+oceaanblauw
+   RAL Classic color ‘#00414B’.
+
+                                                                      [Constant]
+oceanblue
+   RAL Classic color ‘#00414B’.
+
+                                                                      [Constant]
+ochrebrown
+   RAL Classic color ‘#9D622B’.
+
+                                                                      [Constant]
+ochreyellow
+   RAL Classic color ‘#BA8F4C’.
+
+                                                                      [Constant]
+ockerbraun
+   RAL Classic color ‘#9D622B’.
+
+                                                                      [Constant]
+ockergelb
+   RAL Classic color ‘#BA8F4C’.
+
+                                                                      [Constant]
+okerbruin
+   RAL Classic color ‘#9D622B’.
+
+                                                                      [Constant]
+okergeel
+   RAL Classic color ‘#BA8F4C’.
+
+                                                                      [Constant]
+olijfbruin
+   RAL Classic color ‘#724A25’.
+
+                                                                      [Constant]
+olijfgeel
+   RAL Classic color ‘#A08F65’.
+
+                                                                      [Constant]
+olijfgrijs
+   RAL Classic color ‘#817863’.
+
+                                                                      [Constant]
+olijfgroen
+   RAL Classic color ‘#50533C’.
+
+                                                                      [Constant]
+olivaamarillo
+   RAL Classic color ‘#474135’.
+
+                                                                      [Constant]
+olivabrunastro
+   RAL Classic color ‘#3A3327’.
+
+                                                                      [Constant]
+olivagiallastro
+   RAL Classic color ‘#474135’.
+
+                                                                      [Constant]
+olivagrigiastro
+   RAL Classic color ‘#3C392E’.
+
+                                                                      [Constant]
+olivagrisaceo
+   RAL Classic color ‘#3C392E’.
+
+                                                                      [Constant]
+olivanegruzco
+   RAL Classic color ‘#3D3D36’.
+
+                                                                      [Constant]
+olivanerastro
+   RAL Classic color ‘#3D3D36’.
+
+                                                                      [Constant]
+olivaparduzco
+   RAL Classic color ‘#3A3327’.
+
+                                                                      [Constant]
+olivbraun
+   RAL Classic color ‘#724A25’.
+
+                                                                      [Constant]
+olivebrown
+   RAL Classic color ‘#724A25’.
+
+                                                                      [Constant]
+olivebrun
+   RAL Classic color ‘#3A3327’.
+
+                                                                      [Constant]
+olivedrab
+   RAL Classic color ‘#3A3327’.
+
+                                                                      [Constant]
+olivegreen
+   RAL Classic color ‘#50533C’.
+
+                                                                      [Constant]
+olivegrey
+   RAL Classic color ‘#817863’.
+
+                                                                      [Constant]
+olivegris
+   RAL Classic color ‘#3C392E’.
+
+                                                                      [Constant]
+olivejaune
+   RAL Classic color ‘#474135’.
+
+                                                                      [Constant]
+olivenoir
+   RAL Classic color ‘#3D3D36’.
+
+                                                                      [Constant]
+oliveyellow
+   RAL Classic color ‘#A08F65’.
+
+                                                                      [Constant]
+olivgelb
+   RAL Classic color ‘#A08F65’.
+
+                                                                      [Constant]
+olivgrau
+   RAL Classic color ‘#817863’.
+
+                                                                      [Constant]
+olivgruen
+   RAL Classic color ‘#50533C’.
+
+                                                                      [Constant]
+ombergrijs
+   RAL Classic color ‘#4C4A44’.
+
+                                                                      [Constant]
+opaalgroen
+   RAL Classic color ‘#005F4E’.
+
+                                                                      [Constant]
+opalgreen
+   RAL Classic color ‘#005F4E’.
+
+                                                                      [Constant]
+opalgruen
+   RAL Classic color ‘#005F4E’.
+
+                                                                      [Constant]
+orangebraun
+   RAL Classic color ‘#A45729’.
+
+                                                                      [Constant]
+orangebrillant
+   RAL Classic color ‘#FF4D06’.
+
+                                                                      [Constant]
+orangebrown
+   RAL Classic color ‘#A45729’.
+
+                                                                      [Constant]
+orangeclairbrillant
+   RAL Classic color ‘#FFB200’.
+
+                                                                      [Constant]
+orangedesecurite
+   RAL Classic color ‘#D05D28’.
+
+                                                                      [Constant]
+orangefonce
+   RAL Classic color ‘#E26E0E’.
+
+                                                                      [Constant]
+orangejaune
+   RAL Classic color ‘#DA6E00’.
+
+                                                                      [Constant]
+orangenacre
+   RAL Classic color ‘#923E25’.
+
+                                                                      [Constant]
+orangepastel
+   RAL Classic color ‘#F67828’.
+
+                                                                      [Constant]
+orangepur
+   RAL Classic color ‘#E25303’.
+
+                                                                      [Constant]
+orangerouge
+   RAL Classic color ‘#BA481B’.
+
+                                                                      [Constant]
+orangerougeclair
+   RAL Classic color ‘#ED6B21’.
+
+                                                                      [Constant]
+orangesang
+   RAL Classic color ‘#BF3922’.
+
+                                                                      [Constant]
+orangesaumon
+   RAL Classic color ‘#D5654D’.
+
+                                                                      [Constant]
+orangesignalisation
+   RAL Classic color ‘#DE5307’.
+
+                                                                      [Constant]
+oranjebruin
+   RAL Classic color ‘#A45729’.
+
+                                                                      [Constant]
+orientred
+   RAL Classic color ‘#A63437’.
+
+                                                                      [Constant]
+orientrood
+   RAL Classic color ‘#A63437’.
+
+                                                                      [Constant]
+orientrot
+   RAL Classic color ‘#A63437’.
+
+                                                                      [Constant]
+ornacre
+   RAL Classic color ‘#80643F’.
+
+                                                                      [Constant]
+oroperlado
+   RAL Classic color ‘#80643F’.
+
+                                                                      [Constant]
+oroperlato
+   RAL Classic color ‘#80643F’.
+
+                                                                      [Constant]
+oudroze
+   RAL Classic color ‘#CB7375’.
+
+                                                                      [Constant]
+oxidered
+   RAL Classic color ‘#6D342D’.
+
+                                                                      [Constant]
+oxidrot
+   RAL Classic color ‘#6D342D’.
+
+                                                                      [Constant]
+oxyderood
+   RAL Classic color ‘#6D342D’.
+
+                                                                      [Constant]
+oysterwhite
+   RAL Classic color ‘#E3D9C6’.
+
+                                                                      [Constant]
+ozeanblau
+   RAL Classic color ‘#00414B’.
+
+                                                                      [Constant]
+paarsblauw
+   RAL Classic color ‘#314F6F’.
+
+                                                                      [Constant]
+palebrown
+   RAL Classic color ‘#755847’.
+
+                                                                      [Constant]
+palegreen
+   RAL Classic color ‘#8A9977’.
+
+                                                                      [Constant]
+papyrusweiss
+   RAL Classic color ‘#C8CBC4’.
+
+                                                                      [Constant]
+papyruswhite
+   RAL Classic color ‘#C8CBC4’.
+
+                                                                      [Constant]
+papyruswit
+   RAL Classic color ‘#C8CBC4’.
+
+                                                                      [Constant]
+pardoanaranjado
+   RAL Classic color ‘#A45729’.
+
+                                                                      [Constant]
+pardoarcilla
+   RAL Classic color ‘#7E4B26’.
+
+                                                                      [Constant]
+pardobeige
+   RAL Classic color ‘#795038’.
+
+                                                                      [Constant]
+pardocobre
+   RAL Classic color ‘#8D4931’.
+
+                                                                      [Constant]
+pardocorzo
+   RAL Classic color ‘#70452A’.
+
+                                                                      [Constant]
+pardogrisaceo
+   RAL Classic color ‘#3D3635’.
+
+                                                                      [Constant]
+pardonegruzco
+   RAL Classic color ‘#1A1718’.
+
+                                                                      [Constant]
+pardonuez
+   RAL Classic color ‘#5A3826’.
+
+                                                                      [Constant]
+pardoocre
+   RAL Classic color ‘#9D622B’.
+
+                                                                      [Constant]
+pardooliva
+   RAL Classic color ‘#724A25’.
+
+                                                                      [Constant]
+pardopalido
+   RAL Classic color ‘#755847’.
+
+                                                                      [Constant]
+pardorojo
+   RAL Classic color ‘#66332B’.
+
+                                                                      [Constant]
+pardoverdoso
+   RAL Classic color ‘#89693E’.
+
+                                                                      [Constant]
+parelmoerblauw
+   RAL Classic color ‘#21697C’.
+
+                                                                      [Constant]
+parelmoerdonkergrijs
+   RAL Classic color ‘#797B7A’.
+
+                                                                      [Constant]
+parelmoerdonkergroen
+   RAL Classic color ‘#194D25’.
+
+                                                                      [Constant]
+parelmoerdonkerrood
+   RAL Classic color ‘#701D23’.
+
+                                                                      [Constant]
+parelmoerdonkerviolet
+   RAL Classic color ‘#6E6387’.
+
+                                                                      [Constant]
+parelmoergoud
+   RAL Classic color ‘#80643F’.
+
+                                                                      [Constant]
+parelmoergrijs
+   RAL Classic color ‘#908370’.
+
+                                                                      [Constant]
+parelmoerkoper
+   RAL Classic color ‘#7F4031’.
+
+                                                                      [Constant]
+parelmoerlichtgrijs
+   RAL Classic color ‘#858583’.
+
+                                                                      [Constant]
+parelmoerlichtgroen
+   RAL Classic color ‘#04574B’.
+
+                                                                      [Constant]
+parelmoerlichtrood
+   RAL Classic color ‘#A53A2D’.
+
+                                                                      [Constant]
+parelmoerlichtviolet
+   RAL Classic color ‘#6B6B7F’.
+
+                                                                      [Constant]
+parelmoermuisgrijs
+   RAL Classic color ‘#817B73’.
+
+                                                                      [Constant]
+parelmoernachtblauw
+   RAL Classic color ‘#0F3052’.
+
+                                                                      [Constant]
+parelmoeroranje
+   RAL Classic color ‘#923E25’.
+
+                                                                      [Constant]
+parelwit
+   RAL Classic color ‘#E3D9C6’.
+
+                                                                      [Constant]
+pastelblauw
+   RAL Classic color ‘#6093AC’.
+
+                                                                      [Constant]
+pastelblue
+   RAL Classic color ‘#6093AC’.
+
+                                                                      [Constant]
+pastelgeel
+   RAL Classic color ‘#EB9C52’.
+
+                                                                      [Constant]
+pastelgreen
+   RAL Classic color ‘#B9CEAC’.
+
+                                                                      [Constant]
+pastellblau
+   RAL Classic color ‘#6093AC’.
+
+                                                                      [Constant]
+pastellgelb
+   RAL Classic color ‘#EB9C52’.
+
+                                                                      [Constant]
+pastellorange
+   RAL Classic color ‘#F67828’.
+
+                                                                      [Constant]
+pastelltuerkis
+   RAL Classic color ‘#7AACAC’.
+
+                                                                      [Constant]
+pastellviolett
+   RAL Classic color ‘#9D8692’.
+
+                                                                      [Constant]
+pastelorange
+   RAL Classic color ‘#F67828’.
+
+                                                                      [Constant]
+pasteloranje
+   RAL Classic color ‘#F67828’.
+
+                                                                      [Constant]
+pastelturquoise
+   RAL Classic color ‘#7AACAC’.
+
+                                                                      [Constant]
+pastelviolet
+   RAL Classic color ‘#9D8692’.
+
+                                                                      [Constant]
+pastelyellow
+   RAL Classic color ‘#EB9C52’.
+
+                                                                      [Constant]
+patinagreen
+   RAL Classic color ‘#3C7460’.
+
+                                                                      [Constant]
+patinagroen
+   RAL Classic color ‘#3C7460’.
+
+                                                                      [Constant]
+patinagruen
+   RAL Classic color ‘#3C7460’.
+
+                                                                      [Constant]
+pearlbeige
+   RAL Classic color ‘#908370’.
+
+                                                                      [Constant]
+pearlblackberry
+   RAL Classic color ‘#6B6B7F’.
+
+                                                                      [Constant]
+pearlcopper
+   RAL Classic color ‘#7F4031’.
+
+                                                                      [Constant]
+pearldarkgrey
+   RAL Classic color ‘#797B7A’.
+
+                                                                      [Constant]
+pearlgentianblue
+   RAL Classic color ‘#21697C’.
+
+                                                                      [Constant]
+pearlgold
+   RAL Classic color ‘#80643F’.
+
+                                                                      [Constant]
+pearlgreen
+   RAL Classic color ‘#194D25’.
+
+                                                                      [Constant]
+pearllightgrey
+   RAL Classic color ‘#858583’.
+
+                                                                      [Constant]
+pearlmousegrey
+   RAL Classic color ‘#817B73’.
+
+                                                                      [Constant]
+pearlnightblue
+   RAL Classic color ‘#0F3052’.
+
+                                                                      [Constant]
+pearlopalgreen
+   RAL Classic color ‘#04574B’.
+
+                                                                      [Constant]
+pearlorange
+   RAL Classic color ‘#923E25’.
+
+                                                                      [Constant]
+pearlpink
+   RAL Classic color ‘#A53A2D’.
+
+                                                                      [Constant]
+pearlrubyred
+   RAL Classic color ‘#701D23’.
+
+                                                                      [Constant]
+pearlviolet
+   RAL Classic color ‘#6E6387’.
+
+                                                                      [Constant]
+pebblegrey
+   RAL Classic color ‘#B5B0A1’.
+
+                                                                      [Constant]
+pelsgrijs
+   RAL Classic color ‘#7A888E’.
+
+                                                                      [Constant]
+perlbeige
+   RAL Classic color ‘#908370’.
+
+                                                                      [Constant]
+perlbrombeer
+   RAL Classic color ‘#6B6B7F’.
+
+                                                                      [Constant]
+perldunkelgrau
+   RAL Classic color ‘#797B7A’.
+
+                                                                      [Constant]
+perlenzian
+   RAL Classic color ‘#21697C’.
+
+                                                                      [Constant]
+perlgold
+   RAL Classic color ‘#80643F’.
+
+                                                                      [Constant]
+perlgruen
+   RAL Classic color ‘#194D25’.
+
+                                                                      [Constant]
+perlhellgrau
+   RAL Classic color ‘#858583’.
+
+                                                                      [Constant]
+perlkupfer
+   RAL Classic color ‘#7F4031’.
+
+                                                                      [Constant]
+perlmausgrau
+   RAL Classic color ‘#817B73’.
+
+                                                                      [Constant]
+perlnachtblau
+   RAL Classic color ‘#0F3052’.
+
+                                                                      [Constant]
+perlopalgruen
+   RAL Classic color ‘#04574B’.
+
+                                                                      [Constant]
+perlorange
+   RAL Classic color ‘#923E25’.
+
+                                                                      [Constant]
+perlrosa
+   RAL Classic color ‘#A53A2D’.
+
+                                                                      [Constant]
+perlrubinrot
+   RAL Classic color ‘#701D23’.
+
+                                                                      [Constant]
+perlviolett
+   RAL Classic color ‘#6E6387’.
+
+                                                                      [Constant]
+perlweiss
+   RAL Classic color ‘#E3D9C6’.
+
+                                                                      [Constant]
+pigeonblue
+   RAL Classic color ‘#637D96’.
+
+                                                                      [Constant]
+pijnboomgroen
+   RAL Classic color ‘#315442’.
+
+                                                                      [Constant]
+pinegreen
+   RAL Classic color ‘#315442’.
+
+                                                                      [Constant]
+platinagrijs
+   RAL Classic color ‘#979392’.
+
+                                                                      [Constant]
+platingrau
+   RAL Classic color ‘#979392’.
+
+                                                                      [Constant]
+platinumgrey
+   RAL Classic color ‘#979392’.
+
+                                                                      [Constant]
+porporatraffico
+   RAL Classic color ‘#903373’.
+
+                                                                      [Constant]
+porporavioletto
+   RAL Classic color ‘#47243C’.
+
+                                                                      [Constant]
+pourpresignalisation
+   RAL Classic color ‘#903373’.
+
+                                                                      [Constant]
+puregreen
+   RAL Classic color ‘#008B29’.
+
+                                                                      [Constant]
+pureorange
+   RAL Classic color ‘#E25303’.
+
+                                                                      [Constant]
+purered
+   RAL Classic color ‘#CC2C24’.
+
+                                                                      [Constant]
+purewhite
+   RAL Classic color ‘#F1ECE1’.
+
+                                                                      [Constant]
+purperrood
+   RAL Classic color ‘#6B1C23’.
+
+                                                                      [Constant]
+purperviolet
+   RAL Classic color ‘#47243C’.
+
+                                                                      [Constant]
+purplered
+   RAL Classic color ‘#6B1C23’.
+
+                                                                      [Constant]
+purpleviolet
+   RAL Classic color ‘#47243C’.
+
+                                                                      [Constant]
+purpuratrafico
+   RAL Classic color ‘#903373’.
+
+                                                                      [Constant]
+purpurrot
+   RAL Classic color ‘#6B1C23’.
+
+                                                                      [Constant]
+purpurviolett
+   RAL Classic color ‘#47243C’.
+
+                                                                      [Constant]
+quartzgrey
+   RAL Classic color ‘#6B665E’.
+
+                                                                      [Constant]
+quarzgrau
+   RAL Classic color ‘#6B665E’.
+
+                                                                      [Constant]
+ral-1000
+   RAL Classic color ‘#CDBA88’.
+
+                                                                      [Constant]
+ral-1001
+   RAL Classic color ‘#D0B084’.
+
+                                                                      [Constant]
+ral-1002
+   RAL Classic color ‘#D2AA6D’.
+
+                                                                      [Constant]
+ral-1003
+   RAL Classic color ‘#F9A800’.
+
+                                                                      [Constant]
+ral-1004
+   RAL Classic color ‘#E49E00’.
+
+                                                                      [Constant]
+ral-1005
+   RAL Classic color ‘#CB8E00’.
+
+                                                                      [Constant]
+ral-1006
+   RAL Classic color ‘#E29000’.
+
+                                                                      [Constant]
+ral-1007
+   RAL Classic color ‘#E88C00’.
+
+                                                                      [Constant]
+ral-1011
+   RAL Classic color ‘#AF804F’.
+
+                                                                      [Constant]
+ral-1012
+   RAL Classic color ‘#DDAF27’.
+
+                                                                      [Constant]
+ral-1013
+   RAL Classic color ‘#E3D9C6’.
+
+                                                                      [Constant]
+ral-1014
+   RAL Classic color ‘#DDC49A’.
+
+                                                                      [Constant]
+ral-1015
+   RAL Classic color ‘#E6D2B5’.
+
+                                                                      [Constant]
+ral-1016
+   RAL Classic color ‘#F1DD38’.
+
+                                                                      [Constant]
+ral-1017
+   RAL Classic color ‘#F6A950’.
+
+                                                                      [Constant]
+ral-1018
+   RAL Classic color ‘#FACA30’.
+
+                                                                      [Constant]
+ral-1019
+   RAL Classic color ‘#A48F7A’.
+
+                                                                      [Constant]
+ral-1020
+   RAL Classic color ‘#A08F65’.
+
+                                                                      [Constant]
+ral-1021
+   RAL Classic color ‘#F6B600’.
+
+                                                                      [Constant]
+ral-1023
+   RAL Classic color ‘#F7B500’.
+
+                                                                      [Constant]
+ral-1024
+   RAL Classic color ‘#BA8F4C’.
+
+                                                                      [Constant]
+ral-1026
+   RAL Classic color ‘#FFFF00’.
+
+                                                                      [Constant]
+ral-1027
+   RAL Classic color ‘#A77F0E’.
+
+                                                                      [Constant]
+ral-1028
+   RAL Classic color ‘#FF9B00’.
+
+                                                                      [Constant]
+ral-1032
+   RAL Classic color ‘#E2A300’.
+
+                                                                      [Constant]
+ral-1033
+   RAL Classic color ‘#F99A1C’.
+
+                                                                      [Constant]
+ral-1034
+   RAL Classic color ‘#EB9C52’.
+
+                                                                      [Constant]
+ral-1035
+   RAL Classic color ‘#908370’.
+
+                                                                      [Constant]
+ral-1036
+   RAL Classic color ‘#80643F’.
+
+                                                                      [Constant]
+ral-1037
+   RAL Classic color ‘#F09200’.
+
+                                                                      [Constant]
+ral-2000
+   RAL Classic color ‘#DA6E00’.
+
+                                                                      [Constant]
+ral-2001
+   RAL Classic color ‘#BA481B’.
+
+                                                                      [Constant]
+ral-2002
+   RAL Classic color ‘#BF3922’.
+
+                                                                      [Constant]
+ral-2003
+   RAL Classic color ‘#F67828’.
+
+                                                                      [Constant]
+ral-2004
+   RAL Classic color ‘#E25303’.
+
+                                                                      [Constant]
+ral-2005
+   RAL Classic color ‘#FF4D06’.
+
+                                                                      [Constant]
+ral-2007
+   RAL Classic color ‘#FFB200’.
+
+                                                                      [Constant]
+ral-2008
+   RAL Classic color ‘#ED6B21’.
+
+                                                                      [Constant]
+ral-2009
+   RAL Classic color ‘#DE5307’.
+
+                                                                      [Constant]
+ral-2010
+   RAL Classic color ‘#D05D28’.
+
+                                                                      [Constant]
+ral-2011
+   RAL Classic color ‘#E26E0E’.
+
+                                                                      [Constant]
+ral-2012
+   RAL Classic color ‘#D5654D’.
+
+                                                                      [Constant]
+ral-2013
+   RAL Classic color ‘#923E25’.
+
+                                                                      [Constant]
+ral-3000
+   RAL Classic color ‘#A72920’.
+
+                                                                      [Constant]
+ral-3001
+   RAL Classic color ‘#9B2423’.
+
+                                                                      [Constant]
+ral-3002
+   RAL Classic color ‘#9B2321’.
+
+                                                                      [Constant]
+ral-3003
+   RAL Classic color ‘#861A22’.
+
+                                                                      [Constant]
+ral-3004
+   RAL Classic color ‘#6B1C23’.
+
+                                                                      [Constant]
+ral-3005
+   RAL Classic color ‘#59191F’.
+
+                                                                      [Constant]
+ral-3007
+   RAL Classic color ‘#3E2022’.
+
+                                                                      [Constant]
+ral-3009
+   RAL Classic color ‘#6D342D’.
+
+                                                                      [Constant]
+ral-3011
+   RAL Classic color ‘#792423’.
+
+                                                                      [Constant]
+ral-3012
+   RAL Classic color ‘#C6846D’.
+
+                                                                      [Constant]
+ral-3013
+   RAL Classic color ‘#972E25’.
+
+                                                                      [Constant]
+ral-3014
+   RAL Classic color ‘#CB7375’.
+
+                                                                      [Constant]
+ral-3015
+   RAL Classic color ‘#D8A0A6’.
+
+                                                                      [Constant]
+ral-3016
+   RAL Classic color ‘#A63D2F’.
+
+                                                                      [Constant]
+ral-3017
+   RAL Classic color ‘#CB555D’.
+
+                                                                      [Constant]
+ral-3018
+   RAL Classic color ‘#C73F4A’.
+
+                                                                      [Constant]
+ral-3020
+   RAL Classic color ‘#BB1E10’.
+
+                                                                      [Constant]
+ral-3022
+   RAL Classic color ‘#CF6955’.
+
+                                                                      [Constant]
+ral-3024
+   RAL Classic color ‘#FF2D21’.
+
+                                                                      [Constant]
+ral-3026
+   RAL Classic color ‘#FF2A1B’.
+
+                                                                      [Constant]
+ral-3027
+   RAL Classic color ‘#AB273C’.
+
+                                                                      [Constant]
+ral-3028
+   RAL Classic color ‘#CC2C24’.
+
+                                                                      [Constant]
+ral-3031
+   RAL Classic color ‘#A63437’.
+
+                                                                      [Constant]
+ral-3032
+   RAL Classic color ‘#701D23’.
+
+                                                                      [Constant]
+ral-3033
+   RAL Classic color ‘#A53A2D’.
+
+                                                                      [Constant]
+ral-4001
+   RAL Classic color ‘#816183’.
+
+                                                                      [Constant]
+ral-4002
+   RAL Classic color ‘#8D3C4B’.
+
+                                                                      [Constant]
+ral-4003
+   RAL Classic color ‘#C4618C’.
+
+                                                                      [Constant]
+ral-4004
+   RAL Classic color ‘#651E38’.
+
+                                                                      [Constant]
+ral-4005
+   RAL Classic color ‘#76689A’.
+
+                                                                      [Constant]
+ral-4006
+   RAL Classic color ‘#903373’.
+
+                                                                      [Constant]
+ral-4007
+   RAL Classic color ‘#47243C’.
+
+                                                                      [Constant]
+ral-4008
+   RAL Classic color ‘#844C82’.
+
+                                                                      [Constant]
+ral-4009
+   RAL Classic color ‘#9D8692’.
+
+                                                                      [Constant]
+ral-4010
+   RAL Classic color ‘#BC4077’.
+
+                                                                      [Constant]
+ral-4011
+   RAL Classic color ‘#6E6387’.
+
+                                                                      [Constant]
+ral-4012
+   RAL Classic color ‘#6B6B7F’.
+
+                                                                      [Constant]
+ral-5000
+   RAL Classic color ‘#314F6F’.
+
+                                                                      [Constant]
+ral-5001
+   RAL Classic color ‘#0F4C64’.
+
+                                                                      [Constant]
+ral-5002
+   RAL Classic color ‘#00387B’.
+
+                                                                      [Constant]
+ral-5003
+   RAL Classic color ‘#1F3855’.
+
+                                                                      [Constant]
+ral-5004
+   RAL Classic color ‘#191E28’.
+
+                                                                      [Constant]
+ral-5005
+   RAL Classic color ‘#005387’.
+
+                                                                      [Constant]
+ral-5007
+   RAL Classic color ‘#376B8C’.
+
+                                                                      [Constant]
+ral-5008
+   RAL Classic color ‘#2B3A44’.
+
+                                                                      [Constant]
+ral-5009
+   RAL Classic color ‘#225F78’.
+
+                                                                      [Constant]
+ral-5010
+   RAL Classic color ‘#004F7C’.
+
+                                                                      [Constant]
+ral-5011
+   RAL Classic color ‘#1A2B3C’.
+
+                                                                      [Constant]
+ral-5012
+   RAL Classic color ‘#0089B6’.
+
+                                                                      [Constant]
+ral-5013
+   RAL Classic color ‘#193153’.
+
+                                                                      [Constant]
+ral-5014
+   RAL Classic color ‘#637D96’.
+
+                                                                      [Constant]
+ral-5015
+   RAL Classic color ‘#007CB0’.
+
+                                                                      [Constant]
+ral-5017
+   RAL Classic color ‘#005B8C’.
+
+                                                                      [Constant]
+ral-5018
+   RAL Classic color ‘#058B8C’.
+
+                                                                      [Constant]
+ral-5019
+   RAL Classic color ‘#005E83’.
+
+                                                                      [Constant]
+ral-5020
+   RAL Classic color ‘#00414B’.
+
+                                                                      [Constant]
+ral-5021
+   RAL Classic color ‘#007577’.
+
+                                                                      [Constant]
+ral-5022
+   RAL Classic color ‘#222D5A’.
+
+                                                                      [Constant]
+ral-5023
+   RAL Classic color ‘#42698C’.
+
+                                                                      [Constant]
+ral-5024
+   RAL Classic color ‘#6093AC’.
+
+                                                                      [Constant]
+ral-5025
+   RAL Classic color ‘#21697C’.
+
+                                                                      [Constant]
+ral-5026
+   RAL Classic color ‘#0F3052’.
+
+                                                                      [Constant]
+ral-6000
+   RAL Classic color ‘#3C7460’.
+
+                                                                      [Constant]
+ral-6001
+   RAL Classic color ‘#366735’.
+
+                                                                      [Constant]
+ral-6002
+   RAL Classic color ‘#325928’.
+
+                                                                      [Constant]
+ral-6003
+   RAL Classic color ‘#50533C’.
+
+                                                                      [Constant]
+ral-6004
+   RAL Classic color ‘#024442’.
+
+                                                                      [Constant]
+ral-6005
+   RAL Classic color ‘#114232’.
+
+                                                                      [Constant]
+ral-6006
+   RAL Classic color ‘#3C392E’.
+
+                                                                      [Constant]
+ral-6007
+   RAL Classic color ‘#2C3222’.
+
+                                                                      [Constant]
+ral-6008
+   RAL Classic color ‘#37342A’.
+
+                                                                      [Constant]
+ral-6009
+   RAL Classic color ‘#27352A’.
+
+                                                                      [Constant]
+ral-6010
+   RAL Classic color ‘#4D6F39’.
+
+                                                                      [Constant]
+ral-6011
+   RAL Classic color ‘#6C7C59’.
+
+                                                                      [Constant]
+ral-6012
+   RAL Classic color ‘#303D3A’.
+
+                                                                      [Constant]
+ral-6013
+   RAL Classic color ‘#7D765A’.
+
+                                                                      [Constant]
+ral-6014
+   RAL Classic color ‘#474135’.
+
+                                                                      [Constant]
+ral-6015
+   RAL Classic color ‘#3D3D36’.
+
+                                                                      [Constant]
+ral-6016
+   RAL Classic color ‘#00694C’.
+
+                                                                      [Constant]
+ral-6017
+   RAL Classic color ‘#587F40’.
+
+                                                                      [Constant]
+ral-6018
+   RAL Classic color ‘#61993B’.
+
+                                                                      [Constant]
+ral-6019
+   RAL Classic color ‘#B9CEAC’.
+
+                                                                      [Constant]
+ral-6020
+   RAL Classic color ‘#37422F’.
+
+                                                                      [Constant]
+ral-6021
+   RAL Classic color ‘#8A9977’.
+
+                                                                      [Constant]
+ral-6022
+   RAL Classic color ‘#3A3327’.
+
+                                                                      [Constant]
+ral-6024
+   RAL Classic color ‘#008351’.
+
+                                                                      [Constant]
+ral-6025
+   RAL Classic color ‘#5E6E3B’.
+
+                                                                      [Constant]
+ral-6026
+   RAL Classic color ‘#005F4E’.
+
+                                                                      [Constant]
+ral-6027
+   RAL Classic color ‘#7EBAB5’.
+
+                                                                      [Constant]
+ral-6028
+   RAL Classic color ‘#315442’.
+
+                                                                      [Constant]
+ral-6029
+   RAL Classic color ‘#006F3D’.
+
+                                                                      [Constant]
+ral-6032
+   RAL Classic color ‘#237F52’.
+
+                                                                      [Constant]
+ral-6033
+   RAL Classic color ‘#46877F’.
+
+                                                                      [Constant]
+ral-6034
+   RAL Classic color ‘#7AACAC’.
+
+                                                                      [Constant]
+ral-6035
+   RAL Classic color ‘#194D25’.
+
+                                                                      [Constant]
+ral-6036
+   RAL Classic color ‘#04574B’.
+
+                                                                      [Constant]
+ral-6037
+   RAL Classic color ‘#008B29’.
+
+                                                                      [Constant]
+ral-6038
+   RAL Classic color ‘#00B51A’.
+
+                                                                      [Constant]
+ral-7000
+   RAL Classic color ‘#7A888E’.
+
+                                                                      [Constant]
+ral-7001
+   RAL Classic color ‘#8C969D’.
+
+                                                                      [Constant]
+ral-7002
+   RAL Classic color ‘#817863’.
+
+                                                                      [Constant]
+ral-7003
+   RAL Classic color ‘#7A7669’.
+
+                                                                      [Constant]
+ral-7004
+   RAL Classic color ‘#9B9B9B’.
+
+                                                                      [Constant]
+ral-7005
+   RAL Classic color ‘#6C6E6B’.
+
+                                                                      [Constant]
+ral-7006
+   RAL Classic color ‘#766A5E’.
+
+                                                                      [Constant]
+ral-7008
+   RAL Classic color ‘#745E3D’.
+
+                                                                      [Constant]
+ral-7009
+   RAL Classic color ‘#5D6058’.
+
+                                                                      [Constant]
+ral-7010
+   RAL Classic color ‘#585C56’.
+
+                                                                      [Constant]
+ral-7011
+   RAL Classic color ‘#52595D’.
+
+                                                                      [Constant]
+ral-7012
+   RAL Classic color ‘#575D5E’.
+
+                                                                      [Constant]
+ral-7013
+   RAL Classic color ‘#575044’.
+
+                                                                      [Constant]
+ral-7015
+   RAL Classic color ‘#4F5358’.
+
+                                                                      [Constant]
+ral-7016
+   RAL Classic color ‘#383E42’.
+
+                                                                      [Constant]
+ral-7021
+   RAL Classic color ‘#2F3234’.
+
+                                                                      [Constant]
+ral-7022
+   RAL Classic color ‘#4C4A44’.
+
+                                                                      [Constant]
+ral-7023
+   RAL Classic color ‘#808076’.
+
+                                                                      [Constant]
+ral-7024
+   RAL Classic color ‘#45494E’.
+
+                                                                      [Constant]
+ral-7026
+   RAL Classic color ‘#374345’.
+
+                                                                      [Constant]
+ral-7030
+   RAL Classic color ‘#928E85’.
+
+                                                                      [Constant]
+ral-7031
+   RAL Classic color ‘#5B686D’.
+
+                                                                      [Constant]
+ral-7032
+   RAL Classic color ‘#B5B0A1’.
+
+                                                                      [Constant]
+ral-7033
+   RAL Classic color ‘#7F8274’.
+
+                                                                      [Constant]
+ral-7034
+   RAL Classic color ‘#92886F’.
+
+                                                                      [Constant]
+ral-7035
+   RAL Classic color ‘#C5C7C4’.
+
+                                                                      [Constant]
+ral-7036
+   RAL Classic color ‘#979392’.
+
+                                                                      [Constant]
+ral-7037
+   RAL Classic color ‘#7A7B7A’.
+
+                                                                      [Constant]
+ral-7038
+   RAL Classic color ‘#B0B0A9’.
+
+                                                                      [Constant]
+ral-7039
+   RAL Classic color ‘#6B665E’.
+
+                                                                      [Constant]
+ral-7040
+   RAL Classic color ‘#989EA1’.
+
+                                                                      [Constant]
+ral-7042
+   RAL Classic color ‘#8E9291’.
+
+                                                                      [Constant]
+ral-7043
+   RAL Classic color ‘#4F5250’.
+
+                                                                      [Constant]
+ral-7044
+   RAL Classic color ‘#B7B3A8’.
+
+                                                                      [Constant]
+ral-7045
+   RAL Classic color ‘#8D9295’.
+
+                                                                      [Constant]
+ral-7046
+   RAL Classic color ‘#7F868A’.
+
+                                                                      [Constant]
+ral-7047
+   RAL Classic color ‘#C8C8C7’.
+
+                                                                      [Constant]
+ral-7048
+   RAL Classic color ‘#817B73’.
+
+                                                                      [Constant]
+ral-8000
+   RAL Classic color ‘#89693E’.
+
+                                                                      [Constant]
+ral-8001
+   RAL Classic color ‘#9D622B’.
+
+                                                                      [Constant]
+ral-8002
+   RAL Classic color ‘#794D3E’.
+
+                                                                      [Constant]
+ral-8003
+   RAL Classic color ‘#7E4B26’.
+
+                                                                      [Constant]
+ral-8004
+   RAL Classic color ‘#8D4931’.
+
+                                                                      [Constant]
+ral-8007
+   RAL Classic color ‘#70452A’.
+
+                                                                      [Constant]
+ral-8008
+   RAL Classic color ‘#724A25’.
+
+                                                                      [Constant]
+ral-8011
+   RAL Classic color ‘#5A3826’.
+
+                                                                      [Constant]
+ral-8012
+   RAL Classic color ‘#66332B’.
+
+                                                                      [Constant]
+ral-8014
+   RAL Classic color ‘#4A3526’.
+
+                                                                      [Constant]
+ral-8015
+   RAL Classic color ‘#5E2F26’.
+
+                                                                      [Constant]
+ral-8016
+   RAL Classic color ‘#4C2B20’.
+
+                                                                      [Constant]
+ral-8017
+   RAL Classic color ‘#442F29’.
+
+                                                                      [Constant]
+ral-8019
+   RAL Classic color ‘#3D3635’.
+
+                                                                      [Constant]
+ral-8022
+   RAL Classic color ‘#1A1718’.
+
+                                                                      [Constant]
+ral-8023
+   RAL Classic color ‘#A45729’.
+
+                                                                      [Constant]
+ral-8024
+   RAL Classic color ‘#795038’.
+
+                                                                      [Constant]
+ral-8025
+   RAL Classic color ‘#755847’.
+
+                                                                      [Constant]
+ral-8028
+   RAL Classic color ‘#513A2A’.
+
+                                                                      [Constant]
+ral-8029
+   RAL Classic color ‘#7F4031’.
+
+                                                                      [Constant]
+ral-9001
+   RAL Classic color ‘#E9E0D2’.
+
+                                                                      [Constant]
+ral-9002
+   RAL Classic color ‘#D7D5CB’.
+
+                                                                      [Constant]
+ral-9003
+   RAL Classic color ‘#ECECE7’.
+
+                                                                      [Constant]
+ral-9004
+   RAL Classic color ‘#2B2B2C’.
+
+                                                                      [Constant]
+ral-9005
+   RAL Classic color ‘#0E0E10’.
+
+                                                                      [Constant]
+ral-9006
+   RAL Classic color ‘#A1A1A0’.
+
+                                                                      [Constant]
+ral-9007
+   RAL Classic color ‘#878581’.
+
+                                                                      [Constant]
+ral-9010
+   RAL Classic color ‘#F1ECE1’.
+
+                                                                      [Constant]
+ral-9011
+   RAL Classic color ‘#27292B’.
+
+                                                                      [Constant]
+ral-9016
+   RAL Classic color ‘#F1F0EA’.
+
+                                                                      [Constant]
+ral-9017
+   RAL Classic color ‘#2A292A’.
+
+                                                                      [Constant]
+ral-9018
+   RAL Classic color ‘#C8CBC4’.
+
+                                                                      [Constant]
+ral-9022
+   RAL Classic color ‘#858583’.
+
+                                                                      [Constant]
+ral-9023
+   RAL Classic color ‘#797B7A’.
+
+                                                                      [Constant]
+rameperlato
+   RAL Classic color ‘#7F4031’.
+
+                                                                      [Constant]
+rapsgelb
+   RAL Classic color ‘#F6B600’.
+
+                                                                      [Constant]
+raspberryred
+   RAL Classic color ‘#AB273C’.
+
+                                                                      [Constant]
+redbrown
+   RAL Classic color ‘#66332B’.
+
+                                                                      [Constant]
+redlilac
+   RAL Classic color ‘#816183’.
+
+                                                                      [Constant]
+redorange
+   RAL Classic color ‘#BA481B’.
+
+                                                                      [Constant]
+redviolet
+   RAL Classic color ‘#8D3C4B’.
+
+                                                                      [Constant]
+reebruin
+   RAL Classic color ‘#70452A’.
+
+                                                                      [Constant]
+reedgreen
+   RAL Classic color ‘#7D765A’.
+
+                                                                      [Constant]
+rehbraun
+   RAL Classic color ‘#70452A’.
+
+                                                                      [Constant]
+reingruen
+   RAL Classic color ‘#008B29’.
+
+                                                                      [Constant]
+reinorange
+   RAL Classic color ‘#E25303’.
+
+                                                                      [Constant]
+reinrot
+   RAL Classic color ‘#CC2C24’.
+
+                                                                      [Constant]
+reinweiss
+   RAL Classic color ‘#F1ECE1’.
+
+                                                                      [Constant]
+resedagreen
+   RAL Classic color ‘#6C7C59’.
+
+                                                                      [Constant]
+resedagroen
+   RAL Classic color ‘#6C7C59’.
+
+                                                                      [Constant]
+resedagruen
+   RAL Classic color ‘#6C7C59’.
+
+                                                                      [Constant]
+rietgroen
+   RAL Classic color ‘#7D765A’.
+
+                                                                      [Constant]
+robijnrood
+   RAL Classic color ‘#861A22’.
+
+                                                                      [Constant]
+rojoanaranjado
+   RAL Classic color ‘#BA481B’.
+
+                                                                      [Constant]
+rojobeige
+   RAL Classic color ‘#C6846D’.
+
+                                                                      [Constant]
+rojobrillante
+   RAL Classic color ‘#FF2D21’.
+
+                                                                      [Constant]
+rojocarmin
+   RAL Classic color ‘#9B2321’.
+
+                                                                      [Constant]
+rojoclaroanaranjado
+   RAL Classic color ‘#ED6B21’.
+
+                                                                      [Constant]
+rojoclarobrillante
+   RAL Classic color ‘#FF2A1B’.
+
+                                                                      [Constant]
+rojocoral
+   RAL Classic color ‘#A63D2F’.
+
+                                                                      [Constant]
+rojoframbuesa
+   RAL Classic color ‘#AB273C’.
+
+                                                                      [Constant]
+rojofresa
+   RAL Classic color ‘#C73F4A’.
+
+                                                                      [Constant]
+rojolila
+   RAL Classic color ‘#816183’.
+
+                                                                      [Constant]
+rojonegruzco
+   RAL Classic color ‘#3E2022’.
+
+                                                                      [Constant]
+rojooriente
+   RAL Classic color ‘#A63437’.
+
+                                                                      [Constant]
+rojooxido
+   RAL Classic color ‘#6D342D’.
+
+                                                                      [Constant]
+rojopardo
+   RAL Classic color ‘#792423’.
+
+                                                                      [Constant]
+rojopuro
+   RAL Classic color ‘#CC2C24’.
+
+                                                                      [Constant]
+rojopurpura
+   RAL Classic color ‘#6B1C23’.
+
+                                                                      [Constant]
+rojorubi
+   RAL Classic color ‘#861A22’.
+
+                                                                      [Constant]
+rojorubiperlado
+   RAL Classic color ‘#701D23’.
+
+                                                                      [Constant]
+rojosalmon
+   RAL Classic color ‘#CF6955’.
+
+                                                                      [Constant]
+rojosenales
+   RAL Classic color ‘#9B2423’.
+
+                                                                      [Constant]
+rojotomate
+   RAL Classic color ‘#972E25’.
+
+                                                                      [Constant]
+rojotrafico
+   RAL Classic color ‘#BB1E10’.
+
+                                                                      [Constant]
+rojoviejo
+   RAL Classic color ‘#CB7375’.
+
+                                                                      [Constant]
+rojovino
+   RAL Classic color ‘#59191F’.
+
+                                                                      [Constant]
+rojovioleta
+   RAL Classic color ‘#8D3C4B’.
+
+                                                                      [Constant]
+rojovivo
+   RAL Classic color ‘#A72920’.
+
+                                                                      [Constant]
+roodbruin
+   RAL Classic color ‘#66332B’.
+
+                                                                      [Constant]
+roodlila
+   RAL Classic color ‘#816183’.
+
+                                                                      [Constant]
+roodoranje
+   RAL Classic color ‘#BA481B’.
+
+                                                                      [Constant]
+roodpaars
+   RAL Classic color ‘#8D3C4B’.
+
+                                                                      [Constant]
+rosa
+   RAL Classic color ‘#CB555D’.
+
+                                                                      [Constant]
+rosaantico
+   RAL Classic color ‘#CB7375’.
+
+                                                                      [Constant]
+rosachiaro
+   RAL Classic color ‘#D8A0A6’.
+
+                                                                      [Constant]
+rosaclaro
+   RAL Classic color ‘#D8A0A6’.
+
+                                                                      [Constant]
+rosaperlado
+   RAL Classic color ‘#A53A2D’.
+
+                                                                      [Constant]
+rosaperlato
+   RAL Classic color ‘#A53A2D’.
+
+                                                                      [Constant]
+rosato
+   RAL Classic color ‘#CB555D’.
+
+                                                                      [Constant]
+rose
+   RAL Classic color ‘#CB555D’.
+
+                                                                      [Constant]
+roseclair
+   RAL Classic color ‘#D8A0A6’.
+
+                                                                      [Constant]
+rosenacre
+   RAL Classic color ‘#A53A2D’.
+
+                                                                      [Constant]
+rossoaranciochiaro
+   RAL Classic color ‘#ED6B21’.
+
+                                                                      [Constant]
+rossobeige
+   RAL Classic color ‘#C6846D’.
+
+                                                                      [Constant]
+rossobrillante
+   RAL Classic color ‘#FF2D21’.
+
+                                                                      [Constant]
+rossocarminio
+   RAL Classic color ‘#9B2321’.
+
+                                                                      [Constant]
+rossochiarobrillante
+   RAL Classic color ‘#FF2A1B’.
+
+                                                                      [Constant]
+rossocorallo
+   RAL Classic color ‘#A63D2F’.
+
+                                                                      [Constant]
+rossofragola
+   RAL Classic color ‘#C73F4A’.
+
+                                                                      [Constant]
+rossofuoco
+   RAL Classic color ‘#A72920’.
+
+                                                                      [Constant]
+rossolampone
+   RAL Classic color ‘#AB273C’.
+
+                                                                      [Constant]
+rossomarrone
+   RAL Classic color ‘#792423’.
+
+                                                                      [Constant]
+rossonerastro
+   RAL Classic color ‘#3E2022’.
+
+                                                                      [Constant]
+rossooriente
+   RAL Classic color ‘#A63437’.
+
+                                                                      [Constant]
+rossoossido
+   RAL Classic color ‘#6D342D’.
+
+                                                                      [Constant]
+rossopomodoro
+   RAL Classic color ‘#972E25’.
+
+                                                                      [Constant]
+rossoporpora
+   RAL Classic color ‘#6B1C23’.
+
+                                                                      [Constant]
+rossopuro
+   RAL Classic color ‘#CC2C24’.
+
+                                                                      [Constant]
+rossorubino
+   RAL Classic color ‘#861A22’.
+
+                                                                      [Constant]
+rossorubinoperlato
+   RAL Classic color ‘#701D23’.
+
+                                                                      [Constant]
+rossosalmone
+   RAL Classic color ‘#CF6955’.
+
+                                                                      [Constant]
+rossosegnale
+   RAL Classic color ‘#9B2423’.
+
+                                                                      [Constant]
+rossotraffico
+   RAL Classic color ‘#BB1E10’.
+
+                                                                      [Constant]
+rossovino
+   RAL Classic color ‘#59191F’.
+
+                                                                      [Constant]
+rotbraun
+   RAL Classic color ‘#66332B’.
+
+                                                                      [Constant]
+rotlila
+   RAL Classic color ‘#816183’.
+
+                                                                      [Constant]
+rotorange
+   RAL Classic color ‘#BA481B’.
+
+                                                                      [Constant]
+rotviolett
+   RAL Classic color ‘#8D3C4B’.
+
+                                                                      [Constant]
+rougebeige
+   RAL Classic color ‘#C6846D’.
+
+                                                                      [Constant]
+rougebrillant
+   RAL Classic color ‘#FF2D21’.
+
+                                                                      [Constant]
+rougebrun
+   RAL Classic color ‘#792423’.
+
+                                                                      [Constant]
+rougecarmin
+   RAL Classic color ‘#9B2321’.
+
+                                                                      [Constant]
+rougeclairbrillant
+   RAL Classic color ‘#FF2A1B’.
+
+                                                                      [Constant]
+rougecorail
+   RAL Classic color ‘#A63D2F’.
+
+                                                                      [Constant]
+rougedesecurite
+   RAL Classic color ‘#9B2423’.
+
+                                                                      [Constant]
+rougefeu
+   RAL Classic color ‘#A72920’.
+
+                                                                      [Constant]
+rougefraise
+   RAL Classic color ‘#C73F4A’.
+
+                                                                      [Constant]
+rougeframboise
+   RAL Classic color ‘#AB273C’.
+
+                                                                      [Constant]
+rougenoir
+   RAL Classic color ‘#3E2022’.
+
+                                                                      [Constant]
+rougeoriental
+   RAL Classic color ‘#A63437’.
+
+                                                                      [Constant]
+rougeoxyde
+   RAL Classic color ‘#6D342D’.
+
+                                                                      [Constant]
+rougepourpre
+   RAL Classic color ‘#6B1C23’.
+
+                                                                      [Constant]
+rougepu
+   RAL Classic color ‘#CC2C24’.
+
+                                                                      [Constant]
+rougerubis
+   RAL Classic color ‘#861A22’.
+
+                                                                      [Constant]
+rougerubisnacre
+   RAL Classic color ‘#701D23’.
+
+                                                                      [Constant]
+rougesaumon
+   RAL Classic color ‘#CF6955’.
+
+                                                                      [Constant]
+rougesignalisation
+   RAL Classic color ‘#BB1E10’.
+
+                                                                      [Constant]
+rougetomate
+   RAL Classic color ‘#972E25’.
+
+                                                                      [Constant]
+rougevin
+   RAL Classic color ‘#59191F’.
+
+                                                                      [Constant]
+rubinrot
+   RAL Classic color ‘#861A22’.
+
+                                                                      [Constant]
+rubyred
+   RAL Classic color ‘#861A22’.
+
+                                                                      [Constant]
+saffierblauw
+   RAL Classic color ‘#1F3855’.
+
+                                                                      [Constant]
+saffraangeel
+   RAL Classic color ‘#F6A950’.
+
+                                                                      [Constant]
+saffronyellow
+   RAL Classic color ‘#F6A950’.
+
+                                                                      [Constant]
+safrangelb
+   RAL Classic color ‘#F6A950’.
+
+                                                                      [Constant]
+salmonorange
+   RAL Classic color ‘#D5654D’.
+
+                                                                      [Constant]
+salmonpink
+   RAL Classic color ‘#CF6955’.
+
+                                                                      [Constant]
+sandgelb
+   RAL Classic color ‘#D2AA6D’.
+
+                                                                      [Constant]
+sandyellow
+   RAL Classic color ‘#D2AA6D’.
+
+                                                                      [Constant]
+saphirblau
+   RAL Classic color ‘#1F3855’.
+
+                                                                      [Constant]
+sapphireblue
+   RAL Classic color ‘#1F3855’.
+
+                                                                      [Constant]
+schiefergrau
+   RAL Classic color ‘#4F5358’.
+
+                                                                      [Constant]
+schilfgruen
+   RAL Classic color ‘#7D765A’.
+
+                                                                      [Constant]
+schokoladenbraun
+   RAL Classic color ‘#442F29’.
+
+                                                                      [Constant]
+schwarzblau
+   RAL Classic color ‘#191E28’.
+
+                                                                      [Constant]
+schwarzbraun
+   RAL Classic color ‘#1A1718’.
+
+                                                                      [Constant]
+schwarzgrau
+   RAL Classic color ‘#2F3234’.
+
+                                                                      [Constant]
+schwarzgruen
+   RAL Classic color ‘#303D3A’.
+
+                                                                      [Constant]
+schwarzoliv
+   RAL Classic color ‘#3D3D36’.
+
+                                                                      [Constant]
+schwarzrot
+   RAL Classic color ‘#3E2022’.
+
+                                                                      [Constant]
+schwefelgelb
+   RAL Classic color ‘#F1DD38’.
+
+                                                                      [Constant]
+seidengrau
+   RAL Classic color ‘#B7B3A8’.
+
+                                                                      [Constant]
+sepia
+   RAL Classic color ‘#4A3526’.
+
+                                                                      [Constant]
+sepiabraun
+   RAL Classic color ‘#4A3526’.
+
+                                                                      [Constant]
+sepiabrown
+   RAL Classic color ‘#4A3526’.
+
+                                                                      [Constant]
+sepiabruin
+   RAL Classic color ‘#4A3526’.
+
+                                                                      [Constant]
+signaalblauw
+   RAL Classic color ‘#005387’.
+
+                                                                      [Constant]
+signaalbruin
+   RAL Classic color ‘#794D3E’.
+
+                                                                      [Constant]
+signaalgeel
+   RAL Classic color ‘#F9A800’.
+
+                                                                      [Constant]
+signaalgrijs
+   RAL Classic color ‘#9B9B9B’.
+
+                                                                      [Constant]
+signaalgroen
+   RAL Classic color ‘#237F52’.
+
+                                                                      [Constant]
+signaaloranje
+   RAL Classic color ‘#D05D28’.
+
+                                                                      [Constant]
+signaalrood
+   RAL Classic color ‘#9B2423’.
+
+                                                                      [Constant]
+signaalviolet
+   RAL Classic color ‘#844C82’.
+
+                                                                      [Constant]
+signaalwit
+   RAL Classic color ‘#ECECE7’.
+
+                                                                      [Constant]
+signaalzwart
+   RAL Classic color ‘#2B2B2C’.
+
+                                                                      [Constant]
+signalblack
+   RAL Classic color ‘#2B2B2C’.
+
+                                                                      [Constant]
+signalblau
+   RAL Classic color ‘#005387’.
+
+                                                                      [Constant]
+signalblue
+   RAL Classic color ‘#005387’.
+
+                                                                      [Constant]
+signalbraun
+   RAL Classic color ‘#794D3E’.
+
+                                                                      [Constant]
+signalbrown
+   RAL Classic color ‘#794D3E’.
+
+                                                                      [Constant]
+signalgelb
+   RAL Classic color ‘#F9A800’.
+
+                                                                      [Constant]
+signalgrau
+   RAL Classic color ‘#9B9B9B’.
+
+                                                                      [Constant]
+signalgreen
+   RAL Classic color ‘#237F52’.
+
+                                                                      [Constant]
+signalgrey
+   RAL Classic color ‘#9B9B9B’.
+
+                                                                      [Constant]
+signalgruen
+   RAL Classic color ‘#237F52’.
+
+                                                                      [Constant]
+signalorange
+   RAL Classic color ‘#D05D28’.
+
+                                                                      [Constant]
+signalred
+   RAL Classic color ‘#9B2423’.
+
+                                                                      [Constant]
+signalrot
+   RAL Classic color ‘#9B2423’.
+
+                                                                      [Constant]
+signalschwarz
+   RAL Classic color ‘#2B2B2C’.
+
+                                                                      [Constant]
+signalviolet
+   RAL Classic color ‘#844C82’.
+
+                                                                      [Constant]
+signalviolett
+   RAL Classic color ‘#844C82’.
+
+                                                                      [Constant]
+signalweiss
+   RAL Classic color ‘#ECECE7’.
+
+                                                                      [Constant]
+signalwhite
+   RAL Classic color ‘#ECECE7’.
+
+                                                                      [Constant]
+signalyellow
+   RAL Classic color ‘#F9A800’.
+
+                                                                      [Constant]
+silbergrau
+   RAL Classic color ‘#8C969D’.
+
+                                                                      [Constant]
+silkgrey
+   RAL Classic color ‘#B7B3A8’.
+
+                                                                      [Constant]
+silvergrey
+   RAL Classic color ‘#8C969D’.
+
+                                                                      [Constant]
+skyblue
+   RAL Classic color ‘#007CB0’.
+
+                                                                      [Constant]
+slategrey
+   RAL Classic color ‘#4F5358’.
+
+                                                                      [Constant]
+smaragdgroen
+   RAL Classic color ‘#366735’.
+
+                                                                      [Constant]
+smaragdgruen
+   RAL Classic color ‘#366735’.
+
+                                                                      [Constant]
+sonnengelb
+   RAL Classic color ‘#F09200’.
+
+                                                                      [Constant]
+squirrelgrey
+   RAL Classic color ‘#7A888E’.
+
+                                                                      [Constant]
+staalblauw
+   RAL Classic color ‘#1A2B3C’.
+
+                                                                      [Constant]
+stahlblau
+   RAL Classic color ‘#1A2B3C’.
+
+                                                                      [Constant]
+staubgrau
+   RAL Classic color ‘#7A7B7A’.
+
+                                                                      [Constant]
+steelblue
+   RAL Classic color ‘#1A2B3C’.
+
+                                                                      [Constant]
+steengrijs
+   RAL Classic color ‘#928E85’.
+
+                                                                      [Constant]
+steingrau
+   RAL Classic color ‘#928E85’.
+
+                                                                      [Constant]
+stofgrijs
+   RAL Classic color ‘#7A7B7A’.
+
+                                                                      [Constant]
+stonegrey
+   RAL Classic color ‘#928E85’.
+
+                                                                      [Constant]
+strawberryred
+   RAL Classic color ‘#C73F4A’.
+
+                                                                      [Constant]
+sulfuryellow
+   RAL Classic color ‘#F1DD38’.
+
+                                                                      [Constant]
+sunyellow
+   RAL Classic color ‘#F09200’.
+
+                                                                      [Constant]
+tannengruen
+   RAL Classic color ‘#27352A’.
+
+                                                                      [Constant]
+tarpaulingrey
+   RAL Classic color ‘#585C56’.
+
+                                                                      [Constant]
+taubenblau
+   RAL Classic color ‘#637D96’.
+
+                                                                      [Constant]
+telegrau-1
+   RAL Classic color ‘#8D9295’.
+
+                                                                      [Constant]
+telegrau-2
+   RAL Classic color ‘#7F868A’.
+
+                                                                      [Constant]
+telegrau-4
+   RAL Classic color ‘#C8C8C7’.
+
+                                                                      [Constant]
+telegrey-1
+   RAL Classic color ‘#8D9295’.
+
+                                                                      [Constant]
+telegrey-2
+   RAL Classic color ‘#7F868A’.
+
+                                                                      [Constant]
+telegrey-4
+   RAL Classic color ‘#C8C8C7’.
+
+                                                                      [Constant]
+telegrijs-1
+   RAL Classic color ‘#8D9295’.
+
+                                                                      [Constant]
+telegrijs-2
+   RAL Classic color ‘#7F868A’.
+
+                                                                      [Constant]
+telegrijs-4
+   RAL Classic color ‘#C8C8C7’.
+
+                                                                      [Constant]
+telegris-1
+   RAL Classic color ‘#8D9295’.
+
+                                                                      [Constant]
+telegris-2
+   RAL Classic color ‘#7F868A’.
+
+                                                                      [Constant]
+telegris-4
+   RAL Classic color ‘#C8C8C7’.
+
+                                                                      [Constant]
+telemagenta
+   RAL Classic color ‘#BC4077’.
+
+                                                                      [Constant]
+terrabraun
+   RAL Classic color ‘#513A2A’.
+
+                                                                      [Constant]
+terrabrown
+   RAL Classic color ‘#513A2A’.
+
+                                                                      [Constant]
+terrabruin
+   RAL Classic color ‘#513A2A’.
+
+                                                                      [Constant]
+tieforange
+   RAL Classic color ‘#E26E0E’.
+
+                                                                      [Constant]
+tiefschwarz
+   RAL Classic color ‘#0E0E10’.
+
+                                                                      [Constant]
+tomaatrood
+   RAL Classic color ‘#972E25’.
+
+                                                                      [Constant]
+tomatenrot
+   RAL Classic color ‘#972E25’.
+
+                                                                      [Constant]
+tomatored
+   RAL Classic color ‘#972E25’.
+
+                                                                      [Constant]
+trafficblack
+   RAL Classic color ‘#2A292A’.
+
+                                                                      [Constant]
+trafficblue
+   RAL Classic color ‘#005B8C’.
+
+                                                                      [Constant]
+trafficgreen
+   RAL Classic color ‘#008351’.
+
+                                                                      [Constant]
+trafficgrey-a
+   RAL Classic color ‘#8E9291’.
+
+                                                                      [Constant]
+trafficgrey-b
+   RAL Classic color ‘#4F5250’.
+
+                                                                      [Constant]
+trafficorange
+   RAL Classic color ‘#DE5307’.
+
+                                                                      [Constant]
+trafficpurple
+   RAL Classic color ‘#903373’.
+
+                                                                      [Constant]
+trafficred
+   RAL Classic color ‘#BB1E10’.
+
+                                                                      [Constant]
+trafficwhite
+   RAL Classic color ‘#F1F0EA’.
+
+                                                                      [Constant]
+trafficyellow
+   RAL Classic color ‘#F7B500’.
+
+                                                                      [Constant]
+tuerkisblau
+   RAL Classic color ‘#058B8C’.
+
+                                                                      [Constant]
+tuerkisgruen
+   RAL Classic color ‘#00694C’.
+
+                                                                      [Constant]
+turchesementa
+   RAL Classic color ‘#46877F’.
+
+                                                                      [Constant]
+turchesepastello
+   RAL Classic color ‘#7AACAC’.
+
+                                                                      [Constant]
+turkooisblauw
+   RAL Classic color ‘#058B8C’.
+
+                                                                      [Constant]
+turkooisgroen
+   RAL Classic color ‘#00694C’.
+
+                                                                      [Constant]
+turquesamenta
+   RAL Classic color ‘#46877F’.
+
+                                                                      [Constant]
+turquesapastel
+   RAL Classic color ‘#7AACAC’.
+
+                                                                      [Constant]
+turquoiseblue
+   RAL Classic color ‘#058B8C’.
+
+                                                                      [Constant]
+turquoisegreen
+   RAL Classic color ‘#00694C’.
+
+                                                                      [Constant]
+turquoisementhe
+   RAL Classic color ‘#46877F’.
+
+                                                                      [Constant]
+turquoisepastel
+   RAL Classic color ‘#7AACAC’.
+
+                                                                      [Constant]
+ultramarijnblauw
+   RAL Classic color ‘#00387B’.
+
+                                                                      [Constant]
+ultramarinblau
+   RAL Classic color ‘#00387B’.
+
+                                                                      [Constant]
+ultramarineblue
+   RAL Classic color ‘#00387B’.
+
+                                                                      [Constant]
+umbragrau
+   RAL Classic color ‘#4C4A44’.
+
+                                                                      [Constant]
+umbragrey
+   RAL Classic color ‘#4C4A44’.
+
+                                                                      [Constant]
+varengroen
+   RAL Classic color ‘#5E6E3B’.
+
+                                                                      [Constant]
+venstergrijs
+   RAL Classic color ‘#989EA1’.
+
+                                                                      [Constant]
+verblauw
+   RAL Classic color ‘#42698C’.
+
+                                                                      [Constant]
+verdeabete
+   RAL Classic color ‘#27352A’.
+
+                                                                      [Constant]
+verdeabeto
+   RAL Classic color ‘#27352A’.
+
+                                                                      [Constant]
+verdeamarillento
+   RAL Classic color ‘#61993B’.
+
+                                                                      [Constant]
+verdeazulado
+   RAL Classic color ‘#024442’.
+
+                                                                      [Constant]
+verdebiancastro
+   RAL Classic color ‘#B9CEAC’.
+
+                                                                      [Constant]
+verdeblanquecino
+   RAL Classic color ‘#B9CEAC’.
+
+                                                                      [Constant]
+verdebluastro
+   RAL Classic color ‘#024442’.
+
+                                                                      [Constant]
+verdebotella
+   RAL Classic color ‘#2C3222’.
+
+                                                                      [Constant]
+verdebottiglia
+   RAL Classic color ‘#2C3222’.
+
+                                                                      [Constant]
+verdebrillante
+   RAL Classic color ‘#00B51A’.
+
+                                                                      [Constant]
+verdebrunastro
+   RAL Classic color ‘#37342A’.
+
+                                                                      [Constant]
+verdecana
+   RAL Classic color ‘#7D765A’.
+
+                                                                      [Constant]
+verdecanna
+   RAL Classic color ‘#7D765A’.
+
+                                                                      [Constant]
+verdechiaro
+   RAL Classic color ‘#7EBAB5’.
+
+                                                                      [Constant]
+verdecromo
+   RAL Classic color ‘#37422F’.
+
+                                                                      [Constant]
+verdeerba
+   RAL Classic color ‘#4D6F39’.
+
+                                                                      [Constant]
+verdeesmeralda
+   RAL Classic color ‘#366735’.
+
+                                                                      [Constant]
+verdefelce
+   RAL Classic color ‘#5E6E3B’.
+
+                                                                      [Constant]
+verdefoglia
+   RAL Classic color ‘#325928’.
+
+                                                                      [Constant]
+verdegiallastro
+   RAL Classic color ‘#61993B’.
+
+                                                                      [Constant]
+verdehelecho
+   RAL Classic color ‘#5E6E3B’.
+
+                                                                      [Constant]
+verdehierba
+   RAL Classic color ‘#4D6F39’.
+
+                                                                      [Constant]
+verdehoja
+   RAL Classic color ‘#325928’.
+
+                                                                      [Constant]
+verdeluminoso
+   RAL Classic color ‘#7EBAB5’.
+
+                                                                      [Constant]
+verdemaggio
+   RAL Classic color ‘#587F40’.
+
+                                                                      [Constant]
+verdemayo
+   RAL Classic color ‘#587F40’.
+
+                                                                      [Constant]
+verdementa
+   RAL Classic color ‘#006F3D’.
+
+                                                                      [Constant]
+verdemuschio
+   RAL Classic color ‘#114232’.
+
+                                                                      [Constant]
+verdemusgo
+   RAL Classic color ‘#114232’.
+
+                                                                      [Constant]
+verdenegruzco
+   RAL Classic color ‘#303D3A’.
+
+                                                                      [Constant]
+verdenerastro
+   RAL Classic color ‘#303D3A’.
+
+                                                                      [Constant]
+verdeoliva
+   RAL Classic color ‘#50533C’.
+
+                                                                      [Constant]
+verdeopale
+   RAL Classic color ‘#005F4E’.
+
+                                                                      [Constant]
+verdeopalo
+   RAL Classic color ‘#005F4E’.
+
+                                                                      [Constant]
+verdeopaloperlado
+   RAL Classic color ‘#04574B’.
+
+                                                                      [Constant]
+verdeopaloperlato
+   RAL Classic color ‘#04574B’.
+
+                                                                      [Constant]
+verdepalido
+   RAL Classic color ‘#8A9977’.
+
+                                                                      [Constant]
+verdepallido
+   RAL Classic color ‘#8A9977’.
+
+                                                                      [Constant]
+verdeparduzco
+   RAL Classic color ‘#37342A’.
+
+                                                                      [Constant]
+verdepatina
+   RAL Classic color ‘#3C7460’.
+
+                                                                      [Constant]
+verdeperlado
+   RAL Classic color ‘#194D25’.
+
+                                                                      [Constant]
+verdeperlato
+   RAL Classic color ‘#194D25’.
+
+                                                                      [Constant]
+verdepino
+   RAL Classic color ‘#315442’.
+
+                                                                      [Constant]
+verdepuro
+   RAL Classic color ‘#008B29’.
+
+                                                                      [Constant]
+verdereseda
+   RAL Classic color ‘#6C7C59’.
+
+                                                                      [Constant]
+verdesegnale
+   RAL Classic color ‘#237F52’.
+
+                                                                      [Constant]
+verdesenales
+   RAL Classic color ‘#237F52’.
+
+                                                                      [Constant]
+verdesmeraldo
+   RAL Classic color ‘#366735’.
+
+                                                                      [Constant]
+verdetraffico
+   RAL Classic color ‘#008351’.
+
+                                                                      [Constant]
+verdetrafico
+   RAL Classic color ‘#008351’.
+
+                                                                      [Constant]
+verdeturchese
+   RAL Classic color ‘#00694C’.
+
+                                                                      [Constant]
+verdeturquesa
+   RAL Classic color ‘#00694C’.
+
+                                                                      [Constant]
+verkeersblauw
+   RAL Classic color ‘#005B8C’.
+
+                                                                      [Constant]
+verkeersgeel
+   RAL Classic color ‘#F7B500’.
+
+                                                                      [Constant]
+verkeersgrijs-a
+   RAL Classic color ‘#8E9291’.
+
+                                                                      [Constant]
+verkeersgrijs-b
+   RAL Classic color ‘#4F5250’.
+
+                                                                      [Constant]
+verkeersgroen
+   RAL Classic color ‘#008351’.
+
+                                                                      [Constant]
+verkeersoranje
+   RAL Classic color ‘#DE5307’.
+
+                                                                      [Constant]
+verkeerspurper
+   RAL Classic color ‘#903373’.
+
+                                                                      [Constant]
+verkeersrood
+   RAL Classic color ‘#BB1E10’.
+
+                                                                      [Constant]
+verkeerswit
+   RAL Classic color ‘#F1F0EA’.
+
+                                                                      [Constant]
+verkeerszwart
+   RAL Classic color ‘#2A292A’.
+
+                                                                      [Constant]
+verkehrsblau
+   RAL Classic color ‘#005B8C’.
+
+                                                                      [Constant]
+verkehrsgelb
+   RAL Classic color ‘#F7B500’.
+
+                                                                      [Constant]
+verkehrsgrau-a
+   RAL Classic color ‘#8E9291’.
+
+                                                                      [Constant]
+verkehrsgrau-b
+   RAL Classic color ‘#4F5250’.
+
+                                                                      [Constant]
+verkehrsgruen
+   RAL Classic color ‘#008351’.
+
+                                                                      [Constant]
+verkehrsorange
+   RAL Classic color ‘#DE5307’.
+
+                                                                      [Constant]
+verkehrspurpur
+   RAL Classic color ‘#903373’.
+
+                                                                      [Constant]
+verkehrsrot
+   RAL Classic color ‘#BB1E10’.
+
+                                                                      [Constant]
+verkehrsschwarz
+   RAL Classic color ‘#2A292A’.
+
+                                                                      [Constant]
+verkehrsweiss
+   RAL Classic color ‘#F1F0EA’.
+
+                                                                      [Constant]
+vermilion
+   RAL Classic color ‘#BF3922’.
+
+                                                                      [Constant]
+vermiljoen
+   RAL Classic color ‘#BF3922’.
+
+                                                                      [Constant]
+vertblanc
+   RAL Classic color ‘#B9CEAC’.
+
+                                                                      [Constant]
+vertbleu
+   RAL Classic color ‘#024442’.
+
+                                                                      [Constant]
+vertbouteille
+   RAL Classic color ‘#2C3222’.
+
+                                                                      [Constant]
+vertbrillant
+   RAL Classic color ‘#00B51A’.
+
+                                                                      [Constant]
+vertbrun
+   RAL Classic color ‘#37342A’.
+
+                                                                      [Constant]
+vertclair
+   RAL Classic color ‘#7EBAB5’.
+
+                                                                      [Constant]
+vertdesecurite
+   RAL Classic color ‘#237F52’.
+
+                                                                      [Constant]
+vertemeraude
+   RAL Classic color ‘#366735’.
+
+                                                                      [Constant]
+vertfeuillage
+   RAL Classic color ‘#325928’.
+
+                                                                      [Constant]
+vertfougere
+   RAL Classic color ‘#5E6E3B’.
+
+                                                                      [Constant]
+vertherbe
+   RAL Classic color ‘#4D6F39’.
+
+                                                                      [Constant]
+vertjaune
+   RAL Classic color ‘#61993B’.
+
+                                                                      [Constant]
+vertjonc
+   RAL Classic color ‘#7D765A’.
+
+                                                                      [Constant]
+vertmai
+   RAL Classic color ‘#587F40’.
+
+                                                                      [Constant]
+vertmenthe
+   RAL Classic color ‘#006F3D’.
+
+                                                                      [Constant]
+vertmousse
+   RAL Classic color ‘#114232’.
+
+                                                                      [Constant]
+vertnacre
+   RAL Classic color ‘#194D25’.
+
+                                                                      [Constant]
+vertnoir
+   RAL Classic color ‘#303D3A’.
+
+                                                                      [Constant]
+vertolive
+   RAL Classic color ‘#50533C’.
+
+                                                                      [Constant]
+vertopale
+   RAL Classic color ‘#005F4E’.
+
+                                                                      [Constant]
+vertopalnacre
+   RAL Classic color ‘#04574B’.
+
+                                                                      [Constant]
+vertoxydechromique
+   RAL Classic color ‘#37422F’.
+
+                                                                      [Constant]
+vertpale
+   RAL Classic color ‘#8A9977’.
+
+                                                                      [Constant]
+vertpatine
+   RAL Classic color ‘#3C7460’.
+
+                                                                      [Constant]
+vertpin
+   RAL Classic color ‘#315442’.
+
+                                                                      [Constant]
+vertpur
+   RAL Classic color ‘#008B29’.
+
+                                                                      [Constant]
+vertreseda
+   RAL Classic color ‘#6C7C59’.
+
+                                                                      [Constant]
+vertsapin
+   RAL Classic color ‘#27352A’.
+
+                                                                      [Constant]
+vertsignalisation
+   RAL Classic color ‘#008351’.
+
+                                                                      [Constant]
+vertturquoise
+   RAL Classic color ‘#00694C’.
+
+                                                                      [Constant]
+vieuxrose
+   RAL Classic color ‘#CB7375’.
+
+                                                                      [Constant]
+violabordeaux
+   RAL Classic color ‘#651E38’.
+
+                                                                      [Constant]
+violaerica
+   RAL Classic color ‘#C4618C’.
+
+                                                                      [Constant]
+violarossastro
+   RAL Classic color ‘#8D3C4B’.
+
+                                                                      [Constant]
+violetaerica
+   RAL Classic color ‘#C4618C’.
+
+                                                                      [Constant]
+violetapastel
+   RAL Classic color ‘#9D8692’.
+
+                                                                      [Constant]
+violetaperlado
+   RAL Classic color ‘#6E6387’.
+
+                                                                      [Constant]
+violetapurpura
+   RAL Classic color ‘#47243C’.
+
+                                                                      [Constant]
+violetasenales
+   RAL Classic color ‘#844C82’.
+
+                                                                      [Constant]
+violetblue
+   RAL Classic color ‘#314F6F’.
+
+                                                                      [Constant]
+violetbordeaux
+   RAL Classic color ‘#651E38’.
+
+                                                                      [Constant]
+violetbruyere
+   RAL Classic color ‘#C4618C’.
+
+                                                                      [Constant]
+violetdesecurite
+   RAL Classic color ‘#844C82’.
+
+                                                                      [Constant]
+violetnacre
+   RAL Classic color ‘#6E6387’.
+
+                                                                      [Constant]
+violetpastel
+   RAL Classic color ‘#9D8692’.
+
+                                                                      [Constant]
+violetpourpre
+   RAL Classic color ‘#47243C’.
+
+                                                                      [Constant]
+violetrouge
+   RAL Classic color ‘#8D3C4B’.
+
+                                                                      [Constant]
+violettblau
+   RAL Classic color ‘#314F6F’.
+
+                                                                      [Constant]
+violettopastello
+   RAL Classic color ‘#9D8692’.
+
+                                                                      [Constant]
+violettoperlato
+   RAL Classic color ‘#6E6387’.
+
+                                                                      [Constant]
+violettosegnale
+   RAL Classic color ‘#844C82’.
+
+                                                                      [Constant]
+vuurrood
+   RAL Classic color ‘#A72920’.
+
+                                                                      [Constant]
+wasserblau
+   RAL Classic color ‘#007577’.
+
+                                                                      [Constant]
+waterblauw
+   RAL Classic color ‘#007577’.
+
+                                                                      [Constant]
+waterblue
+   RAL Classic color ‘#007577’.
+
+                                                                      [Constant]
+weinrot
+   RAL Classic color ‘#59191F’.
+
+                                                                      [Constant]
+weissaluminium
+   RAL Classic color ‘#A1A1A0’.
+
+                                                                      [Constant]
+weissgruen
+   RAL Classic color ‘#B9CEAC’.
+
+                                                                      [Constant]
+whitealuminium
+   RAL Classic color ‘#A1A1A0’.
+
+                                                                      [Constant]
+wijnrood
+   RAL Classic color ‘#59191F’.
+
+                                                                      [Constant]
+windowgrey
+   RAL Classic color ‘#989EA1’.
+
+                                                                      [Constant]
+winered
+   RAL Classic color ‘#59191F’.
+
+                                                                      [Constant]
+witgroen
+   RAL Classic color ‘#B9CEAC’.
+
+                                                                      [Constant]
+yellowgreen
+   RAL Classic color ‘#61993B’.
+
+                                                                      [Constant]
+yellowgrey
+   RAL Classic color ‘#92886F’.
+
+                                                                      [Constant]
+yellowolive
+   RAL Classic color ‘#474135’.
+
+                                                                      [Constant]
+yelloworange
+   RAL Classic color ‘#DA6E00’.
+
+                                                                      [Constant]
+zalmoranje
+   RAL Classic color ‘#D5654D’.
+
+                                                                      [Constant]
+zalmrood
+   RAL Classic color ‘#CF6955’.
+
+                                                                      [Constant]
+zandgeel
+   RAL Classic color ‘#D2AA6D’.
+
+                                                                      [Constant]
+zeildoekgrijs
+   RAL Classic color ‘#585C56’.
+
+                                                                      [Constant]
+zeltgrau
+   RAL Classic color ‘#585C56’.
+
+                                                                      [Constant]
+zementgrau
+   RAL Classic color ‘#7F8274’.
+
+                                                                      [Constant]
+zijdegrijs
+   RAL Classic color ‘#B7B3A8’.
+
+                                                                      [Constant]
+zilvergrijs
+   RAL Classic color ‘#8C969D’.
+
+                                                                      [Constant]
+zincyellow
+   RAL Classic color ‘#FACA30’.
+
+                                                                      [Constant]
+zinkgeel
+   RAL Classic color ‘#FACA30’.
+
+                                                                      [Constant]
+zinkgelb
+   RAL Classic color ‘#FACA30’.
+
+                                                                      [Constant]
+zitronengelb
+   RAL Classic color ‘#DDAF27’.
+
+                                                                      [Constant]
+zonnegeel
+   RAL Classic color ‘#F09200’.
+
+                                                                      [Constant]
+zuivergroen
+   RAL Classic color ‘#008B29’.
+
+                                                                      [Constant]
+zuiveroranje
+   RAL Classic color ‘#E25303’.
+
+                                                                      [Constant]
+zuiverrood
+   RAL Classic color ‘#CC2C24’.
+
+                                                                      [Constant]
+zuiverwit
+   RAL Classic color ‘#F1ECE1’.
+
+                                                                      [Constant]
+zwartblauw
+   RAL Classic color ‘#191E28’.
+
+                                                                      [Constant]
+zwartbruin
+   RAL Classic color ‘#1A1718’.
+
+                                                                      [Constant]
+zwartgrijs
+   RAL Classic color ‘#2F3234’.
+
+                                                                      [Constant]
+zwartgroen
+   RAL Classic color ‘#303D3A’.
+
+                                                                      [Constant]
+zwartolijfgroen
+   RAL Classic color ‘#3D3D36’.
+
+                                                                      [Constant]
+zwartrood
+   RAL Classic color ‘#3E2022’.
+
+                                                                      [Constant]
+zwavelgeel
+   RAL Classic color ‘#F1DD38’.
