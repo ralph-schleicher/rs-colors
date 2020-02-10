@@ -61,11 +61,4 @@
 	       (:file "color-matching-functions")
 	       (:file "color-difference")))
 
-;; local variables:
-;; time-stamp-time-zone: "UTC"
-;; time-stamp-format: "%:y%02m%02d.%02H%02M"
-;; time-stamp-start: ":version\\s-+\""
-;; time-stamp-end: "\""
-;; end:
-
 ;;; rs-colors.asd ends here
