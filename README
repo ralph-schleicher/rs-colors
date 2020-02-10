@@ -3,6 +3,14 @@ A color data type for Common Lisp.
 
 Implemented color spaces:
 
+   * generic RGB
+   * generic HSV/HSB
+   * generic HSL
+   * generic CMY
+   * generic CMYK
+
+and
+
    * CIE RGB
    * CIE XYZ
    * CIE xyY
@@ -11,14 +19,6 @@ Implemented color spaces:
    * CIE L*C*h
    * sRGB
    * Adobe RGB
-
-and
-
-   * generic RGB
-   * generic HSV/HSB
-   * generic HSL
-   * generic CMY
-   * generic CMYK
 
 
 Color space conversion is resolved by CLOS:
