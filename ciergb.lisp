@@ -52,16 +52,17 @@ Arguments RED, GREEN, and BLUE have to be normalized intensity values
 in the closed interval [0, 1]."
   (make-instance 'ciergb-color :red red :green green :blue blue))
 
-(let ((c (make-matrix 49000/100000 31000/100000 20000/100000
-		      17697/100000 81240/100000  1063/100000
-		          0/100000  1000/100000 99000/100000)))
-  (defconst ciergb-from-ciexyz-transformation-matrix (matrix-inverse (copy-matrix c))
-    "Transformation matrix to convert CIE XYZ color space coordinates
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (let ((c (make-matrix 49000/100000 31000/100000 20000/100000
+			17697/100000 81240/100000  1063/100000
+			0/100000  1000/100000 99000/100000)))
+    (defconst ciergb-from-ciexyz-transformation-matrix (matrix-inverse (copy-matrix c))
+      "Transformation matrix to convert CIE XYZ color space coordinates
 into CIE RGB color space coordinates.")
-  (defconst ciexyz-from-ciergb-transformation-matrix c
-    "Transformation matrix to convert CIE RGB color space coordinates
+    (defconst ciexyz-from-ciergb-transformation-matrix c
+      "Transformation matrix to convert CIE RGB color space coordinates
 into CIE XYZ color space coordinates.")
-  (values))
+    (values)))
 
 (defun ciergb-from-ciexyz (x y z)
   "Convert CIE XYZ color space coordinates

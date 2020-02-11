@@ -35,30 +35,31 @@
 
 (in-package :rs-colors)
 
-(let (;; Speed of light in vacuum.
-      (c 299792458)
-      ;; Planck constant.
-      (h 6.62607015L-34)
-      ;; Boltzmann constant.
-      (k 1.380649L-23))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (let (;; Speed of light in vacuum.
+	(c 299792458)
+	;; Planck constant.
+	(h 6.62607015L-34)
+	;; Boltzmann constant.
+	(k 1.380649L-23))
 
-  (export 'codata-2018-first-radiation-constant-for-spectral-radiance)
-  (defconst codata-2018-first-radiation-constant-for-spectral-radiance (* 2 h (expt c 2))
-    "First radiation constant for spectral radiance.
-
-2018 CODATA recommended value.")
-
-  (export 'codata-2018-first-radiation-constant)
-  (defconst codata-2018-first-radiation-constant (* 2 pi h (expt c 2))
-    "First radiation constant.
+    (export 'codata-2018-first-radiation-constant-for-spectral-radiance)
+    (defconst codata-2018-first-radiation-constant-for-spectral-radiance (* 2 h (expt c 2))
+      "First radiation constant for spectral radiance.
 
 2018 CODATA recommended value.")
 
-  (export 'codata-2018-second-radiation-constant)
-  (defconst codata-2018-second-radiation-constant (/ (* h c) k)
-    "Second radiation constant.
+    (export 'codata-2018-first-radiation-constant)
+    (defconst codata-2018-first-radiation-constant (* 2 pi h (expt c 2))
+      "First radiation constant.
 
-2018 CODATA recommended value."))
+2018 CODATA recommended value.")
+
+    (export 'codata-2018-second-radiation-constant)
+    (defconst codata-2018-second-radiation-constant (/ (* h c) k)
+      "Second radiation constant.
+
+2018 CODATA recommended value.")))
 
 (export 'black-body-spectral-radiant-exitance)
 (defun black-body-spectral-radiant-exitance (wavelength temperature)

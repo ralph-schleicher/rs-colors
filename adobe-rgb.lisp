@@ -82,20 +82,22 @@ Example:
 (defmethod white-point ((color adobe-rgb-color))
   adobe-rgb-white-point)
 
-(multiple-value-bind (rgb-from-xyz xyz-from-rgb)
-    (rgb-transformation-matrices #(64/100 33/100)
-				 #(21/100 71/100)
-				 #(15/100  6/100)
-				 (multiple-value-bind (x* y*)
-				     (ciexyy-color-coordinates adobe-rgb-white-point)
-				   (vector x* y*)))
-  (defconst adobe-rgb-from-ciexyz-transformation-matrix (float-array rgb-from-xyz 1D0)
-    "Transformation matrix to convert normalized CIE XYZ color space coordinates
+
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (multiple-value-bind (rgb-from-xyz xyz-from-rgb)
+      (rgb-transformation-matrices #(64/100 33/100)
+				   #(21/100 71/100)
+				   #(15/100  6/100)
+				   (multiple-value-bind (x* y*)
+				       (ciexyy-color-coordinates adobe-rgb-white-point)
+				     (vector x* y*)))
+    (defconst adobe-rgb-from-ciexyz-transformation-matrix (float-array rgb-from-xyz 1D0)
+      "Transformation matrix to convert normalized CIE XYZ color space coordinates
 into linear Adobe RGB color space coordinates.")
-  (defconst ciexyz-from-adobe-rgb-transformation-matrix (float-array xyz-from-rgb 1D0)
-    "Transformation matrix to convert linear Adobe RGB color space coordinates
+    (defconst ciexyz-from-adobe-rgb-transformation-matrix (float-array xyz-from-rgb 1D0)
+      "Transformation matrix to convert linear Adobe RGB color space coordinates
 into normalized CIE XYZ color space coordinates.")
-  (values))
+    (values)))
 
 ;; §4.3.1.2 The Inverse Color Component Transfer Function
 ;;

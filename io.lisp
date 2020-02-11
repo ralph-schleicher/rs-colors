@@ -40,8 +40,7 @@
   "Argument STYLE is a string designator."
   (let* ((suffix (string-upcase (string style)))
 	 (printer (intern (concatenate 'string "PRINT-COLOR-" suffix)))
-	 (formatter (intern (concatenate 'string "COLOR-FORMATTER-" suffix)))
-	 (rest (gensym "REST")))
+	 (formatter (intern (concatenate 'string "COLOR-FORMATTER-" suffix))))
     `(progn
        ,@(when export `((export (quote ,printer))))
        ,@(when inline `((declaim (inline ,printer))))
