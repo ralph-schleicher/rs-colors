@@ -98,7 +98,7 @@ Example:
   (ensure-type byte-size '(integer 1))
   (multiple-value-bind (cyan magenta yellow black)
       (decode-quadruple value byte-size)
-    (make-generic-cmyk-color cyan magenta yellow black byte-size)))
+    (make-generic-cmyk-color cyan magenta yellow black :byte-size byte-size)))
 
 (defun generic-cmyk-from-generic-cmy (c m y)
   "Convert CMY color space coordinates
