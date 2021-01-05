@@ -52,6 +52,8 @@
 	   #:make-matrix
 	   #:copy-matrix
 	   #:matrix-inverse
+	   #:gemv
+	   #:gemm
 	   #:float-array
 	   #:linear-transformation
 	   #:hypot
