@@ -82,8 +82,12 @@ rs-colors.asd: $(srcdir)/rs-colors.asd.in $(srcdir)/Makefile.in
 	  sh ./asd-components.sh $(rs_colors_sources) ) > $@~ && \
 	mv -f $@~ $@
 
+.PHONY: check-local
+check-local:
+	quicklisp-check-build -sbcl -ccl $(PACKAGE)
+
 .PHONY: sync
 sync: all
-	~/src/github/github.sh rs-colors
+	~/src/github/github.sh $(PACKAGE)
 
 ## Makefile.am ends here
