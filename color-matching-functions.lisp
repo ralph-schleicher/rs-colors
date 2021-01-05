@@ -35,7 +35,6 @@
 
 (in-package :rs-colors)
 
-(export 'cie-1931-standard-observer)
 (defconst cie-1931-standard-observer
   '((380 0.001368    3.9E-5     0.00645    )
     (385 0.002236    6.4E-5     0.01055    )
@@ -225,7 +224,6 @@ The wavelength λ ranges from 380 nm to 780 nm in steps of 5 nm.
 
 See the ‘*color-matching-functions*’ parameter for more details.")
 
-(export 'cie-1964-standard-observer)
 (defconst cie-1964-standard-observer
   '((380 0.00016     1.7E-5    0.000705    )
     (385 0.000662    7.2E-5    0.002928    )
@@ -391,7 +389,6 @@ The wavelength λ ranges from 380 nm to 780 nm in steps of 5 nm.
 
 See the ‘*color-matching-functions*’ parameter for more details.")
 
-(export '*color-matching-functions*)
 (defvar *color-matching-functions* cie-1931-standard-observer
   "A list of three color matching functions.
 Default is the CIE 1931 standard observer.
@@ -462,18 +459,15 @@ wavelength λ."
 		  :datum *color-matching-functions*
 		  :expected-type '(cons (or cons function)))))))
 
-(export 'cie-1931-second-radiation-constant)
 (defconst cie-1931-second-radiation-constant 1.435L-2
   "Second radiation constant.
 
 Value used by the CIE when defining the CIE 1931 color space.")
 
-(export '*second-radiation-constant*)
 (defvar *second-radiation-constant* codata-2018-second-radiation-constant
   "Second radiation constant.")
 (proclaim '(type (real (0)) *second-radiation-constant*))
 
-(export 'cie-xy-chromaticity-of-light)
 (defun cie-xy-chromaticity-of-light (wavelength)
   "Calculate the chromaticity coordinates of a single color of light.
 These chromaticity coordinates define the border of the chromaticity
@@ -493,7 +487,6 @@ by the ‘*color-matching-functions*’ special variable."
       (values (coerce (/ x sum) 'single-float)
 	      (coerce (/ y sum) 'single-float)))))
 
-(export 'cie-xy-chromaticity-of-black-body)
 (defun cie-xy-chromaticity-of-black-body (temperature &key (from 380) (to 780) (by 5))
   "Calculate the chromaticity coordinates of a Planckian radiator.
 These chromaticity coordinates define the Planckian locus in a

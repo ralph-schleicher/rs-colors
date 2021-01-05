@@ -37,7 +37,6 @@
 
 ;;;; Data and Control Flow
 
-(export 'defconst)
 (defmacro defconst (name value &optional doc)
   "Define a constant variable.
 
@@ -46,7 +45,6 @@ is reused when the ‘defconst’ form is evaluated again."
   `(defconstant ,name (if (boundp ',name) (symbol-value ',name) ,value)
      ,@(when doc (list doc))))
 
-(export 'defsubst)
 (defmacro defsubst (name arg-list &body body)
   "Define an inline function.
 
@@ -59,7 +57,6 @@ for inline expansion by the compiler."
 
 ;;;; Conditions
 
-(export 'ensure-type)
 (defun ensure-type (object type)
   "Signal a type error if OBJECT is not of the type TYPE.
 Otherwise, return OBJECT."
@@ -69,7 +66,6 @@ Otherwise, return OBJECT."
 
 ;;;; Strings
 
-(export 'collapse)
 (defun collapse (string &optional (char #\Space))
   "Remove consecutive duplicate characters."
   (iter (with mark = nil)
@@ -80,7 +76,6 @@ Otherwise, return OBJECT."
 
 ;;;; Exponential Functions
 
-(export 'cube)
 (defun cube (z)
   "Return Z cubed, that is Z raised to the power three.
 
@@ -93,7 +88,6 @@ Argument Z has to be a real number."
 	(t
 	 (* z z z))))
 
-(export 'cube-root)
 (defun cube-root (z)
   "Return the cube root of Z.
 
@@ -118,7 +112,6 @@ of the argument Z to its value."
 
 ;;;; Quantities
 
-(export 'radian-from-degree)
 (defsubst radian-from-degree (deg)
   "Convert a plane angle from degree to radian.
 
@@ -128,7 +121,6 @@ Value is the corresponding angle given in radian."
   (declare (type real deg))
   (* (/ deg 180) pi))
 
-(export 'degree-from-radian)
 (defsubst degree-from-radian (rad)
   "Convert a plane angle from radian to degree.
 
@@ -140,7 +132,6 @@ Value is the corresponding angle given in degree."
 
 ;;;; Linear Algebra
 
-(export 'make-vector)
 (defun make-vector (&optional (x1 0) (x2 0) (x3 0))
   "Create a vector."
   (let ((x (make-array '(3) :element-type 'real :initial-element 0)))
@@ -149,14 +140,12 @@ Value is the corresponding angle given in degree."
 	  (svref x 2) x3)
     x))
 
-(export 'copy-vector)
 (defun copy-vector (x)
   "Return a copy of vector X."
   (make-vector (svref x 0)
 	       (svref x 1)
 	       (svref x 2)))
 
-(export 'make-matrix)
 (defun make-matrix (&optional (a11 0) (a12 0) (a13 0)
 			      (a21 0) (a22 0) (a23 0)
 			      (a31 0) (a32 0) (a33 0))
@@ -167,7 +156,6 @@ Value is the corresponding angle given in degree."
 	  (aref a 2 0) a31 (aref a 2 1) a32 (aref a 2 2) a33)
     a))
 
-(export 'copy-matrix)
 (defun copy-matrix (a)
   "Return a copy of matrix A."
   (make-matrix (aref a 0 0) (aref a 0 1) (aref a 0 2)
@@ -216,7 +204,6 @@ Value is the corresponding angle given in degree."
   "Calculate adjugate matrix of matrix A in place."
   (matrix-transpose (matrix-cofactors a)))
 
-(export 'matrix-inverse)
 (defun matrix-inverse (a)
   "Calculate inverse matrix of matrix A in place."
   (let ((det (det a)))
@@ -278,7 +265,6 @@ Value is the corresponding angle given in degree."
 			 (* (aref a 2 2) (aref b 2 2))))
   c)
 
-(export 'float-array)
 (defun float-array (a &optional (prototype 1F0))
   "Convert elements of a numeric array to floating-point numbers."
   (iter (for k :from 0 :below (array-total-size a))
@@ -286,7 +272,6 @@ Value is the corresponding angle given in degree."
   a)
 
 ;; GEMV with multiple values.
-(export 'linear-transformation)
 (defun linear-transformation (a x1 x2 x3)
   "Perform a linear transformation."
   (values (+ (* (aref a 0 0) x1)
@@ -299,7 +284,6 @@ Value is the corresponding angle given in degree."
 	     (* (aref a 2 1) x2)
 	     (* (aref a 2 2) x3))))
 
-(export 'hypot)
 (defsubst hypot (x y)
   "Return the distance between a point and the origin
 in a two-dimensional Cartesian coordinate system.
@@ -308,7 +292,6 @@ Arguments X and Y have to be real numbers."
   (declare (type real x y))
   (abs (complex x y)))
 
-(export 'hypot3)
 (defun hypot3 (x y z)
   "Return the distance between a point and the origin
 in a three-dimensional Cartesian coordinate system.
@@ -325,12 +308,10 @@ Arguments X, Y, and Z have to be real numbers."
 
 ;;;; Tuple
 
-(export 'encode-triple)
 (defun encode-triple (a b c &optional (byte-size 8))
   (let ((s (expt 2 byte-size)))
     (+ (* (+ (* a s) b) s) c)))
 
-(export 'decode-triple)
 (defun decode-triple (value &optional (byte-size 8))
   (let ((s (expt 2 byte-size))
 	(v value)
@@ -343,12 +324,10 @@ Arguments X, Y, and Z have to be real numbers."
       (truncate v s))
     (values a b c)))
 
-(export 'encode-quadruple)
 (defun encode-quadruple (a b c d &optional (byte-size 8))
   (let ((s (expt 2 byte-size)))
     (+ (* (+ (* (+ (* a s) b) s) c) s) d)))
 
-(export 'decode-quadruple)
 (defun decode-quadruple (value &optional (byte-size 8))
   (let ((s (expt 2 byte-size))
 	(v value)
@@ -366,14 +345,12 @@ Arguments X, Y, and Z have to be real numbers."
 
 ;;;; CIE Color Spaces
 
-(export 'cie-L*-from-Y/Yn)
 (defun cie-L*-from-Y/Yn (Y/Yn)
   "Map relative luminance Y/Yn to lightness L*."
   (if (> Y/Yn 216/24389)
       (- (* 116 (cube-root Y/Yn)) 16)
     (* 24389/27 Y/Yn)))
 
-(export 'cie-Y/Yn-from-L*)
 (defun cie-Y/Yn-from-L* (L*)
   "Map lightness L* to relative luminance Y/Yn."
   (if (> L* 8)
@@ -382,7 +359,6 @@ Arguments X, Y, and Z have to be real numbers."
 
 ;;;; RGB Color Spaces
 
-(export 'rgb-transformation-matrices)
 (defun rgb-transformation-matrices (red green blue white)
   "Return the transformation matrix for converting CIE XYZ color space
 coordinates into RGB color space coordinates and vice versa.
@@ -416,7 +392,6 @@ the inverse matrix."
 	   (c (gemm p d)))
       (values (matrix-inverse (copy-matrix c)) c))))
 
-(export 'make-rgb-color)
 (defun make-rgb-color (color-type red green blue &optional byte-size)
   "Create a new color in an RGB color space."
   (let (r g b)
@@ -430,7 +405,6 @@ the inverse matrix."
 	      b (/ (ensure-type blue `(integer 0 ,s)) s))))
     (make-instance color-type :red r :green g :blue b)))
 
-(export 'make-rgb-color-from-number)
 (defun make-rgb-color-from-number (color-type value &optional (byte-size 8))
   "Create a new color in an RGB color space."
   (ensure-type value '(integer 0))
@@ -439,7 +413,6 @@ the inverse matrix."
       (decode-triple value byte-size)
     (make-rgb-color color-type red green blue byte-size)))
 
-(export 'multiples)
 (defun multiples (number 1/fraction)
   "Return NUMBER/FRACTION if NUMBER is a multiple of 1/FRACTION.
 Otherwise, return null.
@@ -452,14 +425,12 @@ Second argument 1/FRACTION has to be a positive number."
 
 ;;;; Color Dictionaries
 
-(export 'define-color-name)
 (defmacro define-color-name (name value &optional doc)
   `(progn
      (export ',name)
      (defconst ,name ,value
        ,@(when doc (list doc)))))
 
-(export 'define-color-names)
 (defmacro define-color-names ((name &rest aliases) value &optional doc)
   `(progn
      (define-color-name ,name ,value

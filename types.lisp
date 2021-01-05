@@ -35,7 +35,6 @@
 
 (in-package :rs-colors)
 
-(export 'color-object)
 (defclass color-object ()
   ()
   (:documentation "Base class for a color."))
@@ -52,12 +51,10 @@
 	  (unless (typep slot-value slot-type)
 	    (error 'type-error :datum slot-value :expected-type slot-type)))))
 
-(export 'colorp)
 (defun colorp (object)
   "Return true if OBJECT is a color object."
   (typep object 'color-object))
 
-(export 'color-coordinates)
 (defgeneric color-coordinates (color)
   (:documentation "Return the color space coordinates of the color.
 
@@ -66,7 +63,6 @@ Argument COLOR is a color object.")
     (declare (ignore color))
     (values)))
 
-(export 'white-point)
 (defgeneric white-point (color)
   (:documentation "Return the white point of the color.
 
@@ -77,7 +73,6 @@ white point is not defined or if multiple white points exist.")
   (:method ((color color-object))
     (declare (ignore color))))
 
-(export 'copy-color)
 (defgeneric copy-color (color)
   (:documentation "Return a shallow copy of the color.
 
@@ -92,7 +87,6 @@ Argument COLOR is a color object.")
 	  (finally
 	   (return copy)))))
 
-(export 'coerce-color)
 (defun coerce-color (color color-type)
   "Coerce the color object into the specified color type.
 
@@ -123,7 +117,6 @@ space denoted by COLOR-TYPE."
 (defmethod make-load-form ((color color-object) &optional environment)
   (make-load-form-saving-slots color :environment environment))
 
-(export 'rgb-color-object)
 (defclass rgb-color-object (color-object)
   ((r
     :initarg :red
@@ -146,7 +139,6 @@ space denoted by COLOR-TYPE."
   (with-slots (r g b) color
     (values r g b)))
 
-(export 'hsv-color-object)
 (defclass hsv-color-object (color-object)
   ((h
     :initarg :hue
@@ -169,7 +161,6 @@ space denoted by COLOR-TYPE."
   (with-slots (h s v) color
     (values h s v)))
 
-(export 'hsl-color-object)
 (defclass hsl-color-object (color-object)
   ((h
     :initarg :hue
@@ -192,7 +183,6 @@ space denoted by COLOR-TYPE."
   (with-slots (h s l) color
     (values h s l)))
 
-(export 'cmy-color-object)
 (defclass cmy-color-object (color-object)
   ((c
     :initarg :cyan
@@ -217,7 +207,6 @@ space denoted by COLOR-TYPE."
 
 ;; Do not inherit from ‘cmy-color-object’ because the numerical values
 ;; of cyan, magenta, and yellow have a different meaning.
-(export 'cmyk-color-object)
 (defclass cmyk-color-object (color-object)
   ((c
     :initarg :cyan
@@ -245,7 +234,6 @@ space denoted by COLOR-TYPE."
   (with-slots (c m y k) color
     (values c m y k)))
 
-(export 'generic-color-object)
 (defclass generic-color-object (color-object)
   ()
   (:documentation "Color class for the mathematical model of a color space."))
@@ -255,11 +243,9 @@ space denoted by COLOR-TYPE."
   (:method ((object real))
     (ensure-type object '(real 0))))
 
-(export 'normalize-color)
 (defgeneric normalize-color (color &key)
   (:documentation "Convert from absolute color coordinates to normalized color coordinates."))
 
-(export 'absolute-color)
 (defgeneric absolute-color (color &key)
   (:documentation "Convert from normalized color coordinates to absolute color coordinates."))
 

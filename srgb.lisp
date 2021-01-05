@@ -40,12 +40,10 @@
 
 (in-package :rs-colors)
 
-(export 'srgb-color)
 (defclass srgb-color (rgb-color-object)
   ()
   (:documentation "Color class for the sRGB color space."))
 
-(export 'make-srgb-color)
 (defun make-srgb-color (red green blue &key byte-size)
   "Create a new color in the sRGB color space.
 
@@ -66,7 +64,6 @@ Example:
      (make-srgb-color 252 175 62 :byte-size 8)"
   (make-rgb-color 'srgb-color red green blue byte-size))
 
-(export 'make-srgb-color-from-number)
 (defun make-srgb-color-from-number (value &key (byte-size 8))
   "Create a new color in the sRGB color space.
 
@@ -152,7 +149,6 @@ into normalized CIE XYZ color space coordinates."
 			 (srgb-gamma-decoding g)
 			 (srgb-gamma-decoding b)))
 
-(export 'srgb-color-coordinates)
 (defgeneric srgb-color-coordinates (color)
   (:documentation "Return the sRGB color space coordinates of the color.
 

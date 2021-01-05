@@ -35,12 +35,10 @@
 
 (in-package :rs-colors)
 
-(export 'wide-gamut-rgb-color)
 (defclass wide-gamut-rgb-color (rgb-color-object)
   ()
   (:documentation "Color class for the wide-gamut RGB color space."))
 
-(export 'make-wide-gamut-rgb-color)
 (defun make-wide-gamut-rgb-color (red green blue &key byte-size)
   "Create a new color in the wide-gamut RGB color space.
 
@@ -61,7 +59,6 @@ Example:
      (make-wide-gamut-rgb-color 252 175 62 :byte-size 8)"
   (make-rgb-color 'wide-gamut-rgb-color red green blue byte-size))
 
-(export 'make-wide-gamut-rgb-color-from-number)
 (defun make-wide-gamut-rgb-color-from-number (value &key (byte-size 8))
   "Create a new color in the wide-gamut RGB color space.
 
@@ -118,7 +115,6 @@ into normalized CIE XYZ color space coordinates."
 			 (adobe-rgb-gamma-decoding g)
 			 (adobe-rgb-gamma-decoding b)))
 
-(export 'wide-gamut-rgb-color-coordinates)
 (defgeneric wide-gamut-rgb-color-coordinates (color)
   (:documentation "Return the wide-gamut RGB color space coordinates of the color.
 

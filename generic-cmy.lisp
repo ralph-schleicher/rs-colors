@@ -35,7 +35,6 @@
 
 (in-package :rs-colors)
 
-(export 'generic-cmy-color)
 (defclass generic-cmy-color (cmy-color-object generic-color-object)
   ()
   (:documentation "Color class for the generic CMY color space.
@@ -43,7 +42,6 @@
 The generic CMY color space is a mathematical description of the
 CMY color model.  It is not associated with a particular device."))
 
-(export 'make-generic-cmy-color)
 (defun make-generic-cmy-color (cyan magenta yellow &key byte-size)
   "Create a new color in the generic CMY color space.
 
@@ -73,7 +71,6 @@ Example:
 	      y (/ (ensure-type yellow `(integer 0 ,s)) s))))
     (make-instance 'generic-cmy-color :cyan c :magenta m :yellow y)))
 
-(export 'make-generic-cmy-color-from-number)
 (defun make-generic-cmy-color-from-number (value &key (byte-size 8))
   "Create a new color in the generic CMY color space.
 
@@ -110,7 +107,6 @@ into RGB color space coordinates."
 	(b (- 1 y)))
     (values r g b)))
 
-(export 'generic-cmy-color-coordinates)
 (defgeneric generic-cmy-color-coordinates (color)
   (:documentation "Return the CMY color space coordinates of the color.
 

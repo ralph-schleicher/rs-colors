@@ -35,12 +35,10 @@
 
 (in-package :rs-colors)
 
-(export 'ciergb-color)
 (defclass ciergb-color (rgb-color-object)
   ()
   (:documentation "Color class for the CIE RGB color space."))
 
-(export 'make-ciergb-color)
 (defun make-ciergb-color (red green blue)
   "Create a new color in the CIE RGB color space.
 
@@ -55,7 +53,7 @@ in the closed interval [0, 1]."
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (let ((c (make-matrix 49000/100000 31000/100000 20000/100000
 			17697/100000 81240/100000  1063/100000
-			0/100000  1000/100000 99000/100000)))
+			    0/100000  1000/100000 99000/100000)))
     (defconst ciergb-from-ciexyz-transformation-matrix (matrix-inverse (copy-matrix c))
       "Transformation matrix to convert CIE XYZ color space coordinates
 into CIE RGB color space coordinates.")
@@ -80,7 +78,6 @@ into CIE XYZ color space coordinates."
   (declare (type real r g b))
   (linear-transformation ciexyz-from-ciergb-transformation-matrix r g b))
 
-(export 'ciergb-color-coordinates)
 (defgeneric ciergb-color-coordinates (color)
   (:documentation "Return the CIE RGB color space coordinates of the color.
 

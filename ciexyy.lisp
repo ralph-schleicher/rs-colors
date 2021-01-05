@@ -35,7 +35,6 @@
 
 (in-package :rs-colors)
 
-(export 'ciexyy-color)
 (defclass ciexyy-color (color-object)
   ((x*
     :initarg :x*
@@ -58,7 +57,6 @@
   (with-slots (x* y* y) color
     (values x* y* y)))
 
-(export 'make-ciexyy-color)
 (defun make-ciexyy-color (x* y* y)
   "Create a new color in the CIE xyY color space.
 
@@ -86,7 +84,6 @@ into CIE XYZ color space coordinates."
     (declare (type real s))
     (values (* x* s) y (* (- 1 x* y*) s))))
 
-(export 'ciexyy-color-coordinates)
 (defgeneric ciexyy-color-coordinates (color)
   (:documentation "Return the CIE xyY color space coordinates of the color.
 

@@ -35,12 +35,10 @@
 
 (in-package :rs-colors)
 
-(export '*cieluv-default-white-point*)
 (defvar *cieluv-default-white-point* cie-1931-white-point-d50
   "The default white point for colors in the CIE L*u*v* color space.
 Default value is the CIE 1931 D50 standard illuminant.")
 
-(export 'cieluv-color)
 (defclass cieluv-color (color-object)
   ((L*
     :initarg :L*
@@ -71,7 +69,6 @@ Default value is the CIE 1931 D50 standard illuminant.")
 (defmethod white-point ((color cieluv-color))
   (slot-value color 'white-point))
 
-(export 'make-cieluv-color)
 (defun make-cieluv-color (L* u* v* &optional (white-point *cieluv-default-white-point*))
   "Create a new color in the CIE L*u*v* color space."
   (make-instance 'cieluv-color :L* L* :u* u* :v* v* :white-point white-point))
@@ -119,7 +116,6 @@ This conversion requires a reference white point."
 	     (z (* y (/ (- 12 (* 3 u) (* 20 v)) (* 4 v)))))
 	(values x y z)))))
 
-(export 'cieluv-color-coordinates)
 (defgeneric cieluv-color-coordinates (color)
   (:documentation "Return the CIE L*u*v* color space coordinates of the color.
 

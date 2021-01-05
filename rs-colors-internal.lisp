@@ -37,6 +37,36 @@
 
 (defpackage :rs-colors-internal
   (:use :common-lisp
-	:iterate))
+	:iterate)
+  (:export ;; utilities
+	   #:defconst
+	   #:defsubst
+	   #:ensure-type
+	   #:collapse
+	   #:cube
+	   #:cube-root
+	   #:radian-from-degree
+	   #:degree-from-radian
+	   #:make-vector
+	   #:copy-vector
+	   #:make-matrix
+	   #:copy-matrix
+	   #:matrix-inverse
+	   #:float-array
+	   #:linear-transformation
+	   #:hypot
+	   #:hypot3
+	   #:encode-triple
+	   #:decode-triple
+	   #:encode-quadruple
+	   #:decode-quadruple
+	   #:cie-L*-from-Y/Yn
+	   #:cie-Y/Yn-from-L*
+	   #:rgb-transformation-matrices
+	   #:make-rgb-color
+	   #:make-rgb-color-from-number
+	   #:multiples
+	   #:define-color-name
+	   #:define-color-names))
 
 ;;; rs-colors-internal.lisp ends here

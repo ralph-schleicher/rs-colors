@@ -44,6 +44,181 @@
   (:import-from :read-number
 		#:read-integer
 		#:read-float)
+  (:export ;; types
+	   #:color-object
+	   #:colorp
+	   #:color-coordinates
+	   #:white-point
+	   #:copy-color
+	   #:coerce-color
+	   #:rgb-color-object
+	   #:hsv-color-object
+	   #:hsl-color-object
+	   #:cmy-color-object
+	   #:cmyk-color-object
+	   #:generic-color-object
+	   #:normalize-color
+	   #:absolute-color
+	   ;; generic-rgb
+	   #:generic-rgb-color
+	   #:make-generic-rgb-color
+	   #:make-generic-rgb-color-from-number
+	   #:generic-hsv-color
+	   #:make-generic-hsv-color
+	   #:generic-hsl-color
+	   #:make-generic-hsl-color
+	   #:generic-rgb-color-coordinates
+	   #:generic-hsv-color-coordinates
+	   #:generic-hsl-color-coordinates
+	   ;; generic-cmy
+	   #:generic-cmy-color
+	   #:make-generic-cmy-color
+	   #:make-generic-cmy-color-from-number
+	   #:generic-cmy-color-coordinates
+	   ;; generic-cmyk
+	   #:generic-cmyk-color
+	   #:make-generic-cmyk-color
+	   #:make-generic-cmyk-color-from-number
+	   #:generic-cmyk-color-coordinates
+	   ;; ciergb
+	   #:ciergb-color
+	   #:make-ciergb-color
+	   #:ciergb-color-coordinates
+	   ;; ciexyz
+	   #:ciexyz-color
+	   #:make-ciexyz-color
+	   #:ciexyz-color-coordinates
+	   ;; ciexyy
+	   #:ciexyy-color
+	   #:make-ciexyy-color
+	   #:ciexyy-color-coordinates
+	   ;; cieluv
+	   #:*cieluv-default-white-point*
+	   #:cieluv-color
+	   #:make-cieluv-color
+	   #:cieluv-color-coordinates
+	   ;; cielab
+	   #:*cielab-default-white-point*
+	   #:cielab-color
+	   #:make-cielab-color
+	   #:cielab-color-coordinates
+	   ;; cielch
+	   #:*cielch-default-white-point*
+	   #:cielch-color
+	   #:make-cielch-color
+	   #:cielch-color-coordinates
+	   ;; srgb
+	   #:srgb-color
+	   #:make-srgb-color
+	   #:make-srgb-color-from-number
+	   #:srgb-color-coordinates
+	   ;; adobe-rgb
+	   #:adobe-rgb-color
+	   #:make-adobe-rgb-color
+	   #:make-adobe-rgb-color-from-number
+	   #:adobe-rgb-color-coordinates
+	   ;; wide-gamut-rgb
+	   #:wide-gamut-rgb-color
+	   #:make-wide-gamut-rgb-color
+	   #:make-wide-gamut-rgb-color-from-number
+	   #:wide-gamut-rgb-color-coordinates
+	   ;; cie-white-points
+	   #:cie-1931-white-point-a
+	   #:cie-1931-white-point-b
+	   #:cie-1931-white-point-c
+	   #:cie-1931-white-point-d50
+	   #:cie-1931-white-point-d55
+	   #:cie-1931-white-point-d65
+	   #:cie-1931-white-point-d75
+	   #:cie-1931-white-point-e
+	   #:cie-1931-white-point-f1
+	   #:cie-1931-white-point-f2
+	   #:cie-1931-white-point-f3
+	   #:cie-1931-white-point-f4
+	   #:cie-1931-white-point-f5
+	   #:cie-1931-white-point-f6
+	   #:cie-1931-white-point-f7
+	   #:cie-1931-white-point-f8
+	   #:cie-1931-white-point-f9
+	   #:cie-1931-white-point-f10
+	   #:cie-1931-white-point-f11
+	   #:cie-1931-white-point-f12
+	   #:cie-1964-white-point-a
+	   #:cie-1964-white-point-b
+	   #:cie-1964-white-point-c
+	   #:cie-1964-white-point-d50
+	   #:cie-1964-white-point-d55
+	   #:cie-1964-white-point-d65
+	   #:cie-1964-white-point-d75
+	   #:cie-1964-white-point-e
+	   #:cie-1964-white-point-f1
+	   #:cie-1964-white-point-f2
+	   #:cie-1964-white-point-f3
+	   #:cie-1964-white-point-f4
+	   #:cie-1964-white-point-f5
+	   #:cie-1964-white-point-f6
+	   #:cie-1964-white-point-f7
+	   #:cie-1964-white-point-f8
+	   #:cie-1964-white-point-f9
+	   #:cie-1964-white-point-f10
+	   #:cie-1964-white-point-f11
+	   #:cie-1964-white-point-f12
+	   ;; io
+	   #:define-color-printer
+	   #:define-color-reader
+	   #:print-color-xcms-ciergb
+	   #:color-formatter-xcms-ciergb
+	   #:read-color-xcms-ciergb
+	   #:print-color-xcms-ciexyz
+	   #:color-formatter-xcms-ciexyz
+	   #:read-color-xcms-ciexyz
+	   #:print-color-xcms-ciexyy
+	   #:color-formatter-xcms-ciexyy
+	   #:read-color-xcms-ciexyy
+	   #:print-color-xcms-cieluv
+	   #:color-formatter-xcms-cieluv
+	   #:read-color-xcms-cieluv
+	   #:print-color-xcms-cielab
+	   #:color-formatter-xcms-cielab
+	   #:read-color-xcms-cielab
+	   #:print-color-xcms-cielch
+	   #:color-formatter-xcms-cielch
+	   #:read-color-xcms-cielch
+	   #:print-color-xcms-rgbi
+	   #:color-formatter-xcms-rgbi
+	   #:read-color-xcms-rgbi
+	   #:print-color-xcms-rgb
+	   #:color-formatter-xcms-rgb
+	   #:read-color-xcms-rgb
+	   #:read-color-xcms
+	   #:print-color-html
+	   #:color-formatter-html
+	   #:read-color-html
+	   #:print-color-css3-rgb
+	   #:color-formatter-css3-rgb
+	   #:read-color-css3-rgb
+	   #:print-color-css3-hsl
+	   #:color-formatter-css3-hsl
+	   #:read-color-css3-hsl
+	   #:read-color-css3
+	   ;; color-matching-functions
+	   #:cie-1931-standard-observer
+	   #:cie-1964-standard-observer
+	   #:*color-matching-functions*
+	   #:color-matching-functions
+	   #:cie-1931-second-radiation-constant
+	   #:*second-radiation-constant*
+	   #:cie-xy-chromaticity-of-light
+	   #:cie-xy-chromaticity-of-black-body
+	   ;; black-body
+	   #:codata-2018-first-radiation-constant-for-spectral-radiance
+	   #:codata-2018-first-radiation-constant
+	   #:codata-2018-second-radiation-constant
+	   #:black-body-spectral-radiant-exitance
+	   #:black-body-spectral-radiance
+	   ;; color-difference
+	   #:cie76
+	   #:cie94)
   (:documentation "A color data type for Common Lisp."))
 
 ;;; rs-colors.lisp ends here

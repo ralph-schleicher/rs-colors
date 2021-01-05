@@ -35,7 +35,6 @@
 
 (in-package :rs-colors)
 
-(export 'define-color-printer)
 (defmacro define-color-printer (style (color stream &key export inline) &body body)
   "Argument STYLE is a string designator."
   (let* ((suffix (string-upcase (string style)))
@@ -53,7 +52,6 @@
 			      rest))
        (values))))
 
-(export 'define-color-reader)
 (defmacro define-color-reader (style (stream &key export inline) &body body)
   "Argument STYLE is a string designator."
   (let* ((suffix (string-upcase (string style)))
@@ -104,7 +102,7 @@
 	(funcall make-color a b c)))))
 
 ;; This is an unofficial Xcms prefix.
-(define-color-printer xcms-ciergb (color stream :export t)
+(define-color-printer xcms-ciergb (color stream)
   "Print a color in Xcms CIE RGB notation.
 
 First argument COLOR is a color object.
@@ -127,7 +125,7 @@ Value is the color object."
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-ciergb (stream :export t)
+(define-color-reader xcms-ciergb (stream)
   "Read a color in Xcms CIE RGB notation.
 
 Optional argument STREAM is an input stream.
@@ -136,7 +134,7 @@ Optional argument STREAM is an input stream.
 Value is a color object in the CIE RGB color space."
   (%read-xcms stream "CIERGB" #'make-ciergb-color))
 
-(define-color-printer xcms-ciexyz (color stream :export t)
+(define-color-printer xcms-ciexyz (color stream)
   "Print a color in Xcms CIE XYZ notation.
 
 First argument COLOR is a color object.
@@ -159,7 +157,7 @@ Value is the color object."
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-ciexyz (stream :export t)
+(define-color-reader xcms-ciexyz (stream)
   "Read a color in Xcms CIE XYZ notation.
 
 Optional argument STREAM is an input stream.
@@ -168,7 +166,7 @@ Optional argument STREAM is an input stream.
 Value is a color object in the CIE XYZ color space."
   (%read-xcms stream "CIEXYZ" #'make-ciexyz-color))
 
-(define-color-printer xcms-ciexyy (color stream :export t)
+(define-color-printer xcms-ciexyy (color stream)
   "Print a color in Xcms CIE xyY notation.
 
 First argument COLOR is a color object.
@@ -191,7 +189,7 @@ Value is the color object."
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-ciexyy (stream :export t)
+(define-color-reader xcms-ciexyy (stream)
   "Read a color in Xcms CIE xyY notation.
 
 Optional argument STREAM is an input stream.
@@ -200,7 +198,7 @@ Optional argument STREAM is an input stream.
 Value is a color object in the CIE xyY color space."
   (%read-xcms stream "CIExyY" #'make-ciexyy-color))
 
-(define-color-printer xcms-cieluv (color stream :export t)
+(define-color-printer xcms-cieluv (color stream)
   "Print a color in Xcms CIE L*u*v* notation.
 
 First argument COLOR is a color object.
@@ -223,7 +221,7 @@ Value is the color object."
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-cieluv (stream :export t)
+(define-color-reader xcms-cieluv (stream)
   "Read a color in Xcms CIE L*u*v* notation.
 
 Optional argument STREAM is an input stream.
@@ -232,7 +230,7 @@ Optional argument STREAM is an input stream.
 Value is a color object in the CIE L*u*v* color space."
   (%read-xcms stream "CIELuv" #'make-cieluv-color))
 
-(define-color-printer xcms-cielab (color stream :export t)
+(define-color-printer xcms-cielab (color stream)
   "Print a color in Xcms CIE L*a*b* notation.
 
 First argument COLOR is a color object.
@@ -255,7 +253,7 @@ Value is the color object."
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-cielab (stream :export t)
+(define-color-reader xcms-cielab (stream)
   "Read a color in Xcms CIE L*a*b* notation.
 
 Optional argument STREAM is an input stream.
@@ -265,7 +263,7 @@ Value is a color object in the CIE L*a*b* color space."
   (%read-xcms stream "CIELab" #'make-cielab-color))
 
 ;; This is an unofficial Xcms prefix.
-(define-color-printer xcms-cielch (color stream :export t)
+(define-color-printer xcms-cielch (color stream)
   "Print a color in Xcms CIE L*C*h notation.
 
 First argument COLOR is a color object.
@@ -288,7 +286,7 @@ Value is the color object."
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-cielch (stream :export t)
+(define-color-reader xcms-cielch (stream)
   "Read a color in Xcms CIE L*C*h notation.
 
 Optional argument STREAM is an input stream.
@@ -297,7 +295,7 @@ Optional argument STREAM is an input stream.
 Value is a color object in the CIE L*C*h color space."
   (%read-xcms stream "CIELCh" #'make-cielch-color))
 
-(define-color-printer xcms-rgbi (color stream :export t)
+(define-color-printer xcms-rgbi (color stream)
   "Print a color in Xcms RGBi notation.
 
 First argument COLOR is a color object.
@@ -320,7 +318,7 @@ Value is the color object."
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-rgbi (stream :export t)
+(define-color-reader xcms-rgbi (stream)
   "Read a color in Xcms RGBi notation.
 
 Optional argument STREAM is an input stream.
@@ -329,7 +327,7 @@ Optional argument STREAM is an input stream.
 Value is a color object in the generic RGB color space."
   (%read-xcms stream "RGBi" #'make-generic-rgb-color))
 
-(define-color-printer xcms-rgb (color stream :export t)
+(define-color-printer xcms-rgb (color stream)
   "Print a color in Xcms RGB notation.
 
 First argument COLOR is a color object.
@@ -355,7 +353,7 @@ Value is the color object."
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader xcms-rgb (stream :export t)
+(define-color-reader xcms-rgb (stream)
   "Read a color in Xcms RGB notation.
 
 Optional argument STREAM is an input stream.
@@ -364,7 +362,7 @@ Optional argument STREAM is an input stream.
 Value is a color object in the generic RGB color space."
   (%read-xcms stream "RGB" #'make-generic-rgb-color t))
 
-(define-color-reader xcms (stream :export t)
+(define-color-reader xcms (stream)
   "Read a color in Xcms notation.
 
 Optional argument STREAM is an input stream.
@@ -400,7 +398,7 @@ indicated by the Xcms prefix."
 	  (t
 	   (error "Unknown Xcms prefix ‘~A’." prefix)))))
 
-(define-color-printer html (color stream :export t)
+(define-color-printer html (color stream)
   "Print a numerical HTML color value.
 
 First argument COLOR is a color object.
@@ -429,7 +427,7 @@ returned by the ‘formatter’ macro.")
 ;; Argument STREAM is an input stream.
 ;;
 ;; Value is a color object in the sRGB color space.
-(define-color-reader html (stream :export t)
+(define-color-reader html (stream)
   "Read a numerical HTML color value.
 
 Optional argument STREAM is an input stream.
@@ -462,7 +460,7 @@ Value is a color object in the sRGB color space."
 	       (return (make-srgb-color r g b :byte-size byte-size))))))
 	))
 
-(define-color-printer css3-rgb (color stream :export t)
+(define-color-printer css3-rgb (color stream)
   "Print a color in CSS3 RGB functional notation.
 
 First argument COLOR is a color object.
@@ -489,7 +487,7 @@ Value is the color object."
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader css3-rgb (stream :export t)
+(define-color-reader css3-rgb (stream)
   "Read a color in CSS3 RGB functional notation.
 
 Optional argument STREAM is an input stream.
@@ -562,7 +560,7 @@ Value is a color object in the sRGB color space."
 	  (make-srgb-color r g b :byte-size 8)
 	(make-srgb-color r g b)))))
 
-(define-color-printer css3-hsl (color stream :export t)
+(define-color-printer css3-hsl (color stream)
   "Print a color in CSS3 HSL functional notation.
 
 First argument COLOR is a color object.
@@ -586,7 +584,7 @@ Value is the color object."
 Value is a function which has a behavior equivalent to a function
 returned by the ‘formatter’ macro.")
 
-(define-color-reader css3-hsl (stream :export t)
+(define-color-reader css3-hsl (stream)
   "Read a color in CSS3 HSL functional notation.
 
 Optional argument STREAM is an input stream.
@@ -633,7 +631,7 @@ Value is a color object in the sRGB color space."
 	(error "Invalid CSS color syntax; expect a ‘)’ character."))
       (change-class (make-generic-hsl-color h s l) 'srgb-color))))
 
-(define-color-reader css3 (stream :export t)
+(define-color-reader css3 (stream)
   "Read a CSS3 color value, i.e. either a numerical HTML color
 definition or a RGB value or HSL value in functional notation.
 

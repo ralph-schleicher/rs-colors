@@ -35,12 +35,10 @@
 
 (in-package :rs-colors)
 
-(export '*cielch-default-white-point*)
 (defvar *cielch-default-white-point* cie-1931-white-point-d50
   "The default white point for colors in the CIE L*C*h color space.
 Default value is the CIE 1931 D50 standard illuminant.")
 
-(export 'cielch-color)
 (defclass cielch-color (color-object)
   ((L*
     :initarg :L*
@@ -72,7 +70,6 @@ Hue is measured in degree angle."))
 (defmethod white-point ((color cielch-color))
   (slot-value color 'white-point))
 
-(export 'make-cielch-color)
 (defun make-cielch-color (L* C* h &optional (white-point *cielch-default-white-point*))
   "Create a new color in the CIE L*C*h color space."
   (make-instance 'cielch-color :L* L* :C* C* :h (mod h 360) :white-point white-point))
@@ -110,7 +107,6 @@ into CIE L*a*b* color space coordinates."
 	 (let ((C*h (* C* (cis (radian-from-degree (float h pi))))))
 	   (values L* (realpart C*h) (imagpart C*h))))))
 
-(export 'cielch-color-coordinates)
 (defgeneric cielch-color-coordinates (color)
   (:documentation "Return the CIE L*C*h color space coordinates of the color.
 

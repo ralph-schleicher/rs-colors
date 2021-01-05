@@ -35,7 +35,6 @@
 
 (in-package :rs-colors)
 
-(export 'generic-cmyk-color)
 (defclass generic-cmyk-color (cmyk-color-object generic-color-object)
   ()
   (:documentation "Color class for the generic CMYK color space.
@@ -43,7 +42,6 @@
 The generic CMYK color space is a mathematical description of the
 CMYK color model.  It is not associated with a particular device."))
 
-(export 'make-generic-cmyk-color)
 (defun make-generic-cmyk-color (cyan magenta yellow black &key byte-size)
   "Create a new color in the generic CMYK color space.
 
@@ -81,7 +79,6 @@ Example:
 	   (setf c 0 m 0 y 0)))
     (make-instance 'generic-cmyk-color :cyan c :magenta m :yellow y :black k)))
 
-(export 'make-generic-cmyk-color-from-number)
 (defun make-generic-cmyk-color-from-number (value &key (byte-size 8))
   "Create a new color in the generic CMYK color space.
 
@@ -121,7 +118,6 @@ into CMY color space coordinates."
 	    (min 1 (+ (* m 1-k) k))
 	    (min 1 (+ (* y 1-k) k)))))
 
-(export 'generic-cmyk-color-coordinates)
 (defgeneric generic-cmyk-color-coordinates (color)
   (:documentation "Return the CMYK color space coordinates of the color.
 

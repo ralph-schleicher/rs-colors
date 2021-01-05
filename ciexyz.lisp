@@ -35,7 +35,6 @@
 
 (in-package :rs-colors)
 
-(export 'ciexyz-color)
 (defclass ciexyz-color (color-object)
   ((x
     :initarg :x
@@ -58,14 +57,12 @@
   (with-slots (x y z) color
     (values x y z)))
 
-(export 'make-ciexyz-color)
 (defun make-ciexyz-color (x y z)
   "Create a new color in the CIE XYZ color space.
 
 Arguments X, Y, and Z are the tristimulus values."
   (make-instance 'ciexyz-color :x x :y y :z z))
 
-(export 'ciexyz-color-coordinates)
 (defgeneric ciexyz-color-coordinates (color)
   (:documentation "Return the CIE XYZ color space coordinates of the color.
 

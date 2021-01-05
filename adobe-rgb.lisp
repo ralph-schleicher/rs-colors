@@ -35,12 +35,10 @@
 
 (in-package :rs-colors)
 
-(export 'adobe-rgb-color)
 (defclass adobe-rgb-color (rgb-color-object)
   ()
   (:documentation "Color class for the Adobe RGB color space."))
 
-(export 'make-adobe-rgb-color)
 (defun make-adobe-rgb-color (red green blue &key byte-size)
   "Create a new color in the Adobe RGB color space.
 
@@ -61,7 +59,6 @@ Example:
      (make-adobe-rgb-color 252 175 62 :byte-size 8)"
   (make-rgb-color 'adobe-rgb-color red green blue byte-size))
 
-(export 'make-adobe-rgb-color-from-number)
 (defun make-adobe-rgb-color-from-number (value &key (byte-size 8))
   "Create a new color in the Adobe RGB color space.
 
@@ -145,7 +142,6 @@ into normalized CIE XYZ color space coordinates."
 			 (adobe-rgb-gamma-decoding g)
 			 (adobe-rgb-gamma-decoding b)))
 
-(export 'adobe-rgb-color-coordinates)
 (defgeneric adobe-rgb-color-coordinates (color)
   (:documentation "Return the Adobe RGB color space coordinates of the color.
 

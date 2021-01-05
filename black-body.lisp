@@ -43,25 +43,21 @@
 	;; Boltzmann constant.
 	(k 1.380649L-23))
 
-    (export 'codata-2018-first-radiation-constant-for-spectral-radiance)
     (defconst codata-2018-first-radiation-constant-for-spectral-radiance (* 2 h (expt c 2))
       "First radiation constant for spectral radiance.
 
 2018 CODATA recommended value.")
 
-    (export 'codata-2018-first-radiation-constant)
     (defconst codata-2018-first-radiation-constant (* 2 pi h (expt c 2))
       "First radiation constant.
 
 2018 CODATA recommended value.")
 
-    (export 'codata-2018-second-radiation-constant)
     (defconst codata-2018-second-radiation-constant (/ (* h c) k)
       "Second radiation constant.
 
 2018 CODATA recommended value.")))
 
-(export 'black-body-spectral-radiant-exitance)
 (defun black-body-spectral-radiant-exitance (wavelength temperature)
   "Calculate the spectral radiant exitance of a black body.
 
@@ -77,7 +73,6 @@ around the given wavelength."
 		    (c2 codata-2018-second-radiation-constant))
     (/ c1 (expt wavelength 5) (- (exp (/ c2 wavelength temperature)) 1))))
 
-(export 'black-body-spectral-radiance)
 (defun black-body-spectral-radiance (wavelength temperature)
   "Calculate the spectral radiance of a black body.
 

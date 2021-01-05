@@ -35,7 +35,6 @@
 
 (in-package :rs-colors)
 
-(export 'generic-rgb-color)
 (defclass generic-rgb-color (rgb-color-object generic-color-object)
   ()
   (:documentation "Color class for the generic RGB color space.
@@ -43,7 +42,6 @@
 The generic RGB color space is a mathematical description of the
 RGB color model.  It is not associated with a particular device."))
 
-(export 'make-generic-rgb-color)
 (defun make-generic-rgb-color (red green blue &key byte-size)
   "Create a new color in the generic RGB color space.
 
@@ -64,7 +62,6 @@ Example:
      (make-generic-rgb-color 252 175 62 :byte-size 8)"
   (make-rgb-color 'generic-rgb-color red green blue byte-size))
 
-(export 'make-generic-rgb-color-from-number)
 (defun make-generic-rgb-color-from-number (value &key (byte-size 8))
   "Create a new color in the generic RGB color space.
 
@@ -79,7 +76,6 @@ Example:
      (make-generic-rgb-color-from-number #XFCAF3E)"
   (make-rgb-color-from-number 'generic-rgb-color value byte-size))
 
-(export 'generic-hsv-color)
 (defclass generic-hsv-color (hsv-color-object generic-color-object)
   ()
   (:documentation "Color class for the generic HSV/HSB color space.
@@ -87,7 +83,6 @@ Example:
 The generic HSV/HSB color space is a different representation of the
 RGB color model."))
 
-(export 'make-generic-hsv-color)
 (defun make-generic-hsv-color (hue saturation value)
   "Create a new color in the generic HSV color space.
 
@@ -102,7 +97,6 @@ in the closed interval [0, 1]."
 	(v (ensure-type value '(real 0 1))))
     (make-instance 'generic-hsv-color :hue h :saturation s :value v)))
 
-(export 'generic-hsl-color)
 (defclass generic-hsl-color (hsl-color-object generic-color-object)
   ()
   (:documentation "Color class for the generic HSL color space.
@@ -110,7 +104,6 @@ in the closed interval [0, 1]."
 The generic HSL color space is a different representation of the
 RGB color model."))
 
-(export 'make-generic-hsl-color)
 (defun make-generic-hsl-color (hue saturation lightness)
   "Create a new color in the generic HSL color space.
 
@@ -224,7 +217,6 @@ into RGB color space coordinates."
 	  (+ l (/ c 2))))))
   (values))
 
-(export 'generic-rgb-color-coordinates)
 (defgeneric generic-rgb-color-coordinates (color)
   (:documentation "Return the RGB color space coordinates of the color.
 
@@ -240,7 +232,6 @@ Values are the intensities of the red, green, and blue primary.")
     (multiple-value-call #'generic-rgb-from-generic-hsl
       (color-coordinates color))))
 
-(export 'generic-hsv-color-coordinates)
 (defgeneric generic-hsv-color-coordinates (color)
   (:documentation "Return the HSV color space coordinates of the color.
 
@@ -253,7 +244,6 @@ Values are the hue, saturation, and value (brightness).")
     (multiple-value-call #'generic-hsv-from-generic-rgb
       (generic-rgb-color-coordinates color))))
 
-(export 'generic-hsl-color-coordinates)
 (defgeneric generic-hsl-color-coordinates (color)
   (:documentation "Return the HSL color space coordinates of the color.
 
