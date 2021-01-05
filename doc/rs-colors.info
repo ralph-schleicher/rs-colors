@@ -1,8 +1,8 @@
 This is rs-colors.info, produced by makeinfo version 6.7 from
 rs-colors.texi.
 
-This is edition 1, last updated 2020-02-09, of ‘RS-COLORS – A Color Data
-Type for Common Lisp’, for RS-COLORS version 1.0.2.
+This is edition 2, last updated 2021-01-05, of ‘RS-COLORS – A Color Data
+Type for Common Lisp’, for RS-COLORS version 1.1.
 
      Copyright © 2014 Ralph Schleicher
 
@@ -22,8 +22,8 @@ File: rs-colors.info,  Node: Top,  Next: Introduction,  Prev: (dir),  Up: (dir)
 RS-COLORS
 *********
 
-This is edition 1, last updated 2020-02-09, of ‘RS-COLORS – A Color Data
-Type for Common Lisp’, for RS-COLORS version 1.0.2.
+This is edition 2, last updated 2021-01-05, of ‘RS-COLORS – A Color Data
+Type for Common Lisp’, for RS-COLORS version 1.1.
 
      Copyright © 2014 Ralph Schleicher
 
@@ -90,6 +90,7 @@ and
    • CIE L*C*h
    • sRGB
    • Adobe RGB
+   • wide-gamut RGB
 
 In *note User's Guide:: we demonstrate the most important concepts
 provided by the RS-COLORS library.  The details are documented in *note
@@ -186,6 +187,9 @@ Color Classes for Device Dependent Color Spaces
 ‘adobe-rgb-color’
      The Adobe RGB color space.
 
+‘wide-gamut-rgb-color’
+     The wide-gamut RGB color space.
+
 
 File: rs-colors.info,  Node: Creating Color Objects,  Next: Color Coordinates,  Prev: The Color Data Type,  Up: User's Guide
 
@@ -266,6 +270,10 @@ The built-in constructors are listed in the following table.
 ‘make-adobe-rgb-color’
 ‘make-adobe-rgb-color-from-number’
      Create an Adobe RGB color object.
+
+‘make-wide-gamut-rgb-color’
+‘make-wide-gamut-rgb-color-from-number’
+     Create an wide-gamut RGB color object.
 
 
 File: rs-colors.info,  Node: Color Coordinates,  Next: White Point,  Prev: Creating Color Objects,  Up: User's Guide
@@ -366,6 +374,9 @@ following functions to get them.
 
 ‘adobe-rgb-color-coordinates’
      Return the Adobe RGB color space coordinates of a color.
+
+‘wide-gamut-rgb-color-coordinates’
+     Return the wide-gamut RGB color space coordinates of a color.
 
 Let’s repeat our example:
 
@@ -1467,6 +1478,7 @@ File: rs-colors.info,  Node: RGB Color Spaces,  Next: Color Properties,  Prev: C
 
 * sRGB Color Space::
 * Adobe RGB Color Space::
+* wide-gamut RGB Color Space::
 
 
 File: rs-colors.info,  Node: sRGB Color Space,  Next: Adobe RGB Color Space,  Prev: RGB Color Spaces,  Up: RGB Color Spaces
@@ -1535,7 +1547,7 @@ File: rs-colors.info,  Node: sRGB Color Space,  Next: Adobe RGB Color Space,  Pr
      primary.
 
 
-File: rs-colors.info,  Node: Adobe RGB Color Space,  Prev: sRGB Color Space,  Up: RGB Color Spaces
+File: rs-colors.info,  Node: Adobe RGB Color Space,  Next: wide-gamut RGB Color Space,  Prev: sRGB Color Space,  Up: RGB Color Spaces
 
 4.5.2 Adobe RGB Color Space
 ---------------------------
@@ -1594,6 +1606,72 @@ File: rs-colors.info,  Node: Adobe RGB Color Space,  Prev: sRGB Color Space,  Up
 
  -- Generic Function: adobe-rgb-color-coordinates color
      Return the Adobe RGB color space coordinates of the color.
+
+        • Argument COLOR is a color object.
+
+     Values are the normalized intensities of the red, green, and blue
+     primary.
+
+
+File: rs-colors.info,  Node: wide-gamut RGB Color Space,  Prev: Adobe RGB Color Space,  Up: RGB Color Spaces
+
+4.5.3 Wide-gamut RGB Color Space
+--------------------------------
+
+ -- Class: wide-gamut-rgb-color
+     Color class for the wide-gamut RGB color space.
+
+     *Class Precedence List*
+     ‘wide-gamut-rgb-color’, ‘rgb-color-object’, ‘color-object’, ...
+
+ -- Function: make-wide-gamut-rgb-color red green blue &key byte-size
+     Create a new color in the wide-gamut RGB color space.
+
+        • First argument RED is the normalized intensity of the red
+          primary.
+
+        • Second argument GREEN is the normalized intensity of the green
+          primary.
+
+        • Third argument BLUE is the normalized intensity of the blue
+          primary.
+
+     Arguments RED, GREEN, and BLUE have to be normalized intensity
+     values in the closed interval [0, 1].
+
+     Keyword argument BYTE-SIZE is the number of bits used to represent
+     a primary.  If specified, arguments RED, GREEN, and BLUE have to be
+     integral numbers in the range from 0 to 2^n - 1 where n is the
+     number of bits.  If so, arguments RED, GREEN, and BLUE are scaled
+     accordingly.
+
+     Example:
+
+          (make-wide-gamut-rgb-color 252/255 175/255 62/255)
+           ⇒ #<WIDE-GAMUT-RGB-COLOR (84/85 35/51 62/255)>
+
+          (make-wide-gamut-rgb-color 252 175 62 :byte-size 8)
+           ⇒ #<WIDE-GAMUT-RGB-COLOR (84/85 35/51 62/255)>
+
+ -- Function: make-wide-gamut-rgb-color-from-number value &key byte-size
+     Create a new color in the wide-gamut RGB color space.
+
+        • Argument VALUE is the numerical value of the encoded RGB color
+          coordinates.
+
+     Keyword argument BYTE-SIZE is the number of bits used to represent
+     a primary.  Default is eight bit (one byte).  Argument VALUE has to
+     be an integral number in the range from 0 to 2^{3n} - 1 where n is
+     the number of bits per primary.  The most significant bits denote
+     the intensity of the red primary.
+
+     Example:
+
+          (make-wide-gamut-rgb-color-from-number #XFCAF3E)
+           ⇒ #<WIDE-GAMUT-RGB-COLOR (84/85 35/51 62/255)>
+
+ -- Generic Function: wide-gamut-rgb-color-coordinates color
+     Return the wide-gamut RGB color space coordinates of the color.
 
         • Argument COLOR is a color object.
 
@@ -2214,6 +2292,10 @@ Symbol Index
                                                                (line 55)
 * make-srgb-color:                       sRGB Color Space.     (line 12)
 * make-srgb-color-from-number:           sRGB Color Space.     (line 42)
+* make-wide-gamut-rgb-color:             wide-gamut RGB Color Space.
+                                                               (line 12)
+* make-wide-gamut-rgb-color-from-number: wide-gamut RGB Color Space.
+                                                               (line 43)
 * normalize-color:                       Miscellaneous.        (line  6)
 * print-color-css3-hsl:                  CSS3 Formats.         (line 23)
 * print-color-css3-rgb:                  CSS3 Formats.         (line 22)
@@ -2244,6 +2326,10 @@ Symbol Index
 * srgb-color:                            sRGB Color Space.     (line  6)
 * srgb-color-coordinates:                sRGB Color Space.     (line 60)
 * white-point:                           Color Properties.     (line 11)
+* wide-gamut-rgb-color:                  wide-gamut RGB Color Space.
+                                                               (line  6)
+* wide-gamut-rgb-color-coordinates:      wide-gamut RGB Color Space.
+                                                               (line 61)
 
 
 File: rs-colors.info,  Node: Concept Index,  Prev: Symbol Index,  Up: Top
@@ -2319,6 +2405,8 @@ Concept Index
 * color space, HSV:                      Generic HSV Color Space.
                                                                (line  6)
 * color space, sRGB:                     sRGB Color Space.     (line  6)
+* color space, wide-gamut RGB:           wide-gamut RGB Color Space.
+                                                               (line  6)
 * converting colors:                     Color Conversion.     (line  9)
 * coordinates, color:                    Color Coordinates.    (line  6)
 * coordinates, color <1>:                Color Conversion.     (line 29)
@@ -2352,216 +2440,223 @@ Concept Index
                                                                (line 49)
 * white point, CIE standard illuminant:  CIE Standard Illuminants.
                                                                (line  6)
+* wide-gamut RGB color space:            wide-gamut RGB Color Space.
+                                                               (line  6)
 * Xcms format:                           Xcms Formats.         (line  6)
 
 
 
 Tag Table:
-Node: Top635
-Ref: ref;sRGB1301
-Ref: ref;Adobe RGB1412
-Ref: ref;Xcms1542
-Ref: ref;HTML1643
-Ref: ref;CSS31705
-Node: Introduction1754
-Node: Installation2497
-Node: User's Guide2787
-Node: The Color Data Type3093
-Node: Creating Color Objects4729
-Node: Color Coordinates7236
-Node: White Point7825
-Node: Color Conversion8120
-Ref: figure:rs-colors-conversion8284
-Node: External Representations11807
-Node: Color Dictionaries12785
-Node: Reference Manual14598
-Node: Color Predicates14982
-Ref: function;rs-colors;colorp15287
-Node: Abstract Color Classes15362
-Ref: class;rs-colors;color-object15643
-Ref: class;rs-colors;rgb-color-object15784
-Ref: class;rs-colors;hsv-color-object16094
-Ref: class;rs-colors;hsl-color-object16459
-Ref: class;rs-colors;cmy-color-object16815
-Ref: class;rs-colors;cmyk-color-object17130
-Ref: class;rs-colors;generic-color-object17461
-Node: Generic Color Spaces (Color Models)17643
-Node: Generic RGB Color Space19456
-Ref: figure:srgb-color-cube-RGB-views19990
-Ref: class;rs-colors;generic-rgb-color20102
-Ref: function;rs-colors;make-generic-rgb-color20323
-Ref: function;rs-colors;make-generic-rgb-color-from-number21372
-Ref: generic-function;rs-colors;generic-rgb-color-coordinates22055
-Node: Generic HSV Color Space22313
-Ref: figure:srgb-color-cube-HSV-views23349
-Ref: class;rs-colors;generic-hsv-color23461
-Ref: function;rs-colors;make-generic-hsv-color23682
-Ref: generic-function;rs-colors;generic-hsv-color-coordinates24202
-Node: Generic HSL Color Space24436
-Ref: figure:srgb-color-cube-HSL-views25420
-Ref: class;rs-colors;generic-hsl-color25532
-Ref: function;rs-colors;make-generic-hsl-color25753
-Ref: generic-function;rs-colors;generic-hsl-color-coordinates26284
-Node: Generic CMY Color Space26509
-Ref: class;rs-colors;generic-cmy-color27038
-Ref: function;rs-colors;make-generic-cmy-color27259
-Ref: function;rs-colors;make-generic-cmy-color-from-number28334
-Ref: generic-function;rs-colors;generic-cmy-color-coordinates29018
-Node: Generic CMYK Color Space29281
-Ref: class;rs-colors;generic-cmyk-color29795
-Ref: function;rs-colors;make-generic-cmyk-color30020
-Ref: function;rs-colors;make-generic-cmyk-color-from-number31360
-Ref: generic-function;rs-colors;generic-cmyk-color-coordinates32052
-Node: CIE Color Spaces32324
-Node: CIE RGB Color Space32815
-Ref: figure:srgb-color-cube-CIERGB-views33283
-Ref: class;rs-colors;ciergb-color33402
-Ref: function;rs-colors;make-ciergb-color33576
-Ref: generic-function;rs-colors;ciergb-color-coordinates34050
-Ref: CIE RGB Color Space-Footnote-134335
-Node: CIE XYZ Color Space34527
-Ref: figure:srgb-color-cube-CIEXYZ-views35051
-Ref: class;rs-colors;ciexyz-color35170
-Ref: function;rs-colors;make-ciexyz-color35320
-Ref: generic-function;rs-colors;ciexyz-color-coordinates35652
-Node: CIE xyY Color Space36324
-Ref: figure:srgb-color-cube-CIExyY-views36900
-Ref: class;rs-colors;ciexyy-color37019
-Ref: function;rs-colors;make-ciexyy-color37169
-Ref: generic-function;rs-colors;ciexyy-color-coordinates37492
-Node: CIE L*u*v* Color Space37728
-Ref: figure:srgb-color-cube-CIELuv-views38525
-Ref: variable;rs-colors;*cieluv-default-white-point*38647
-Ref: class;rs-colors;cieluv-color38822
-Ref: function;rs-colors;make-cieluv-color38975
-Ref: generic-function;rs-colors;cieluv-color-coordinates39423
-Node: CIE L*a*b* Color Space39658
-Ref: figure:srgb-color-cube-CIELab-views40492
-Ref: variable;rs-colors;*cielab-default-white-point*40614
-Ref: class;rs-colors;cielab-color40789
-Ref: function;rs-colors;make-cielab-color40942
-Ref: generic-function;rs-colors;cielab-color-coordinates41390
-Node: CIE L*C*h Color Space41625
-Ref: variable;rs-colors;*cielch-default-white-point*42580
-Ref: class;rs-colors;cielch-color42755
-Ref: function;rs-colors;make-cielch-color42907
-Ref: generic-function;rs-colors;cielch-color-coordinates43476
-Node: CIE Standard Observers43690
-Ref: constant;rs-colors;cie-1931-standard-observer43890
-Ref: constant;rs-colors;cie-1964-standard-observer44214
-Ref: function;rs-colors;color-matching-functions44539
-Ref: variable;rs-colors;*color-matching-functions*44973
-Ref: function;rs-colors;cie-xy-chromaticity-of-light45727
-Ref: function;rs-colors;cie-xy-chromaticity-of-black-body46308
-Ref: variable;rs-colors;*second-radiation-constant*47297
-Ref: constant;rs-colors;cie-1931-second-radiation-constant47434
-Ref: constant;rs-colors;codata-2018-second-radiation-constant47584
-Node: CIE Standard Illuminants47706
-Ref: constant;rs-colors;cie-1931-white-point-a47880
-Ref: constant;rs-colors;cie-1931-white-point-b47880
-Ref: constant;rs-colors;cie-1931-white-point-c47880
-Ref: constant;rs-colors;cie-1931-white-point-d5047880
-Ref: constant;rs-colors;cie-1931-white-point-d5547880
-Ref: constant;rs-colors;cie-1931-white-point-d6547880
-Ref: constant;rs-colors;cie-1931-white-point-d7547880
-Ref: constant;rs-colors;cie-1931-white-point-e47880
-Ref: constant;rs-colors;cie-1931-white-point-f147880
-Ref: constant;rs-colors;cie-1931-white-point-f247880
-Ref: constant;rs-colors;cie-1931-white-point-f347880
-Ref: constant;rs-colors;cie-1931-white-point-f447880
-Ref: constant;rs-colors;cie-1931-white-point-f547880
-Ref: constant;rs-colors;cie-1931-white-point-f647880
-Ref: constant;rs-colors;cie-1931-white-point-f747880
-Ref: constant;rs-colors;cie-1931-white-point-f847880
-Ref: constant;rs-colors;cie-1931-white-point-f947880
-Ref: constant;rs-colors;cie-1931-white-point-f1047880
-Ref: constant;rs-colors;cie-1931-white-point-f1147880
-Ref: constant;rs-colors;cie-1931-white-point-f1247880
-Ref: constant;rs-colors;cie-1964-white-point-a48748
-Ref: constant;rs-colors;cie-1964-white-point-b48748
-Ref: constant;rs-colors;cie-1964-white-point-c48748
-Ref: constant;rs-colors;cie-1964-white-point-d5048748
-Ref: constant;rs-colors;cie-1964-white-point-d5548748
-Ref: constant;rs-colors;cie-1964-white-point-d6548748
-Ref: constant;rs-colors;cie-1964-white-point-d7548748
-Ref: constant;rs-colors;cie-1964-white-point-e48748
-Ref: constant;rs-colors;cie-1964-white-point-f148748
-Ref: constant;rs-colors;cie-1964-white-point-f248748
-Ref: constant;rs-colors;cie-1964-white-point-f348748
-Ref: constant;rs-colors;cie-1964-white-point-f448748
-Ref: constant;rs-colors;cie-1964-white-point-f548748
-Ref: constant;rs-colors;cie-1964-white-point-f648748
-Ref: constant;rs-colors;cie-1964-white-point-f748748
-Ref: constant;rs-colors;cie-1964-white-point-f848748
-Ref: constant;rs-colors;cie-1964-white-point-f948748
-Ref: constant;rs-colors;cie-1964-white-point-f1048748
-Ref: constant;rs-colors;cie-1964-white-point-f1148748
-Ref: constant;rs-colors;cie-1964-white-point-f1248748
-Node: RGB Color Spaces49618
-Node: sRGB Color Space49840
-Ref: class;rs-colors;srgb-color50014
-Ref: function;rs-colors;make-srgb-color50181
-Ref: function;rs-colors;make-srgb-color-from-number51203
-Ref: generic-function;rs-colors;srgb-color-coordinates51858
-Node: Adobe RGB Color Space52102
-Ref: class;rs-colors;adobe-rgb-color52261
-Ref: function;rs-colors;make-adobe-rgb-color52443
-Ref: function;rs-colors;make-adobe-rgb-color-from-number53495
-Ref: generic-function;rs-colors;adobe-rgb-color-coordinates54170
-Node: Color Properties54424
-Ref: generic-function;rs-colors;color-coordinates54590
-Ref: generic-function;rs-colors;white-point54757
-Node: Color Conversions55030
-Ref: generic-function;common-lisp;change-class55199
-Ref: function;rs-colors;coerce-color55746
-Ref: generic-function;rs-colors;copy-color56215
-Node: Color Differences56415
-Ref: function;rs-colors;cie7656584
-Ref: function;rs-colors;cie9456876
-Node: Input and Output57780
-Node: Xcms Formats58003
-Ref: function;rs-colors;print-color-xcms-ciergb58760
-Ref: function;rs-colors;print-color-xcms-ciexyz58760
-Ref: function;rs-colors;print-color-xcms-ciexyy58760
-Ref: function;rs-colors;print-color-xcms-cieluv58760
-Ref: function;rs-colors;print-color-xcms-cielab58760
-Ref: function;rs-colors;print-color-xcms-cielch58760
-Ref: function;rs-colors;print-color-xcms-rgbi58760
-Ref: function;rs-colors;print-color-xcms-rgb58760
-Ref: function;rs-colors;color-formatter-xcms-ciergb60332
-Ref: function;rs-colors;color-formatter-xcms-ciexyz60332
-Ref: function;rs-colors;color-formatter-xcms-ciexyy60332
-Ref: function;rs-colors;color-formatter-xcms-cieluv60332
-Ref: function;rs-colors;color-formatter-xcms-cielab60332
-Ref: function;rs-colors;color-formatter-xcms-cielch60332
-Ref: function;rs-colors;color-formatter-xcms-rgbi60332
-Ref: function;rs-colors;color-formatter-xcms-rgb60332
-Ref: function;rs-colors;read-color-xcms-ciergb61040
-Ref: function;rs-colors;read-color-xcms-ciexyz61040
-Ref: function;rs-colors;read-color-xcms-ciexyy61040
-Ref: function;rs-colors;read-color-xcms-cieluv61040
-Ref: function;rs-colors;read-color-xcms-cielab61040
-Ref: function;rs-colors;read-color-xcms-cielch61040
-Ref: function;rs-colors;read-color-xcms-rgbi61040
-Ref: function;rs-colors;read-color-xcms-rgb61040
-Ref: function;rs-colors;read-color-xcms61040
-Node: HTML Format62399
-Ref: function;rs-colors;print-color-html62684
-Ref: constant;rs-colors;color-formatter-html63247
-Ref: function;rs-colors;read-color-html63623
-Node: CSS3 Formats64466
-Ref: function;rs-colors;print-color-css3-rgb65150
-Ref: function;rs-colors;print-color-css3-hsl65150
-Ref: constant;rs-colors;color-formatter-css3-rgb66123
-Ref: constant;rs-colors;color-formatter-css3-hsl66123
-Ref: function;rs-colors;read-color-css3-rgb66561
-Ref: function;rs-colors;read-color-css3-hsl66561
-Ref: function;rs-colors;read-color-css367620
-Node: Miscellaneous68089
-Ref: generic-function;rs-colors;normalize-color68222
-Ref: generic-function;rs-colors;absolute-color68367
-Node: Symbol Index68511
-Node: Concept Index85410
+Node: Top633
+Ref: ref;sRGB1297
+Ref: ref;Adobe RGB1408
+Ref: ref;Xcms1538
+Ref: ref;HTML1639
+Ref: ref;CSS31701
+Node: Introduction1750
+Node: Installation2515
+Node: User's Guide2805
+Node: The Color Data Type3111
+Node: Creating Color Objects4812
+Node: Color Coordinates7440
+Node: White Point8029
+Node: Color Conversion8324
+Ref: figure:rs-colors-conversion8488
+Node: External Representations12118
+Node: Color Dictionaries13096
+Node: Reference Manual14909
+Node: Color Predicates15293
+Ref: function;rs-colors;colorp15598
+Node: Abstract Color Classes15673
+Ref: class;rs-colors;color-object15954
+Ref: class;rs-colors;rgb-color-object16095
+Ref: class;rs-colors;hsv-color-object16405
+Ref: class;rs-colors;hsl-color-object16770
+Ref: class;rs-colors;cmy-color-object17126
+Ref: class;rs-colors;cmyk-color-object17441
+Ref: class;rs-colors;generic-color-object17772
+Node: Generic Color Spaces (Color Models)17954
+Node: Generic RGB Color Space19767
+Ref: figure:srgb-color-cube-RGB-views20301
+Ref: class;rs-colors;generic-rgb-color20413
+Ref: function;rs-colors;make-generic-rgb-color20634
+Ref: function;rs-colors;make-generic-rgb-color-from-number21683
+Ref: generic-function;rs-colors;generic-rgb-color-coordinates22366
+Node: Generic HSV Color Space22624
+Ref: figure:srgb-color-cube-HSV-views23660
+Ref: class;rs-colors;generic-hsv-color23772
+Ref: function;rs-colors;make-generic-hsv-color23993
+Ref: generic-function;rs-colors;generic-hsv-color-coordinates24513
+Node: Generic HSL Color Space24747
+Ref: figure:srgb-color-cube-HSL-views25731
+Ref: class;rs-colors;generic-hsl-color25843
+Ref: function;rs-colors;make-generic-hsl-color26064
+Ref: generic-function;rs-colors;generic-hsl-color-coordinates26595
+Node: Generic CMY Color Space26820
+Ref: class;rs-colors;generic-cmy-color27349
+Ref: function;rs-colors;make-generic-cmy-color27570
+Ref: function;rs-colors;make-generic-cmy-color-from-number28645
+Ref: generic-function;rs-colors;generic-cmy-color-coordinates29329
+Node: Generic CMYK Color Space29592
+Ref: class;rs-colors;generic-cmyk-color30106
+Ref: function;rs-colors;make-generic-cmyk-color30331
+Ref: function;rs-colors;make-generic-cmyk-color-from-number31671
+Ref: generic-function;rs-colors;generic-cmyk-color-coordinates32363
+Node: CIE Color Spaces32635
+Node: CIE RGB Color Space33126
+Ref: figure:srgb-color-cube-CIERGB-views33594
+Ref: class;rs-colors;ciergb-color33713
+Ref: function;rs-colors;make-ciergb-color33887
+Ref: generic-function;rs-colors;ciergb-color-coordinates34361
+Ref: CIE RGB Color Space-Footnote-134646
+Node: CIE XYZ Color Space34838
+Ref: figure:srgb-color-cube-CIEXYZ-views35362
+Ref: class;rs-colors;ciexyz-color35481
+Ref: function;rs-colors;make-ciexyz-color35631
+Ref: generic-function;rs-colors;ciexyz-color-coordinates35963
+Node: CIE xyY Color Space36635
+Ref: figure:srgb-color-cube-CIExyY-views37211
+Ref: class;rs-colors;ciexyy-color37330
+Ref: function;rs-colors;make-ciexyy-color37480
+Ref: generic-function;rs-colors;ciexyy-color-coordinates37803
+Node: CIE L*u*v* Color Space38039
+Ref: figure:srgb-color-cube-CIELuv-views38836
+Ref: variable;rs-colors;*cieluv-default-white-point*38958
+Ref: class;rs-colors;cieluv-color39133
+Ref: function;rs-colors;make-cieluv-color39286
+Ref: generic-function;rs-colors;cieluv-color-coordinates39734
+Node: CIE L*a*b* Color Space39969
+Ref: figure:srgb-color-cube-CIELab-views40803
+Ref: variable;rs-colors;*cielab-default-white-point*40925
+Ref: class;rs-colors;cielab-color41100
+Ref: function;rs-colors;make-cielab-color41253
+Ref: generic-function;rs-colors;cielab-color-coordinates41701
+Node: CIE L*C*h Color Space41936
+Ref: variable;rs-colors;*cielch-default-white-point*42891
+Ref: class;rs-colors;cielch-color43066
+Ref: function;rs-colors;make-cielch-color43218
+Ref: generic-function;rs-colors;cielch-color-coordinates43787
+Node: CIE Standard Observers44001
+Ref: constant;rs-colors;cie-1931-standard-observer44201
+Ref: constant;rs-colors;cie-1964-standard-observer44525
+Ref: function;rs-colors;color-matching-functions44850
+Ref: variable;rs-colors;*color-matching-functions*45284
+Ref: function;rs-colors;cie-xy-chromaticity-of-light46038
+Ref: function;rs-colors;cie-xy-chromaticity-of-black-body46619
+Ref: variable;rs-colors;*second-radiation-constant*47608
+Ref: constant;rs-colors;cie-1931-second-radiation-constant47745
+Ref: constant;rs-colors;codata-2018-second-radiation-constant47895
+Node: CIE Standard Illuminants48017
+Ref: constant;rs-colors;cie-1931-white-point-a48191
+Ref: constant;rs-colors;cie-1931-white-point-b48191
+Ref: constant;rs-colors;cie-1931-white-point-c48191
+Ref: constant;rs-colors;cie-1931-white-point-d5048191
+Ref: constant;rs-colors;cie-1931-white-point-d5548191
+Ref: constant;rs-colors;cie-1931-white-point-d6548191
+Ref: constant;rs-colors;cie-1931-white-point-d7548191
+Ref: constant;rs-colors;cie-1931-white-point-e48191
+Ref: constant;rs-colors;cie-1931-white-point-f148191
+Ref: constant;rs-colors;cie-1931-white-point-f248191
+Ref: constant;rs-colors;cie-1931-white-point-f348191
+Ref: constant;rs-colors;cie-1931-white-point-f448191
+Ref: constant;rs-colors;cie-1931-white-point-f548191
+Ref: constant;rs-colors;cie-1931-white-point-f648191
+Ref: constant;rs-colors;cie-1931-white-point-f748191
+Ref: constant;rs-colors;cie-1931-white-point-f848191
+Ref: constant;rs-colors;cie-1931-white-point-f948191
+Ref: constant;rs-colors;cie-1931-white-point-f1048191
+Ref: constant;rs-colors;cie-1931-white-point-f1148191
+Ref: constant;rs-colors;cie-1931-white-point-f1248191
+Ref: constant;rs-colors;cie-1964-white-point-a49059
+Ref: constant;rs-colors;cie-1964-white-point-b49059
+Ref: constant;rs-colors;cie-1964-white-point-c49059
+Ref: constant;rs-colors;cie-1964-white-point-d5049059
+Ref: constant;rs-colors;cie-1964-white-point-d5549059
+Ref: constant;rs-colors;cie-1964-white-point-d6549059
+Ref: constant;rs-colors;cie-1964-white-point-d7549059
+Ref: constant;rs-colors;cie-1964-white-point-e49059
+Ref: constant;rs-colors;cie-1964-white-point-f149059
+Ref: constant;rs-colors;cie-1964-white-point-f249059
+Ref: constant;rs-colors;cie-1964-white-point-f349059
+Ref: constant;rs-colors;cie-1964-white-point-f449059
+Ref: constant;rs-colors;cie-1964-white-point-f549059
+Ref: constant;rs-colors;cie-1964-white-point-f649059
+Ref: constant;rs-colors;cie-1964-white-point-f749059
+Ref: constant;rs-colors;cie-1964-white-point-f849059
+Ref: constant;rs-colors;cie-1964-white-point-f949059
+Ref: constant;rs-colors;cie-1964-white-point-f1049059
+Ref: constant;rs-colors;cie-1964-white-point-f1149059
+Ref: constant;rs-colors;cie-1964-white-point-f1249059
+Node: RGB Color Spaces49929
+Node: sRGB Color Space50182
+Ref: class;rs-colors;srgb-color50356
+Ref: function;rs-colors;make-srgb-color50523
+Ref: function;rs-colors;make-srgb-color-from-number51545
+Ref: generic-function;rs-colors;srgb-color-coordinates52200
+Node: Adobe RGB Color Space52444
+Ref: class;rs-colors;adobe-rgb-color52638
+Ref: function;rs-colors;make-adobe-rgb-color52820
+Ref: function;rs-colors;make-adobe-rgb-color-from-number53872
+Ref: generic-function;rs-colors;adobe-rgb-color-coordinates54547
+Node: wide-gamut RGB Color Space54801
+Ref: class;rs-colors;wide-gamut-rgb-color54980
+Ref: function;rs-colors;make-wide-gamut-rgb-color55177
+Ref: function;rs-colors;make-wide-gamut-rgb-color-from-number56259
+Ref: generic-function;rs-colors;wide-gamut-rgb-color-coordinates56954
+Node: Color Properties57218
+Ref: generic-function;rs-colors;color-coordinates57384
+Ref: generic-function;rs-colors;white-point57551
+Node: Color Conversions57824
+Ref: generic-function;common-lisp;change-class57993
+Ref: function;rs-colors;coerce-color58540
+Ref: generic-function;rs-colors;copy-color59009
+Node: Color Differences59209
+Ref: function;rs-colors;cie7659378
+Ref: function;rs-colors;cie9459670
+Node: Input and Output60574
+Node: Xcms Formats60797
+Ref: function;rs-colors;print-color-xcms-ciergb61554
+Ref: function;rs-colors;print-color-xcms-ciexyz61554
+Ref: function;rs-colors;print-color-xcms-ciexyy61554
+Ref: function;rs-colors;print-color-xcms-cieluv61554
+Ref: function;rs-colors;print-color-xcms-cielab61554
+Ref: function;rs-colors;print-color-xcms-cielch61554
+Ref: function;rs-colors;print-color-xcms-rgbi61554
+Ref: function;rs-colors;print-color-xcms-rgb61554
+Ref: function;rs-colors;color-formatter-xcms-ciergb63126
+Ref: function;rs-colors;color-formatter-xcms-ciexyz63126
+Ref: function;rs-colors;color-formatter-xcms-ciexyy63126
+Ref: function;rs-colors;color-formatter-xcms-cieluv63126
+Ref: function;rs-colors;color-formatter-xcms-cielab63126
+Ref: function;rs-colors;color-formatter-xcms-cielch63126
+Ref: function;rs-colors;color-formatter-xcms-rgbi63126
+Ref: function;rs-colors;color-formatter-xcms-rgb63126
+Ref: function;rs-colors;read-color-xcms-ciergb63834
+Ref: function;rs-colors;read-color-xcms-ciexyz63834
+Ref: function;rs-colors;read-color-xcms-ciexyy63834
+Ref: function;rs-colors;read-color-xcms-cieluv63834
+Ref: function;rs-colors;read-color-xcms-cielab63834
+Ref: function;rs-colors;read-color-xcms-cielch63834
+Ref: function;rs-colors;read-color-xcms-rgbi63834
+Ref: function;rs-colors;read-color-xcms-rgb63834
+Ref: function;rs-colors;read-color-xcms63834
+Node: HTML Format65193
+Ref: function;rs-colors;print-color-html65478
+Ref: constant;rs-colors;color-formatter-html66041
+Ref: function;rs-colors;read-color-html66417
+Node: CSS3 Formats67260
+Ref: function;rs-colors;print-color-css3-rgb67944
+Ref: function;rs-colors;print-color-css3-hsl67944
+Ref: constant;rs-colors;color-formatter-css3-rgb68917
+Ref: constant;rs-colors;color-formatter-css3-hsl68917
+Ref: function;rs-colors;read-color-css3-rgb69355
+Ref: function;rs-colors;read-color-css3-hsl69355
+Ref: function;rs-colors;read-color-css370414
+Node: Miscellaneous70883
+Ref: generic-function;rs-colors;normalize-color71016
+Ref: generic-function;rs-colors;absolute-color71161
+Node: Symbol Index71305
+Node: Concept Index88772
 
 End Tag Table
 

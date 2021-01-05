@@ -1,4 +1,4 @@
 @set PACKAGE rs-colors
-@set VERSION 1.0.2
+@set VERSION 1.1
 @set ADDRESS rs@@ralph-schleicher.de
 @set TARNAME rs-colors
