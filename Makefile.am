@@ -56,6 +56,7 @@ cielch.lisp \
 ciergb.lisp \
 srgb.lisp \
 adobe-rgb.lisp \
+wide-gamut-rgb.lisp \
 io.lisp \
 black-body.lisp \
 color-matching-functions.lisp \
