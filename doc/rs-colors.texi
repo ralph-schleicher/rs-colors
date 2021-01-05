@@ -4,8 +4,8 @@
 @setfilename rs-colors.info
 @settitle rs-colors
 
-@set EDITION 1
-@set UPDATED 2020-02-09
+@set EDITION 2
+@set UPDATED 2021-01-05
 
 @include package.texi
 
@@ -177,6 +177,7 @@ and
 @item CIE L*C*h
 @item sRGB
 @item Adobe RGB
+@item wide-gamut RGB
 @end itemize
 
 In @ref{User's Guide} we demonstrate the most important concepts
