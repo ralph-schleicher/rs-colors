@@ -79,7 +79,6 @@ Example:
 (defmethod white-point ((color adobe-rgb-color))
   adobe-rgb-white-point)
 
-
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (multiple-value-bind (rgb-from-xyz xyz-from-rgb)
       (rgb-transformation-matrices #(64/100 33/100)
