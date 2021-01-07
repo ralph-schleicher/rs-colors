@@ -111,16 +111,19 @@
 	   #:srgb-color
 	   #:make-srgb-color
 	   #:make-srgb-color-from-number
+	   #:srgb-white-point
 	   #:srgb-color-coordinates
 	   ;; adobe-rgb
 	   #:adobe-rgb-color
 	   #:make-adobe-rgb-color
 	   #:make-adobe-rgb-color-from-number
+	   #:adobe-rgb-white-point
 	   #:adobe-rgb-color-coordinates
 	   ;; wide-gamut-rgb
 	   #:wide-gamut-rgb-color
 	   #:make-wide-gamut-rgb-color
 	   #:make-wide-gamut-rgb-color-from-number
+	   #:wide-gamut-rgb-white-point
 	   #:wide-gamut-rgb-color-coordinates
 	   ;; cie-white-points
 	   #:cie-1931-white-point-a
